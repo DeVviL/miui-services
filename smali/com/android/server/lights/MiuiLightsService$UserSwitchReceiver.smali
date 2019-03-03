@@ -22,8 +22,6 @@
 .method private constructor <init>(Lcom/android/server/lights/MiuiLightsService;)V
     .locals 0
 
-    .prologue
-    .line 61
     iput-object p1, p0, Lcom/android/server/lights/MiuiLightsService$UserSwitchReceiver;->this$0:Lcom/android/server/lights/MiuiLightsService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +31,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/lights/MiuiLightsService;Lcom/android/server/lights/MiuiLightsService$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/lights/MiuiLightsService;
-    .param p2, "x1"    # Lcom/android/server/lights/MiuiLightsService$1;
 
-    .prologue
-    .line 61
     invoke-direct {p0, p1}, Lcom/android/server/lights/MiuiLightsService$UserSwitchReceiver;-><init>(Lcom/android/server/lights/MiuiLightsService;)V
 
     return-void
@@ -47,11 +41,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 64
     iget-object v0, p0, Lcom/android/server/lights/MiuiLightsService$UserSwitchReceiver;->this$0:Lcom/android/server/lights/MiuiLightsService;
 
     invoke-static {v0}, Lcom/android/server/lights/MiuiLightsService;->access$200(Lcom/android/server/lights/MiuiLightsService;)Z
@@ -60,7 +50,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 65
     iget-object v0, p0, Lcom/android/server/lights/MiuiLightsService$UserSwitchReceiver;->this$0:Lcom/android/server/lights/MiuiLightsService;
 
     iget-object v0, v0, Lcom/android/server/lights/MiuiLightsService;->mLights:[Lcom/android/server/lights/LightsService$LightImpl;
@@ -73,7 +62,6 @@
 
     invoke-virtual {v0}, Lcom/android/server/lights/MiuiLightsService$LightImpl;->updateLight()V
 
-    .line 67
     :cond_0
     iget-object v0, p0, Lcom/android/server/lights/MiuiLightsService$UserSwitchReceiver;->this$0:Lcom/android/server/lights/MiuiLightsService;
 
@@ -83,7 +71,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 68
     iget-object v0, p0, Lcom/android/server/lights/MiuiLightsService$UserSwitchReceiver;->this$0:Lcom/android/server/lights/MiuiLightsService;
 
     iget-object v0, v0, Lcom/android/server/lights/MiuiLightsService;->mLights:[Lcom/android/server/lights/LightsService$LightImpl;
@@ -96,7 +83,6 @@
 
     invoke-virtual {v0}, Lcom/android/server/lights/MiuiLightsService$LightImpl;->updateLight()V
 
-    .line 70
     :cond_1
     return-void
 .end method

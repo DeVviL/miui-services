@@ -29,8 +29,6 @@
 .method constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/accessibility/AccessibilityManagerService$UserState;Lcom/android/server/accessibility/AccessibilityManagerService$Service;)V
     .locals 0
 
-    .prologue
-    .line 1294
     iput-object p1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     iput-object p2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->val$state:Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
@@ -46,13 +44,9 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 6
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
 
-    .prologue
     const/4 v5, 0x1
 
-    .line 1298
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->val$state:Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
 
     iget-object v1, v1, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mTouchExplorationGrantedServices:Ljava/util/Set;
@@ -63,7 +57,6 @@
 
     invoke-interface {v1, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 1299
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     const-string v2, "touch_exploration_granted_accessibility_services"
@@ -78,7 +71,6 @@
 
     invoke-static {v1, v2, v3, v4}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$700(Lcom/android/server/accessibility/AccessibilityManagerService;Ljava/lang/String;Ljava/util/Set;I)V
 
-    .line 1303
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->val$service:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
@@ -89,11 +81,8 @@
 
     move-result-object v0
 
-    .line 1304
-    .local v0, "userState":Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
     iput-boolean v5, v0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsTouchExplorationEnabled:Z
 
-    .line 1305
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$1600(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
@@ -112,11 +101,9 @@
 
     invoke-static {v1, v2, v5, v3}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
-    .line 1308
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     invoke-static {v1, v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$500(Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
 
-    .line 1309
     return-void
 .end method

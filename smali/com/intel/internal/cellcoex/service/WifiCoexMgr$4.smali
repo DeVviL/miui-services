@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/WifiCoexMgr;)V
     .locals 0
 
-    .prologue
-    .line 254
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$4;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,11 +33,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 257
     const-string v1, "networkInfo"
 
     invoke-virtual {p2, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -48,8 +42,6 @@
 
     check-cast v0, Landroid/net/NetworkInfo;
 
-    .line 259
-    .local v0, "networkInfo":Landroid/net/NetworkInfo;
     if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnected()Z
@@ -58,7 +50,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 260
     const-string v1, "CWS_CELLCOEX_MGR"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -87,7 +78,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 261
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$4;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
 
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$4;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
@@ -100,12 +90,10 @@
 
     invoke-virtual {v1, v2}, Lcom/intel/internal/cellcoex/service/WifiCoexMgr;->sendMessage(Landroid/os/Message;)V
 
-    .line 266
     :cond_0
     :goto_0
     return-void
 
-    .line 262
     :cond_1
     if-eqz v0, :cond_0
 
@@ -115,7 +103,6 @@
 
     if-nez v1, :cond_0
 
-    .line 263
     const-string v1, "CWS_CELLCOEX_MGR"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -144,7 +131,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 264
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$4;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
 
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$4;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;

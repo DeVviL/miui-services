@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/trust/TrustManagerService;)V
     .locals 0
 
-    .prologue
-    .line 827
     iput-object p1, p0, Lcom/android/server/trust/TrustManagerService$3;->this$0:Lcom/android/server/trust/TrustManagerService;
 
     invoke-direct {p0}, Lcom/android/internal/content/PackageMonitor;-><init>()V
@@ -35,12 +33,7 @@
 # virtual methods
 .method public onPackageChanged(Ljava/lang/String;I[Ljava/lang/String;)Z
     .locals 1
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "uid"    # I
-    .param p3, "components"    # [Ljava/lang/String;
 
-    .prologue
-    .line 836
     const/4 v0, 0x1
 
     return v0
@@ -48,30 +41,22 @@
 
 .method public onPackageDisappeared(Ljava/lang/String;I)V
     .locals 1
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "reason"    # I
 
-    .prologue
-    .line 841
     iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$3;->this$0:Lcom/android/server/trust/TrustManagerService;
 
     invoke-static {v0, p1}, Lcom/android/server/trust/TrustManagerService;->access$1700(Lcom/android/server/trust/TrustManagerService;Ljava/lang/String;)V
 
-    .line 842
     return-void
 .end method
 
 .method public onSomePackagesChanged()V
     .locals 2
 
-    .prologue
-    .line 830
     iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$3;->this$0:Lcom/android/server/trust/TrustManagerService;
 
     const/4 v1, -0x1
 
     invoke-virtual {v0, v1}, Lcom/android/server/trust/TrustManagerService;->refreshAgentList(I)V
 
-    .line 831
     return-void
 .end method

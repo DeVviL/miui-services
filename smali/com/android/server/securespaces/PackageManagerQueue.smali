@@ -55,13 +55,10 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 45
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/server/securespaces/PackageManagerQueue;->sInstance:Lcom/android/server/securespaces/PackageManagerQueue;
 
-    .line 49
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
@@ -74,47 +71,34 @@
 .method private constructor <init>()V
     .locals 2
 
-    .prologue
     const/4 v1, -0x1
 
-    .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 66
     iput v1, p0, Lcom/android/server/securespaces/PackageManagerQueue;->opCode:I
 
-    .line 67
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
-    .line 68
     iput v1, p0, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
 
-    .line 69
     iput v1, p0, Lcom/android/server/securespaces/PackageManagerQueue;->uid:I
 
-    .line 70
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/server/securespaces/PackageManagerQueue;->seinfo:Ljava/lang/String;
 
-    .line 71
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/server/securespaces/PackageManagerQueue;->nativeLibraryDir:Ljava/lang/String;
 
-    .line 82
     return-void
 .end method
 
 .method private checkUserData(ILcom/android/server/pm/Installer;)V
     .locals 10
-    .param p1, "userId"    # I
-    .param p2, "installer"    # Lcom/android/server/pm/Installer;
 
-    .prologue
-    .line 404
     const-string v7, "PackageManagerQueue"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -137,23 +121,19 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 405
     const/16 v7, -0x2710
 
     if-ne p1, v7, :cond_1
 
-    .line 406
     const-string v7, "PackageManagerQueue"
 
     const-string v8, "user id can\'t be -10000"
 
     invoke-static {v7, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 422
     :cond_0
     return-void
 
-    .line 409
     :cond_1
     const-string v7, "package"
 
@@ -163,25 +143,18 @@
 
     check-cast v5, Lcom/android/server/pm/PackageManagerService;
 
-    .line 410
-    .local v5, "pms":Lcom/android/server/pm/PackageManagerService;
     const/4 v7, 0x0
 
     invoke-virtual {v5, v7, p1}, Lcom/android/server/pm/PackageManagerService;->getInstalledApplications(II)Landroid/content/pm/ParceledListSlice;
 
     move-result-object v1
 
-    .line 411
-    .local v1, "applicationInfos":Landroid/content/pm/ParceledListSlice;, "Landroid/content/pm/ParceledListSlice<Landroid/content/pm/ApplicationInfo;>;"
     if-eqz v1, :cond_0
 
-    .line 412
     invoke-virtual {v1}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
 
     move-result-object v2
 
-    .line 413
-    .local v2, "apps":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     new-instance v6, Ljava/io/File;
 
     invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
@@ -192,13 +165,10 @@
 
     invoke-direct {v6, v7, v8}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 414
-    .local v6, "userAppDataDir":Ljava/io/File;
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    .local v4, "i$":Ljava/util/Iterator;
     :cond_2
     :goto_0
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
@@ -213,8 +183,6 @@
 
     check-cast v0, Landroid/content/pm/ApplicationInfo;
 
-    .line 415
-    .local v0, "app":Landroid/content/pm/ApplicationInfo;
     new-instance v3, Ljava/io/File;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -257,15 +225,12 @@
 
     invoke-direct {v3, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 416
-    .local v3, "dataPath":Ljava/io/File;
     invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
     move-result v7
 
     if-nez v7, :cond_2
 
-    .line 417
     const-string v7, "PackageManagerQueue"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -308,7 +273,6 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 418
     iget-object v7, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     iget v8, v0, Landroid/content/pm/ApplicationInfo;->uid:I
@@ -327,8 +291,6 @@
 .method public static declared-synchronized getInstance()Lcom/android/server/securespaces/PackageManagerQueue;
     .locals 2
 
-    .prologue
-    .line 85
     const-class v1, Lcom/android/server/securespaces/PackageManagerQueue;
 
     monitor-enter v1
@@ -338,14 +300,12 @@
 
     if-nez v0, :cond_0
 
-    .line 86
     new-instance v0, Lcom/android/server/securespaces/PackageManagerQueue;
 
     invoke-direct {v0}, Lcom/android/server/securespaces/PackageManagerQueue;-><init>()V
 
     sput-object v0, Lcom/android/server/securespaces/PackageManagerQueue;->sInstance:Lcom/android/server/securespaces/PackageManagerQueue;
 
-    .line 87
     :cond_0
     sget-object v0, Lcom/android/server/securespaces/PackageManagerQueue;->sInstance:Lcom/android/server/securespaces/PackageManagerQueue;
     :try_end_0
@@ -355,7 +315,6 @@
 
     return-object v0
 
-    .line 85
     :catchall_0
     move-exception v0
 
@@ -368,12 +327,7 @@
 # virtual methods
 .method public processQueue(Lcom/android/server/pm/Installer;Ljava/lang/Object;I)V
     .locals 23
-    .param p1, "installer"    # Lcom/android/server/pm/Installer;
-    .param p2, "installerLock"    # Ljava/lang/Object;
-    .param p3, "userId"    # I
 
-    .prologue
-    .line 235
     new-instance v15, Ljava/io/File;
 
     invoke-static/range {p3 .. p3}, Landroid/os/Environment;->getUserSystemDirectory(I)Ljava/io/File;
@@ -388,8 +342,6 @@
 
     invoke-direct {v15, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 236
-    .local v15, "userQueueDir":Ljava/io/File;
     new-instance v16, Ljava/io/File;
 
     const-string v18, "pmops"
@@ -400,25 +352,16 @@
 
     invoke-direct {v0, v15, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 238
-    .local v16, "userQueueFile":Ljava/io/File;
     const/4 v10, 0x0
 
-    .line 239
-    .local v10, "fis":Ljava/io/FileInputStream;
     const/4 v5, 0x0
 
-    .line 240
-    .local v5, "bis":Ljava/io/BufferedInputStream;
     const/4 v7, 0x0
 
-    .line 242
-    .local v7, "dis":Ljava/io/DataInputStream;
     sget-object v19, Lcom/android/server/securespaces/PackageManagerQueue;->pmqLock:Ljava/lang/Object;
 
     monitor-enter v19
 
-    .line 244
     :try_start_0
     invoke-virtual/range {v16 .. v16}, Ljava/io/File;->exists()Z
     :try_end_0
@@ -431,7 +374,6 @@
 
     if-nez v18, :cond_1
 
-    .line 386
     if-eqz v7, :cond_0
 
     :try_start_1
@@ -440,28 +382,21 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 390
     :cond_0
     :goto_0
     :try_start_2
     monitor-exit v19
 
-    .line 397
     :goto_1
     return-void
 
-    .line 387
     :catch_0
     move-exception v9
 
-    .line 389
-    .local v9, "e":Ljava/io/IOException;
     invoke-virtual {v9}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 392
-    .end local v9    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v18
 
@@ -472,7 +407,6 @@
 
     throw v18
 
-    .line 250
     :cond_1
     :try_start_3
     new-instance v11, Ljava/io/FileInputStream;
@@ -486,9 +420,6 @@
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_b
     .catchall {:try_start_3 .. :try_end_3} :catchall_4
 
-    .line 251
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .local v11, "fis":Ljava/io/FileInputStream;
     :try_start_4
     new-instance v6, Ljava/io/BufferedInputStream;
 
@@ -503,9 +434,6 @@
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_c
     .catchall {:try_start_4 .. :try_end_4} :catchall_5
 
-    .line 252
-    .end local v5    # "bis":Ljava/io/BufferedInputStream;
-    .local v6, "bis":Ljava/io/BufferedInputStream;
     :try_start_5
     new-instance v8, Ljava/io/DataInputStream;
 
@@ -516,9 +444,6 @@
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_d
     .catchall {:try_start_5 .. :try_end_5} :catchall_6
 
-    .line 256
-    .end local v7    # "dis":Ljava/io/DataInputStream;
-    .local v8, "dis":Ljava/io/DataInputStream;
     const/16 v18, 0x10
 
     :try_start_6
@@ -526,22 +451,16 @@
 
     new-array v12, v0, [B
 
-    .line 257
-    .local v12, "headerSalt":[B
     const/16 v18, 0x10
 
     move/from16 v0, v18
 
     new-array v13, v0, [B
 
-    .line 260
-    .local v13, "recordSalt":[B
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v17
 
-    .line 261
-    .local v17, "version":I
     const/16 v18, 0x2
 
     move/from16 v0, v17
@@ -550,7 +469,6 @@
 
     if-eq v0, v1, :cond_3
 
-    .line 262
     const-string v18, "PackageManagerQueue"
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -592,7 +510,6 @@
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_5
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
-    .line 386
     if-eqz v8, :cond_2
 
     :try_start_7
@@ -601,7 +518,6 @@
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_1
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
-    .line 390
     :cond_2
     :goto_3
     :try_start_8
@@ -609,67 +525,36 @@
 
     move-object v7, v8
 
-    .end local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v7    # "dis":Ljava/io/DataInputStream;
     move-object v5, v6
 
-    .end local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v5    # "bis":Ljava/io/BufferedInputStream;
     move-object v10, v11
 
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     goto :goto_1
 
-    .line 387
-    .end local v5    # "bis":Ljava/io/BufferedInputStream;
-    .end local v7    # "dis":Ljava/io/DataInputStream;
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
     :catch_1
     move-exception v9
 
-    .line 389
-    .restart local v9    # "e":Ljava/io/IOException;
     invoke-virtual {v9}, Ljava/io/IOException;->printStackTrace()V
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
     goto :goto_3
 
-    .line 392
-    .end local v9    # "e":Ljava/io/IOException;
     :catchall_1
     move-exception v18
 
     move-object v7, v8
 
-    .end local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v7    # "dis":Ljava/io/DataInputStream;
     move-object v5, v6
 
-    .end local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v5    # "bis":Ljava/io/BufferedInputStream;
     move-object v10, v11
 
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     goto :goto_2
 
-    .line 265
-    .end local v5    # "bis":Ljava/io/BufferedInputStream;
-    .end local v7    # "dis":Ljava/io/DataInputStream;
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
     :cond_3
     :try_start_9
     invoke-virtual {v8, v12}, Ljava/io/DataInputStream;->readFully([B)V
 
-    .line 268
     :goto_4
     invoke-virtual {v6}, Ljava/io/BufferedInputStream;->available()I
 
@@ -677,10 +562,8 @@
 
     if-lez v18, :cond_a
 
-    .line 270
     invoke-virtual {v8, v13}, Ljava/io/DataInputStream;->readFully([B)V
 
-    .line 271
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v18
@@ -691,7 +574,6 @@
 
     iput v0, v1, Lcom/android/server/securespaces/PackageManagerQueue;->opCode:I
 
-    .line 273
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/securespaces/PackageManagerQueue;->opCode:I
@@ -700,7 +582,6 @@
 
     packed-switch v18, :pswitch_data_0
 
-    .line 305
     const-string v18, "PackageManagerQueue"
 
     const-string v20, "Unknown opcode in queueOperation."
@@ -718,27 +599,15 @@
 
     goto :goto_4
 
-    .line 375
-    .end local v12    # "headerSalt":[B
-    .end local v13    # "recordSalt":[B
-    .end local v17    # "version":I
     :catch_2
     move-exception v9
 
     move-object v7, v8
 
-    .end local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v7    # "dis":Ljava/io/DataInputStream;
     move-object v5, v6
 
-    .end local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v5    # "bis":Ljava/io/BufferedInputStream;
     move-object v10, v11
 
-    .line 376
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .local v9, "e":Ljava/io/FileNotFoundException;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     :goto_5
     :try_start_a
     const-string v18, "PackageManagerQueue"
@@ -769,12 +638,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 377
     invoke-virtual {v9}, Ljava/io/FileNotFoundException;->printStackTrace()V
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_4
 
-    .line 386
     if-eqz v7, :cond_4
 
     :try_start_b
@@ -783,8 +650,6 @@
     .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_9
     .catchall {:try_start_b .. :try_end_b} :catchall_0
 
-    .line 392
-    .end local v9    # "e":Ljava/io/FileNotFoundException;
     :cond_4
     :goto_6
     :try_start_c
@@ -792,10 +657,8 @@
     :try_end_c
     .catchall {:try_start_c .. :try_end_c} :catchall_0
 
-    .line 395
     invoke-virtual/range {v16 .. v16}, Ljava/io/File;->delete()Z
 
-    .line 396
     move-object/from16 v0, p0
 
     move/from16 v1, p3
@@ -806,16 +669,6 @@
 
     goto/16 :goto_1
 
-    .line 275
-    .end local v5    # "bis":Ljava/io/BufferedInputStream;
-    .end local v7    # "dis":Ljava/io/DataInputStream;
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v12    # "headerSalt":[B
-    .restart local v13    # "recordSalt":[B
-    .restart local v17    # "version":I
     :pswitch_0
     :try_start_d
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
@@ -828,7 +681,6 @@
 
     iput-object v0, v1, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
-    .line 276
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v18
@@ -839,7 +691,6 @@
 
     iput v0, v1, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
 
-    .line 277
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v18
@@ -850,7 +701,6 @@
 
     iput v0, v1, Lcom/android/server/securespaces/PackageManagerQueue;->uid:I
 
-    .line 278
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
 
     move-result-object v18
@@ -861,11 +711,9 @@
 
     iput-object v0, v1, Lcom/android/server/securespaces/PackageManagerQueue;->seinfo:Ljava/lang/String;
 
-    .line 309
     :goto_7
     if-nez p1, :cond_7
 
-    .line 310
     const-string v18, "PackageManagerQueue"
 
     const-string v20, "Unable to execute queued PackageManager operation.  reference to Installer is null."
@@ -881,7 +729,6 @@
     .catch Ljava/lang/Exception; {:try_start_d .. :try_end_d} :catch_5
     .catchall {:try_start_d .. :try_end_d} :catchall_2
 
-    .line 386
     if-eqz v8, :cond_5
 
     :try_start_e
@@ -890,7 +737,6 @@
     .catch Ljava/io/IOException; {:try_start_e .. :try_end_e} :catch_7
     .catchall {:try_start_e .. :try_end_e} :catchall_1
 
-    .line 390
     :cond_5
     :goto_8
     :try_start_f
@@ -900,25 +746,12 @@
 
     move-object v7, v8
 
-    .end local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v7    # "dis":Ljava/io/DataInputStream;
     move-object v5, v6
 
-    .end local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v5    # "bis":Ljava/io/BufferedInputStream;
     move-object v10, v11
 
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     goto/16 :goto_1
 
-    .line 281
-    .end local v5    # "bis":Ljava/io/BufferedInputStream;
-    .end local v7    # "dis":Ljava/io/DataInputStream;
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
     :pswitch_1
     :try_start_10
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
@@ -931,7 +764,6 @@
 
     iput-object v0, v1, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
-    .line 282
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v18
@@ -949,27 +781,15 @@
 
     goto :goto_7
 
-    .line 378
-    .end local v12    # "headerSalt":[B
-    .end local v13    # "recordSalt":[B
-    .end local v17    # "version":I
     :catch_3
     move-exception v9
 
     move-object v7, v8
 
-    .end local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v7    # "dis":Ljava/io/DataInputStream;
     move-object v5, v6
 
-    .end local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v5    # "bis":Ljava/io/BufferedInputStream;
     move-object v10, v11
 
-    .line 379
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .local v9, "e":Ljava/io/IOException;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     :goto_9
     :try_start_11
     const-string v18, "PackageManagerQueue"
@@ -1000,12 +820,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 380
     invoke-virtual {v9}, Ljava/io/IOException;->printStackTrace()V
     :try_end_11
     .catchall {:try_start_11 .. :try_end_11} :catchall_4
 
-    .line 386
     if-eqz v7, :cond_4
 
     :try_start_12
@@ -1016,11 +834,9 @@
 
     goto/16 :goto_6
 
-    .line 387
     :catch_4
     move-exception v9
 
-    .line 389
     :try_start_13
     invoke-virtual {v9}, Ljava/io/IOException;->printStackTrace()V
     :try_end_13
@@ -1028,17 +844,6 @@
 
     goto/16 :goto_6
 
-    .line 285
-    .end local v5    # "bis":Ljava/io/BufferedInputStream;
-    .end local v7    # "dis":Ljava/io/DataInputStream;
-    .end local v9    # "e":Ljava/io/IOException;
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v12    # "headerSalt":[B
-    .restart local v13    # "recordSalt":[B
-    .restart local v17    # "version":I
     :pswitch_2
     :try_start_14
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
@@ -1051,7 +856,6 @@
 
     iput-object v0, v1, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
-    .line 286
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
 
     move-result-object v18
@@ -1062,7 +866,6 @@
 
     iput-object v0, v1, Lcom/android/server/securespaces/PackageManagerQueue;->nativeLibraryDir:Ljava/lang/String;
 
-    .line 287
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v18
@@ -1080,27 +883,15 @@
 
     goto :goto_7
 
-    .line 381
-    .end local v12    # "headerSalt":[B
-    .end local v13    # "recordSalt":[B
-    .end local v17    # "version":I
     :catch_5
     move-exception v9
 
     move-object v7, v8
 
-    .end local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v7    # "dis":Ljava/io/DataInputStream;
     move-object v5, v6
 
-    .end local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v5    # "bis":Ljava/io/BufferedInputStream;
     move-object v10, v11
 
-    .line 382
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .local v9, "e":Ljava/lang/Exception;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     :goto_a
     :try_start_15
     const-string v18, "PackageManagerQueue"
@@ -1131,12 +922,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 383
     invoke-virtual {v9}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_15
     .catchall {:try_start_15 .. :try_end_15} :catchall_4
 
-    .line 386
     if-eqz v7, :cond_4
 
     :try_start_16
@@ -1147,12 +936,9 @@
 
     goto/16 :goto_6
 
-    .line 387
     :catch_6
     move-exception v9
 
-    .line 389
-    .local v9, "e":Ljava/io/IOException;
     :try_start_17
     invoke-virtual {v9}, Ljava/io/IOException;->printStackTrace()V
     :try_end_17
@@ -1160,17 +946,6 @@
 
     goto/16 :goto_6
 
-    .line 290
-    .end local v5    # "bis":Ljava/io/BufferedInputStream;
-    .end local v7    # "dis":Ljava/io/DataInputStream;
-    .end local v9    # "e":Ljava/io/IOException;
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v12    # "headerSalt":[B
-    .restart local v13    # "recordSalt":[B
-    .restart local v17    # "version":I
     :pswitch_3
     :try_start_18
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
@@ -1183,7 +958,6 @@
 
     iput-object v0, v1, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
-    .line 291
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v18
@@ -1201,26 +975,15 @@
 
     goto/16 :goto_7
 
-    .line 385
-    .end local v12    # "headerSalt":[B
-    .end local v13    # "recordSalt":[B
-    .end local v17    # "version":I
     :catchall_2
     move-exception v18
 
     move-object v7, v8
 
-    .end local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v7    # "dis":Ljava/io/DataInputStream;
     move-object v5, v6
 
-    .end local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v5    # "bis":Ljava/io/BufferedInputStream;
     move-object v10, v11
 
-    .line 386
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     :goto_b
     if-eqz v7, :cond_6
 
@@ -1230,7 +993,6 @@
     .catch Ljava/io/IOException; {:try_start_19 .. :try_end_19} :catch_a
     .catchall {:try_start_19 .. :try_end_19} :catchall_0
 
-    .line 390
     :cond_6
     :goto_c
     :try_start_1a
@@ -1238,16 +1000,6 @@
     :try_end_1a
     .catchall {:try_start_1a .. :try_end_1a} :catchall_0
 
-    .line 294
-    .end local v5    # "bis":Ljava/io/BufferedInputStream;
-    .end local v7    # "dis":Ljava/io/DataInputStream;
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v12    # "headerSalt":[B
-    .restart local v13    # "recordSalt":[B
-    .restart local v17    # "version":I
     :pswitch_4
     :try_start_1b
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
@@ -1260,7 +1012,6 @@
 
     iput-object v0, v1, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
-    .line 295
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v18
@@ -1273,7 +1024,6 @@
 
     goto/16 :goto_7
 
-    .line 298
     :pswitch_5
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readInt()I
 
@@ -1287,7 +1037,6 @@
 
     goto/16 :goto_7
 
-    .line 301
     :pswitch_6
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
 
@@ -1299,7 +1048,6 @@
 
     iput-object v0, v1, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
-    .line 302
     invoke-virtual {v8}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v18
@@ -1317,12 +1065,9 @@
 
     goto/16 :goto_7
 
-    .line 387
     :catch_7
     move-exception v9
 
-    .line 389
-    .restart local v9    # "e":Ljava/io/IOException;
     :try_start_1c
     invoke-virtual {v9}, Ljava/io/IOException;->printStackTrace()V
     :try_end_1c
@@ -1330,8 +1075,6 @@
 
     goto/16 :goto_8
 
-    .line 314
-    .end local v9    # "e":Ljava/io/IOException;
     :cond_7
     :try_start_1d
     move-object/from16 v0, p0
@@ -1346,7 +1089,6 @@
 
     if-eq v0, v1, :cond_8
 
-    .line 315
     const-string v18, "PackageManagerQueue"
 
     const-string v20, "Invalid user id in PackagerManager queue."
@@ -1359,12 +1101,9 @@
 
     goto/16 :goto_4
 
-    .line 319
     :cond_8
     const/4 v14, 0x0
 
-    .line 320
-    .local v14, "res":I
     monitor-enter p2
     :try_end_1d
     .catch Ljava/io/FileNotFoundException; {:try_start_1d .. :try_end_1d} :catch_2
@@ -1372,7 +1111,6 @@
     .catch Ljava/lang/Exception; {:try_start_1d .. :try_end_1d} :catch_5
     .catchall {:try_start_1d .. :try_end_1d} :catchall_2
 
-    .line 322
     :try_start_1e
     move-object/from16 v0, p0
 
@@ -1382,7 +1120,6 @@
 
     packed-switch v18, :pswitch_data_1
 
-    .line 369
     const-string v18, "PackageManagerQueue"
 
     const-string v20, "Unknown opcode in queueOperation."
@@ -1393,12 +1130,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 370
     monitor-exit p2
 
     goto/16 :goto_4
 
-    .line 372
     :catchall_3
     move-exception v18
 
@@ -1414,7 +1149,6 @@
     .catch Ljava/lang/Exception; {:try_start_1f .. :try_end_1f} :catch_5
     .catchall {:try_start_1f .. :try_end_1f} :catchall_2
 
-    .line 324
     :pswitch_7
     :try_start_20
     move-object/from16 v0, p0
@@ -1465,10 +1199,8 @@
 
     move-result v14
 
-    .line 326
     if-gez v14, :cond_9
 
-    .line 327
     const-string v18, "PackageManagerQueue"
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -1529,14 +1261,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 372
     :cond_9
     :goto_d
     monitor-exit p2
 
     goto/16 :goto_4
 
-    .line 332
     :pswitch_8
     move-object/from16 v0, p0
 
@@ -1560,10 +1290,8 @@
 
     move-result v14
 
-    .line 333
     if-gez v14, :cond_9
 
-    .line 334
     const-string v18, "PackageManagerQueue"
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -1626,7 +1354,6 @@
 
     goto :goto_d
 
-    .line 338
     :pswitch_9
     move-object/from16 v0, p0
 
@@ -1658,10 +1385,8 @@
 
     move-result v14
 
-    .line 340
     if-gez v14, :cond_9
 
-    .line 341
     const-string v18, "PackageManagerQueue"
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -1724,7 +1449,6 @@
 
     goto/16 :goto_d
 
-    .line 345
     :pswitch_a
     move-object/from16 v0, p0
 
@@ -1748,10 +1472,8 @@
 
     move-result v14
 
-    .line 346
     if-gez v14, :cond_9
 
-    .line 347
     const-string v18, "PackageManagerQueue"
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -1814,7 +1536,6 @@
 
     goto/16 :goto_d
 
-    .line 351
     :pswitch_b
     move-object/from16 v0, p0
 
@@ -1838,10 +1559,8 @@
 
     move-result v14
 
-    .line 352
     if-gez v14, :cond_9
 
-    .line 353
     const-string v18, "PackageManagerQueue"
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -1904,7 +1623,6 @@
 
     goto/16 :goto_d
 
-    .line 357
     :pswitch_c
     move-object/from16 v0, p0
 
@@ -1920,10 +1638,8 @@
 
     move-result v14
 
-    .line 358
     if-gez v14, :cond_9
 
-    .line 359
     const-string v18, "PackageManagerQueue"
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -1970,7 +1686,6 @@
 
     goto/16 :goto_d
 
-    .line 363
     :pswitch_d
     move-object/from16 v0, p0
 
@@ -1994,10 +1709,8 @@
 
     move-result v14
 
-    .line 364
     if-gez v14, :cond_9
 
-    .line 365
     const-string v18, "PackageManagerQueue"
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -2062,8 +1775,6 @@
 
     goto/16 :goto_d
 
-    .line 386
-    .end local v14    # "res":I
     :cond_a
     if-eqz v8, :cond_b
 
@@ -2076,31 +1787,15 @@
     :cond_b
     move-object v7, v8
 
-    .end local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v7    # "dis":Ljava/io/DataInputStream;
     move-object v5, v6
 
-    .end local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v5    # "bis":Ljava/io/BufferedInputStream;
     move-object v10, v11
 
-    .line 390
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     goto/16 :goto_6
 
-    .line 387
-    .end local v5    # "bis":Ljava/io/BufferedInputStream;
-    .end local v7    # "dis":Ljava/io/DataInputStream;
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
     :catch_8
     move-exception v9
 
-    .line 389
-    .restart local v9    # "e":Ljava/io/IOException;
     :try_start_22
     invoke-virtual {v9}, Ljava/io/IOException;->printStackTrace()V
     :try_end_22
@@ -2108,185 +1803,113 @@
 
     move-object v7, v8
 
-    .end local v8    # "dis":Ljava/io/DataInputStream;
-    .restart local v7    # "dis":Ljava/io/DataInputStream;
     move-object v5, v6
 
-    .end local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v5    # "bis":Ljava/io/BufferedInputStream;
     move-object v10, v11
 
-    .line 391
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     goto/16 :goto_6
 
-    .line 387
-    .end local v12    # "headerSalt":[B
-    .end local v13    # "recordSalt":[B
-    .end local v17    # "version":I
-    .local v9, "e":Ljava/io/FileNotFoundException;
     :catch_9
     move-exception v9
 
-    .line 389
-    .local v9, "e":Ljava/io/IOException;
     :try_start_23
     invoke-virtual {v9}, Ljava/io/IOException;->printStackTrace()V
 
     goto/16 :goto_6
 
-    .line 387
-    .end local v9    # "e":Ljava/io/IOException;
     :catch_a
     move-exception v9
 
-    .line 389
-    .restart local v9    # "e":Ljava/io/IOException;
     invoke-virtual {v9}, Ljava/io/IOException;->printStackTrace()V
     :try_end_23
     .catchall {:try_start_23 .. :try_end_23} :catchall_0
 
     goto/16 :goto_c
 
-    .line 385
-    .end local v9    # "e":Ljava/io/IOException;
     :catchall_4
     move-exception v18
 
     goto/16 :goto_b
 
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
     :catchall_5
     move-exception v18
 
     move-object v10, v11
 
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     goto/16 :goto_b
 
-    .end local v5    # "bis":Ljava/io/BufferedInputStream;
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
     :catchall_6
     move-exception v18
 
     move-object v5, v6
 
-    .end local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v5    # "bis":Ljava/io/BufferedInputStream;
     move-object v10, v11
 
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     goto/16 :goto_b
 
-    .line 381
     :catch_b
     move-exception v9
 
     goto/16 :goto_a
 
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
     :catch_c
     move-exception v9
 
     move-object v10, v11
 
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     goto/16 :goto_a
 
-    .end local v5    # "bis":Ljava/io/BufferedInputStream;
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
     :catch_d
     move-exception v9
 
     move-object v5, v6
 
-    .end local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v5    # "bis":Ljava/io/BufferedInputStream;
     move-object v10, v11
 
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     goto/16 :goto_a
 
-    .line 378
     :catch_e
     move-exception v9
 
     goto/16 :goto_9
 
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
     :catch_f
     move-exception v9
 
     move-object v10, v11
 
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     goto/16 :goto_9
 
-    .end local v5    # "bis":Ljava/io/BufferedInputStream;
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
     :catch_10
     move-exception v9
 
     move-object v5, v6
 
-    .end local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v5    # "bis":Ljava/io/BufferedInputStream;
     move-object v10, v11
 
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     goto/16 :goto_9
 
-    .line 375
     :catch_11
     move-exception v9
 
     goto/16 :goto_5
 
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
     :catch_12
     move-exception v9
 
     move-object v10, v11
 
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     goto/16 :goto_5
 
-    .end local v5    # "bis":Ljava/io/BufferedInputStream;
-    .end local v10    # "fis":Ljava/io/FileInputStream;
-    .restart local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v11    # "fis":Ljava/io/FileInputStream;
     :catch_13
     move-exception v9
 
     move-object v5, v6
 
-    .end local v6    # "bis":Ljava/io/BufferedInputStream;
-    .restart local v5    # "bis":Ljava/io/BufferedInputStream;
     move-object v10, v11
 
-    .end local v11    # "fis":Ljava/io/FileInputStream;
-    .restart local v10    # "fis":Ljava/io/FileInputStream;
     goto/16 :goto_5
 
-    .line 273
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -2298,7 +1921,6 @@
         :pswitch_6
     .end packed-switch
 
-    .line 322
     :pswitch_data_1
     .packed-switch 0x0
         :pswitch_7
@@ -2313,97 +1935,59 @@
 
 .method public setOp(II)V
     .locals 0
-    .param p1, "op"    # I
-    .param p2, "user"    # I
 
-    .prologue
-    .line 111
     iput p1, p0, Lcom/android/server/securespaces/PackageManagerQueue;->opCode:I
 
-    .line 112
     iput p2, p0, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
 
-    .line 113
     return-void
 .end method
 
 .method public setOp(ILjava/lang/String;I)V
     .locals 0
-    .param p1, "op"    # I
-    .param p2, "pName"    # Ljava/lang/String;
-    .param p3, "user"    # I
 
-    .prologue
-    .line 105
     iput p1, p0, Lcom/android/server/securespaces/PackageManagerQueue;->opCode:I
 
-    .line 106
     iput-object p2, p0, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
-    .line 107
     iput p3, p0, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
 
-    .line 108
     return-void
 .end method
 
 .method public setOp(ILjava/lang/String;IILjava/lang/String;)V
     .locals 0
-    .param p1, "op"    # I
-    .param p2, "pName"    # Ljava/lang/String;
-    .param p3, "user"    # I
-    .param p4, "uid"    # I
-    .param p5, "seinfo"    # Ljava/lang/String;
 
-    .prologue
-    .line 93
     iput p1, p0, Lcom/android/server/securespaces/PackageManagerQueue;->opCode:I
 
-    .line 94
     iput-object p2, p0, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
-    .line 95
     iput p3, p0, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
 
-    .line 96
     iput p4, p0, Lcom/android/server/securespaces/PackageManagerQueue;->uid:I
 
-    .line 97
     iput-object p5, p0, Lcom/android/server/securespaces/PackageManagerQueue;->seinfo:Ljava/lang/String;
 
-    .line 98
     return-void
 .end method
 
 .method public setOp(ILjava/lang/String;Ljava/lang/String;I)V
     .locals 0
-    .param p1, "op"    # I
-    .param p2, "pName"    # Ljava/lang/String;
-    .param p3, "nativeLibDir"    # Ljava/lang/String;
-    .param p4, "user"    # I
 
-    .prologue
-    .line 120
     iput p1, p0, Lcom/android/server/securespaces/PackageManagerQueue;->opCode:I
 
-    .line 121
     iput-object p2, p0, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
-    .line 122
     iput-object p3, p0, Lcom/android/server/securespaces/PackageManagerQueue;->nativeLibraryDir:Ljava/lang/String;
 
-    .line 123
     iput p4, p0, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
 
-    .line 124
     return-void
 .end method
 
 .method public writeOp()V
     .locals 15
 
-    .prologue
-    .line 131
     new-instance v9, Ljava/io/File;
 
     iget v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
@@ -2416,45 +2000,30 @@
 
     invoke-direct {v9, v11, v12}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 132
-    .local v9, "userQueueDir":Ljava/io/File;
     new-instance v10, Ljava/io/File;
 
     const-string v11, "pmops"
 
     invoke-direct {v10, v9, v11}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 134
-    .local v10, "userQueueFile":Ljava/io/File;
     const/4 v5, 0x0
 
-    .line 135
-    .local v5, "fos":Ljava/io/FileOutputStream;
     const/4 v0, 0x0
 
-    .line 136
-    .local v0, "bos":Ljava/io/BufferedOutputStream;
     const/4 v2, 0x0
 
-    .line 138
-    .local v2, "dos":Ljava/io/DataOutputStream;
     const/16 v11, 0x10
 
     new-array v7, v11, [B
 
-    .line 139
-    .local v7, "salt":[B
     new-instance v8, Ljava/security/SecureRandom;
 
     invoke-direct {v8}, Ljava/security/SecureRandom;-><init>()V
 
-    .line 141
-    .local v8, "sr":Ljava/security/SecureRandom;
     sget-object v12, Lcom/android/server/securespaces/PackageManagerQueue;->pmqLock:Ljava/lang/Object;
 
     monitor-enter v12
 
-    .line 143
     :try_start_0
     invoke-virtual {v10}, Ljava/io/File;->exists()Z
 
@@ -2462,7 +2031,6 @@
 
     if-nez v11, :cond_1
 
-    .line 146
     const-string v11, "PackageManagerQueue"
 
     new-instance v13, Ljava/lang/StringBuilder;
@@ -2493,10 +2061,8 @@
 
     invoke-static {v11, v13}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 148
     invoke-virtual {v9}, Ljava/io/File;->mkdirs()Z
 
-    .line 149
     new-instance v6, Ljava/io/FileOutputStream;
 
     invoke-direct {v6, v10}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
@@ -2506,9 +2072,6 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_4
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 150
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .local v6, "fos":Ljava/io/FileOutputStream;
     :try_start_1
     new-instance v1, Ljava/io/BufferedOutputStream;
 
@@ -2521,9 +2084,6 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_8
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
-    .line 151
-    .end local v0    # "bos":Ljava/io/BufferedOutputStream;
-    .local v1, "bos":Ljava/io/BufferedOutputStream;
     :try_start_2
     new-instance v3, Ljava/io/DataOutputStream;
 
@@ -2534,18 +2094,13 @@
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_9
     .catchall {:try_start_2 .. :try_end_2} :catchall_3
 
-    .line 153
-    .end local v2    # "dos":Ljava/io/DataOutputStream;
-    .local v3, "dos":Ljava/io/DataOutputStream;
     :try_start_3
     invoke-virtual {v8, v7}, Ljava/security/SecureRandom;->nextBytes([B)V
 
-    .line 156
     const/4 v11, 0x2
 
     invoke-virtual {v3, v11}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 157
     invoke-virtual {v3, v7}, Ljava/io/DataOutputStream;->write([B)V
     :try_end_3
     .catch Ljava/io/FileNotFoundException; {:try_start_3 .. :try_end_3} :catch_10
@@ -2555,17 +2110,10 @@
 
     move-object v2, v3
 
-    .end local v3    # "dos":Ljava/io/DataOutputStream;
-    .restart local v2    # "dos":Ljava/io/DataOutputStream;
     move-object v0, v1
 
-    .end local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v0    # "bos":Ljava/io/BufferedOutputStream;
     move-object v5, v6
 
-    .line 168
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     :goto_0
     :try_start_4
     const-string v11, "PackageManagerQueue"
@@ -2592,23 +2140,18 @@
 
     invoke-static {v11, v13}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 171
     invoke-virtual {v8, v7}, Ljava/security/SecureRandom;->nextBytes([B)V
 
-    .line 173
     invoke-virtual {v2, v7}, Ljava/io/DataOutputStream;->write([B)V
 
-    .line 174
     iget v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->opCode:I
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 176
     iget v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->opCode:I
 
     packed-switch v11, :pswitch_data_0
 
-    .line 208
     const-string v11, "PackageManagerQueue"
 
     const-string v13, "Unknown opcode in queueOperation."
@@ -2620,7 +2163,6 @@
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    .line 223
     :goto_1
     if-eqz v2, :cond_0
 
@@ -2630,7 +2172,6 @@
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_6
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 229
     :cond_0
     :goto_2
     :try_start_6
@@ -2638,10 +2179,8 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    .line 230
     return-void
 
-    .line 162
     :cond_1
     :try_start_7
     new-instance v6, Ljava/io/FileOutputStream;
@@ -2655,9 +2194,6 @@
     .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_4
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
-    .line 163
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .restart local v6    # "fos":Ljava/io/FileOutputStream;
     :try_start_8
     new-instance v1, Ljava/io/BufferedOutputStream;
 
@@ -2670,9 +2206,6 @@
     .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
-    .line 164
-    .end local v0    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v1    # "bos":Ljava/io/BufferedOutputStream;
     :try_start_9
     new-instance v3, Ljava/io/DataOutputStream;
 
@@ -2683,40 +2216,28 @@
     .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_3
 
-    .end local v2    # "dos":Ljava/io/DataOutputStream;
-    .restart local v3    # "dos":Ljava/io/DataOutputStream;
     move-object v2, v3
 
-    .end local v3    # "dos":Ljava/io/DataOutputStream;
-    .restart local v2    # "dos":Ljava/io/DataOutputStream;
     move-object v0, v1
 
-    .end local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v0    # "bos":Ljava/io/BufferedOutputStream;
     move-object v5, v6
 
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     goto :goto_0
 
-    .line 178
     :pswitch_0
     :try_start_a
     iget-object v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 179
     iget v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 180
     iget v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->uid:I
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 181
     iget-object v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->seinfo:Ljava/lang/String;
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
@@ -2728,12 +2249,9 @@
 
     goto :goto_1
 
-    .line 212
     :catch_0
     move-exception v4
 
-    .line 213
-    .local v4, "e":Ljava/io/FileNotFoundException;
     :goto_3
     :try_start_b
     const-string v11, "PackageManagerQueue"
@@ -2758,12 +2276,10 @@
 
     invoke-static {v11, v13}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 214
     invoke-virtual {v4}, Ljava/io/FileNotFoundException;->printStackTrace()V
     :try_end_b
     .catchall {:try_start_b .. :try_end_b} :catchall_1
 
-    .line 223
     if-eqz v2, :cond_0
 
     :try_start_c
@@ -2774,19 +2290,14 @@
 
     goto :goto_2
 
-    .line 224
     :catch_1
     move-exception v4
 
-    .line 226
-    .local v4, "e":Ljava/io/IOException;
     :try_start_d
     invoke-virtual {v4}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_2
 
-    .line 229
-    .end local v4    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v11
 
@@ -2796,14 +2307,12 @@
 
     throw v11
 
-    .line 184
     :pswitch_1
     :try_start_e
     iget-object v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 185
     iget v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeInt(I)V
@@ -2815,12 +2324,9 @@
 
     goto :goto_1
 
-    .line 215
     :catch_2
     move-exception v4
 
-    .line 216
-    .restart local v4    # "e":Ljava/io/IOException;
     :goto_4
     :try_start_f
     const-string v11, "PackageManagerQueue"
@@ -2845,12 +2351,10 @@
 
     invoke-static {v11, v13}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 217
     invoke-virtual {v4}, Ljava/io/IOException;->printStackTrace()V
     :try_end_f
     .catchall {:try_start_f .. :try_end_f} :catchall_1
 
-    .line 223
     if-eqz v2, :cond_0
 
     :try_start_10
@@ -2861,11 +2365,9 @@
 
     goto/16 :goto_2
 
-    .line 224
     :catch_3
     move-exception v4
 
-    .line 226
     :try_start_11
     invoke-virtual {v4}, Ljava/io/IOException;->printStackTrace()V
     :try_end_11
@@ -2873,20 +2375,16 @@
 
     goto/16 :goto_2
 
-    .line 188
-    .end local v4    # "e":Ljava/io/IOException;
     :pswitch_2
     :try_start_12
     iget-object v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 189
     iget-object v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->nativeLibraryDir:Ljava/lang/String;
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 190
     iget v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeInt(I)V
@@ -2898,12 +2396,9 @@
 
     goto/16 :goto_1
 
-    .line 218
     :catch_4
     move-exception v4
 
-    .line 219
-    .local v4, "e":Ljava/lang/Exception;
     :goto_5
     :try_start_13
     const-string v11, "PackageManagerQueue"
@@ -2928,12 +2423,10 @@
 
     invoke-static {v11, v13}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 220
     invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_13
     .catchall {:try_start_13 .. :try_end_13} :catchall_1
 
-    .line 223
     if-eqz v2, :cond_0
 
     :try_start_14
@@ -2944,12 +2437,9 @@
 
     goto/16 :goto_2
 
-    .line 224
     :catch_5
     move-exception v4
 
-    .line 226
-    .local v4, "e":Ljava/io/IOException;
     :try_start_15
     invoke-virtual {v4}, Ljava/io/IOException;->printStackTrace()V
     :try_end_15
@@ -2957,15 +2447,12 @@
 
     goto/16 :goto_2
 
-    .line 193
-    .end local v4    # "e":Ljava/io/IOException;
     :pswitch_3
     :try_start_16
     iget-object v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 194
     iget v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeInt(I)V
@@ -2977,11 +2464,9 @@
 
     goto/16 :goto_1
 
-    .line 222
     :catchall_1
     move-exception v11
 
-    .line 223
     :goto_6
     if-eqz v2, :cond_2
 
@@ -2991,7 +2476,6 @@
     .catch Ljava/io/IOException; {:try_start_17 .. :try_end_17} :catch_7
     .catchall {:try_start_17 .. :try_end_17} :catchall_0
 
-    .line 227
     :cond_2
     :goto_7
     :try_start_18
@@ -2999,21 +2483,18 @@
     :try_end_18
     .catchall {:try_start_18 .. :try_end_18} :catchall_0
 
-    .line 197
     :pswitch_4
     :try_start_19
     iget-object v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 198
     iget v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     goto/16 :goto_1
 
-    .line 201
     :pswitch_5
     iget v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
 
@@ -3021,13 +2502,11 @@
 
     goto/16 :goto_1
 
-    .line 204
     :pswitch_6
     iget-object v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->packageName:Ljava/lang/String;
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 205
     iget v11, p0, Lcom/android/server/securespaces/PackageManagerQueue;->user:I
 
     invoke-virtual {v2, v11}, Ljava/io/DataOutputStream;->writeInt(I)V
@@ -3039,240 +2518,131 @@
 
     goto/16 :goto_1
 
-    .line 224
     :catch_6
     move-exception v4
 
-    .line 226
-    .restart local v4    # "e":Ljava/io/IOException;
     :try_start_1a
     invoke-virtual {v4}, Ljava/io/IOException;->printStackTrace()V
 
     goto/16 :goto_2
 
-    .line 224
-    .end local v4    # "e":Ljava/io/IOException;
     :catch_7
     move-exception v4
 
-    .line 226
-    .restart local v4    # "e":Ljava/io/IOException;
     invoke-virtual {v4}, Ljava/io/IOException;->printStackTrace()V
     :try_end_1a
     .catchall {:try_start_1a .. :try_end_1a} :catchall_0
 
     goto :goto_7
 
-    .line 222
-    .end local v4    # "e":Ljava/io/IOException;
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .restart local v6    # "fos":Ljava/io/FileOutputStream;
     :catchall_2
     move-exception v11
 
     move-object v5, v6
 
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     goto :goto_6
 
-    .end local v0    # "bos":Ljava/io/BufferedOutputStream;
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .restart local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v6    # "fos":Ljava/io/FileOutputStream;
     :catchall_3
     move-exception v11
 
     move-object v0, v1
 
-    .end local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v0    # "bos":Ljava/io/BufferedOutputStream;
     move-object v5, v6
 
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     goto :goto_6
 
-    .end local v0    # "bos":Ljava/io/BufferedOutputStream;
-    .end local v2    # "dos":Ljava/io/DataOutputStream;
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .restart local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v3    # "dos":Ljava/io/DataOutputStream;
-    .restart local v6    # "fos":Ljava/io/FileOutputStream;
     :catchall_4
     move-exception v11
 
     move-object v2, v3
 
-    .end local v3    # "dos":Ljava/io/DataOutputStream;
-    .restart local v2    # "dos":Ljava/io/DataOutputStream;
     move-object v0, v1
 
-    .end local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v0    # "bos":Ljava/io/BufferedOutputStream;
     move-object v5, v6
 
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     goto :goto_6
 
-    .line 218
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .restart local v6    # "fos":Ljava/io/FileOutputStream;
     :catch_8
     move-exception v4
 
     move-object v5, v6
 
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     goto :goto_5
 
-    .end local v0    # "bos":Ljava/io/BufferedOutputStream;
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .restart local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v6    # "fos":Ljava/io/FileOutputStream;
     :catch_9
     move-exception v4
 
     move-object v0, v1
 
-    .end local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v0    # "bos":Ljava/io/BufferedOutputStream;
     move-object v5, v6
 
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     goto :goto_5
 
-    .end local v0    # "bos":Ljava/io/BufferedOutputStream;
-    .end local v2    # "dos":Ljava/io/DataOutputStream;
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .restart local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v3    # "dos":Ljava/io/DataOutputStream;
-    .restart local v6    # "fos":Ljava/io/FileOutputStream;
     :catch_a
     move-exception v4
 
     move-object v2, v3
 
-    .end local v3    # "dos":Ljava/io/DataOutputStream;
-    .restart local v2    # "dos":Ljava/io/DataOutputStream;
     move-object v0, v1
 
-    .end local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v0    # "bos":Ljava/io/BufferedOutputStream;
     move-object v5, v6
 
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     goto :goto_5
 
-    .line 215
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .restart local v6    # "fos":Ljava/io/FileOutputStream;
     :catch_b
     move-exception v4
 
     move-object v5, v6
 
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     goto/16 :goto_4
 
-    .end local v0    # "bos":Ljava/io/BufferedOutputStream;
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .restart local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v6    # "fos":Ljava/io/FileOutputStream;
     :catch_c
     move-exception v4
 
     move-object v0, v1
 
-    .end local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v0    # "bos":Ljava/io/BufferedOutputStream;
     move-object v5, v6
 
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     goto/16 :goto_4
 
-    .end local v0    # "bos":Ljava/io/BufferedOutputStream;
-    .end local v2    # "dos":Ljava/io/DataOutputStream;
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .restart local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v3    # "dos":Ljava/io/DataOutputStream;
-    .restart local v6    # "fos":Ljava/io/FileOutputStream;
     :catch_d
     move-exception v4
 
     move-object v2, v3
 
-    .end local v3    # "dos":Ljava/io/DataOutputStream;
-    .restart local v2    # "dos":Ljava/io/DataOutputStream;
     move-object v0, v1
 
-    .end local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v0    # "bos":Ljava/io/BufferedOutputStream;
     move-object v5, v6
 
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     goto/16 :goto_4
 
-    .line 212
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .restart local v6    # "fos":Ljava/io/FileOutputStream;
     :catch_e
     move-exception v4
 
     move-object v5, v6
 
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     goto/16 :goto_3
 
-    .end local v0    # "bos":Ljava/io/BufferedOutputStream;
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .restart local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v6    # "fos":Ljava/io/FileOutputStream;
     :catch_f
     move-exception v4
 
     move-object v0, v1
 
-    .end local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v0    # "bos":Ljava/io/BufferedOutputStream;
     move-object v5, v6
 
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     goto/16 :goto_3
 
-    .end local v0    # "bos":Ljava/io/BufferedOutputStream;
-    .end local v2    # "dos":Ljava/io/DataOutputStream;
-    .end local v5    # "fos":Ljava/io/FileOutputStream;
-    .restart local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v3    # "dos":Ljava/io/DataOutputStream;
-    .restart local v6    # "fos":Ljava/io/FileOutputStream;
     :catch_10
     move-exception v4
 
     move-object v2, v3
 
-    .end local v3    # "dos":Ljava/io/DataOutputStream;
-    .restart local v2    # "dos":Ljava/io/DataOutputStream;
     move-object v0, v1
 
-    .end local v1    # "bos":Ljava/io/BufferedOutputStream;
-    .restart local v0    # "bos":Ljava/io/BufferedOutputStream;
     move-object v5, v6
 
-    .end local v6    # "fos":Ljava/io/FileOutputStream;
-    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     goto/16 :goto_3
 
-    .line 176
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

@@ -27,28 +27,22 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/location/GpsLocationProvider;Landroid/content/Context;)V
     .locals 2
-    .param p2, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/intel/cws/cwsservicemanager/CsmException;
         }
     .end annotation
 
-    .prologue
-    .line 2153
     iput-object p1, p0, Lcom/android/server/location/GpsLocationProvider$CsmClientGps;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
-    .line 2154
     const/4 v0, 0x2
 
     const/4 v1, 0x1
 
     invoke-direct {p0, p2, v0, v1}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;-><init>(Landroid/content/Context;BI)V
 
-    .line 2155
     invoke-virtual {p0}, Lcom/android/server/location/GpsLocationProvider$CsmClientGps;->csmActivateSimStatusReceiver()V
 
-    .line 2156
     return-void
 .end method
 
@@ -57,22 +51,16 @@
 .method public csmClientModemUnavailable()V
     .locals 0
 
-    .prologue
-    .line 2160
     invoke-super {p0}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->csmClientModemUnavailable()V
 
-    .line 2161
     return-void
 .end method
 
 .method public onSimAbsent()V
     .locals 4
 
-    .prologue
-    .line 2172
     invoke-super {p0}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->onSimAbsent()V
 
-    .line 2174
     iget-object v0, p0, Lcom/android/server/location/GpsLocationProvider$CsmClientGps;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     invoke-static {v0}, Lcom/android/server/location/GpsLocationProvider;->access$4100(Lcom/android/server/location/GpsLocationProvider;)Ljava/lang/String;
@@ -81,14 +69,12 @@
 
     if-eqz v0, :cond_2
 
-    .line 2175
     iget-object v0, p0, Lcom/android/server/location/GpsLocationProvider$CsmClientGps;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/android/server/location/GpsLocationProvider;->access$4102(Lcom/android/server/location/GpsLocationProvider;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 2176
     invoke-static {}, Lcom/android/server/location/GpsLocationProvider;->access$100()Z
 
     move-result v0
@@ -101,7 +87,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2178
     :cond_0
     iget-object v0, p0, Lcom/android/server/location/GpsLocationProvider$CsmClientGps;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
@@ -119,7 +104,6 @@
 
     if-eqz v0, :cond_2
 
-    .line 2179
     invoke-static {}, Lcom/android/server/location/GpsLocationProvider;->access$100()Z
 
     move-result v0
@@ -132,7 +116,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2180
     :cond_1
     iget-object v0, p0, Lcom/android/server/location/GpsLocationProvider$CsmClientGps;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
@@ -152,7 +135,6 @@
 
     invoke-static {v0, v1, v2, v3}, Lcom/android/server/location/GpsLocationProvider;->access$4500(Lcom/android/server/location/GpsLocationProvider;ILjava/lang/String;I)V
 
-    .line 2185
     :cond_2
     return-void
 .end method
@@ -160,11 +142,8 @@
 .method public onSimLoaded()V
     .locals 2
 
-    .prologue
-    .line 2165
     invoke-super {p0}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->onSimLoaded()V
 
-    .line 2167
     new-instance v0, Lcom/android/server/location/GpsLocationProvider$CsmClientGps$GetBootstrapTask;
 
     const/4 v1, 0x0
@@ -177,6 +156,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/location/GpsLocationProvider$CsmClientGps$GetBootstrapTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 2168
     return-void
 .end method

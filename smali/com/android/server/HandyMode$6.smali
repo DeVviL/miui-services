@@ -18,8 +18,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 201
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
@@ -29,11 +27,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 203
     const-string v1, "mode"
 
     const/4 v2, 0x0
@@ -42,8 +36,6 @@
 
     move-result v0
 
-    .line 204
-    .local v0, "newMode":I
     sget-object v1, Lcom/android/server/HandyMode;->sHandyModeInputFilter:Lcom/android/server/MiuiInputFilter;
 
     invoke-virtual {v1}, Lcom/android/server/MiuiInputFilter;->isInstalled()Z
@@ -52,7 +44,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 205
     invoke-static {}, Lcom/android/server/HandyMode;->getMode()I
 
     move-result v1
@@ -67,15 +58,12 @@
 
     if-nez v1, :cond_1
 
-    .line 206
     invoke-static {v0}, Lcom/android/server/HandyMode;->alertToEnter(I)V
 
-    .line 211
     :cond_0
     :goto_0
     return-void
 
-    .line 208
     :cond_1
     invoke-static {v0}, Lcom/android/server/HandyMode;->changeMode(I)V
 

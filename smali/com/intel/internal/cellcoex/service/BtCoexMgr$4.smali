@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/BtCoexMgr;)V
     .locals 0
 
-    .prologue
-    .line 262
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$4;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,18 +33,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 265
     invoke-static {}, Lcom/intel/internal/cellcoex/service/BtCoexMgr;->access$700()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 266
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -75,7 +68,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 268
     :cond_0
     return-void
 .end method

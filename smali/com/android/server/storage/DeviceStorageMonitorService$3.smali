@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/android/server/storage/DeviceStorageMonitorService;)V
     .locals 0
 
-    .prologue
-    .line 493
     iput-object p1, p0, Lcom/android/server/storage/DeviceStorageMonitorService$3;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,8 +37,6 @@
 .method public checkMemory()V
     .locals 4
 
-    .prologue
-    .line 497
     iget-object v0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$3;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
     const/4 v1, 0x1
@@ -49,15 +45,12 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/storage/DeviceStorageMonitorService;->postCheckMemoryMsg(ZJ)V
 
-    .line 498
     return-void
 .end method
 
 .method public getMemoryLowThreshold()J
     .locals 2
 
-    .prologue
-    .line 507
     iget-object v0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$3;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
     iget-wide v0, v0, Lcom/android/server/storage/DeviceStorageMonitorService;->mMemLowThreshold:J
@@ -68,8 +61,6 @@
 .method public isMemoryLow()Z
     .locals 1
 
-    .prologue
-    .line 502
     iget-object v0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$3;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
     iget-boolean v0, v0, Lcom/android/server/storage/DeviceStorageMonitorService;->mLowMemFlag:Z

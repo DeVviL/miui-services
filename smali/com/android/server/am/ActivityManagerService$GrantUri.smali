@@ -25,34 +25,21 @@
 # direct methods
 .method public constructor <init>(ILandroid/net/Uri;Z)V
     .locals 0
-    .param p1, "sourceUserId"    # I
-    .param p2, "uri"    # Landroid/net/Uri;
-    .param p3, "prefix"    # Z
 
-    .prologue
-    .line 842
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 843
     iput p1, p0, Lcom/android/server/am/ActivityManagerService$GrantUri;->sourceUserId:I
 
-    .line 844
     iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$GrantUri;->uri:Landroid/net/Uri;
 
-    .line 845
     iput-boolean p3, p0, Lcom/android/server/am/ActivityManagerService$GrantUri;->prefix:Z
 
-    .line 846
     return-void
 .end method
 
 .method public static resolve(ILandroid/net/Uri;)Lcom/android/server/am/ActivityManagerService$GrantUri;
     .locals 4
-    .param p0, "defaultSourceUserHandle"    # I
-    .param p1, "uri"    # Landroid/net/Uri;
 
-    .prologue
-    .line 881
     new-instance v0, Lcom/android/server/am/ActivityManagerService$GrantUri;
 
     invoke-static {p1, p0}, Landroid/content/ContentProvider;->getUserIdFromUri(Landroid/net/Uri;I)I
@@ -74,23 +61,17 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 859
     instance-of v2, p1, Lcom/android/server/am/ActivityManagerService$GrantUri;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
-    .line 860
     check-cast v0, Lcom/android/server/am/ActivityManagerService$GrantUri;
 
-    .line 861
-    .local v0, "other":Lcom/android/server/am/ActivityManagerService$GrantUri;
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$GrantUri;->uri:Landroid/net/Uri;
 
     iget-object v3, v0, Lcom/android/server/am/ActivityManagerService$GrantUri;->uri:Landroid/net/Uri;
@@ -115,8 +96,6 @@
 
     const/4 v1, 0x1
 
-    .line 864
-    .end local v0    # "other":Lcom/android/server/am/ActivityManagerService$GrantUri;
     :cond_0
     return v1
 .end method
@@ -124,17 +103,12 @@
 .method public hashCode()I
     .locals 3
 
-    .prologue
-    .line 850
     const/4 v0, 0x1
 
-    .line 851
-    .local v0, "hashCode":I
     iget v1, p0, Lcom/android/server/am/ActivityManagerService$GrantUri;->sourceUserId:I
 
     add-int/lit8 v0, v1, 0x1f
 
-    .line 852
     mul-int/lit8 v1, v0, 0x1f
 
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$GrantUri;->uri:Landroid/net/Uri;
@@ -145,7 +119,6 @@
 
     add-int v0, v1, v2
 
-    .line 853
     mul-int/lit8 v2, v0, 0x1f
 
     iget-boolean v1, p0, Lcom/android/server/am/ActivityManagerService$GrantUri;->prefix:Z
@@ -157,10 +130,8 @@
     :goto_0
     add-int v0, v2, v1
 
-    .line 854
     return v0
 
-    .line 853
     :cond_0
     const/16 v1, 0x4d5
 
@@ -170,8 +141,6 @@
 .method public toSafeString()Ljava/lang/String;
     .locals 3
 
-    .prologue
-    .line 875
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -206,8 +175,6 @@
 
     move-result-object v0
 
-    .line 876
-    .local v0, "result":Ljava/lang/String;
     iget-boolean v1, p0, Lcom/android/server/am/ActivityManagerService$GrantUri;->prefix:Z
 
     if-eqz v1, :cond_0
@@ -230,7 +197,6 @@
 
     move-result-object v0
 
-    .line 877
     :cond_0
     return-object v0
 .end method
@@ -238,8 +204,6 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .prologue
-    .line 869
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -274,8 +238,6 @@
 
     move-result-object v0
 
-    .line 870
-    .local v0, "result":Ljava/lang/String;
     iget-boolean v1, p0, Lcom/android/server/am/ActivityManagerService$GrantUri;->prefix:Z
 
     if-eqz v1, :cond_0
@@ -298,7 +260,6 @@
 
     move-result-object v0
 
-    .line 871
     :cond_0
     return-object v0
 .end method

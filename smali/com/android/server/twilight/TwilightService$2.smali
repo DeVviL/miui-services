@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/twilight/TwilightService;)V
     .locals 0
 
-    .prologue
-    .line 426
     iput-object p1, p0, Lcom/android/server/twilight/TwilightService$2;->this$0:Lcom/android/server/twilight/TwilightService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,11 +33,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 429
     const-string v0, "android.intent.action.AIRPLANE_MODE"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -62,18 +56,15 @@
 
     if-nez v0, :cond_0
 
-    .line 432
     iget-object v0, p0, Lcom/android/server/twilight/TwilightService$2;->this$0:Lcom/android/server/twilight/TwilightService;
 
     iget-object v0, v0, Lcom/android/server/twilight/TwilightService;->mLocationHandler:Lcom/android/server/twilight/TwilightService$LocationHandler;
 
     invoke-virtual {v0}, Lcom/android/server/twilight/TwilightService$LocationHandler;->requestLocationUpdate()V
 
-    .line 438
     :goto_0
     return-void
 
-    .line 437
     :cond_0
     iget-object v0, p0, Lcom/android/server/twilight/TwilightService$2;->this$0:Lcom/android/server/twilight/TwilightService;
 

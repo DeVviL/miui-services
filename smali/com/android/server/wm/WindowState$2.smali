@@ -39,8 +39,6 @@
 .method constructor <init>(Lcom/android/server/wm/WindowState;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;)V
     .locals 0
 
-    .prologue
-    .line 1440
     iput-object p1, p0, Lcom/android/server/wm/WindowState$2;->this$0:Lcom/android/server/wm/WindowState;
 
     iput-object p2, p0, Lcom/android/server/wm/WindowState$2;->val$frame:Landroid/graphics/Rect;
@@ -67,8 +65,6 @@
 .method public run()V
     .locals 8
 
-    .prologue
-    .line 1444
     :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/WindowState$2;->this$0:Lcom/android/server/wm/WindowState;
 
@@ -92,11 +88,9 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1449
     :goto_0
     return-void
 
-    .line 1446
     :catch_0
     move-exception v0
 

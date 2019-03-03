@@ -23,18 +23,13 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/NetworkScoreService;Ljava/lang/String;)V
     .locals 0
-    .param p2, "packageName"    # Ljava/lang/String;
 
-    .prologue
-    .line 73
     iput-object p1, p0, Lcom/android/server/NetworkScoreService$ScorerChangedReceiver;->this$0:Lcom/android/server/NetworkScoreService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    .line 74
     iput-object p2, p0, Lcom/android/server/NetworkScoreService$ScorerChangedReceiver;->mRegisteredPackage:Ljava/lang/String;
 
-    .line 75
     return-void
 .end method
 
@@ -42,17 +37,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 79
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 80
-    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.PACKAGE_CHANGED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -90,7 +79,6 @@
 
     if-nez v1, :cond_1
 
-    .line 85
     const-string v1, "NetworkScoreService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -121,14 +109,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 87
     iget-object v1, p0, Lcom/android/server/NetworkScoreService$ScorerChangedReceiver;->this$0:Lcom/android/server/NetworkScoreService;
 
     const/4 v2, 0x0
 
     invoke-static {v1, v2}, Lcom/android/server/NetworkScoreService;->access$100(Lcom/android/server/NetworkScoreService;Ljava/lang/String;)Z
 
-    .line 89
     :cond_1
     return-void
 .end method

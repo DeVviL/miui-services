@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/miui/server/BackupManagerService;I)V
     .locals 0
 
-    .prologue
-    .line 230
     iput-object p1, p0, Lcom/miui/server/BackupManagerService$2;->this$0:Lcom/miui/server/BackupManagerService;
 
     iput p2, p0, Lcom/miui/server/BackupManagerService$2;->val$token:I
@@ -43,8 +41,6 @@
 .method public run()V
     .locals 9
 
-    .prologue
-    .line 233
     const-string v1, "backup"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -53,8 +49,6 @@
 
     check-cast v0, Landroid/app/backup/IBackupManager;
 
-    .line 236
-    .local v0, "bm":Landroid/app/backup/IBackupManager;
     :try_start_0
     iget v1, p0, Lcom/miui/server/BackupManagerService$2;->val$token:I
 
@@ -80,16 +74,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 240
     :goto_0
     return-void
 
-    .line 237
     :catch_0
     move-exception v6
 
-    .line 238
-    .local v6, "e":Landroid/os/RemoteException;
     const-string v1, "Backup:BackupManagerService"
 
     const-string v2, "acknowledgeFullBackupOrRestore failed"

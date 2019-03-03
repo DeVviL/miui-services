@@ -20,8 +20,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,21 +29,15 @@
 # virtual methods
 .method public initialize(Landroid/content/Context;)V
     .locals 0
-    .param p1, "ctx"    # Landroid/content/Context;
 
-    .prologue
-    .line 29
     return-void
 .end method
 
 .method public process(Lcom/android/server/notification/NotificationRecord;)Lcom/android/server/notification/RankingReconsideration;
     .locals 5
-    .param p1, "record"    # Lcom/android/server/notification/NotificationRecord;
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 32
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getNotification()Landroid/app/Notification;
@@ -54,18 +46,15 @@
 
     if-nez v1, :cond_1
 
-    .line 46
     :cond_0
     :goto_0
     return-object v4
 
-    .line 37
     :cond_1
     iget-object v1, p0, Lcom/android/server/notification/PackageVisibilityExtractor;->mConfig:Lcom/android/server/notification/RankingConfig;
 
     if-eqz v1, :cond_0
 
-    .line 42
     iget-object v1, p0, Lcom/android/server/notification/PackageVisibilityExtractor;->mConfig:Lcom/android/server/notification/RankingConfig;
 
     iget-object v2, p1, Lcom/android/server/notification/NotificationRecord;->sbn:Landroid/service/notification/StatusBarNotification;
@@ -84,8 +73,6 @@
 
     move-result v0
 
-    .line 44
-    .local v0, "packageVisibility":I
     invoke-virtual {p1, v0}, Lcom/android/server/notification/NotificationRecord;->setPackageVisibilityOverride(I)V
 
     goto :goto_0
@@ -93,12 +80,8 @@
 
 .method public setConfig(Lcom/android/server/notification/RankingConfig;)V
     .locals 0
-    .param p1, "config"    # Lcom/android/server/notification/RankingConfig;
 
-    .prologue
-    .line 51
     iput-object p1, p0, Lcom/android/server/notification/PackageVisibilityExtractor;->mConfig:Lcom/android/server/notification/RankingConfig;
 
-    .line 52
     return-void
 .end method

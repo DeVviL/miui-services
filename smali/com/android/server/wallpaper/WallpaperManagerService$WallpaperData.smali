@@ -56,45 +56,35 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 3
-    .param p1, "userId"    # I
 
-    .prologue
     const/4 v2, -0x1
 
     const/4 v1, 0x0
 
-    .line 221
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 193
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->name:Ljava/lang/String;
 
-    .line 213
     new-instance v0, Landroid/os/RemoteCallbackList;
 
     invoke-direct {v0}, Landroid/os/RemoteCallbackList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->callbacks:Landroid/os/RemoteCallbackList;
 
-    .line 216
     iput v2, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->width:I
 
-    .line 217
     iput v2, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->height:I
 
-    .line 219
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0, v1, v1, v1, v1}, Landroid/graphics/Rect;-><init>(IIII)V
 
     iput-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->padding:Landroid/graphics/Rect;
 
-    .line 222
     iput p1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->userId:I
 
-    .line 223
     new-instance v0, Ljava/io/File;
 
     invoke-static {p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->access$000(I)Ljava/io/File;
@@ -107,16 +97,12 @@
 
     iput-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->wallpaperFile:Ljava/io/File;
 
-    .line 224
     return-void
 .end method
 
 .method static synthetic access$300(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
     .locals 1
-    .param p0, "x0"    # Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 
-    .prologue
-    .line 179
     iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->callbacks:Landroid/os/RemoteCallbackList;
 
     return-object v0

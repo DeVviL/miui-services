@@ -38,8 +38,6 @@
 .method constructor <init>(Lcom/android/server/location/GpsStatusListenerHelper;I[I[F[F[FIII)V
     .locals 1
 
-    .prologue
-    .line 90
     iput-object p1, p0, Lcom/android/server/location/GpsStatusListenerHelper$5;->this$0:Lcom/android/server/location/GpsStatusListenerHelper;
 
     iput p2, p0, Lcom/android/server/location/GpsStatusListenerHelper$5;->val$svCount:I
@@ -69,15 +67,12 @@
 # virtual methods
 .method public execute(Landroid/location/IGpsStatusListener;)V
     .locals 9
-    .param p1, "listener"    # Landroid/location/IGpsStatusListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 93
     iget v1, p0, Lcom/android/server/location/GpsStatusListenerHelper$5;->val$svCount:I
 
     iget-object v2, p0, Lcom/android/server/location/GpsStatusListenerHelper$5;->val$prns:[I
@@ -98,24 +93,19 @@
 
     invoke-interface/range {v0 .. v8}, Landroid/location/IGpsStatusListener;->onSvStatusChanged(I[I[F[F[FIII)V
 
-    .line 102
     return-void
 .end method
 
 .method public bridge synthetic execute(Landroid/os/IInterface;)V
     .locals 0
-    .param p1, "x0"    # Landroid/os/IInterface;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 90
     check-cast p1, Landroid/location/IGpsStatusListener;
 
-    .end local p1    # "x0":Landroid/os/IInterface;
     invoke-virtual {p0, p1}, Lcom/android/server/location/GpsStatusListenerHelper$5;->execute(Landroid/location/IGpsStatusListener;)V
 
     return-void

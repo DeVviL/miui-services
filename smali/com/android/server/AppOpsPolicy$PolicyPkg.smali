@@ -36,28 +36,17 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IILjava/lang/String;)V
     .locals 0
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "mode"    # I
-    .param p3, "show"    # I
-    .param p4, "type"    # Ljava/lang/String;
 
-    .prologue
-    .line 86
     invoke-direct {p0}, Landroid/util/SparseArray;-><init>()V
 
-    .line 87
     iput-object p1, p0, Lcom/android/server/AppOpsPolicy$PolicyPkg;->packageName:Ljava/lang/String;
 
-    .line 88
     iput p2, p0, Lcom/android/server/AppOpsPolicy$PolicyPkg;->mode:I
 
-    .line 89
     iput p3, p0, Lcom/android/server/AppOpsPolicy$PolicyPkg;->show:I
 
-    .line 90
     iput-object p4, p0, Lcom/android/server/AppOpsPolicy$PolicyPkg;->type:Ljava/lang/String;
 
-    .line 91
     return-void
 .end method
 
@@ -66,8 +55,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 95
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

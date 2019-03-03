@@ -25,8 +25,6 @@
 .method private constructor <init>(Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;)V
     .locals 0
 
-    .prologue
-    .line 56
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$AutoOnHandler;->this$0:Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +34,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;
-    .param p2, "x1"    # Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$1;
 
-    .prologue
-    .line 56
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$AutoOnHandler;-><init>(Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;)V
 
     return-void
@@ -50,10 +44,7 @@
 # virtual methods
 .method public handle(Lcom/android/server/hdmi/HdmiCecMessage;)Z
     .locals 1
-    .param p1, "message"    # Lcom/android/server/hdmi/HdmiCecMessage;
 
-    .prologue
-    .line 59
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$AutoOnHandler;->this$0:Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;->access$100(Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;)Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
@@ -66,7 +57,6 @@
 
     if-nez v0, :cond_0
 
-    .line 60
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$AutoOnHandler;->this$0:Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;->access$200(Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;)Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$CecMessageHandler;
@@ -75,10 +65,8 @@
 
     invoke-interface {v0, p1}, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$CecMessageHandler;->handle(Lcom/android/server/hdmi/HdmiCecMessage;)Z
 
-    .line 61
     const/4 v0, 0x1
 
-    .line 63
     :goto_0
     return v0
 

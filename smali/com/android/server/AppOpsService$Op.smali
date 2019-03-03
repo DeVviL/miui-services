@@ -50,34 +50,22 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;II)V
     .locals 1
-    .param p1, "_uid"    # I
-    .param p2, "_packageName"    # Ljava/lang/String;
-    .param p3, "_op"    # I
-    .param p4, "_mode"    # I
 
-    .prologue
-    .line 186
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 187
     iput p1, p0, Lcom/android/server/AppOpsService$Op;->uid:I
 
-    .line 188
     iput-object p2, p0, Lcom/android/server/AppOpsService$Op;->packageName:Ljava/lang/String;
 
-    .line 189
     iput p3, p0, Lcom/android/server/AppOpsService$Op;->op:I
 
-    .line 190
     iput p4, p0, Lcom/android/server/AppOpsService$Op;->mode:I
 
-    .line 191
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/AppOpsService$Op;->clientTokens:Ljava/util/ArrayList;
 
-    .line 192
     return-void
 .end method

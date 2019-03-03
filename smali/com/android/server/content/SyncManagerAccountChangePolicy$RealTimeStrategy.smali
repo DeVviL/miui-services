@@ -21,8 +21,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 169
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,10 +28,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/content/SyncManagerAccountChangePolicy$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/content/SyncManagerAccountChangePolicy$1;
 
-    .prologue
-    .line 169
     invoke-direct {p0}, Lcom/android/server/content/SyncManagerAccountChangePolicy$RealTimeStrategy;-><init>()V
 
     return-void
@@ -43,12 +38,7 @@
 # virtual methods
 .method public isSyncForbidden(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Z
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "authority"    # Ljava/lang/String;
-    .param p3, "extras"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 173
     const/4 v0, 0x0
 
     return v0

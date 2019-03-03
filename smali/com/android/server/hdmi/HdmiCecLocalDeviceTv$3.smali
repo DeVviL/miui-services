@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;I)V
     .locals 0
 
-    .prologue
-    .line 1804
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv$3;->this$0:Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
     iput p2, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv$3;->val$recorderAddress:I
@@ -42,13 +40,9 @@
 # virtual methods
 .method public onSendCompleted(I)V
     .locals 3
-    .param p1, "error"    # I
 
-    .prologue
-    .line 1807
     if-eqz p1, :cond_0
 
-    .line 1808
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv$3;->this$0:Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
     iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv$3;->val$recorderAddress:I
@@ -57,7 +51,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceClearTimerRecordingResult(II)V
 
-    .line 1811
     :cond_0
     return-void
 .end method

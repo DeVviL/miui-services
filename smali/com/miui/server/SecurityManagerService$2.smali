@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/miui/server/SecurityManagerService;Lmiui/security/ISecurityCallback;)V
     .locals 0
 
-    .prologue
-    .line 1754
     iput-object p1, p0, Lcom/miui/server/SecurityManagerService$2;->this$0:Lcom/miui/server/SecurityManagerService;
 
     iput-object p2, p0, Lcom/miui/server/SecurityManagerService$2;->val$cb:Lmiui/security/ISecurityCallback;
@@ -43,8 +41,6 @@
 .method public binderDied()V
     .locals 2
 
-    .prologue
-    .line 1757
     iget-object v0, p0, Lcom/miui/server/SecurityManagerService$2;->val$cb:Lmiui/security/ISecurityCallback;
 
     invoke-interface {v0}, Lmiui/security/ISecurityCallback;->asBinder()Landroid/os/IBinder;
@@ -55,20 +51,17 @@
 
     invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 1758
     iget-object v0, p0, Lcom/miui/server/SecurityManagerService$2;->this$0:Lcom/miui/server/SecurityManagerService;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/miui/server/SecurityManagerService;->access$1902(Lcom/miui/server/SecurityManagerService;Lmiui/security/ISecurityCallback;)Lmiui/security/ISecurityCallback;
 
-    .line 1759
     const-string v0, "SecurityManagerService"
 
     const-string v1, "securitycenter died, reset handle to null"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1760
     return-void
 .end method

@@ -30,39 +30,27 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
-    .prologue
-    .line 34
     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 31
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/intel/cws/cwsservicemanager/CsmException;->mCsmCause:I
 
-    .line 35
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "cause"    # I
 
-    .prologue
-    .line 38
     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 31
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/intel/cws/cwsservicemanager/CsmException;->mCsmCause:I
 
-    .line 39
     iput p2, p0, Lcom/intel/cws/cwsservicemanager/CsmException;->mCsmCause:I
 
-    .line 40
     return-void
 .end method
 
@@ -71,8 +59,6 @@
 .method public getCsmCause()I
     .locals 1
 
-    .prologue
-    .line 43
     iget v0, p0, Lcom/intel/cws/cwsservicemanager/CsmException;->mCsmCause:I
 
     return v0

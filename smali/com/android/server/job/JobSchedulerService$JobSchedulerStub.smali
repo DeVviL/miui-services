@@ -33,13 +33,10 @@
 .method constructor <init>(Lcom/android/server/job/JobSchedulerService;)V
     .locals 1
 
-    .prologue
-    .line 705
     iput-object p1, p0, Lcom/android/server/job/JobSchedulerService$JobSchedulerStub;->this$0:Lcom/android/server/job/JobSchedulerService;
 
     invoke-direct {p0}, Landroid/app/job/IJobScheduler$Stub;-><init>()V
 
-    .line 709
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
@@ -51,16 +48,11 @@
 
 .method private canPersistJobs(II)Z
     .locals 6
-    .param p1, "pid"    # I
-    .param p2, "uid"    # I
 
-    .prologue
-    .line 739
     iget-object v4, p0, Lcom/android/server/job/JobSchedulerService$JobSchedulerStub;->mPersistCache:Landroid/util/SparseArray;
 
     monitor-enter v4
 
-    .line 740
     :try_start_0
     iget-object v3, p0, Lcom/android/server/job/JobSchedulerService$JobSchedulerStub;->mPersistCache:Landroid/util/SparseArray;
 
@@ -70,25 +62,17 @@
 
     check-cast v0, Ljava/lang/Boolean;
 
-    .line 741
-    .local v0, "cached":Ljava/lang/Boolean;
     if-eqz v0, :cond_0
 
-    .line 742
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
 
-    .line 752
-    .local v1, "canPersist":Z
     :goto_0
     monitor-exit v4
 
-    .line 753
     return v1
 
-    .line 747
-    .end local v1    # "canPersist":Z
     :cond_0
     iget-object v3, p0, Lcom/android/server/job/JobSchedulerService$JobSchedulerStub;->this$0:Lcom/android/server/job/JobSchedulerService;
 
@@ -102,14 +86,10 @@
 
     move-result v2
 
-    .line 749
-    .local v2, "result":I
     if-nez v2, :cond_1
 
     const/4 v1, 0x1
 
-    .line 750
-    .restart local v1    # "canPersist":Z
     :goto_1
     iget-object v3, p0, Lcom/android/server/job/JobSchedulerService$JobSchedulerStub;->mPersistCache:Landroid/util/SparseArray;
 
@@ -121,10 +101,6 @@
 
     goto :goto_0
 
-    .line 752
-    .end local v0    # "cached":Ljava/lang/Boolean;
-    .end local v1    # "canPersist":Z
-    .end local v2    # "result":I
     :catchall_0
     move-exception v3
 
@@ -134,9 +110,6 @@
 
     throw v3
 
-    .line 749
-    .restart local v0    # "cached":Ljava/lang/Boolean;
-    .restart local v2    # "result":I
     :cond_1
     const/4 v1, 0x0
 
@@ -145,23 +118,15 @@
 
 .method private enforceValidJobRequest(ILandroid/app/job/JobInfo;)V
     .locals 6
-    .param p1, "uid"    # I
-    .param p2, "job"    # Landroid/app/job/JobInfo;
 
-    .prologue
-    .line 715
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v0
 
-    .line 716
-    .local v0, "pm":Landroid/content/pm/IPackageManager;
     invoke-virtual {p2}, Landroid/app/job/JobInfo;->getService()Landroid/content/ComponentName;
 
     move-result-object v1
 
-    .line 718
-    .local v1, "service":Landroid/content/ComponentName;
     const/4 v3, 0x0
 
     :try_start_0
@@ -173,11 +138,8 @@
 
     move-result-object v2
 
-    .line 719
-    .local v2, "si":Landroid/content/pm/ServiceInfo;
     if-nez v2, :cond_1
 
-    .line 720
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -202,17 +164,12 @@
 
     throw v3
 
-    .line 730
-    .end local v2    # "si":Landroid/content/pm/ServiceInfo;
     :catch_0
     move-exception v3
 
-    .line 733
     :cond_0
     return-void
 
-    .line 722
-    .restart local v2    # "si":Landroid/content/pm/ServiceInfo;
     :cond_1
     iget-object v3, v2, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
@@ -220,7 +177,6 @@
 
     if-eq v3, p1, :cond_2
 
-    .line 723
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -259,7 +215,6 @@
 
     throw v3
 
-    .line 726
     :cond_2
     const-string v3, "android.permission.BIND_JOB_SERVICE"
 
@@ -271,7 +226,6 @@
 
     if-nez v3, :cond_0
 
-    .line 727
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -309,27 +263,20 @@
 # virtual methods
 .method public cancel(I)V
     .locals 4
-    .param p1, "jobId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 807
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v2
 
-    .line 809
-    .local v2, "uid":I
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 811
-    .local v0, "ident":J
     :try_start_0
     iget-object v3, p0, Lcom/android/server/job/JobSchedulerService$JobSchedulerStub;->this$0:Lcom/android/server/job/JobSchedulerService;
 
@@ -337,13 +284,10 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 813
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 815
     return-void
 
-    .line 813
     :catchall_0
     move-exception v3
 
@@ -360,20 +304,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 795
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v2
 
-    .line 797
-    .local v2, "uid":I
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 799
-    .local v0, "ident":J
     :try_start_0
     iget-object v3, p0, Lcom/android/server/job/JobSchedulerService$JobSchedulerStub;->this$0:Lcom/android/server/job/JobSchedulerService;
 
@@ -381,13 +319,10 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 801
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 803
     return-void
 
-    .line 801
     :catchall_0
     move-exception v3
 
@@ -398,12 +333,7 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 5
-    .param p1, "fd"    # Ljava/io/FileDescriptor;
-    .param p2, "pw"    # Ljava/io/PrintWriter;
-    .param p3, "args"    # [Ljava/lang/String;
 
-    .prologue
-    .line 822
     iget-object v2, p0, Lcom/android/server/job/JobSchedulerService$JobSchedulerStub;->this$0:Lcom/android/server/job/JobSchedulerService;
 
     invoke-virtual {v2}, Lcom/android/server/job/JobSchedulerService;->getContext()Landroid/content/Context;
@@ -416,13 +346,10 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 824
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 826
-    .local v0, "identityToken":J
     :try_start_0
     iget-object v2, p0, Lcom/android/server/job/JobSchedulerService$JobSchedulerStub;->this$0:Lcom/android/server/job/JobSchedulerService;
 
@@ -430,13 +357,10 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 828
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 830
     return-void
 
-    .line 828
     :catchall_0
     move-exception v2
 
@@ -463,20 +387,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 783
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v2
 
-    .line 785
-    .local v2, "uid":I
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 787
-    .local v0, "ident":J
     :try_start_0
     iget-object v3, p0, Lcom/android/server/job/JobSchedulerService$JobSchedulerStub;->this$0:Lcom/android/server/job/JobSchedulerService;
 
@@ -486,7 +404,6 @@
 
     move-result-object v3
 
-    .line 789
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-object v3
@@ -501,44 +418,34 @@
 
 .method public schedule(Landroid/app/job/JobInfo;)I
     .locals 6
-    .param p1, "job"    # Landroid/app/job/JobInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 762
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v2
 
-    .line 763
-    .local v2, "pid":I
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v3
 
-    .line 765
-    .local v3, "uid":I
     invoke-direct {p0, v3, p1}, Lcom/android/server/job/JobSchedulerService$JobSchedulerStub;->enforceValidJobRequest(ILandroid/app/job/JobInfo;)V
 
-    .line 766
     invoke-virtual {p1}, Landroid/app/job/JobInfo;->isPersisted()Z
 
     move-result v4
 
     if-eqz v4, :cond_0
 
-    .line 767
     invoke-direct {p0, v2, v3}, Lcom/android/server/job/JobSchedulerService$JobSchedulerStub;->canPersistJobs(II)Z
 
     move-result v4
 
     if-nez v4, :cond_0
 
-    .line 768
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string v5, "Error: requested job be persisted without holding RECEIVE_BOOT_COMPLETED permission."
@@ -547,14 +454,11 @@
 
     throw v4
 
-    .line 773
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 775
-    .local v0, "ident":J
     :try_start_0
     iget-object v4, p0, Lcom/android/server/job/JobSchedulerService$JobSchedulerStub;->this$0:Lcom/android/server/job/JobSchedulerService;
 
@@ -564,7 +468,6 @@
 
     move-result v4
 
-    .line 777
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return v4

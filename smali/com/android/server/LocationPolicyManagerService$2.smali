@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/LocationPolicyManagerService;)V
     .locals 0
 
-    .prologue
-    .line 262
     iput-object p1, p0, Lcom/android/server/LocationPolicyManagerService$2;->this$0:Lcom/android/server/LocationPolicyManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,18 +33,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 265
     const-string v0, "LocationPolicy"
 
     const-string v1, "Screen state changed"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 268
     iget-object v0, p0, Lcom/android/server/LocationPolicyManagerService$2;->this$0:Lcom/android/server/LocationPolicyManagerService;
 
     invoke-static {v0}, Lcom/android/server/LocationPolicyManagerService;->access$000(Lcom/android/server/LocationPolicyManagerService;)Ljava/lang/Object;
@@ -55,7 +48,6 @@
 
     monitor-enter v1
 
-    .line 269
     :try_start_0
     iget-object v0, p0, Lcom/android/server/LocationPolicyManagerService$2;->this$0:Lcom/android/server/LocationPolicyManagerService;
 
@@ -67,18 +59,14 @@
 
     invoke-static {v0, v2}, Lcom/android/server/LocationPolicyManagerService;->access$202(Lcom/android/server/LocationPolicyManagerService;Z)Z
 
-    .line 270
     iget-object v0, p0, Lcom/android/server/LocationPolicyManagerService$2;->this$0:Lcom/android/server/LocationPolicyManagerService;
 
     invoke-static {v0}, Lcom/android/server/LocationPolicyManagerService;->access$400(Lcom/android/server/LocationPolicyManagerService;)V
 
-    .line 271
     monitor-exit v1
 
-    .line 272
     return-void
 
-    .line 271
     :catchall_0
     move-exception v0
 

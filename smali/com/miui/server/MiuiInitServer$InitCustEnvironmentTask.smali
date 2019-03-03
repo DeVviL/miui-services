@@ -25,55 +25,38 @@
 # direct methods
 .method constructor <init>(Lcom/miui/server/MiuiInitServer;Ljava/lang/String;Lmiui/os/IMiuiInitObserver;)V
     .locals 0
-    .param p2, "custVariant"    # Ljava/lang/String;
-    .param p3, "obs"    # Lmiui/os/IMiuiInitObserver;
 
-    .prologue
-    .line 88
     iput-object p1, p0, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->this$0:Lcom/miui/server/MiuiInitServer;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
-    .line 89
     iput-object p2, p0, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->mCustVarinat:Ljava/lang/String;
 
-    .line 90
     iput-object p3, p0, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->mObs:Lmiui/os/IMiuiInitObserver;
 
-    .line 91
     return-void
 .end method
 
 .method private importCustProperties(Ljava/io/File;)V
     .locals 6
-    .param p1, "custProp"    # Ljava/io/File;
 
-    .prologue
-    .line 155
     invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
     move-result v4
 
     if-eqz v4, :cond_1
 
-    .line 157
     :try_start_0
     new-instance v1, Ljava/io/FileReader;
 
     invoke-direct {v1, p1}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
 
-    .line 158
-    .local v1, "fileReader":Ljava/io/FileReader;
     new-instance v0, Ljava/io/BufferedReader;
 
     invoke-direct {v0, v1}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
-    .line 159
-    .local v0, "bufferReader":Ljava/io/BufferedReader;
     const/4 v2, 0x0
 
-    .line 160
-    .local v2, "line":Ljava/lang/String;
     :cond_0
     :goto_0
     invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
@@ -82,12 +65,10 @@
 
     if-eqz v2, :cond_2
 
-    .line 161
     invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 162
     const-string v4, "#"
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -96,15 +77,12 @@
 
     if-nez v4, :cond_0
 
-    .line 165
     const-string v4, "="
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v3
 
-    .line 166
-    .local v3, "ss":[Ljava/lang/String;
     if-eqz v3, :cond_0
 
     array-length v4, v3
@@ -113,7 +91,6 @@
 
     if-ne v4, v5, :cond_0
 
-    .line 169
     const/4 v4, 0x0
 
     aget-object v4, v3, v4
@@ -126,30 +103,18 @@
 
     goto :goto_0
 
-    .line 174
-    .end local v0    # "bufferReader":Ljava/io/BufferedReader;
-    .end local v1    # "fileReader":Ljava/io/FileReader;
-    .end local v2    # "line":Ljava/lang/String;
-    .end local v3    # "ss":[Ljava/lang/String;
     :catch_0
     move-exception v4
 
-    .line 177
     :cond_1
     :goto_1
     return-void
 
-    .line 171
-    .restart local v0    # "bufferReader":Ljava/io/BufferedReader;
-    .restart local v1    # "fileReader":Ljava/io/FileReader;
-    .restart local v2    # "line":Ljava/lang/String;
     :cond_2
     invoke-direct {p0}, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->pokeSystemProperties()V
 
-    .line 172
     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
 
-    .line 173
     invoke-virtual {v1}, Ljava/io/FileReader;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
@@ -159,29 +124,20 @@
 
 .method private initCustEnvironment(Ljava/lang/String;)Z
     .locals 5
-    .param p1, "custVariant"    # Ljava/lang/String;
 
-    .prologue
-    .line 115
     invoke-static {p1}, Lmiui/util/CustomizeUtil;->setMiuiCustVariatDir(Ljava/lang/String;)V
 
-    .line 116
     invoke-static {}, Lmiui/util/CustomizeUtil;->getMiuiCustVariantDir()Ljava/io/File;
 
     move-result-object v1
 
-    .line 117
-    .local v1, "custVariantDir":Ljava/io/File;
     if-nez v1, :cond_0
 
-    .line 118
     const/4 v3, 0x0
 
-    .line 147
     :goto_0
     return v3
 
-    .line 127
     :cond_0
     new-instance v3, Ljava/io/File;
 
@@ -191,10 +147,8 @@
 
     invoke-direct {p0, v3}, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->importCustProperties(Ljava/io/File;)V
 
-    .line 130
     invoke-direct {p0, p1}, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->saveCustVariantToFile(Ljava/lang/String;)V
 
-    .line 133
     iget-object v3, p0, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->this$0:Lcom/miui/server/MiuiInitServer;
 
     invoke-static {v3}, Lcom/miui/server/MiuiInitServer;->access$200(Lcom/miui/server/MiuiInitServer;)Landroid/content/Context;
@@ -211,27 +165,22 @@
 
     move-result-object v0
 
-    .line 135
-    .local v0, "countryCode":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    .line 136
     invoke-static {}, Lmiui/os/Build;->getRegion()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 137
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-nez v3, :cond_1
 
-    .line 138
     iget-object v3, p0, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->this$0:Lcom/miui/server/MiuiInitServer;
 
     invoke-static {v3}, Lcom/miui/server/MiuiInitServer;->access$200(Lcom/miui/server/MiuiInitServer;)Landroid/content/Context;
@@ -246,18 +195,13 @@
 
     check-cast v2, Landroid/net/wifi/WifiManager;
 
-    .line 140
-    .local v2, "wM":Landroid/net/wifi/WifiManager;
     const/4 v3, 0x1
 
     invoke-virtual {v2, v0, v3}, Landroid/net/wifi/WifiManager;->setCountryCode(Ljava/lang/String;Z)V
 
-    .line 145
-    .end local v2    # "wM":Landroid/net/wifi/WifiManager;
     :cond_1
     invoke-direct {p0}, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->installVanwardCustApps()V
 
-    .line 147
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v3
@@ -268,19 +212,14 @@
 .method private installVanwardCustApps()V
     .locals 0
 
-    .prologue
-    .line 151
     invoke-static {}, Lcom/android/server/pm/PreinstallApp;->installVanwardCustApps()V
 
-    .line 152
     return-void
 .end method
 
 .method private pokeSystemProperties()V
     .locals 11
 
-    .prologue
-    .line 182
     :try_start_0
     invoke-static {}, Landroid/os/ServiceManager;->listServices()[Ljava/lang/String;
     :try_end_0
@@ -288,39 +227,27 @@
 
     move-result-object v7
 
-    .line 186
-    .local v7, "services":[Ljava/lang/String;
     move-object v0, v7
 
-    .local v0, "arr$":[Ljava/lang/String;
     array-length v4, v0
 
-    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_1
 
     aget-object v6, v0, v3
 
-    .line 187
-    .local v6, "service":Ljava/lang/String;
     invoke-static {v6}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v5
 
-    .line 188
-    .local v5, "obj":Landroid/os/IBinder;
     if-eqz v5, :cond_0
 
-    .line 189
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 191
-    .local v1, "data":Landroid/os/Parcel;
     const v8, 0x5f535052
 
     const/4 v9, 0x0
@@ -333,44 +260,23 @@
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 197
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 186
-    .end local v1    # "data":Landroid/os/Parcel;
     :cond_0
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 183
-    .end local v0    # "arr$":[Ljava/lang/String;
-    .end local v3    # "i$":I
-    .end local v4    # "len$":I
-    .end local v5    # "obj":Landroid/os/IBinder;
-    .end local v6    # "service":Ljava/lang/String;
-    .end local v7    # "services":[Ljava/lang/String;
     :catch_0
     move-exception v2
 
-    .line 200
     :cond_1
     return-void
 
-    .line 193
-    .restart local v0    # "arr$":[Ljava/lang/String;
-    .restart local v1    # "data":Landroid/os/Parcel;
-    .restart local v3    # "i$":I
-    .restart local v4    # "len$":I
-    .restart local v5    # "obj":Landroid/os/IBinder;
-    .restart local v6    # "service":Ljava/lang/String;
-    .restart local v7    # "services":[Ljava/lang/String;
     :catch_1
     move-exception v2
 
-    .line 194
-    .local v2, "e":Ljava/lang/Exception;
     const-string v8, "MiuiInitServer"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -405,8 +311,6 @@
 
     goto :goto_1
 
-    .line 192
-    .end local v2    # "e":Ljava/lang/Exception;
     :catch_2
     move-exception v8
 
@@ -415,16 +319,11 @@
 
 .method private saveCustVariantToFile(Ljava/lang/String;)V
     .locals 5
-    .param p1, "custVariant"    # Ljava/lang/String;
 
-    .prologue
-    .line 203
     invoke-static {}, Lmiui/util/CustomizeUtil;->getMiuiCustVariantFile()Ljava/io/File;
 
     move-result-object v1
 
-    .line 205
-    .local v1, "custVariantFile":Ljava/io/File;
     :try_start_0
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -432,17 +331,14 @@
 
     if-nez v4, :cond_0
 
-    .line 206
     invoke-virtual {v1}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v4
 
     invoke-virtual {v4}, Ljava/io/File;->mkdirs()Z
 
-    .line 207
     invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
 
-    .line 209
     :cond_0
     new-instance v3, Ljava/io/FileWriter;
 
@@ -450,36 +346,24 @@
 
     invoke-direct {v3, v1, v4}, Ljava/io/FileWriter;-><init>(Ljava/io/File;Z)V
 
-    .line 210
-    .local v3, "fileWriter":Ljava/io/FileWriter;
     new-instance v0, Ljava/io/BufferedWriter;
 
     invoke-direct {v0, v3}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V
 
-    .line 211
-    .local v0, "bufferWriter":Ljava/io/BufferedWriter;
     invoke-virtual {v0, p1}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
 
-    .line 212
     invoke-virtual {v0}, Ljava/io/BufferedWriter;->close()V
 
-    .line 213
     invoke-virtual {v3}, Ljava/io/FileWriter;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 217
-    .end local v0    # "bufferWriter":Ljava/io/BufferedWriter;
-    .end local v3    # "fileWriter":Ljava/io/FileWriter;
     :goto_0
     return-void
 
-    .line 214
     :catch_0
     move-exception v2
 
-    .line 215
-    .local v2, "e":Ljava/io/IOException;
     invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
@@ -490,21 +374,16 @@
 .method public run()V
     .locals 5
 
-    .prologue
-    .line 95
     iget-object v2, p0, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->mCustVarinat:Ljava/lang/String;
 
     invoke-direct {p0, v2}, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->initCustEnvironment(Ljava/lang/String;)Z
 
     move-result v1
 
-    .line 96
-    .local v1, "ret":Z
     iget-object v2, p0, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->mObs:Lmiui/os/IMiuiInitObserver;
 
     if-eqz v2, :cond_0
 
-    .line 98
     :try_start_0
     iget-object v2, p0, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->mObs:Lmiui/os/IMiuiInitObserver;
 
@@ -512,7 +391,6 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 102
     :cond_0
     :goto_0
     iget-object v2, p0, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->this$0:Lcom/miui/server/MiuiInitServer;
@@ -521,7 +399,6 @@
 
     invoke-static {v2, v3}, Lcom/miui/server/MiuiInitServer;->access$102(Lcom/miui/server/MiuiInitServer;Z)Z
 
-    .line 105
     iget-object v2, p0, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->this$0:Lcom/miui/server/MiuiInitServer;
 
     invoke-static {v2}, Lcom/miui/server/MiuiInitServer;->access$200(Lcom/miui/server/MiuiInitServer;)Landroid/content/Context;
@@ -538,15 +415,12 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
-    .line 109
     new-instance v0, Landroid/content/Intent;
 
     const-string v2, "miui.intent.action.MIUI_REGION_CHANGED"
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 110
-    .local v0, "intent":Landroid/content/Intent;
     const-string v2, "region"
 
     invoke-static {}, Lmiui/os/Build;->getRegion()Ljava/lang/String;
@@ -555,7 +429,6 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 111
     iget-object v2, p0, Lcom/miui/server/MiuiInitServer$InitCustEnvironmentTask;->this$0:Lcom/miui/server/MiuiInitServer;
 
     invoke-static {v2}, Lcom/miui/server/MiuiInitServer;->access$200(Lcom/miui/server/MiuiInitServer;)Landroid/content/Context;
@@ -564,11 +437,8 @@
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 112
     return-void
 
-    .line 99
-    .end local v0    # "intent":Landroid/content/Intent;
     :catch_0
     move-exception v2
 

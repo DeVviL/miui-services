@@ -35,8 +35,6 @@
 .method private constructor <init>(Lcom/android/server/location/GpsStatusListenerHelper;)V
     .locals 0
 
-    .prologue
-    .line 117
     iput-object p1, p0, Lcom/android/server/location/GpsStatusListenerHelper$Operation;->this$0:Lcom/android/server/location/GpsStatusListenerHelper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,11 +44,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/location/GpsStatusListenerHelper;Lcom/android/server/location/GpsStatusListenerHelper$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/location/GpsStatusListenerHelper;
-    .param p2, "x1"    # Lcom/android/server/location/GpsStatusListenerHelper$1;
 
-    .prologue
-    .line 117
     invoke-direct {p0, p1}, Lcom/android/server/location/GpsStatusListenerHelper$Operation;-><init>(Lcom/android/server/location/GpsStatusListenerHelper;)V
 
     return-void

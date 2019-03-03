@@ -33,22 +33,16 @@
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountAndUser;)V
     .locals 1
-    .param p1, "accountAndUser"    # Landroid/accounts/AccountAndUser;
 
-    .prologue
-    .line 223
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 220
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/content/SyncStorageEngine$AccountInfo;->authorities:Ljava/util/HashMap;
 
-    .line 224
     iput-object p1, p0, Lcom/android/server/content/SyncStorageEngine$AccountInfo;->accountAndUser:Landroid/accounts/AccountAndUser;
 
-    .line 225
     return-void
 .end method

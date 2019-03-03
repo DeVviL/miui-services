@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/miui/server/SplashScreenServiceDelegate;)V
     .locals 0
 
-    .prologue
-    .line 158
     iput-object p1, p0, Lcom/miui/server/SplashScreenServiceDelegate$2;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,8 +35,6 @@
 .method private asyncSetSplashPackageCheckListener()V
     .locals 2
 
-    .prologue
-    .line 182
     invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getHandler()Landroid/os/Handler;
 
     move-result-object v0
@@ -49,7 +45,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 196
     return-void
 .end method
 
@@ -57,20 +52,15 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 5
-    .param p1, "name"    # Landroid/content/ComponentName;
-    .param p2, "service"    # Landroid/os/IBinder;
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 161
     iget-object v1, p0, Lcom/miui/server/SplashScreenServiceDelegate$2;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
 
     const-string v2, "SplashScreenService connected!"
 
     invoke-static {v1, v2}, Lcom/miui/server/SplashScreenServiceDelegate;->access$300(Lcom/miui/server/SplashScreenServiceDelegate;Ljava/lang/String;)V
 
-    .line 162
     iget-object v1, p0, Lcom/miui/server/SplashScreenServiceDelegate$2;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
 
     invoke-static {p2}, Lcom/miui/server/ISplashScreenService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/miui/server/ISplashScreenService;
@@ -79,7 +69,6 @@
 
     invoke-static {v1, v2}, Lcom/miui/server/SplashScreenServiceDelegate;->access$402(Lcom/miui/server/SplashScreenServiceDelegate;Lcom/miui/server/ISplashScreenService;)Lcom/miui/server/ISplashScreenService;
 
-    .line 163
     iget-object v1, p0, Lcom/miui/server/SplashScreenServiceDelegate$2;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -88,12 +77,10 @@
 
     invoke-static {v1, v2, v3}, Lcom/miui/server/SplashScreenServiceDelegate;->access$502(Lcom/miui/server/SplashScreenServiceDelegate;J)J
 
-    .line 164
     iget-object v1, p0, Lcom/miui/server/SplashScreenServiceDelegate$2;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
 
     invoke-static {v1, v4}, Lcom/miui/server/SplashScreenServiceDelegate;->access$602(Lcom/miui/server/SplashScreenServiceDelegate;I)I
 
-    .line 165
     iget-object v1, p0, Lcom/miui/server/SplashScreenServiceDelegate$2;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
 
     invoke-static {v1}, Lcom/miui/server/SplashScreenServiceDelegate;->access$700(Lcom/miui/server/SplashScreenServiceDelegate;)Landroid/os/Handler;
@@ -104,7 +91,6 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 167
     :try_start_0
     iget-object v1, p0, Lcom/miui/server/SplashScreenServiceDelegate$2;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
 
@@ -128,19 +114,14 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 172
     :goto_0
     invoke-direct {p0}, Lcom/miui/server/SplashScreenServiceDelegate$2;->asyncSetSplashPackageCheckListener()V
 
-    .line 173
     return-void
 
-    .line 168
     :catch_0
     move-exception v0
 
-    .line 169
-    .local v0, "e":Ljava/lang/Exception;
     iget-object v1, p0, Lcom/miui/server/SplashScreenServiceDelegate$2;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
 
     const-string v2, "linkToDeath exception"
@@ -152,23 +133,18 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
-    .param p1, "name"    # Landroid/content/ComponentName;
 
-    .prologue
-    .line 177
     iget-object v0, p0, Lcom/miui/server/SplashScreenServiceDelegate$2;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
 
     const-string v1, "SplashScreenService disconnected!"
 
     invoke-static {v0, v1}, Lcom/miui/server/SplashScreenServiceDelegate;->access$300(Lcom/miui/server/SplashScreenServiceDelegate;Ljava/lang/String;)V
 
-    .line 178
     iget-object v0, p0, Lcom/miui/server/SplashScreenServiceDelegate$2;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/miui/server/SplashScreenServiceDelegate;->access$402(Lcom/miui/server/SplashScreenServiceDelegate;Lcom/miui/server/ISplashScreenService;)Lcom/miui/server/ISplashScreenService;
 
-    .line 179
     return-void
 .end method

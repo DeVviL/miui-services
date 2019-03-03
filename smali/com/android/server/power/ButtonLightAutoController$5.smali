@@ -21,8 +21,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 185
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,10 +31,7 @@
 .method public run()V
     .locals 0
 
-    .prologue
-    .line 188
     invoke-static {}, Lcom/android/server/power/ButtonLightAutoController;->turnOffHWButtonLight()V
 
-    .line 189
     return-void
 .end method

@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/mwscoexhandlers/IA7262$IA7262STM;)V
     .locals 0
 
-    .prologue
-    .line 570
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/mwscoexhandlers/IA7262$IA7262STM$2;->this$1:Lcom/intel/internal/cellcoex/service/mwscoexhandlers/IA7262$IA7262STM;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,17 +36,13 @@
 # virtual methods
 .method public propertyChange(Ljava/beans/PropertyChangeEvent;)V
     .locals 3
-    .param p1, "event"    # Ljava/beans/PropertyChangeEvent;
 
-    .prologue
-    .line 573
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexhandlers/IA7262;->access$100()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 574
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -113,7 +107,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 577
     :cond_0
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexhandlers/IA7262$IA7262STM$2;->this$1:Lcom/intel/internal/cellcoex/service/mwscoexhandlers/IA7262$IA7262STM;
 
@@ -125,6 +118,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/intel/internal/cellcoex/service/mwscoexhandlers/IA7262$IA7262STM;->sendMessage(ILjava/lang/Object;)V
 
-    .line 578
     return-void
 .end method

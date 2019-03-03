@@ -29,8 +29,6 @@
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;ZZ)V
     .locals 0
 
-    .prologue
-    .line 14016
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$12;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iput-boolean p2, p0, Lcom/android/server/pm/PackageManagerService$12;->val$mediaStatus:Z
@@ -47,8 +45,6 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 14018
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$12;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-boolean v1, p0, Lcom/android/server/pm/PackageManagerService$12;->val$mediaStatus:Z
@@ -59,6 +55,5 @@
 
     invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->access$5300(Lcom/android/server/pm/PackageManagerService;ZZZ)V
 
-    .line 14019
     return-void
 .end method

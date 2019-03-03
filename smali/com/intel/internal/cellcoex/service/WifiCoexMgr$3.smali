@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/WifiCoexMgr;)V
     .locals 0
 
-    .prologue
-    .line 238
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$3;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,11 +33,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 241
     const-string v1, "newState"
 
     invoke-virtual {p2, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -48,13 +42,10 @@
 
     check-cast v0, Landroid/net/wifi/SupplicantState;
 
-    .line 243
-    .local v0, "supplicantState":Landroid/net/wifi/SupplicantState;
     sget-object v1, Landroid/net/wifi/SupplicantState;->COMPLETED:Landroid/net/wifi/SupplicantState;
 
     if-ne v0, v1, :cond_1
 
-    .line 244
     const-string v1, "CWS_CELLCOEX_MGR"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -83,7 +74,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 245
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$3;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
 
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$3;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
@@ -96,18 +86,15 @@
 
     invoke-virtual {v1, v2}, Lcom/intel/internal/cellcoex/service/WifiCoexMgr;->sendMessage(Landroid/os/Message;)V
 
-    .line 250
     :cond_0
     :goto_0
     return-void
 
-    .line 246
     :cond_1
     sget-object v1, Landroid/net/wifi/SupplicantState;->DISCONNECTED:Landroid/net/wifi/SupplicantState;
 
     if-ne v0, v1, :cond_0
 
-    .line 247
     const-string v1, "CWS_CELLCOEX_MGR"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -136,7 +123,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 248
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$3;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
 
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$3;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;

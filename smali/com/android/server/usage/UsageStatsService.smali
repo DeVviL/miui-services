@@ -68,47 +68,35 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 89
     invoke-direct {p0, p1}, Lcom/android/server/SystemService;-><init>(Landroid/content/Context;)V
 
-    .line 78
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/usage/UsageStatsService;->mLock:Ljava/lang/Object;
 
-    .line 83
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
 
-    .line 90
     return-void
 .end method
 
 .method private checkAndGetTimeLocked()J
     .locals 14
 
-    .prologue
-    .line 194
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
-    .line 195
-    .local v2, "actualSystemTime":J
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
-    .line 196
-    .local v0, "actualRealtime":J
     iget-wide v10, p0, Lcom/android/server/usage/UsageStatsService;->mRealTimeSnapshot:J
 
     sub-long v10, v0, v10
@@ -117,8 +105,6 @@
 
     add-long v4, v10, v12
 
-    .line 197
-    .local v4, "expectedSystemTime":J
     sub-long v10, v2, v4
 
     invoke-static {v10, v11}, Ljava/lang/Math;->abs(J)J
@@ -131,22 +117,17 @@
 
     if-lez v9, :cond_1
 
-    .line 199
     iget-object v9, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
 
     invoke-virtual {v9}, Landroid/util/SparseArray;->size()I
 
     move-result v8
 
-    .line 200
-    .local v8, "userCount":I
     const/4 v6, 0x0
 
-    .local v6, "i":I
     :goto_0
     if-ge v6, v8, :cond_0
 
-    .line 201
     iget-object v9, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
 
     invoke-virtual {v9, v6}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -155,26 +136,17 @@
 
     check-cast v7, Lcom/android/server/usage/UserUsageStatsService;
 
-    .line 202
-    .local v7, "service":Lcom/android/server/usage/UserUsageStatsService;
     invoke-virtual {v7, v4, v5, v2, v3}, Lcom/android/server/usage/UserUsageStatsService;->onTimeChanged(JJ)V
 
-    .line 200
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
-    .line 204
-    .end local v7    # "service":Lcom/android/server/usage/UserUsageStatsService;
     :cond_0
     iput-wide v0, p0, Lcom/android/server/usage/UsageStatsService;->mRealTimeSnapshot:J
 
-    .line 205
     iput-wide v2, p0, Lcom/android/server/usage/UsageStatsService;->mSystemTimeSnapshot:J
 
-    .line 207
-    .end local v6    # "i":I
-    .end local v8    # "userCount":I
     :cond_1
     return-wide v2
 .end method
@@ -182,8 +154,6 @@
 .method private cleanUpRemovedUsersLocked()V
     .locals 10
 
-    .prologue
-    .line 139
     iget-object v7, p0, Lcom/android/server/usage/UsageStatsService;->mUserManager:Landroid/os/UserManager;
 
     const/4 v8, 0x1
@@ -192,8 +162,6 @@
 
     move-result-object v6
 
-    .line 140
-    .local v6, "users":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/UserInfo;>;"
     if-eqz v6, :cond_0
 
     invoke-interface {v6}, Ljava/util/List;->size()I
@@ -202,7 +170,6 @@
 
     if-nez v7, :cond_1
 
-    .line 141
     :cond_0
     new-instance v7, Ljava/lang/IllegalStateException;
 
@@ -212,29 +179,22 @@
 
     throw v7
 
-    .line 144
     :cond_1
     new-instance v3, Landroid/util/ArraySet;
 
     invoke-direct {v3}, Landroid/util/ArraySet;-><init>()V
 
-    .line 145
-    .local v3, "toDelete":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
     iget-object v7, p0, Lcom/android/server/usage/UsageStatsService;->mUsageStatsDir:Ljava/io/File;
 
     invoke-virtual {v7}, Ljava/io/File;->list()[Ljava/lang/String;
 
     move-result-object v1
 
-    .line 146
-    .local v1, "fileNames":[Ljava/lang/String;
     if-nez v1, :cond_3
 
-    .line 163
     :cond_2
     return-void
 
-    .line 151
     :cond_3
     invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -242,28 +202,21 @@
 
     invoke-virtual {v3, v7}, Landroid/util/ArraySet;->addAll(Ljava/util/Collection;)Z
 
-    .line 153
     invoke-interface {v6}, Ljava/util/List;->size()I
 
     move-result v4
 
-    .line 154
-    .local v4, "userCount":I
     const/4 v2, 0x0
 
-    .local v2, "i":I
     :goto_0
     if-ge v2, v4, :cond_4
 
-    .line 155
     invoke-interface {v6, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Landroid/content/pm/UserInfo;
 
-    .line 156
-    .local v5, "userInfo":Landroid/content/pm/UserInfo;
     iget v7, v5, Landroid/content/pm/UserInfo;->id:I
 
     invoke-static {v7}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -272,26 +225,20 @@
 
     invoke-virtual {v3, v7}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
-    .line 154
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 159
-    .end local v5    # "userInfo":Landroid/content/pm/UserInfo;
     :cond_4
     invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
 
     move-result v0
 
-    .line 160
-    .local v0, "deleteCount":I
     const/4 v2, 0x0
 
     :goto_1
     if-ge v2, v0, :cond_2
 
-    .line 161
     new-instance v8, Ljava/io/File;
 
     iget-object v9, p0, Lcom/android/server/usage/UsageStatsService;->mUsageStatsDir:Ljava/io/File;
@@ -306,7 +253,6 @@
 
     invoke-static {v8}, Lcom/android/server/usage/UsageStatsService;->deleteRecursively(Ljava/io/File;)V
 
-    .line 160
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
@@ -314,10 +260,7 @@
 
 .method private convertToSystemTimeLocked(Landroid/app/usage/UsageEvents$Event;)V
     .locals 6
-    .param p1, "event"    # Landroid/app/usage/UsageEvents$Event;
 
-    .prologue
-    .line 215
     const-wide/16 v0, 0x0
 
     iget-wide v2, p1, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
@@ -336,53 +279,35 @@
 
     iput-wide v0, p1, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
 
-    .line 216
     return-void
 .end method
 
 .method private static deleteRecursively(Ljava/io/File;)V
     .locals 8
-    .param p0, "f"    # Ljava/io/File;
 
-    .prologue
-    .line 166
     invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
     move-result-object v1
 
-    .line 167
-    .local v1, "files":[Ljava/io/File;
     if-eqz v1, :cond_0
 
-    .line 168
     move-object v0, v1
 
-    .local v0, "arr$":[Ljava/io/File;
     array-length v3, v0
 
-    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_0
 
     aget-object v4, v0, v2
 
-    .line 169
-    .local v4, "subFile":Ljava/io/File;
     invoke-static {v4}, Lcom/android/server/usage/UsageStatsService;->deleteRecursively(Ljava/io/File;)V
 
-    .line 168
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 173
-    .end local v0    # "arr$":[Ljava/io/File;
-    .end local v2    # "i$":I
-    .end local v3    # "len$":I
-    .end local v4    # "subFile":Ljava/io/File;
     :cond_0
     invoke-virtual {p0}, Ljava/io/File;->delete()Z
 
@@ -390,7 +315,6 @@
 
     if-nez v5, :cond_1
 
-    .line 174
     const-string v5, "UsageStatsService"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -413,7 +337,6 @@
 
     invoke-static {v5, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 176
     :cond_1
     return-void
 .end method
@@ -421,23 +344,17 @@
 .method private flushToDiskLocked()V
     .locals 5
 
-    .prologue
-    .line 318
     iget-object v3, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
 
     invoke-virtual {v3}, Landroid/util/SparseArray;->size()I
 
     move-result v2
 
-    .line 319
-    .local v2, "userCount":I
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     if-ge v0, v2, :cond_0
 
-    .line 320
     iget-object v3, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
 
     invoke-virtual {v3, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -446,17 +363,12 @@
 
     check-cast v1, Lcom/android/server/usage/UserUsageStatsService;
 
-    .line 321
-    .local v1, "service":Lcom/android/server/usage/UserUsageStatsService;
     invoke-virtual {v1}, Lcom/android/server/usage/UserUsageStatsService;->persistActiveStats()V
 
-    .line 319
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 324
-    .end local v1    # "service":Lcom/android/server/usage/UserUsageStatsService;
     :cond_0
     iget-object v3, p0, Lcom/android/server/usage/UsageStatsService;->mHandler:Landroid/os/Handler;
 
@@ -464,17 +376,12 @@
 
     invoke-virtual {v3, v4}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 325
     return-void
 .end method
 
 .method private getUserDataAndInitializeIfNeededLocked(IJ)Lcom/android/server/usage/UserUsageStatsService;
     .locals 6
-    .param p1, "userId"    # I
-    .param p2, "currentTimeMillis"    # J
 
-    .prologue
-    .line 180
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
 
     invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -483,14 +390,10 @@
 
     check-cast v0, Lcom/android/server/usage/UserUsageStatsService;
 
-    .line 181
-    .local v0, "service":Lcom/android/server/usage/UserUsageStatsService;
     if-nez v0, :cond_0
 
-    .line 182
     new-instance v0, Lcom/android/server/usage/UserUsageStatsService;
 
-    .end local v0    # "service":Lcom/android/server/usage/UserUsageStatsService;
     invoke-virtual {p0}, Lcom/android/server/usage/UsageStatsService;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -507,28 +410,19 @@
 
     invoke-direct {v0, v1, p1, v2, p0}, Lcom/android/server/usage/UserUsageStatsService;-><init>(Landroid/content/Context;ILjava/io/File;Lcom/android/server/usage/UserUsageStatsService$StatsUpdatedListener;)V
 
-    .line 184
-    .restart local v0    # "service":Lcom/android/server/usage/UserUsageStatsService;
     invoke-virtual {v0, p2, p3}, Lcom/android/server/usage/UserUsageStatsService;->init(J)V
 
-    .line 185
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
 
     invoke-virtual {v1, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 187
     :cond_0
     return-object v0
 .end method
 
 .method private static validRange(JJJ)Z
     .locals 2
-    .param p0, "currentTime"    # J
-    .param p2, "beginTime"    # J
-    .param p4, "endTime"    # J
 
-    .prologue
-    .line 314
     cmp-long v0, p2, p0
 
     if-gtz v0, :cond_0
@@ -552,16 +446,11 @@
 # virtual methods
 .method dump([Ljava/lang/String;Ljava/io/PrintWriter;)V
     .locals 7
-    .param p1, "args"    # [Ljava/lang/String;
-    .param p2, "pw"    # Ljava/io/PrintWriter;
 
-    .prologue
-    .line 331
     iget-object v5, p0, Lcom/android/server/usage/UsageStatsService;->mLock:Ljava/lang/Object;
 
     monitor-enter v5
 
-    .line 332
     :try_start_0
     new-instance v2, Lcom/android/internal/util/IndentingPrintWriter;
 
@@ -569,36 +458,27 @@
 
     invoke-direct {v2, p2, v4}, Lcom/android/internal/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;)V
 
-    .line 333
-    .local v2, "idpw":Lcom/android/internal/util/IndentingPrintWriter;
     new-instance v0, Landroid/util/ArraySet;
 
     invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
-    .line 334
-    .local v0, "argSet":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v4
 
     invoke-virtual {v0, v4}, Landroid/util/ArraySet;->addAll(Ljava/util/Collection;)Z
 
-    .line 336
     iget-object v4, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
 
     invoke-virtual {v4}, Landroid/util/SparseArray;->size()I
 
     move-result v3
 
-    .line 337
-    .local v3, "userCount":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v3, :cond_1
 
-    .line 338
     const-string v4, "user"
 
     iget-object v6, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
@@ -613,13 +493,10 @@
 
     invoke-virtual {v2, v4, v6}, Lcom/android/internal/util/IndentingPrintWriter;->printPair(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 339
     invoke-virtual {v2}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
 
-    .line 340
     invoke-virtual {v2}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
-    .line 341
     const-string v4, "--checkin"
 
     invoke-virtual {v0, v4}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
@@ -628,7 +505,6 @@
 
     if-eqz v4, :cond_0
 
-    .line 342
     iget-object v4, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
 
     invoke-virtual {v4, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -639,16 +515,13 @@
 
     invoke-virtual {v4, v2}, Lcom/android/server/usage/UserUsageStatsService;->checkin(Lcom/android/internal/util/IndentingPrintWriter;)V
 
-    .line 346
     :goto_1
     invoke-virtual {v2}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
-    .line 337
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 344
     :cond_0
     iget-object v4, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
 
@@ -662,11 +535,6 @@
 
     goto :goto_1
 
-    .line 348
-    .end local v0    # "argSet":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
-    .end local v1    # "i":I
-    .end local v2    # "idpw":Lcom/android/internal/util/IndentingPrintWriter;
-    .end local v3    # "userCount":I
     :catchall_0
     move-exception v4
 
@@ -676,40 +544,29 @@
 
     throw v4
 
-    .restart local v0    # "argSet":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
-    .restart local v1    # "i":I
-    .restart local v2    # "idpw":Lcom/android/internal/util/IndentingPrintWriter;
-    .restart local v3    # "userCount":I
     :cond_1
     :try_start_1
     monitor-exit v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 349
     return-void
 .end method
 
 .method flushToDisk()V
     .locals 2
 
-    .prologue
-    .line 248
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 249
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/usage/UsageStatsService;->flushToDiskLocked()V
 
-    .line 250
     monitor-exit v1
 
-    .line 251
     return-void
 
-    .line 250
     :catchall_0
     move-exception v0
 
@@ -723,10 +580,8 @@
 .method public onStart()V
     .locals 6
 
-    .prologue
     const/4 v5, 0x0
 
-    .line 94
     invoke-virtual {p0}, Lcom/android/server/usage/UsageStatsService;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -741,7 +596,6 @@
 
     iput-object v1, p0, Lcom/android/server/usage/UsageStatsService;->mAppOps:Landroid/app/AppOpsManager;
 
-    .line 95
     invoke-virtual {p0}, Lcom/android/server/usage/UsageStatsService;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -756,7 +610,6 @@
 
     iput-object v1, p0, Lcom/android/server/usage/UsageStatsService;->mUserManager:Landroid/os/UserManager;
 
-    .line 96
     new-instance v1, Lcom/android/server/usage/UsageStatsService$H;
 
     invoke-static {}, Lcom/android/internal/os/BackgroundThread;->get()Lcom/android/internal/os/BackgroundThread;
@@ -771,7 +624,6 @@
 
     iput-object v1, p0, Lcom/android/server/usage/UsageStatsService;->mHandler:Landroid/os/Handler;
 
-    .line 98
     new-instance v0, Ljava/io/File;
 
     invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
@@ -782,8 +634,6 @@
 
     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 99
-    .local v0, "systemDataDir":Ljava/io/File;
     new-instance v1, Ljava/io/File;
 
     const-string v2, "usagestats"
@@ -792,12 +642,10 @@
 
     iput-object v1, p0, Lcom/android/server/usage/UsageStatsService;->mUsageStatsDir:Ljava/io/File;
 
-    .line 100
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService;->mUsageStatsDir:Ljava/io/File;
 
     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
-    .line 101
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService;->mUsageStatsDir:Ljava/io/File;
 
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
@@ -806,7 +654,6 @@
 
     if-nez v1, :cond_0
 
-    .line 102
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -837,7 +684,6 @@
 
     throw v1
 
-    .line 106
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/usage/UsageStatsService;->getContext()Landroid/content/Context;
 
@@ -855,35 +701,29 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 109
     iget-object v2, p0, Lcom/android/server/usage/UsageStatsService;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 110
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/usage/UsageStatsService;->cleanUpRemovedUsersLocked()V
 
-    .line 111
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 113
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
 
     iput-wide v2, p0, Lcom/android/server/usage/UsageStatsService;->mRealTimeSnapshot:J
 
-    .line 114
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
     iput-wide v2, p0, Lcom/android/server/usage/UsageStatsService;->mSystemTimeSnapshot:J
 
-    .line 116
     const-class v1, Landroid/app/usage/UsageStatsManagerInternal;
 
     new-instance v2, Lcom/android/server/usage/UsageStatsService$LocalService;
@@ -892,7 +732,6 @@
 
     invoke-virtual {p0, v1, v2}, Lcom/android/server/usage/UsageStatsService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
 
-    .line 117
     const-string v1, "usagestats"
 
     new-instance v2, Lcom/android/server/usage/UsageStatsService$BinderService;
@@ -901,10 +740,8 @@
 
     invoke-virtual {p0, v1, v2}, Lcom/android/server/usage/UsageStatsService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    .line 118
     return-void
 
-    .line 111
     :catchall_0
     move-exception v1
 
@@ -919,8 +756,6 @@
 .method public onStatsUpdated()V
     .locals 4
 
-    .prologue
-    .line 135
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsService;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x1
@@ -929,16 +764,11 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 136
     return-void
 .end method
 
 .method queryConfigurationStats(IIJJ)Ljava/util/List;
     .locals 9
-    .param p1, "userId"    # I
-    .param p2, "bucketType"    # I
-    .param p3, "beginTime"    # J
-    .param p5, "endTime"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IIJJ)",
@@ -949,53 +779,43 @@
         }
     .end annotation
 
-    .prologue
-    .line 285
     iget-object v8, p0, Lcom/android/server/usage/UsageStatsService;->mLock:Ljava/lang/Object;
 
     monitor-enter v8
 
-    .line 286
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/usage/UsageStatsService;->checkAndGetTimeLocked()J
 
     move-result-wide v0
 
-    .local v0, "timeNow":J
     move-wide v2, p3
 
     move-wide v4, p5
 
-    .line 287
     invoke-static/range {v0 .. v5}, Lcom/android/server/usage/UsageStatsService;->validRange(JJJ)Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
-    .line 288
     const/4 v3, 0x0
 
     monitor-exit v8
 
-    .line 293
     :goto_0
     return-object v3
 
-    .line 291
     :cond_0
     invoke-direct {p0, p1, v0, v1}, Lcom/android/server/usage/UsageStatsService;->getUserDataAndInitializeIfNeededLocked(IJ)Lcom/android/server/usage/UserUsageStatsService;
 
     move-result-object v2
 
-    .local v2, "service":Lcom/android/server/usage/UserUsageStatsService;
     move v3, p2
 
     move-wide v4, p3
 
     move-wide v6, p5
 
-    .line 293
     invoke-virtual/range {v2 .. v7}, Lcom/android/server/usage/UserUsageStatsService;->queryConfigurationStats(IJJ)Ljava/util/List;
 
     move-result-object v3
@@ -1004,9 +824,6 @@
 
     goto :goto_0
 
-    .line 294
-    .end local v0    # "timeNow":J
-    .end local v2    # "service":Lcom/android/server/usage/UserUsageStatsService;
     :catchall_0
     move-exception v3
 
@@ -1019,51 +836,38 @@
 
 .method queryEvents(IJJ)Landroid/app/usage/UsageEvents;
     .locals 8
-    .param p1, "userId"    # I
-    .param p2, "beginTime"    # J
-    .param p4, "endTime"    # J
 
-    .prologue
-    .line 301
     iget-object v7, p0, Lcom/android/server/usage/UsageStatsService;->mLock:Ljava/lang/Object;
 
     monitor-enter v7
 
-    .line 302
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/usage/UsageStatsService;->checkAndGetTimeLocked()J
 
     move-result-wide v0
 
-    .local v0, "timeNow":J
     move-wide v2, p2
 
     move-wide v4, p4
 
-    .line 303
     invoke-static/range {v0 .. v5}, Lcom/android/server/usage/UsageStatsService;->validRange(JJJ)Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 304
     const/4 v2, 0x0
 
     monitor-exit v7
 
-    .line 309
     :goto_0
     return-object v2
 
-    .line 307
     :cond_0
     invoke-direct {p0, p1, v0, v1}, Lcom/android/server/usage/UsageStatsService;->getUserDataAndInitializeIfNeededLocked(IJ)Lcom/android/server/usage/UserUsageStatsService;
 
     move-result-object v6
 
-    .line 309
-    .local v6, "service":Lcom/android/server/usage/UserUsageStatsService;
     invoke-virtual {v6, p2, p3, p4, p5}, Lcom/android/server/usage/UserUsageStatsService;->queryEvents(JJ)Landroid/app/usage/UsageEvents;
 
     move-result-object v2
@@ -1072,9 +876,6 @@
 
     goto :goto_0
 
-    .line 310
-    .end local v0    # "timeNow":J
-    .end local v6    # "service":Lcom/android/server/usage/UserUsageStatsService;
     :catchall_0
     move-exception v2
 
@@ -1087,10 +888,6 @@
 
 .method queryUsageStats(IIJJ)Ljava/util/List;
     .locals 9
-    .param p1, "userId"    # I
-    .param p2, "bucketType"    # I
-    .param p3, "beginTime"    # J
-    .param p5, "endTime"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IIJJ)",
@@ -1101,53 +898,43 @@
         }
     .end annotation
 
-    .prologue
-    .line 268
     iget-object v8, p0, Lcom/android/server/usage/UsageStatsService;->mLock:Ljava/lang/Object;
 
     monitor-enter v8
 
-    .line 269
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/usage/UsageStatsService;->checkAndGetTimeLocked()J
 
     move-result-wide v0
 
-    .local v0, "timeNow":J
     move-wide v2, p3
 
     move-wide v4, p5
 
-    .line 270
     invoke-static/range {v0 .. v5}, Lcom/android/server/usage/UsageStatsService;->validRange(JJJ)Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
-    .line 271
     const/4 v3, 0x0
 
     monitor-exit v8
 
-    .line 276
     :goto_0
     return-object v3
 
-    .line 274
     :cond_0
     invoke-direct {p0, p1, v0, v1}, Lcom/android/server/usage/UsageStatsService;->getUserDataAndInitializeIfNeededLocked(IJ)Lcom/android/server/usage/UserUsageStatsService;
 
     move-result-object v2
 
-    .local v2, "service":Lcom/android/server/usage/UserUsageStatsService;
     move v3, p2
 
     move-wide v4, p3
 
     move-wide v6, p5
 
-    .line 276
     invoke-virtual/range {v2 .. v7}, Lcom/android/server/usage/UserUsageStatsService;->queryUsageStats(IJJ)Ljava/util/List;
 
     move-result-object v3
@@ -1156,9 +943,6 @@
 
     goto :goto_0
 
-    .line 277
-    .end local v0    # "timeNow":J
-    .end local v2    # "service":Lcom/android/server/usage/UserUsageStatsService;
     :catchall_0
     move-exception v3
 
@@ -1171,15 +955,11 @@
 
 .method removeUser(I)V
     .locals 4
-    .param p1, "userId"    # I
 
-    .prologue
-    .line 257
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 258
     :try_start_0
     const-string v0, "UsageStatsService"
 
@@ -1209,21 +989,16 @@
 
     invoke-static {v0, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 259
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->remove(I)V
 
-    .line 260
     invoke-direct {p0}, Lcom/android/server/usage/UsageStatsService;->cleanUpRemovedUsersLocked()V
 
-    .line 261
     monitor-exit v1
 
-    .line 262
     return-void
 
-    .line 261
     :catchall_0
     move-exception v0
 
@@ -1236,43 +1011,28 @@
 
 .method reportEvent(Landroid/app/usage/UsageEvents$Event;I)V
     .locals 5
-    .param p1, "event"    # Landroid/app/usage/UsageEvents$Event;
-    .param p2, "userId"    # I
 
-    .prologue
-    .line 234
     iget-object v4, p0, Lcom/android/server/usage/UsageStatsService;->mLock:Ljava/lang/Object;
 
     monitor-enter v4
 
-    .line 235
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/usage/UsageStatsService;->checkAndGetTimeLocked()J
 
     move-result-wide v2
 
-    .line 236
-    .local v2, "timeNow":J
     invoke-direct {p0, p1}, Lcom/android/server/usage/UsageStatsService;->convertToSystemTimeLocked(Landroid/app/usage/UsageEvents$Event;)V
 
-    .line 238
     invoke-direct {p0, p2, v2, v3}, Lcom/android/server/usage/UsageStatsService;->getUserDataAndInitializeIfNeededLocked(IJ)Lcom/android/server/usage/UserUsageStatsService;
 
     move-result-object v0
 
-    .line 240
-    .local v0, "service":Lcom/android/server/usage/UserUsageStatsService;
     invoke-virtual {v0, p1}, Lcom/android/server/usage/UserUsageStatsService;->reportEvent(Landroid/app/usage/UsageEvents$Event;)V
 
-    .line 241
     monitor-exit v4
 
-    .line 242
     return-void
 
-    .line 241
-    .end local v0    # "service":Lcom/android/server/usage/UserUsageStatsService;
-    .end local v2    # "timeNow":J
     :catchall_0
     move-exception v1
 
@@ -1286,13 +1046,10 @@
 .method shutdown()V
     .locals 3
 
-    .prologue
-    .line 222
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 223
     :try_start_0
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsService;->mHandler:Landroid/os/Handler;
 
@@ -1300,21 +1057,16 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 224
     invoke-direct {p0}, Lcom/android/server/usage/UsageStatsService;->flushToDiskLocked()V
 
-    .line 226
     const/4 v0, 0x1
 
     invoke-static {v0}, Lcom/android/server/am/MiuiUsageStats;->startWriteThreadIfNeed(Z)V
 
-    .line 227
     monitor-exit v1
 
-    .line 228
     return-void
 
-    .line 227
     :catchall_0
     move-exception v0
 

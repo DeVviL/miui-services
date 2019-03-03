@@ -41,8 +41,6 @@
 .method constructor <init>(Lcom/android/server/usage/UserUsageStatsService;JJLandroid/util/ArraySet;)V
     .locals 0
 
-    .prologue
-    .line 293
     iput-object p1, p0, Lcom/android/server/usage/UserUsageStatsService$3;->this$0:Lcom/android/server/usage/UserUsageStatsService;
 
     iput-wide p2, p0, Lcom/android/server/usage/UserUsageStatsService$3;->val$beginTime:J
@@ -60,8 +58,6 @@
 # virtual methods
 .method public combine(Lcom/android/server/usage/IntervalStats;ZLjava/util/List;)V
     .locals 8
-    .param p1, "stats"    # Lcom/android/server/usage/IntervalStats;
-    .param p2, "mutable"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,18 +70,13 @@
         }
     .end annotation
 
-    .prologue
-    .line 297
-    .local p3, "accumulatedResult":Ljava/util/List;, "Ljava/util/List<Landroid/app/usage/UsageEvents$Event;>;"
     iget-object v4, p1, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
 
     if-nez v4, :cond_1
 
-    .line 319
     :cond_0
     return-void
 
-    .line 301
     :cond_1
     iget-object v4, p1, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
 
@@ -95,26 +86,19 @@
 
     move-result v3
 
-    .line 302
-    .local v3, "startIndex":I
     if-ltz v3, :cond_0
 
-    .line 306
     iget-object v4, p1, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
 
     invoke-virtual {v4}, Landroid/app/usage/TimeSparseArray;->size()I
 
     move-result v2
 
-    .line 307
-    .local v2, "size":I
     move v1, v3
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v2, :cond_0
 
-    .line 308
     iget-object v4, p1, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
 
     invoke-virtual {v4, v1}, Landroid/app/usage/TimeSparseArray;->keyAt(I)J
@@ -127,7 +111,6 @@
 
     if-gez v4, :cond_0
 
-    .line 312
     iget-object v4, p1, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/TimeSparseArray;
 
     invoke-virtual {v4, v1}, Landroid/app/usage/TimeSparseArray;->valueAt(I)Ljava/lang/Object;
@@ -136,31 +119,25 @@
 
     check-cast v0, Landroid/app/usage/UsageEvents$Event;
 
-    .line 313
-    .local v0, "event":Landroid/app/usage/UsageEvents$Event;
     iget-object v4, p0, Lcom/android/server/usage/UserUsageStatsService$3;->val$names:Landroid/util/ArraySet;
 
     iget-object v5, v0, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
 
     invoke-virtual {v4, v5}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 314
     iget-object v4, v0, Landroid/app/usage/UsageEvents$Event;->mClass:Ljava/lang/String;
 
     if-eqz v4, :cond_2
 
-    .line 315
     iget-object v4, p0, Lcom/android/server/usage/UserUsageStatsService$3;->val$names:Landroid/util/ArraySet;
 
     iget-object v5, v0, Landroid/app/usage/UsageEvents$Event;->mClass:Ljava/lang/String;
 
     invoke-virtual {v4, v5}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 317
     :cond_2
     invoke-interface {p3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 307
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0

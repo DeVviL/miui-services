@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 0
 
-    .prologue
-    .line 6457
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$7;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,11 +33,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 16
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 6460
     const-string v1, "android.intent.extra.PACKAGES"
 
     move-object/from16 v0, p2
@@ -48,34 +42,25 @@
 
     move-result-object v14
 
-    .line 6461
-    .local v14, "pkgs":[Ljava/lang/String;
     if-eqz v14, :cond_0
 
-    .line 6462
     move-object v11, v14
 
-    .local v11, "arr$":[Ljava/lang/String;
     array-length v13, v11
 
-    .local v13, "len$":I
     const/4 v12, 0x0
 
-    .local v12, "i$":I
     :goto_0
     if-ge v12, v13, :cond_0
 
     aget-object v2, v11, v12
 
-    .line 6463
-    .local v2, "pkg":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/am/ActivityManagerService$7;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v15
 
-    .line 6464
     :try_start_0
     move-object/from16 v0, p0
 
@@ -103,38 +88,24 @@
 
     if-eqz v1, :cond_1
 
-    .line 6466
     const/4 v1, -0x1
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v1}, Lcom/android/server/am/ActivityManagerService$7;->setResultCode(I)V
 
-    .line 6467
     monitor-exit v15
 
-    .line 6472
-    .end local v2    # "pkg":Ljava/lang/String;
-    .end local v11    # "arr$":[Ljava/lang/String;
-    .end local v12    # "i$":I
-    .end local v13    # "len$":I
     :cond_0
     return-void
 
-    .line 6469
-    .restart local v2    # "pkg":Ljava/lang/String;
-    .restart local v11    # "arr$":[Ljava/lang/String;
-    .restart local v12    # "i$":I
-    .restart local v13    # "len$":I
     :cond_1
     monitor-exit v15
 
-    .line 6462
     add-int/lit8 v12, v12, 0x1
 
     goto :goto_0
 
-    .line 6469
     :catchall_0
     move-exception v1
 

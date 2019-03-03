@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/location/LocationBasedCountryDetector;Landroid/location/Location;)V
     .locals 0
 
-    .prologue
-    .line 227
     iput-object p1, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
 
     iput-object p2, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->val$location:Landroid/location/Location;
@@ -43,19 +41,14 @@
 .method public run()V
     .locals 5
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 230
     const/4 v0, 0x0
 
-    .line 231
-    .local v0, "countryIso":Ljava/lang/String;
     iget-object v1, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->val$location:Landroid/location/Location;
 
     if-eqz v1, :cond_0
 
-    .line 232
     iget-object v1, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
 
     iget-object v2, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->val$location:Landroid/location/Location;
@@ -64,11 +57,9 @@
 
     move-result-object v0
 
-    .line 234
     :cond_0
     if-eqz v0, :cond_1
 
-    .line 235
     iget-object v1, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
 
     new-instance v2, Landroid/location/Country;
@@ -79,7 +70,6 @@
 
     iput-object v2, v1, Lcom/android/server/location/LocationBasedCountryDetector;->mDetectedCountry:Landroid/location/Country;
 
-    .line 239
     :goto_0
     iget-object v1, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
 
@@ -89,15 +79,12 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/location/LocationBasedCountryDetector;->notifyListener(Landroid/location/Country;)V
 
-    .line 240
     iget-object v1, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
 
     iput-object v4, v1, Lcom/android/server/location/LocationBasedCountryDetector;->mQueryThread:Ljava/lang/Thread;
 
-    .line 241
     return-void
 
-    .line 237
     :cond_1
     iget-object v1, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
 

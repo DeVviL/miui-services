@@ -30,8 +30,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1507
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,10 +37,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/TelephonyRegistry$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/TelephonyRegistry$1;
 
-    .prologue
-    .line 1507
     invoke-direct {p0}, Lcom/android/server/TelephonyRegistry$LogSSC;-><init>()V
 
     return-void
@@ -52,14 +47,7 @@
 # virtual methods
 .method public set(Landroid/text/format/Time;Ljava/lang/String;IILandroid/telephony/ServiceState;)V
     .locals 0
-    .param p1, "t"    # Landroid/text/format/Time;
-    .param p2, "s"    # Ljava/lang/String;
-    .param p3, "subId"    # I
-    .param p4, "phoneId"    # I
-    .param p5, "state"    # Landroid/telephony/ServiceState;
 
-    .prologue
-    .line 1515
     iput-object p1, p0, Lcom/android/server/TelephonyRegistry$LogSSC;->mTime:Landroid/text/format/Time;
 
     iput-object p2, p0, Lcom/android/server/TelephonyRegistry$LogSSC;->mS:Ljava/lang/String;
@@ -70,15 +58,12 @@
 
     iput-object p5, p0, Lcom/android/server/TelephonyRegistry$LogSSC;->mState:Landroid/telephony/ServiceState;
 
-    .line 1516
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 1520
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

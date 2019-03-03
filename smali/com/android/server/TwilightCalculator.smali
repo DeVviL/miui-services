@@ -37,8 +37,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,12 +46,7 @@
 # virtual methods
 .method public calculateTwilight(JDD)V
     .locals 27
-    .param p1, "time"    # J
-    .param p3, "latiude"    # D
-    .param p5, "longitude"    # D
 
-    .prologue
-    .line 72
     const-wide v20, 0xdc6d62da00L
 
     sub-long v20, p1, v20
@@ -68,8 +61,6 @@
 
     div-float v8, v20, v21
 
-    .line 75
-    .local v8, "daysSince2000":F
     const v20, 0x40c7ae92
 
     const v21, 0x3c8ceb25
@@ -78,8 +69,6 @@
 
     add-float v12, v20, v21
 
-    .line 78
-    .local v12, "meanAnomaly":F
     const v20, 0x3d08e2fe
 
     invoke-static {v12}, Landroid/util/FloatMath;->sin(F)F
@@ -118,8 +107,6 @@
 
     add-float v17, v20, v21
 
-    .line 82
-    .local v17, "trueAnomaly":F
     const v20, 0x3fe5f6c3
 
     add-float v20, v20, v17
@@ -128,8 +115,6 @@
 
     add-float v16, v20, v21
 
-    .line 85
-    .local v16, "solarLng":F
     move-wide/from16 v0, p5
 
     neg-double v0, v0
@@ -140,8 +125,6 @@
 
     div-double v4, v20, v22
 
-    .line 86
-    .local v4, "arcLongitude":D
     const v20, 0x3a6bedfa    # 9.0E-4f
 
     sub-float v20, v8, v20
@@ -162,8 +145,6 @@
 
     long-to-float v13, v0
 
-    .line 87
-    .local v13, "n":F
     const v20, 0x3a6bedfa    # 9.0E-4f
 
     add-float v20, v20, v13
@@ -212,8 +193,6 @@
 
     add-double v18, v20, v22
 
-    .line 91
-    .local v18, "solarTransitJ2000":D
     invoke-static/range {v16 .. v16}, Landroid/util/FloatMath;->sin(F)F
 
     move-result v20
@@ -236,14 +215,10 @@
 
     move-result-wide v14
 
-    .line 93
-    .local v14, "solarDec":D
     const-wide v20, 0x3f91df46a0000000L    # 0.01745329238474369
 
     mul-double v10, p3, v20
 
-    .line 95
-    .local v10, "latRad":D
     const v20, -0x422988b0
 
     invoke-static/range {v20 .. v20}, Landroid/util/FloatMath;->sin(F)F
@@ -280,15 +255,12 @@
 
     div-double v6, v20, v22
 
-    .line 99
-    .local v6, "cosHourAngle":D
     const-wide/high16 v20, 0x3ff0000000000000L    # 1.0
 
     cmpl-double v20, v6, v20
 
     if-ltz v20, :cond_0
 
-    .line 100
     const/16 v20, 0x1
 
     move/from16 v0, v20
@@ -297,7 +269,6 @@
 
     iput v0, v1, Lcom/android/server/TwilightCalculator;->mState:I
 
-    .line 101
     const-wide/16 v20, -0x1
 
     move-wide/from16 v0, v20
@@ -306,7 +277,6 @@
 
     iput-wide v0, v2, Lcom/android/server/TwilightCalculator;->mSunset:J
 
-    .line 102
     const-wide/16 v20, -0x1
 
     move-wide/from16 v0, v20
@@ -315,11 +285,9 @@
 
     iput-wide v0, v2, Lcom/android/server/TwilightCalculator;->mSunrise:J
 
-    .line 121
     :goto_0
     return-void
 
-    .line 104
     :cond_0
     const-wide/high16 v20, -0x4010000000000000L    # -1.0
 
@@ -327,7 +295,6 @@
 
     if-gtz v20, :cond_1
 
-    .line 105
     const/16 v20, 0x0
 
     move/from16 v0, v20
@@ -336,7 +303,6 @@
 
     iput v0, v1, Lcom/android/server/TwilightCalculator;->mState:I
 
-    .line 106
     const-wide/16 v20, -0x1
 
     move-wide/from16 v0, v20
@@ -345,7 +311,6 @@
 
     iput-wide v0, v2, Lcom/android/server/TwilightCalculator;->mSunset:J
 
-    .line 107
     const-wide/16 v20, -0x1
 
     move-wide/from16 v0, v20
@@ -356,7 +321,6 @@
 
     goto :goto_0
 
-    .line 111
     :cond_1
     invoke-static {v6, v7}, Ljava/lang/Math;->acos(D)D
 
@@ -370,8 +334,6 @@
 
     double-to-float v9, v0
 
-    .line 113
-    .local v9, "hourAngle":F
     float-to-double v0, v9
 
     move-wide/from16 v20, v0
@@ -396,7 +358,6 @@
 
     iput-wide v0, v2, Lcom/android/server/TwilightCalculator;->mSunset:J
 
-    .line 114
     float-to-double v0, v9
 
     move-wide/from16 v20, v0
@@ -421,7 +382,6 @@
 
     iput-wide v0, v2, Lcom/android/server/TwilightCalculator;->mSunrise:J
 
-    .line 116
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/server/TwilightCalculator;->mSunrise:J
@@ -442,7 +402,6 @@
 
     if-lez v20, :cond_2
 
-    .line 117
     const/16 v20, 0x0
 
     move/from16 v0, v20
@@ -453,7 +412,6 @@
 
     goto/16 :goto_0
 
-    .line 119
     :cond_2
     const/16 v20, 0x1
 

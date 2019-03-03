@@ -67,8 +67,6 @@
 .method constructor <init>(Lcom/android/server/SystemServer;Landroid/content/Context;Lcom/android/server/MountService;Lcom/android/server/NetworkScoreService;Lcom/android/server/NetworkManagementService;Lcom/android/server/net/NetworkStatsService;Lcom/android/server/net/NetworkPolicyManagerService;Lcom/android/server/ConnectivityService;Landroid/media/AudioService;Lcom/android/server/wallpaper/WallpaperManagerService;Lcom/android/server/InputMethodManagerService;Lcom/android/server/statusbar/StatusBarManagerService;Lcom/android/server/LocationManagerService;Lcom/android/server/CountryDetectorService;Lcom/android/server/NetworkTimeUpdateService;Lcom/android/server/CommonTimeManagementService;Lcom/android/server/TextServicesManagerService;Lcom/android/server/AssetAtlasService;Lcom/android/server/input/InputManagerService;Lcom/android/server/TelephonyRegistry;Lcom/android/server/media/MediaRouterService;Lcom/android/server/MmsServiceBroker;)V
     .locals 1
 
-    .prologue
-    .line 1147
     iput-object p1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     iput-object p2, p0, Lcom/android/server/SystemServer$2;->val$context:Landroid/content/Context;
@@ -139,15 +137,12 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 1150
     const-string v1, "SystemServer"
 
     const-string v2, "Making services ready"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1151
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     invoke-static {v1}, Lcom/android/server/SystemServer;->access$000(Lcom/android/server/SystemServer;)Lcom/android/server/SystemServiceManager;
@@ -158,7 +153,6 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/SystemServiceManager;->startBootPhase(I)V
 
-    .line 1155
     :try_start_0
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
@@ -170,7 +164,6 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1160
     :goto_0
     const-string v1, "SystemServer"
 
@@ -178,10 +171,8 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1161
     invoke-static {}, Landroid/webkit/WebViewFactory;->prepareWebViewInSystemServer()V
 
-    .line 1164
     :try_start_1
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->val$context:Landroid/content/Context;
 
@@ -189,7 +180,6 @@
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 1169
     :goto_1
     :try_start_2
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->val$mountServiceF:Lcom/android/server/MountService;
@@ -202,7 +192,6 @@
     :try_end_2
     .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_2
 
-    .line 1174
     :cond_0
     :goto_2
     :try_start_3
@@ -216,7 +205,6 @@
     :try_end_3
     .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_3
 
-    .line 1179
     :cond_1
     :goto_3
     :try_start_4
@@ -230,7 +218,6 @@
     :try_end_4
     .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_4
 
-    .line 1184
     :cond_2
     :goto_4
     :try_start_5
@@ -244,7 +231,6 @@
     :try_end_5
     .catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_5
 
-    .line 1189
     :cond_3
     :goto_5
     :try_start_6
@@ -258,7 +244,6 @@
     :try_end_6
     .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_6
 
-    .line 1194
     :cond_4
     :goto_6
     :try_start_7
@@ -272,7 +257,6 @@
     :try_end_7
     .catch Ljava/lang/Throwable; {:try_start_7 .. :try_end_7} :catch_7
 
-    .line 1199
     :cond_5
     :goto_7
     :try_start_8
@@ -286,7 +270,6 @@
     :try_end_8
     .catch Ljava/lang/Throwable; {:try_start_8 .. :try_end_8} :catch_8
 
-    .line 1203
     :cond_6
     :goto_8
     invoke-static {}, Lcom/android/server/Watchdog;->getInstance()Lcom/android/server/Watchdog;
@@ -295,7 +278,6 @@
 
     invoke-virtual {v1}, Lcom/android/server/Watchdog;->start()V
 
-    .line 1207
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     invoke-static {v1}, Lcom/android/server/SystemServer;->access$000(Lcom/android/server/SystemServer;)Lcom/android/server/SystemServiceManager;
@@ -306,7 +288,6 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/SystemServiceManager;->startBootPhase(I)V
 
-    .line 1211
     :try_start_9
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->val$wallpaperF:Lcom/android/server/wallpaper/WallpaperManagerService;
 
@@ -318,7 +299,6 @@
     :try_end_9
     .catch Ljava/lang/Throwable; {:try_start_9 .. :try_end_9} :catch_9
 
-    .line 1216
     :cond_7
     :goto_9
     :try_start_a
@@ -334,7 +314,6 @@
     :try_end_a
     .catch Ljava/lang/Throwable; {:try_start_a .. :try_end_a} :catch_a
 
-    .line 1221
     :cond_8
     :goto_a
     :try_start_b
@@ -348,7 +327,6 @@
     :try_end_b
     .catch Ljava/lang/Throwable; {:try_start_b .. :try_end_b} :catch_b
 
-    .line 1226
     :cond_9
     :goto_b
     :try_start_c
@@ -362,7 +340,6 @@
     :try_end_c
     .catch Ljava/lang/Throwable; {:try_start_c .. :try_end_c} :catch_c
 
-    .line 1231
     :cond_a
     :goto_c
     :try_start_d
@@ -376,7 +353,6 @@
     :try_end_d
     .catch Ljava/lang/Throwable; {:try_start_d .. :try_end_d} :catch_d
 
-    .line 1236
     :cond_b
     :goto_d
     :try_start_e
@@ -384,14 +360,12 @@
 
     if-eqz v1, :cond_c
 
-    .line 1237
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->val$commonTimeMgmtServiceF:Lcom/android/server/CommonTimeManagementService;
 
     invoke-virtual {v1}, Lcom/android/server/CommonTimeManagementService;->systemRunning()V
     :try_end_e
     .catch Ljava/lang/Throwable; {:try_start_e .. :try_end_e} :catch_e
 
-    .line 1243
     :cond_c
     :goto_e
     :try_start_f
@@ -399,14 +373,12 @@
 
     if-eqz v1, :cond_d
 
-    .line 1244
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->val$textServiceManagerServiceF:Lcom/android/server/TextServicesManagerService;
 
     invoke-virtual {v1}, Lcom/android/server/TextServicesManagerService;->systemRunning()V
     :try_end_f
     .catch Ljava/lang/Throwable; {:try_start_f .. :try_end_f} :catch_f
 
-    .line 1249
     :cond_d
     :goto_f
     :try_start_10
@@ -420,7 +392,6 @@
     :try_end_10
     .catch Ljava/lang/Throwable; {:try_start_10 .. :try_end_10} :catch_10
 
-    .line 1255
     :cond_e
     :goto_10
     :try_start_11
@@ -434,7 +405,6 @@
     :try_end_11
     .catch Ljava/lang/Throwable; {:try_start_11 .. :try_end_11} :catch_11
 
-    .line 1260
     :cond_f
     :goto_11
     :try_start_12
@@ -448,7 +418,6 @@
     :try_end_12
     .catch Ljava/lang/Throwable; {:try_start_12 .. :try_end_12} :catch_12
 
-    .line 1265
     :cond_10
     :goto_12
     :try_start_13
@@ -462,7 +431,6 @@
     :try_end_13
     .catch Ljava/lang/Throwable; {:try_start_13 .. :try_end_13} :catch_13
 
-    .line 1271
     :cond_11
     :goto_13
     :try_start_14
@@ -476,22 +444,17 @@
     :try_end_14
     .catch Ljava/lang/Throwable; {:try_start_14 .. :try_end_14} :catch_14
 
-    .line 1277
     :cond_12
     :goto_14
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->val$context:Landroid/content/Context;
 
     invoke-static {v1}, Lcom/android/server/SystemServerInjector;->registerSystemLogSwitchesReceiver(Landroid/content/Context;)V
 
-    .line 1278
     return-void
 
-    .line 1156
     :catch_0
     move-exception v0
 
-    .line 1157
-    .local v0, "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "observing native crashes"
@@ -500,13 +463,9 @@
 
     goto/16 :goto_0
 
-    .line 1165
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_1
     move-exception v0
 
-    .line 1166
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "starting System UI"
@@ -515,13 +474,9 @@
 
     goto/16 :goto_1
 
-    .line 1170
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_2
     move-exception v0
 
-    .line 1171
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "making Mount Service ready"
@@ -530,13 +485,9 @@
 
     goto/16 :goto_2
 
-    .line 1175
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_3
     move-exception v0
 
-    .line 1176
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "making Network Score Service ready"
@@ -545,13 +496,9 @@
 
     goto/16 :goto_3
 
-    .line 1180
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_4
     move-exception v0
 
-    .line 1181
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "making Network Managment Service ready"
@@ -560,13 +507,9 @@
 
     goto/16 :goto_4
 
-    .line 1185
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_5
     move-exception v0
 
-    .line 1186
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "making Network Stats Service ready"
@@ -575,13 +518,9 @@
 
     goto/16 :goto_5
 
-    .line 1190
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_6
     move-exception v0
 
-    .line 1191
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "making Network Policy Service ready"
@@ -590,13 +529,9 @@
 
     goto/16 :goto_6
 
-    .line 1195
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_7
     move-exception v0
 
-    .line 1196
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "making Connectivity Service ready"
@@ -605,13 +540,9 @@
 
     goto/16 :goto_7
 
-    .line 1200
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_8
     move-exception v0
 
-    .line 1201
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "Notifying AudioService running"
@@ -620,13 +551,9 @@
 
     goto/16 :goto_8
 
-    .line 1212
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_9
     move-exception v0
 
-    .line 1213
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "Notifying WallpaperService running"
@@ -635,13 +562,9 @@
 
     goto/16 :goto_9
 
-    .line 1217
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_a
     move-exception v0
 
-    .line 1218
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "Notifying InputMethodService running"
@@ -650,13 +573,9 @@
 
     goto/16 :goto_a
 
-    .line 1222
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_b
     move-exception v0
 
-    .line 1223
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "Notifying Location Service running"
@@ -665,13 +584,9 @@
 
     goto/16 :goto_b
 
-    .line 1227
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_c
     move-exception v0
 
-    .line 1228
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "Notifying CountryDetectorService running"
@@ -680,13 +595,9 @@
 
     goto/16 :goto_c
 
-    .line 1232
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_d
     move-exception v0
 
-    .line 1233
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "Notifying NetworkTimeService running"
@@ -695,13 +606,9 @@
 
     goto/16 :goto_d
 
-    .line 1239
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_e
     move-exception v0
 
-    .line 1240
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "Notifying CommonTimeManagementService running"
@@ -710,13 +617,9 @@
 
     goto/16 :goto_e
 
-    .line 1245
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_f
     move-exception v0
 
-    .line 1246
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "Notifying TextServicesManagerService running"
@@ -725,13 +628,9 @@
 
     goto/16 :goto_f
 
-    .line 1250
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_10
     move-exception v0
 
-    .line 1251
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "Notifying AssetAtlasService running"
@@ -740,13 +639,9 @@
 
     goto/16 :goto_10
 
-    .line 1256
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_11
     move-exception v0
 
-    .line 1257
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "Notifying InputManagerService running"
@@ -755,13 +650,9 @@
 
     goto/16 :goto_11
 
-    .line 1261
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_12
     move-exception v0
 
-    .line 1262
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "Notifying TelephonyRegistry running"
@@ -770,13 +661,9 @@
 
     goto/16 :goto_12
 
-    .line 1266
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_13
     move-exception v0
 
-    .line 1267
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "Notifying MediaRouterService running"
@@ -785,13 +672,9 @@
 
     goto/16 :goto_13
 
-    .line 1272
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_14
     move-exception v0
 
-    .line 1273
-    .restart local v0    # "e":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/android/server/SystemServer$2;->this$0:Lcom/android/server/SystemServer;
 
     const-string v2, "Notifying MmsService running"

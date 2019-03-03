@@ -13,8 +13,6 @@
 .method private constructor <init>()V
     .locals 3
 
-    .prologue
-    .line 34
     const-string v0, "android.fg"
 
     const/4 v1, 0x0
@@ -23,32 +21,26 @@
 
     invoke-direct {p0, v0, v1, v2}, Lcom/android/server/ServiceThread;-><init>(Ljava/lang/String;IZ)V
 
-    .line 35
     return-void
 .end method
 
 .method private static ensureThreadLocked()V
     .locals 2
 
-    .prologue
-    .line 38
     sget-object v0, Lcom/android/server/FgThread;->sInstance:Lcom/android/server/FgThread;
 
     if-nez v0, :cond_0
 
-    .line 39
     new-instance v0, Lcom/android/server/FgThread;
 
     invoke-direct {v0}, Lcom/android/server/FgThread;-><init>()V
 
     sput-object v0, Lcom/android/server/FgThread;->sInstance:Lcom/android/server/FgThread;
 
-    .line 40
     sget-object v0, Lcom/android/server/FgThread;->sInstance:Lcom/android/server/FgThread;
 
     invoke-virtual {v0}, Lcom/android/server/FgThread;->start()V
 
-    .line 41
     new-instance v0, Landroid/os/Handler;
 
     sget-object v1, Lcom/android/server/FgThread;->sInstance:Lcom/android/server/FgThread;
@@ -61,7 +53,6 @@
 
     sput-object v0, Lcom/android/server/FgThread;->sHandler:Landroid/os/Handler;
 
-    .line 43
     :cond_0
     return-void
 .end method
@@ -69,24 +60,19 @@
 .method public static get()Lcom/android/server/FgThread;
     .locals 2
 
-    .prologue
-    .line 46
     const-class v1, Lcom/android/server/UiThread;
 
     monitor-enter v1
 
-    .line 47
     :try_start_0
     invoke-static {}, Lcom/android/server/FgThread;->ensureThreadLocked()V
 
-    .line 48
     sget-object v0, Lcom/android/server/FgThread;->sInstance:Lcom/android/server/FgThread;
 
     monitor-exit v1
 
     return-object v0
 
-    .line 49
     :catchall_0
     move-exception v0
 
@@ -100,24 +86,19 @@
 .method public static getHandler()Landroid/os/Handler;
     .locals 2
 
-    .prologue
-    .line 53
     const-class v1, Lcom/android/server/UiThread;
 
     monitor-enter v1
 
-    .line 54
     :try_start_0
     invoke-static {}, Lcom/android/server/FgThread;->ensureThreadLocked()V
 
-    .line 55
     sget-object v0, Lcom/android/server/FgThread;->sHandler:Landroid/os/Handler;
 
     monitor-exit v1
 
     return-object v0
 
-    .line 56
     :catchall_0
     move-exception v0
 

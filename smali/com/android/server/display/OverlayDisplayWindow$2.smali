@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/android/server/display/OverlayDisplayWindow;)V
     .locals 0
 
-    .prologue
-    .line 301
     iput-object p1, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,12 +36,7 @@
 # virtual methods
 .method public onSurfaceTextureAvailable(Landroid/graphics/SurfaceTexture;II)V
     .locals 7
-    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
 
-    .prologue
-    .line 305
     iget-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
     invoke-static {v0}, Lcom/android/server/display/OverlayDisplayWindow;->access$300(Lcom/android/server/display/OverlayDisplayWindow;)Lcom/android/server/display/OverlayDisplayWindow$Listener;
@@ -78,16 +71,12 @@
 
     invoke-interface/range {v1 .. v6}, Lcom/android/server/display/OverlayDisplayWindow$Listener;->onWindowCreated(Landroid/graphics/SurfaceTexture;FJI)V
 
-    .line 307
     return-void
 .end method
 
 .method public onSurfaceTextureDestroyed(Landroid/graphics/SurfaceTexture;)Z
     .locals 1
-    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
-    .prologue
-    .line 311
     iget-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
     invoke-static {v0}, Lcom/android/server/display/OverlayDisplayWindow;->access$300(Lcom/android/server/display/OverlayDisplayWindow;)Lcom/android/server/display/OverlayDisplayWindow$Listener;
@@ -96,7 +85,6 @@
 
     invoke-interface {v0}, Lcom/android/server/display/OverlayDisplayWindow$Listener;->onWindowDestroyed()V
 
-    .line 312
     const/4 v0, 0x1
 
     return v0
@@ -104,20 +92,12 @@
 
 .method public onSurfaceTextureSizeChanged(Landroid/graphics/SurfaceTexture;II)V
     .locals 0
-    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
 
-    .prologue
-    .line 318
     return-void
 .end method
 
 .method public onSurfaceTextureUpdated(Landroid/graphics/SurfaceTexture;)V
     .locals 0
-    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
-    .prologue
-    .line 322
     return-void
 .end method

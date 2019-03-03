@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/location/GeofenceProxy;)V
     .locals 0
 
-    .prologue
-    .line 148
     iput-object p1, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -35,19 +33,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 152
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 182
     :goto_0
     return-void
 
-    .line 154
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
@@ -57,7 +50,6 @@
 
     monitor-enter v1
 
-    .line 155
     :try_start_0
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
@@ -67,12 +59,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 156
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$300(Lcom/android/server/location/GeofenceProxy;)V
 
-    .line 160
     :cond_0
     monitor-exit v1
 
@@ -87,7 +77,6 @@
 
     throw v0
 
-    .line 163
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
@@ -97,7 +86,6 @@
 
     monitor-enter v1
 
-    .line 167
     :try_start_1
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
@@ -107,22 +95,18 @@
 
     if-eqz v0, :cond_1
 
-    .line 168
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$400(Lcom/android/server/location/GeofenceProxy;)V
 
-    .line 169
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$500(Lcom/android/server/location/GeofenceProxy;)V
 
-    .line 170
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$300(Lcom/android/server/location/GeofenceProxy;)V
 
-    .line 172
     :cond_1
     monitor-exit v1
 
@@ -137,7 +121,6 @@
 
     throw v0
 
-    .line 175
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
@@ -147,7 +130,6 @@
 
     monitor-enter v1
 
-    .line 176
     :try_start_2
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
@@ -157,12 +139,10 @@
 
     if-nez v0, :cond_2
 
-    .line 177
     iget-object v0, p0, Lcom/android/server/location/GeofenceProxy$3;->this$0:Lcom/android/server/location/GeofenceProxy;
 
     invoke-static {v0}, Lcom/android/server/location/GeofenceProxy;->access$300(Lcom/android/server/location/GeofenceProxy;)V
 
-    .line 179
     :cond_2
     monitor-exit v1
 
@@ -177,7 +157,6 @@
 
     throw v0
 
-    .line 152
     nop
 
     :pswitch_data_0

@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/NetworkTimeUpdateService;)V
     .locals 0
 
-    .prologue
-    .line 231
     iput-object p1, p0, Lcom/android/server/NetworkTimeUpdateService$2;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,17 +33,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 235
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 236
-    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.NETWORK_SET_TIME"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -54,7 +46,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 237
     iget-object v1, p0, Lcom/android/server/NetworkTimeUpdateService$2;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -63,12 +54,10 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/server/NetworkTimeUpdateService;->access$102(Lcom/android/server/NetworkTimeUpdateService;J)J
 
-    .line 241
     :cond_0
     :goto_0
     return-void
 
-    .line 238
     :cond_1
     const-string v1, "android.intent.action.NETWORK_SET_TIMEZONE"
 
@@ -78,7 +67,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 239
     iget-object v1, p0, Lcom/android/server/NetworkTimeUpdateService$2;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J

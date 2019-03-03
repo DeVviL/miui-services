@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 176
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,11 +40,7 @@
 # virtual methods
 .method public compare(Landroid/app/usage/UsageStats;Landroid/app/usage/UsageStats;)I
     .locals 4
-    .param p1, "left"    # Landroid/app/usage/UsageStats;
-    .param p2, "right"    # Landroid/app/usage/UsageStats;
 
-    .prologue
-    .line 179
     invoke-virtual {p2}, Landroid/app/usage/UsageStats;->getTotalTimeInForeground()J
 
     move-result-wide v0
@@ -66,17 +60,11 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/Object;
 
-    .prologue
-    .line 176
     check-cast p1, Landroid/app/usage/UsageStats;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Landroid/app/usage/UsageStats;
 
-    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PackageDexOptimizerManager$1;->compare(Landroid/app/usage/UsageStats;Landroid/app/usage/UsageStats;)I
 
     move-result v0

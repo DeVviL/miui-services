@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/hdmi/HdmiControlService$CecMessageBuffer;Lcom/android/server/hdmi/HdmiCecMessage;)V
     .locals 0
 
-    .prologue
-    .line 316
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$CecMessageBuffer$1;->this$1:Lcom/android/server/hdmi/HdmiControlService$CecMessageBuffer;
 
     iput-object p2, p0, Lcom/android/server/hdmi/HdmiControlService$CecMessageBuffer$1;->val$message:Lcom/android/server/hdmi/HdmiCecMessage;
@@ -43,8 +41,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 319
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$CecMessageBuffer$1;->this$1:Lcom/android/server/hdmi/HdmiControlService$CecMessageBuffer;
 
     iget-object v0, v0, Lcom/android/server/hdmi/HdmiControlService$CecMessageBuffer;->this$0:Lcom/android/server/hdmi/HdmiControlService;
@@ -53,6 +49,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->handleCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)Z
 
-    .line 320
     return-void
 .end method

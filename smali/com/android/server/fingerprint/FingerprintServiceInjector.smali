@@ -13,8 +13,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 13
     new-instance v0, Ljava/text/SimpleDateFormat;
 
     const-string v1, "yyyyMMdd-HH:mm:ss"
@@ -29,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,17 +34,11 @@
 
 .method public static reportFingerEvent(Ljava/lang/String;I)V
     .locals 4
-    .param p0, "packName"    # Ljava/lang/String;
-    .param p1, "authen"    # I
 
-    .prologue
-    .line 16
     new-instance v0, Ljava/lang/StringBuffer;
 
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 17
-    .local v0, "sb":Ljava/lang/StringBuffer;
     invoke-virtual {v0, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v1
@@ -67,7 +57,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 18
     sget-object v1, Lcom/android/server/fingerprint/FingerprintServiceInjector;->sdfTime:Ljava/text/SimpleDateFormat;
 
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
@@ -84,7 +73,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 19
     const-string v1, "FingerprintService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -111,7 +99,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 20
     invoke-static {}, Lmiui/mqsas/sdk/MQSEventManagerDelegate;->getInstance()Lmiui/mqsas/sdk/MQSEventManagerDelegate;
 
     move-result-object v1
@@ -124,6 +111,5 @@
 
     invoke-virtual {v1, v2, v3}, Lmiui/mqsas/sdk/MQSEventManagerDelegate;->reportSimpleEvent(ILjava/lang/String;)V
 
-    .line 21
     return-void
 .end method

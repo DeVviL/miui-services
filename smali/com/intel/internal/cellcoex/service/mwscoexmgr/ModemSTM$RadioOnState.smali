@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;)V
     .locals 0
 
-    .prologue
-    .line 233
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -36,15 +34,12 @@
 .method public enter()V
     .locals 4
 
-    .prologue
-    .line 237
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$300()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 238
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -87,7 +82,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 242
     :cond_0
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
@@ -99,7 +93,6 @@
 
     iput-object v1, v0, Lcom/intel/internal/cellcoex/service/props/MwsState;->mState:Lcom/intel/internal/cellcoex/service/props/MwsState$State;
 
-    .line 243
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     invoke-static {v0}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$600(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;)Lcom/intel/internal/cellcoex/service/props/MwsState;
@@ -110,7 +103,6 @@
 
     iput-object v1, v0, Lcom/intel/internal/cellcoex/service/props/MwsState;->mSubState:Lcom/intel/internal/cellcoex/service/props/MwsState$SubState;
 
-    .line 244
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     invoke-static {v0}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$700(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;)Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
@@ -131,7 +123,6 @@
 
     invoke-interface {v0, v1, v2}, Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;->setProp(Ljava/lang/String;Ljava/lang/Object;)Z
 
-    .line 247
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     invoke-static {v0}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$1000(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;)Landroid/telephony/TelephonyManager;
@@ -144,7 +135,6 @@
 
     if-nez v0, :cond_1
 
-    .line 248
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
@@ -155,7 +145,6 @@
 
     invoke-static {v0, v1}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$1200(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;Lcom/android/internal/util/IState;)V
 
-    .line 250
     :cond_1
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
@@ -165,7 +154,6 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 257
     :pswitch_0
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
@@ -177,11 +165,9 @@
 
     invoke-static {v0, v1}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$1600(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;Lcom/android/internal/util/IState;)V
 
-    .line 260
     :goto_0
     return-void
 
-    .line 253
     :pswitch_1
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
@@ -195,7 +181,6 @@
 
     goto :goto_0
 
-    .line 250
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -206,21 +191,15 @@
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 4
-    .param p1, "message"    # Landroid/os/Message;
 
-    .prologue
-    .line 264
     const/4 v0, 0x1
 
-    .line 265
-    .local v0, "retVal":Z
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$300()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 266
     const-string v1, "CWS_CELLCOEX_MGR"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -277,7 +256,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 268
     :cond_0
     const v1, 0x80001
 
@@ -285,7 +263,6 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 269
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     invoke-static {v1}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$200(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;)I
@@ -294,15 +271,12 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 281
     const/4 v0, 0x0
 
-    .line 285
     :cond_1
     :goto_0
     return v0
 
-    .line 272
     :pswitch_0
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
@@ -316,7 +290,6 @@
 
     goto :goto_0
 
-    .line 275
     :pswitch_1
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
@@ -330,7 +303,6 @@
 
     goto :goto_0
 
-    .line 278
     :pswitch_2
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
@@ -344,7 +316,6 @@
 
     goto :goto_0
 
-    .line 269
     nop
 
     :pswitch_data_0

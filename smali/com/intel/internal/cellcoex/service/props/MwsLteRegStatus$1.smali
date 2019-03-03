@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 110
     invoke-static {}, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;->values()[Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
 
     move-result-object v0

@@ -80,44 +80,36 @@
 .method private constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 183
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 184
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/miui/server/SecurityManagerService$UserState;->mAppPermissionControlStatus:I
 
-    .line 186
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Lcom/miui/server/SecurityManagerService$UserState;->mAccessControlPassPackages:Ljava/util/HashSet;
 
-    .line 187
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/miui/server/SecurityManagerService$UserState;->mPackages:Ljava/util/HashMap;
 
-    .line 188
     new-instance v0, Landroid/util/ArraySet;
 
     invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
     iput-object v0, p0, Lcom/miui/server/SecurityManagerService$UserState;->mAccessControlCanceled:Landroid/util/ArraySet;
 
-    .line 189
     new-instance v0, Landroid/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/miui/server/SecurityManagerService$UserState;->mAccessControlLastCheck:Landroid/util/ArrayMap;
 
-    .line 205
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/miui/server/SecurityManagerService$UserState;->mAccessControlLockMode:I
@@ -127,10 +119,7 @@
 
 .method synthetic constructor <init>(Lcom/miui/server/SecurityManagerService$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/miui/server/SecurityManagerService$1;
 
-    .prologue
-    .line 183
     invoke-direct {p0}, Lcom/miui/server/SecurityManagerService$UserState;-><init>()V
 
     return-void
@@ -138,10 +127,7 @@
 
 .method static synthetic access$1800(Lcom/miui/server/SecurityManagerService$UserState;)I
     .locals 1
-    .param p0, "x0"    # Lcom/miui/server/SecurityManagerService$UserState;
 
-    .prologue
-    .line 183
     iget v0, p0, Lcom/miui/server/SecurityManagerService$UserState;->mAppPermissionControlStatus:I
 
     return v0
@@ -149,11 +135,7 @@
 
 .method static synthetic access$1802(Lcom/miui/server/SecurityManagerService$UserState;I)I
     .locals 0
-    .param p0, "x0"    # Lcom/miui/server/SecurityManagerService$UserState;
-    .param p1, "x1"    # I
 
-    .prologue
-    .line 183
     iput p1, p0, Lcom/miui/server/SecurityManagerService$UserState;->mAppPermissionControlStatus:I
 
     return p1

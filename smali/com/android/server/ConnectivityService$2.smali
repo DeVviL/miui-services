@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/ConnectivityService;)V
     .locals 0
 
-    .prologue
-    .line 1254
     iput-object p1, p0, Lcom/android/server/ConnectivityService$2;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-direct {p0}, Lcom/android/server/net/BaseNetworkObserver;-><init>()V
@@ -35,22 +33,14 @@
 # virtual methods
 .method public interfaceClassDataActivityChanged(Ljava/lang/String;ZJ)V
     .locals 3
-    .param p1, "label"    # Ljava/lang/String;
-    .param p2, "active"    # Z
-    .param p3, "tsNanos"    # J
 
-    .prologue
-    .line 1257
     invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 1258
-    .local v0, "deviceType":I
     iget-object v1, p0, Lcom/android/server/ConnectivityService$2;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-static {v1, v0, p2, p3, p4}, Lcom/android/server/ConnectivityService;->access$400(Lcom/android/server/ConnectivityService;IZJ)V
 
-    .line 1259
     return-void
 .end method

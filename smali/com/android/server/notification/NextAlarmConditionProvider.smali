@@ -48,8 +48,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 51
     const-string v0, "NextAlarmConditions"
 
     const/4 v1, 0x3
@@ -60,7 +58,6 @@
 
     sput-boolean v0, Lcom/android/server/notification/NextAlarmConditionProvider;->DEBUG:Z
 
-    .line 59
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v1, "android"
@@ -80,30 +77,23 @@
 
 .method public constructor <init>(Lcom/android/server/notification/NextAlarmTracker;)V
     .locals 2
-    .param p1, "tracker"    # Lcom/android/server/notification/NextAlarmTracker;
 
-    .prologue
-    .line 70
     invoke-direct {p0}, Landroid/service/notification/ConditionProviderService;-><init>()V
 
-    .line 62
     iput-object p0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mContext:Landroid/content/Context;
 
-    .line 64
     new-instance v0, Landroid/util/ArraySet;
 
     invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mSubscriptions:Landroid/util/ArraySet;
 
-    .line 218
     new-instance v0, Lcom/android/server/notification/NextAlarmConditionProvider$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/notification/NextAlarmConditionProvider$1;-><init>(Lcom/android/server/notification/NextAlarmConditionProvider;)V
 
     iput-object v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mTrackerCallback:Lcom/android/server/notification/NextAlarmTracker$Callback;
 
-    .line 71
     sget-boolean v0, Lcom/android/server/notification/NextAlarmConditionProvider;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -114,23 +104,15 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 72
     :cond_0
     iput-object p1, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mTracker:Lcom/android/server/notification/NextAlarmTracker;
 
-    .line 73
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/server/notification/NextAlarmConditionProvider;Landroid/app/AlarmManager$AlarmClockInfo;JZ)V
     .locals 0
-    .param p0, "x0"    # Lcom/android/server/notification/NextAlarmConditionProvider;
-    .param p1, "x1"    # Landroid/app/AlarmManager$AlarmClockInfo;
-    .param p2, "x2"    # J
-    .param p4, "x3"    # Z
 
-    .prologue
-    .line 49
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/notification/NextAlarmConditionProvider;->onEvaluate(Landroid/app/AlarmManager$AlarmClockInfo;JZ)V
 
     return-void
@@ -138,22 +120,17 @@
 
 .method private isWithinLookaheadThreshold(Landroid/app/AlarmManager$AlarmClockInfo;)Z
     .locals 10
-    .param p1, "alarm"    # Landroid/app/AlarmManager$AlarmClockInfo;
 
-    .prologue
     const-wide/16 v8, 0x0
 
     const/4 v2, 0x0
 
-    .line 135
     if-nez p1, :cond_1
 
-    .line 137
     :cond_0
     :goto_0
     return v2
 
-    .line 136
     :cond_1
     invoke-static {p1}, Lcom/android/server/notification/NextAlarmTracker;->getEarlyTriggerTime(Landroid/app/AlarmManager$AlarmClockInfo;)J
 
@@ -165,8 +142,6 @@
 
     sub-long v0, v4, v6
 
-    .line 137
-    .local v0, "delta":J
     cmp-long v3, v0, v8
 
     if-lez v3, :cond_0
@@ -191,10 +166,7 @@
 
 .method private newConditionId(Landroid/app/AlarmManager$AlarmClockInfo;)Landroid/net/Uri;
     .locals 4
-    .param p1, "nextAlarm"    # Landroid/app/AlarmManager$AlarmClockInfo;
 
-    .prologue
-    .line 151
     new-instance v0, Landroid/net/Uri$Builder;
 
     invoke-direct {v0}, Landroid/net/Uri$Builder;-><init>()V
@@ -252,23 +224,15 @@
 
 .method private notifyCondition(Landroid/net/Uri;Landroid/app/AlarmManager$AlarmClockInfo;ILjava/lang/String;)V
     .locals 8
-    .param p1, "id"    # Landroid/net/Uri;
-    .param p2, "alarm"    # Landroid/app/AlarmManager$AlarmClockInfo;
-    .param p3, "state"    # I
-    .param p4, "reason"    # Ljava/lang/String;
 
-    .prologue
     const/4 v7, 0x1
 
     const/4 v5, 0x0
 
-    .line 141
     if-nez p2, :cond_1
 
     const-string v4, ""
 
-    .line 142
-    .local v4, "formattedAlarm":Ljava/lang/String;
     :goto_0
     sget-boolean v0, Lcom/android/server/notification/NextAlarmConditionProvider;->DEBUG:Z
 
@@ -320,7 +284,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 144
     :cond_0
     new-instance v0, Landroid/service/notification/Condition;
 
@@ -352,11 +315,8 @@
 
     invoke-virtual {p0, v0}, Lcom/android/server/notification/NextAlarmConditionProvider;->notifyCondition(Landroid/service/notification/Condition;)V
 
-    .line 148
     return-void
 
-    .line 141
-    .end local v4    # "formattedAlarm":Ljava/lang/String;
     :cond_1
     iget-object v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mTracker:Lcom/android/server/notification/NextAlarmTracker;
 
@@ -369,26 +329,17 @@
 
 .method private onEvaluate(Landroid/app/AlarmManager$AlarmClockInfo;JZ)V
     .locals 16
-    .param p1, "nextAlarm"    # Landroid/app/AlarmManager$AlarmClockInfo;
-    .param p2, "wakeupTime"    # J
-    .param p4, "booted"    # Z
 
-    .prologue
-    .line 180
     invoke-direct/range {p0 .. p1}, Lcom/android/server/notification/NextAlarmConditionProvider;->isWithinLookaheadThreshold(Landroid/app/AlarmManager$AlarmClockInfo;)Z
 
     move-result v7
 
-    .line 181
-    .local v7, "withinThreshold":Z
     if-eqz p1, :cond_3
 
     invoke-virtual/range {p1 .. p1}, Landroid/app/AlarmManager$AlarmClockInfo;->getTriggerTime()J
 
     move-result-wide v8
 
-    .line 182
-    .local v8, "nextAlarmTime":J
     :goto_0
     sget-boolean v12, Lcom/android/server/notification/NextAlarmConditionProvider;->DEBUG:Z
 
@@ -480,14 +431,11 @@
 
     invoke-static {v12, v13}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 188
     :cond_0
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/notification/NextAlarmConditionProvider;->mSubscriptions:Landroid/util/ArraySet;
 
-    .line 189
-    .local v3, "conditions":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Landroid/net/Uri;>;"
     move-object/from16 v0, p0
 
     iget-boolean v12, v0, Lcom/android/server/notification/NextAlarmConditionProvider;->mRequesting:Z
@@ -498,41 +446,29 @@
 
     if-eqz v7, :cond_1
 
-    .line 190
     invoke-direct/range {p0 .. p1}, Lcom/android/server/notification/NextAlarmConditionProvider;->newConditionId(Landroid/app/AlarmManager$AlarmClockInfo;)Landroid/net/Uri;
 
     move-result-object v6
 
-    .line 191
-    .local v6, "id":Landroid/net/Uri;
     invoke-virtual {v3, v6}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
     move-result v12
 
     if-nez v12, :cond_1
 
-    .line 192
     new-instance v4, Landroid/util/ArraySet;
 
     invoke-direct {v4, v3}, Landroid/util/ArraySet;-><init>(Landroid/util/ArraySet;)V
 
-    .line 193
-    .end local v3    # "conditions":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Landroid/net/Uri;>;"
-    .local v4, "conditions":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Landroid/net/Uri;>;"
     invoke-virtual {v4, v6}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     move-object v3, v4
 
-    .line 196
-    .end local v4    # "conditions":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Landroid/net/Uri;>;"
-    .end local v6    # "id":Landroid/net/Uri;
-    .restart local v3    # "conditions":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Landroid/net/Uri;>;"
     :cond_1
     invoke-virtual {v3}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
-    .local v5, "i$":Ljava/util/Iterator;
     :cond_2
     :goto_1
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
@@ -547,23 +483,18 @@
 
     check-cast v2, Landroid/net/Uri;
 
-    .line 197
-    .local v2, "conditionId":Landroid/net/Uri;
     move-object/from16 v0, p0
 
     invoke-direct {v0, v2}, Lcom/android/server/notification/NextAlarmConditionProvider;->tryParseNextAlarmCondition(Landroid/net/Uri;)J
 
     move-result-wide v10
 
-    .line 198
-    .local v10, "time":J
     const-wide/16 v12, -0x1
 
     cmp-long v12, v10, v12
 
     if-nez v12, :cond_4
 
-    .line 199
     const/4 v12, 0x0
 
     const-string v13, "badCondition"
@@ -576,27 +507,14 @@
 
     goto :goto_1
 
-    .line 181
-    .end local v2    # "conditionId":Landroid/net/Uri;
-    .end local v3    # "conditions":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Landroid/net/Uri;>;"
-    .end local v5    # "i$":Ljava/util/Iterator;
-    .end local v8    # "nextAlarmTime":J
-    .end local v10    # "time":J
     :cond_3
     const-wide/16 v8, 0x0
 
     goto/16 :goto_0
 
-    .line 200
-    .restart local v2    # "conditionId":Landroid/net/Uri;
-    .restart local v3    # "conditions":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Landroid/net/Uri;>;"
-    .restart local v5    # "i$":Ljava/util/Iterator;
-    .restart local v8    # "nextAlarmTime":J
-    .restart local v10    # "time":J
     :cond_4
     if-nez p4, :cond_5
 
-    .line 202
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/server/notification/NextAlarmConditionProvider;->mSubscriptions:Landroid/util/ArraySet;
@@ -607,7 +525,6 @@
 
     if-eqz v12, :cond_2
 
-    .line 203
     const/4 v12, 0x2
 
     const-string v13, "!booted"
@@ -620,13 +537,11 @@
 
     goto :goto_1
 
-    .line 205
     :cond_5
     cmp-long v12, v10, v8
 
     if-eqz v12, :cond_6
 
-    .line 207
     const/4 v12, 0x0
 
     const-string v13, "changed"
@@ -639,11 +554,9 @@
 
     goto :goto_1
 
-    .line 208
     :cond_6
     if-nez v7, :cond_7
 
-    .line 210
     const/4 v12, 0x0
 
     const-string v13, "!within"
@@ -656,7 +569,6 @@
 
     goto :goto_1
 
-    .line 213
     :cond_7
     const/4 v12, 0x1
 
@@ -670,33 +582,22 @@
 
     goto :goto_1
 
-    .line 216
-    .end local v2    # "conditionId":Landroid/net/Uri;
-    .end local v10    # "time":J
     :cond_8
     return-void
 .end method
 
 .method private static tryParseLong(Ljava/lang/String;J)J
     .locals 3
-    .param p0, "value"    # Ljava/lang/String;
-    .param p1, "defValue"    # J
 
-    .prologue
-    .line 171
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 175
-    .end local p1    # "defValue":J
     :goto_0
     return-wide p1
 
-    .line 173
-    .restart local p1    # "defValue":J
     :cond_0
     :try_start_0
     invoke-static {p0}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
@@ -711,23 +612,17 @@
 
     goto :goto_0
 
-    .line 174
     :catch_0
     move-exception v0
 
-    .line 175
-    .local v0, "e":Ljava/lang/NumberFormatException;
     goto :goto_0
 .end method
 
 .method private tryParseNextAlarmCondition(Landroid/net/Uri;)J
     .locals 4
-    .param p1, "conditionId"    # Landroid/net/Uri;
 
-    .prologue
     const-wide/16 v2, -0x1
 
-    .line 160
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
@@ -844,8 +739,6 @@
 .method public asInterface()Landroid/service/notification/IConditionProvider;
     .locals 1
 
-    .prologue
-    .line 131
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/server/notification/NextAlarmConditionProvider;->onBind(Landroid/content/Intent;)Landroid/os/IBinder;
@@ -859,28 +752,19 @@
 
 .method public attachBase(Landroid/content/Context;)V
     .locals 0
-    .param p1, "base"    # Landroid/content/Context;
 
-    .prologue
-    .line 127
     invoke-virtual {p0, p1}, Lcom/android/server/notification/NextAlarmConditionProvider;->attachBaseContext(Landroid/content/Context;)V
 
-    .line 128
     return-void
 .end method
 
 .method public dump(Ljava/io/PrintWriter;Lcom/android/server/notification/NotificationManagerService$DumpFilter;)V
     .locals 2
-    .param p1, "pw"    # Ljava/io/PrintWriter;
-    .param p2, "filter"    # Lcom/android/server/notification/NotificationManagerService$DumpFilter;
 
-    .prologue
-    .line 76
     const-string v0, "    NextAlarmConditionProvider:"
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 77
     const-string v0, "      mConnected="
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -889,7 +773,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
 
-    .line 78
     const-string v0, "      mLookaheadThreshold="
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -898,7 +781,6 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 79
     const-string v0, " ("
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -911,7 +793,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 80
     const-string v0, "      mSubscriptions="
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -920,7 +801,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    .line 81
     const-string v0, "      mRequesting="
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -929,15 +809,12 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
 
-    .line 82
     return-void
 .end method
 
 .method public onConnected()V
     .locals 4
 
-    .prologue
-    .line 86
     sget-boolean v0, Lcom/android/server/notification/NextAlarmConditionProvider;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -948,7 +825,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 87
     :cond_0
     iget-object v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mContext:Landroid/content/Context;
 
@@ -968,30 +844,24 @@
 
     iput-wide v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mLookaheadThreshold:J
 
-    .line 89
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mConnected:Z
 
-    .line 90
     iget-object v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mTracker:Lcom/android/server/notification/NextAlarmTracker;
 
     iget-object v1, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mTrackerCallback:Lcom/android/server/notification/NextAlarmTracker$Callback;
 
     invoke-virtual {v0, v1}, Lcom/android/server/notification/NextAlarmTracker;->addCallback(Lcom/android/server/notification/NextAlarmTracker$Callback;)V
 
-    .line 91
     return-void
 .end method
 
 .method public onDestroy()V
     .locals 2
 
-    .prologue
-    .line 95
     invoke-super {p0}, Landroid/service/notification/ConditionProviderService;->onDestroy()V
 
-    .line 96
     sget-boolean v0, Lcom/android/server/notification/NextAlarmConditionProvider;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -1002,7 +872,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 97
     :cond_0
     iget-object v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mTracker:Lcom/android/server/notification/NextAlarmTracker;
 
@@ -1010,21 +879,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/notification/NextAlarmTracker;->removeCallback(Lcom/android/server/notification/NextAlarmTracker$Callback;)V
 
-    .line 98
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mConnected:Z
 
-    .line 99
     return-void
 .end method
 
 .method public onRequestConditions(I)V
     .locals 3
-    .param p1, "relevance"    # I
 
-    .prologue
-    .line 103
     sget-boolean v0, Lcom/android/server/notification/NextAlarmConditionProvider;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -1051,17 +915,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 104
     :cond_0
     iget-boolean v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mConnected:Z
 
     if-nez v0, :cond_1
 
-    .line 107
     :goto_0
     return-void
 
-    .line 105
     :cond_1
     and-int/lit8 v0, p1, 0x1
 
@@ -1072,14 +933,12 @@
     :goto_1
     iput-boolean v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mRequesting:Z
 
-    .line 106
     iget-object v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mTracker:Lcom/android/server/notification/NextAlarmTracker;
 
     invoke-virtual {v0}, Lcom/android/server/notification/NextAlarmTracker;->evaluate()V
 
     goto :goto_0
 
-    .line 105
     :cond_2
     const/4 v0, 0x0
 
@@ -1088,10 +947,7 @@
 
 .method public onSubscribe(Landroid/net/Uri;)V
     .locals 4
-    .param p1, "conditionId"    # Landroid/net/Uri;
 
-    .prologue
-    .line 111
     sget-boolean v0, Lcom/android/server/notification/NextAlarmConditionProvider;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -1118,7 +974,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 112
     :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/notification/NextAlarmConditionProvider;->tryParseNextAlarmCondition(Landroid/net/Uri;)J
 
@@ -1130,7 +985,6 @@
 
     if-nez v0, :cond_1
 
-    .line 113
     const/4 v0, 0x0
 
     const/4 v1, 0x0
@@ -1139,17 +993,14 @@
 
     invoke-direct {p0, p1, v0, v1, v2}, Lcom/android/server/notification/NextAlarmConditionProvider;->notifyCondition(Landroid/net/Uri;Landroid/app/AlarmManager$AlarmClockInfo;ILjava/lang/String;)V
 
-    .line 118
     :goto_0
     return-void
 
-    .line 116
     :cond_1
     iget-object v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mSubscriptions:Landroid/util/ArraySet;
 
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 117
     iget-object v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mTracker:Lcom/android/server/notification/NextAlarmTracker;
 
     invoke-virtual {v0}, Lcom/android/server/notification/NextAlarmTracker;->evaluate()V
@@ -1159,10 +1010,7 @@
 
 .method public onUnsubscribe(Landroid/net/Uri;)V
     .locals 3
-    .param p1, "conditionId"    # Landroid/net/Uri;
 
-    .prologue
-    .line 122
     sget-boolean v0, Lcom/android/server/notification/NextAlarmConditionProvider;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -1189,12 +1037,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 123
     :cond_0
     iget-object v0, p0, Lcom/android/server/notification/NextAlarmConditionProvider;->mSubscriptions:Landroid/util/ArraySet;
 
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
-    .line 124
     return-void
 .end method

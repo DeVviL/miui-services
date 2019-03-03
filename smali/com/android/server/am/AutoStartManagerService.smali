@@ -11,8 +11,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -20,12 +18,7 @@
 
 .method public static canRestartServiceLocked(Ljava/lang/String;ILcom/android/server/am/ActivityManagerService;)Z
     .locals 4
-    .param p0, "packageName"    # Ljava/lang/String;
-    .param p1, "uid"    # I
-    .param p2, "service"    # Lcom/android/server/am/ActivityManagerService;
 
-    .prologue
-    .line 74
     iget-object v1, p2, Lcom/android/server/am/ActivityManagerService;->mAppOpsService:Lcom/android/server/AppOpsService;
 
     const/16 v2, 0x32
@@ -34,18 +27,13 @@
 
     move-result v0
 
-    .line 75
-    .local v0, "mode":I
     if-nez v0, :cond_0
 
-    .line 76
     const/4 v1, 0x1
 
-    .line 79
     :goto_0
     return v1
 
-    .line 78
     :cond_0
     const-string v1, "AutoStartManagerService"
 
@@ -79,7 +67,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 79
     const/4 v1, 0x0
 
     goto :goto_0
@@ -87,14 +74,9 @@
 
 .method public static isAllowStartService(Landroid/content/Context;Landroid/content/Intent;I)Z
     .locals 7
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "service"    # Landroid/content/Intent;
-    .param p2, "userId"    # I
 
-    .prologue
     const/4 v5, 0x1
 
-    .line 24
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
@@ -104,40 +86,24 @@
 
     move-result-object v3
 
-    .line 25
-    .local v3, "packageName":Ljava/lang/String;
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v2
 
-    .line 26
-    .local v2, "packageManager":Landroid/content/pm/IPackageManager;
     const/4 v6, 0x0
 
     invoke-interface {v2, v3, v6, p2}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v0
 
-    .line 27
-    .local v0, "applicationInfo":Landroid/content/pm/ApplicationInfo;
     if-nez v0, :cond_0
 
-    .line 35
-    .end local v0    # "applicationInfo":Landroid/content/pm/ApplicationInfo;
-    .end local v2    # "packageManager":Landroid/content/pm/IPackageManager;
-    .end local v3    # "packageName":Ljava/lang/String;
     :goto_0
     return v5
 
-    .line 30
-    .restart local v0    # "applicationInfo":Landroid/content/pm/ApplicationInfo;
-    .restart local v2    # "packageManager":Landroid/content/pm/IPackageManager;
-    .restart local v3    # "packageName":Ljava/lang/String;
     :cond_0
     iget v4, v0, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    .line 31
-    .local v4, "uid":I
     invoke-static {p0, p1, p2, v4}, Lcom/android/server/am/AutoStartManagerService;->isAllowStartService(Landroid/content/Context;Landroid/content/Intent;II)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -146,16 +112,9 @@
 
     goto :goto_0
 
-    .line 32
-    .end local v0    # "applicationInfo":Landroid/content/pm/ApplicationInfo;
-    .end local v2    # "packageManager":Landroid/content/pm/IPackageManager;
-    .end local v3    # "packageName":Ljava/lang/String;
-    .end local v4    # "uid":I
     :catch_0
     move-exception v1
 
-    .line 33
-    .local v1, "e":Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
@@ -163,19 +122,13 @@
 
 .method public static isAllowStartService(Landroid/content/Context;Landroid/content/Intent;II)Z
     .locals 12
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "service"    # Landroid/content/Intent;
-    .param p2, "userId"    # I
-    .param p3, "uid"    # I
 
-    .prologue
     const/4 v6, 0x0
 
     const/4 v8, 0x0
 
     const/4 v7, 0x1
 
-    .line 40
     :try_start_0
     const-string v9, "appops"
 
@@ -185,18 +138,12 @@
 
     check-cast v1, Landroid/app/AppOpsManager;
 
-    .line 41
-    .local v1, "aom":Landroid/app/AppOpsManager;
     if-nez v1, :cond_1
 
-    .line 70
-    .end local v1    # "aom":Landroid/app/AppOpsManager;
     :cond_0
     :goto_0
     return v7
 
-    .line 44
-    .restart local v1    # "aom":Landroid/app/AppOpsManager;
     :cond_1
     const/16 v9, 0x32
 
@@ -212,19 +159,14 @@
 
     move-result v3
 
-    .line 45
-    .local v3, "mode":I
     if-eqz v3, :cond_0
 
-    .line 49
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/server/am/ActivityManagerService;
 
-    .line 50
-    .local v0, "ams":Lcom/android/server/am/ActivityManagerService;
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v9
@@ -237,18 +179,13 @@
 
     move-result-object v5
 
-    .line 52
-    .local v5, "rInfo":Landroid/content/pm/ResolveInfo;
     if-eqz v5, :cond_2
 
     iget-object v6, v5, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    .line 53
-    .local v6, "sInfo":Landroid/content/pm/ServiceInfo;
     :cond_2
     if-eqz v6, :cond_0
 
-    .line 56
     iget-object v9, v5, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     iget-object v9, v9, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -273,12 +210,10 @@
 
     if-nez v9, :cond_0
 
-    .line 60
     monitor-enter v0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 61
     :try_start_1
     iget-object v9, v6, Landroid/content/pm/ServiceInfo;->processName:Ljava/lang/String;
 
@@ -288,11 +223,8 @@
 
     move-result-object v4
 
-    .line 62
-    .local v4, "processRecord":Lcom/android/server/am/ProcessRecord;
     if-nez v4, :cond_3
 
-    .line 63
     const-string v9, "AutoStartManagerService"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -335,20 +267,17 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 64
     monitor-exit v0
 
     move v7, v8
 
     goto :goto_0
 
-    .line 66
     :cond_3
     monitor-exit v0
 
     goto :goto_0
 
-    .end local v4    # "processRecord":Lcom/android/server/am/ProcessRecord;
     :catchall_0
     move-exception v8
 
@@ -361,17 +290,9 @@
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 67
-    .end local v0    # "ams":Lcom/android/server/am/ActivityManagerService;
-    .end local v1    # "aom":Landroid/app/AppOpsManager;
-    .end local v3    # "mode":I
-    .end local v5    # "rInfo":Landroid/content/pm/ResolveInfo;
-    .end local v6    # "sInfo":Landroid/content/pm/ServiceInfo;
     :catch_0
     move-exception v2
 
-    .line 68
-    .local v2, "e":Ljava/lang/Exception;
     invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     goto/16 :goto_0

@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/media/projection/MediaProjectionManagerService;Landroid/media/projection/IMediaProjectionWatcherCallback;)V
     .locals 0
 
-    .prologue
-    .line 132
     iput-object p1, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$1;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
     iput-object p2, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$1;->val$callback:Landroid/media/projection/IMediaProjectionWatcherCallback;
@@ -43,8 +41,6 @@
 .method public binderDied()V
     .locals 3
 
-    .prologue
-    .line 135
     iget-object v0, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$1;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
     invoke-static {v0}, Lcom/android/server/media/projection/MediaProjectionManagerService;->access$200(Lcom/android/server/media/projection/MediaProjectionManagerService;)Ljava/lang/Object;
@@ -53,7 +49,6 @@
 
     monitor-enter v1
 
-    .line 136
     :try_start_0
     iget-object v0, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$1;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
@@ -61,13 +56,10 @@
 
     invoke-static {v0, v2}, Lcom/android/server/media/projection/MediaProjectionManagerService;->access$300(Lcom/android/server/media/projection/MediaProjectionManagerService;Landroid/media/projection/IMediaProjectionWatcherCallback;)V
 
-    .line 137
     monitor-exit v1
 
-    .line 138
     return-void
 
-    .line 137
     :catchall_0
     move-exception v0
 

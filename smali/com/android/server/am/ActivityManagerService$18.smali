@@ -35,8 +35,6 @@
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;IILandroid/os/IBinder;Ljava/lang/String;Landroid/app/ApplicationErrorReport$CrashInfo;)V
     .locals 0
 
-    .prologue
-    .line 12197
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$18;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iput p2, p0, Lcom/android/server/am/ActivityManagerService$18;->val$callingUid:I
@@ -59,8 +57,6 @@
 .method public run()V
     .locals 6
 
-    .prologue
-    .line 12199
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$18;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iget v1, p0, Lcom/android/server/am/ActivityManagerService$18;->val$callingUid:I
@@ -75,6 +71,5 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/server/am/ActivityManagerService;->handleApplicationWtfInner(IILandroid/os/IBinder;Ljava/lang/String;Landroid/app/ApplicationErrorReport$CrashInfo;)Lcom/android/server/am/ProcessRecord;
 
-    .line 12200
     return-void
 .end method

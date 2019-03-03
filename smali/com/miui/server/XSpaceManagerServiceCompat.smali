@@ -7,8 +7,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -16,9 +14,6 @@
 
 .method static setBundleDefusable(Z)V
     .locals 0
-    .param p0, "defusable"    # Z
 
-    .prologue
-    .line 7
     return-void
 .end method

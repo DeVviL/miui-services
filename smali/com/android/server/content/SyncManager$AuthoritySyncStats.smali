@@ -37,33 +37,23 @@
 # direct methods
 .method private constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 1915
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1913
     invoke-static {}, Lcom/google/android/collect/Maps;->newHashMap()Ljava/util/HashMap;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/content/SyncManager$AuthoritySyncStats;->accountMap:Ljava/util/Map;
 
-    .line 1916
     iput-object p1, p0, Lcom/android/server/content/SyncManager$AuthoritySyncStats;->name:Ljava/lang/String;
 
-    .line 1917
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Lcom/android/server/content/SyncManager$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/String;
-    .param p2, "x1"    # Lcom/android/server/content/SyncManager$1;
 
-    .prologue
-    .line 1909
     invoke-direct {p0, p1}, Lcom/android/server/content/SyncManager$AuthoritySyncStats;-><init>(Ljava/lang/String;)V
 
     return-void

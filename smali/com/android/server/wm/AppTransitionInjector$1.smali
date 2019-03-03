@@ -27,15 +27,11 @@
 .method constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 47
     invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 49
     const-string v0, "com.android.quicksearchbox"
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/AppTransitionInjector$1;->add(Ljava/lang/Object;)Z
 
-    .line 50
     return-void
 .end method

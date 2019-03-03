@@ -30,22 +30,15 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/AppOpsServiceState;Lcom/android/internal/app/IOpsCallback;I)V
     .locals 2
-    .param p2, "callback"    # Lcom/android/internal/app/IOpsCallback;
-    .param p3, "userId"    # I
 
-    .prologue
-    .line 299
     iput-object p1, p0, Lcom/android/server/AppOpsServiceState$Callback;->this$0:Lcom/android/server/AppOpsServiceState;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 300
     iput-object p2, p0, Lcom/android/server/AppOpsServiceState$Callback;->mCallback:Lcom/android/internal/app/IOpsCallback;
 
-    .line 301
     iput p3, p0, Lcom/android/server/AppOpsServiceState$Callback;->mUserId:I
 
-    .line 303
     :try_start_0
     iget-object v0, p0, Lcom/android/server/AppOpsServiceState$Callback;->mCallback:Lcom/android/internal/app/IOpsCallback;
 
@@ -57,7 +50,6 @@
 
     invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
-    .line 304
     const-string v0, "AppOpsServiceState"
 
     const-string v1, "linkToDeath"
@@ -66,11 +58,9 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 307
     :goto_0
     return-void
 
-    .line 305
     :catch_0
     move-exception v0
 
@@ -82,18 +72,14 @@
 .method public binderDied()V
     .locals 3
 
-    .prologue
-    .line 322
     invoke-virtual {p0}, Lcom/android/server/AppOpsServiceState$Callback;->unlinkToDeath()V
 
-    .line 323
     iget-object v0, p0, Lcom/android/server/AppOpsServiceState$Callback;->this$0:Lcom/android/server/AppOpsServiceState;
 
     iget v1, p0, Lcom/android/server/AppOpsServiceState$Callback;->mUserId:I
 
     invoke-static {v0, v1}, Lcom/android/server/AppOpsServiceState;->access$300(Lcom/android/server/AppOpsServiceState;I)V
 
-    .line 324
     const-string v0, "AppOpsServiceState"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -118,31 +104,25 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 325
     return-void
 .end method
 
 .method public unlinkToDeath()V
     .locals 2
 
-    .prologue
-    .line 310
     iget-boolean v0, p0, Lcom/android/server/AppOpsServiceState$Callback;->mUnLink:Z
 
     if-eqz v0, :cond_0
 
-    .line 318
     :goto_0
     return-void
 
-    .line 314
     :cond_0
     const/4 v0, 0x1
 
     :try_start_0
     iput-boolean v0, p0, Lcom/android/server/AppOpsServiceState$Callback;->mUnLink:Z
 
-    .line 315
     iget-object v0, p0, Lcom/android/server/AppOpsServiceState$Callback;->mCallback:Lcom/android/internal/app/IOpsCallback;
 
     invoke-interface {v0}, Lcom/android/internal/app/IOpsCallback;->asBinder()Landroid/os/IBinder;
@@ -157,7 +137,6 @@
 
     goto :goto_0
 
-    .line 316
     :catch_0
     move-exception v0
 

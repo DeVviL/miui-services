@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/intel/cws/cwsservicemanager/CsmModemMgr;)V
     .locals 0
 
-    .prologue
-    .line 314
     iput-object p1, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$5;->this$0:Lcom/intel/cws/cwsservicemanager/CsmModemMgr;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -35,10 +33,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "message"    # Landroid/os/Message;
 
-    .prologue
-    .line 317
     invoke-static {}, Lcom/intel/cws/cwsservicemanager/CsmModemMgr;->access$000()Z
 
     move-result v1
@@ -51,19 +46,15 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 318
     :cond_0
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 319
-    .local v0, "i":Landroid/content/Intent;
     const-string v1, "Modem Manager Acquire Failure"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 320
     iget-object v1, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$5;->this$0:Lcom/intel/cws/cwsservicemanager/CsmModemMgr;
 
     invoke-static {v1}, Lcom/intel/cws/cwsservicemanager/CsmModemMgr;->access$800(Lcom/intel/cws/cwsservicemanager/CsmModemMgr;)Landroid/content/Context;
@@ -72,7 +63,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 321
     iget-object v1, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$5;->this$0:Lcom/intel/cws/cwsservicemanager/CsmModemMgr;
 
     invoke-static {v1}, Lcom/intel/cws/cwsservicemanager/CsmModemMgr;->access$800(Lcom/intel/cws/cwsservicemanager/CsmModemMgr;)Landroid/content/Context;
@@ -81,7 +71,6 @@
 
     invoke-static {v0, v1}, Lcom/intel/cws/cwsservicemanager/CsmUtil;->csmBroadcastIntent(Landroid/content/Intent;Landroid/content/Context;)V
 
-    .line 323
     :cond_1
     return-void
 .end method

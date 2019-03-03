@@ -27,13 +27,10 @@
 .method private constructor <init>(Lcom/miui/server/PerfShielderService;)V
     .locals 1
 
-    .prologue
-    .line 495
     iput-object p1, p0, Lcom/miui/server/PerfShielderService$MiuiSysUserServiceConnection;->this$0:Lcom/miui/server/PerfShielderService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 497
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/miui/server/PerfShielderService$MiuiSysUserServiceConnection;->isServiceDisconnected:Z
@@ -43,11 +40,7 @@
 
 .method synthetic constructor <init>(Lcom/miui/server/PerfShielderService;Lcom/miui/server/PerfShielderService$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/miui/server/PerfShielderService;
-    .param p2, "x1"    # Lcom/miui/server/PerfShielderService$1;
 
-    .prologue
-    .line 495
     invoke-direct {p0, p1}, Lcom/miui/server/PerfShielderService$MiuiSysUserServiceConnection;-><init>(Lcom/miui/server/PerfShielderService;)V
 
     return-void
@@ -55,10 +48,7 @@
 
 .method static synthetic access$1100(Lcom/miui/server/PerfShielderService$MiuiSysUserServiceConnection;)Z
     .locals 1
-    .param p0, "x0"    # Lcom/miui/server/PerfShielderService$MiuiSysUserServiceConnection;
 
-    .prologue
-    .line 495
     iget-boolean v0, p0, Lcom/miui/server/PerfShielderService$MiuiSysUserServiceConnection;->isServiceDisconnected:Z
 
     return v0
@@ -68,25 +58,17 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 5
-    .param p1, "comp"    # Landroid/content/ComponentName;
-    .param p2, "iObj"    # Landroid/os/IBinder;
 
-    .prologue
-    .line 511
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/miui/server/PerfShielderService$MiuiSysUserServiceConnection;->isServiceDisconnected:Z
 
-    .line 512
     invoke-static {p2}, Lcom/android/internal/app/IMiuiSysUser$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IMiuiSysUser;
 
     move-result-object v1
 
-    .line 513
-    .local v1, "sysOpt":Lcom/android/internal/app/IMiuiSysUser;
     invoke-static {v1}, Lcom/android/server/am/MiuiSysUserServiceHelper;->setMiuiSysUser(Lcom/android/internal/app/IMiuiSysUser;)V
 
-    .line 514
     iget-object v2, p0, Lcom/miui/server/PerfShielderService$MiuiSysUserServiceConnection;->this$0:Lcom/miui/server/PerfShielderService;
 
     invoke-static {v2}, Lcom/miui/server/PerfShielderService;->access$700(Lcom/miui/server/PerfShielderService;)Lcom/miui/server/PerfShielderService$BindServiceHandler;
@@ -97,7 +79,6 @@
 
     invoke-virtual {v2, v3}, Lcom/miui/server/PerfShielderService$BindServiceHandler;->removeMessages(I)V
 
-    .line 516
     :try_start_0
     const-string v2, "PerfShielderService"
 
@@ -105,7 +86,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 517
     invoke-interface {v1}, Lcom/android/internal/app/IMiuiSysUser;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -120,16 +100,12 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 521
     :goto_0
     return-void
 
-    .line 518
     :catch_0
     move-exception v0
 
-    .line 519
-    .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
@@ -137,27 +113,21 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
-    .param p1, "arg0"    # Landroid/content/ComponentName;
 
-    .prologue
-    .line 501
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/server/am/MiuiSysUserServiceHelper;->setMiuiSysUser(Lcom/android/internal/app/IMiuiSysUser;)V
 
-    .line 502
     const-string v0, "PerfShielderService"
 
     const-string v1, "MiuiSysUser service disconnected!"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 503
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/miui/server/PerfShielderService$MiuiSysUserServiceConnection;->isServiceDisconnected:Z
 
-    .line 504
     iget-object v0, p0, Lcom/miui/server/PerfShielderService$MiuiSysUserServiceConnection;->this$0:Lcom/miui/server/PerfShielderService;
 
     invoke-static {v0}, Lcom/miui/server/PerfShielderService;->access$500(Lcom/miui/server/PerfShielderService;)Landroid/content/Context;
@@ -166,7 +136,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 505
     iget-object v0, p0, Lcom/miui/server/PerfShielderService$MiuiSysUserServiceConnection;->this$0:Lcom/miui/server/PerfShielderService;
 
     invoke-static {v0}, Lcom/miui/server/PerfShielderService;->access$500(Lcom/miui/server/PerfShielderService;)Landroid/content/Context;
@@ -181,7 +150,6 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
-    .line 507
     :cond_0
     return-void
 .end method

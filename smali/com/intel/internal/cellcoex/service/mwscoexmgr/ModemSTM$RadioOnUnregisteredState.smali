@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;)V
     .locals 0
 
-    .prologue
-    .line 292
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnUnregisteredState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -36,15 +34,12 @@
 .method public enter()V
     .locals 4
 
-    .prologue
-    .line 295
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$300()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 296
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -87,7 +82,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 300
     :cond_0
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnUnregisteredState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
@@ -99,7 +93,6 @@
 
     iput-object v1, v0, Lcom/intel/internal/cellcoex/service/props/MwsState;->mSubState:Lcom/intel/internal/cellcoex/service/props/MwsState$SubState;
 
-    .line 301
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnUnregisteredState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     invoke-static {v0}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$700(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;)Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
@@ -120,27 +113,20 @@
 
     invoke-interface {v0, v1, v2}, Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;->setProp(Ljava/lang/String;Ljava/lang/Object;)Z
 
-    .line 302
     return-void
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 5
-    .param p1, "message"    # Landroid/os/Message;
 
-    .prologue
-    .line 306
     const/4 v1, 0x0
 
-    .line 307
-    .local v1, "retVal":Z
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$300()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 308
     const-string v2, "CWS_CELLCOEX_MGR"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -197,7 +183,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 310
     :cond_0
     const v2, 0x80002
 
@@ -205,14 +190,12 @@
 
     if-ne v2, v3, :cond_9
 
-    .line 311
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     instance-of v2, v2, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;
 
     if-nez v2, :cond_2
 
-    .line 312
     const-string v2, "CWS_CELLCOEX_MGR"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -249,33 +232,27 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 347
     :cond_1
     :goto_0
     return v1
 
-    .line 315
     :cond_2
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;
 
-    .line 316
-    .local v0, "aMwsLteRegStatus":Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;
     invoke-virtual {v0}, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->isAgressive()Z
 
     move-result v2
 
     if-eqz v2, :cond_5
 
-    .line 317
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$300()Z
 
     move-result v2
 
     if-eqz v2, :cond_3
 
-    .line 318
     const-string v2, "CWS_CELLCOEX_MGR"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -318,7 +295,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 319
     :cond_3
     iget-object v2, v0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegStatus:Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
 
@@ -326,7 +302,6 @@
 
     if-ne v2, v3, :cond_4
 
-    .line 321
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnUnregisteredState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     iget-object v3, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnUnregisteredState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
@@ -337,15 +312,12 @@
 
     invoke-static {v2, v3}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$2100(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;Lcom/android/internal/util/IState;)V
 
-    .line 338
     :cond_4
     :goto_1
     const/4 v1, 0x1
 
-    .line 339
     goto :goto_0
 
-    .line 324
     :cond_5
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$300()Z
 
@@ -353,7 +325,6 @@
 
     if-eqz v2, :cond_6
 
-    .line 325
     const-string v2, "CWS_CELLCOEX_MGR"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -396,7 +367,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 326
     :cond_6
     iget-object v2, v0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegStatus:Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
 
@@ -404,14 +374,12 @@
 
     if-ne v2, v3, :cond_8
 
-    .line 328
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$300()Z
 
     move-result v2
 
     if-eqz v2, :cond_7
 
-    .line 329
     const-string v2, "CWS_CELLCOEX_MGR"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -454,7 +422,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 331
     :cond_7
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnUnregisteredState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
@@ -468,7 +435,6 @@
 
     goto :goto_1
 
-    .line 334
     :cond_8
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$300()Z
 
@@ -476,7 +442,6 @@
 
     if-eqz v2, :cond_4
 
-    .line 335
     const-string v2, "CWS_CELLCOEX_MGR"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -521,8 +486,6 @@
 
     goto/16 :goto_1
 
-    .line 340
-    .end local v0    # "aMwsLteRegStatus":Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;
     :cond_9
     const v2, 0x80001
 
@@ -530,7 +493,6 @@
 
     if-ne v2, v3, :cond_1
 
-    .line 341
     iget v2, p1, Landroid/os/Message;->arg1:I
 
     if-eqz v2, :cond_a
@@ -541,11 +503,9 @@
 
     if-ne v2, v3, :cond_1
 
-    .line 343
     :cond_a
     const/4 v1, 0x1
 
-    .line 344
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnUnregisteredState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     iget-object v3, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOnUnregisteredState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;

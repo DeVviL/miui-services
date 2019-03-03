@@ -21,8 +21,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 23
     const-class v0, Lcom/android/server/pm/SettingsInjector;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -37,8 +35,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -47,8 +43,6 @@
 .method static synthetic access$000()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 22
     sget-object v0, Lcom/android/server/pm/SettingsInjector;->TAG:Ljava/lang/String;
 
     return-object v0
@@ -56,15 +50,11 @@
 
 .method public static checkXSpaceApp(Lcom/android/server/pm/PackageSetting;I)Z
     .locals 9
-    .param p0, "ps"    # Lcom/android/server/pm/PackageSetting;
-    .param p1, "userHandle"    # I
 
-    .prologue
     const/4 v4, 0x0
 
     const/4 v5, 0x1
 
-    .line 33
     sget-object v6, Lmiui/securityspace/SecSpaceConstants;->GRAPHITE_APPS:Ljava/util/ArrayList;
 
     iget-object v7, p0, Lcom/android/server/pm/PackageSetting;->pkg:Landroid/content/pm/PackageParser$Package;
@@ -77,14 +67,12 @@
 
     if-eqz v6, :cond_1
 
-    .line 34
     invoke-static {p1}, Lcom/android/server/pm/SettingsInjectorCompat;->needUninstallGraphiteApp(I)Z
 
     move-result v6
 
     if-eqz v6, :cond_1
 
-    .line 35
     sget-object v6, Lcom/android/server/pm/SettingsInjector;->TAG:Ljava/lang/String;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -107,15 +95,12 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 36
     invoke-virtual {p0, v4, p1}, Lcom/android/server/pm/PackageSetting;->setInstalled(ZI)V
 
-    .line 82
     :cond_0
     :goto_0
     return v5
 
-    .line 40
     :cond_1
     invoke-static {p1}, Lmiui/securityspace/XSpaceUserHandle;->isXSpaceUserId(I)Z
 
@@ -123,7 +108,6 @@
 
     if-eqz v6, :cond_4
 
-    .line 41
     sget-object v6, Lmiui/securityspace/XSpaceConstant;->REQUIRED_APPS:Ljava/util/ArrayList;
 
     iget-object v7, p0, Lcom/android/server/pm/PackageSetting;->pkg:Landroid/content/pm/PackageParser$Package;
@@ -136,10 +120,8 @@
 
     if-eqz v6, :cond_3
 
-    .line 42
     invoke-virtual {p0, v5, p1}, Lcom/android/server/pm/PackageSetting;->setInstalled(ZI)V
 
-    .line 46
     :goto_1
     sget-object v4, Lmiui/securityspace/XSpaceConstant;->SPECIAL_APPS:Ljava/util/Map;
 
@@ -153,7 +135,6 @@
 
     if-eqz v4, :cond_0
 
-    .line 47
     sget-object v4, Lmiui/securityspace/XSpaceConstant;->SPECIAL_APPS:Ljava/util/Map;
 
     iget-object v6, p0, Lcom/android/server/pm/PackageSetting;->pkg:Landroid/content/pm/PackageParser$Package;
@@ -166,47 +147,38 @@
 
     check-cast v3, Ljava/util/ArrayList;
 
-    .line 48
-    .local v3, "requiredComponent":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 49
-    .local v1, "components":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/PackageParser$Component;>;"
     iget-object v4, p0, Lcom/android/server/pm/PackageSetting;->pkg:Landroid/content/pm/PackageParser$Package;
 
     iget-object v4, v4, Landroid/content/pm/PackageParser$Package;->activities:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v4}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 50
     iget-object v4, p0, Lcom/android/server/pm/PackageSetting;->pkg:Landroid/content/pm/PackageParser$Package;
 
     iget-object v4, v4, Landroid/content/pm/PackageParser$Package;->services:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v4}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 51
     iget-object v4, p0, Lcom/android/server/pm/PackageSetting;->pkg:Landroid/content/pm/PackageParser$Package;
 
     iget-object v4, v4, Landroid/content/pm/PackageParser$Package;->receivers:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v4}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 52
     iget-object v4, p0, Lcom/android/server/pm/PackageSetting;->pkg:Landroid/content/pm/PackageParser$Package;
 
     iget-object v4, v4, Landroid/content/pm/PackageParser$Package;->providers:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v4}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 53
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .local v2, "i$":Ljava/util/Iterator;
     :cond_2
     :goto_2
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -221,8 +193,6 @@
 
     check-cast v0, Landroid/content/pm/PackageParser$Component;
 
-    .line 54
-    .local v0, "component":Landroid/content/pm/PackageParser$Component;
     iget-object v4, v0, Landroid/content/pm/PackageParser$Component;->className:Ljava/lang/String;
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
@@ -231,24 +201,17 @@
 
     if-nez v4, :cond_2
 
-    .line 57
     iget-object v4, v0, Landroid/content/pm/PackageParser$Component;->className:Ljava/lang/String;
 
     invoke-virtual {p0, v4, p1}, Lcom/android/server/pm/PackageSetting;->addDisabledComponent(Ljava/lang/String;I)V
 
     goto :goto_2
 
-    .line 44
-    .end local v0    # "component":Landroid/content/pm/PackageParser$Component;
-    .end local v1    # "components":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/content/pm/PackageParser$Component;>;"
-    .end local v2    # "i$":Ljava/util/Iterator;
-    .end local v3    # "requiredComponent":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     :cond_3
     invoke-virtual {p0, v4, p1}, Lcom/android/server/pm/PackageSetting;->setInstalled(ZI)V
 
     goto :goto_1
 
-    .line 62
     :cond_4
     invoke-static {p1}, Lmiui/securityspace/CrossUserUtils;->isAirLockUser(I)Z
 
@@ -256,12 +219,10 @@
 
     if-eqz v6, :cond_5
 
-    .line 63
     invoke-virtual {p0, v4, p1}, Lcom/android/server/pm/PackageSetting;->setInstalled(ZI)V
 
     goto :goto_0
 
-    .line 67
     :cond_5
     sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -277,7 +238,6 @@
 
     if-nez v6, :cond_9
 
-    .line 68
     const-string v6, "com.miui.packageinstaller"
 
     iget-object v7, p0, Lcom/android/server/pm/PackageSetting;->pkg:Landroid/content/pm/PackageParser$Package;
@@ -290,7 +250,6 @@
 
     if-eqz v6, :cond_7
 
-    .line 69
     sget-boolean v6, Lmiui/os/Build;->IS_CTS_BUILD:Z
 
     if-nez v6, :cond_6
@@ -302,7 +261,6 @@
 
     goto/16 :goto_0
 
-    .line 72
     :cond_7
     const-string v6, "com.google.android.packageinstaller"
 
@@ -316,14 +274,12 @@
 
     if-eqz v6, :cond_8
 
-    .line 73
     sget-boolean v4, Lmiui/os/Build;->IS_CTS_BUILD:Z
 
     invoke-virtual {p0, v4, p1}, Lcom/android/server/pm/PackageSetting;->setInstalled(ZI)V
 
     goto/16 :goto_0
 
-    .line 76
     :cond_8
     const-string v6, "com.android.packageinstaller"
 
@@ -337,7 +293,6 @@
 
     if-eqz v6, :cond_9
 
-    .line 77
     sget-boolean v4, Lmiui/os/Build;->IS_CTS_BUILD:Z
 
     invoke-virtual {p0, v4, p1}, Lcom/android/server/pm/PackageSetting;->setInstalled(ZI)V
@@ -347,16 +302,12 @@
     :cond_9
     move v5, v4
 
-    .line 82
     goto/16 :goto_0
 .end method
 
 .method private static isSystem(Lcom/android/server/pm/PackageSetting;)Z
     .locals 1
-    .param p0, "pkgSetting"    # Lcom/android/server/pm/PackageSetting;
 
-    .prologue
-    .line 86
     iget v0, p0, Lcom/android/server/pm/PackageSetting;->pkgFlags:I
 
     and-int/lit8 v0, v0, 0x1
@@ -376,12 +327,7 @@
 
 .method public static noftifyFirstLaunch(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageSetting;I)V
     .locals 3
-    .param p0, "pms"    # Lcom/android/server/pm/PackageManagerService;
-    .param p1, "pkgSetting"    # Lcom/android/server/pm/PackageSetting;
-    .param p2, "userId"    # I
 
-    .prologue
-    .line 91
     if-eqz p1, :cond_0
 
     invoke-static {p1}, Lcom/android/server/pm/SettingsInjector;->isSystem(Lcom/android/server/pm/PackageSetting;)Z
@@ -396,33 +342,27 @@
 
     if-ge v1, v2, :cond_1
 
-    .line 120
     :cond_0
     :goto_0
     return-void
 
-    .line 96
     :cond_1
     new-instance v0, Lcom/android/server/pm/SettingsInjector$1;
 
     invoke-direct {v0, p1, p2}, Lcom/android/server/pm/SettingsInjector$1;-><init>(Lcom/android/server/pm/PackageSetting;I)V
 
-    .line 113
-    .local v0, "task":Ljava/lang/Runnable;
     if-eqz p0, :cond_2
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
 
     if-eqz v1, :cond_2
 
-    .line 115
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
 
     invoke-virtual {v1, v0}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_0
 
-    .line 118
     :cond_2
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 

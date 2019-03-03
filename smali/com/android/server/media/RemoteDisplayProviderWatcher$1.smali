@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/media/RemoteDisplayProviderWatcher;)V
     .locals 0
 
-    .prologue
-    .line 198
     iput-object p1, p0, Lcom/android/server/media/RemoteDisplayProviderWatcher$1;->this$0:Lcom/android/server/media/RemoteDisplayProviderWatcher;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,18 +33,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 201
     invoke-static {}, Lcom/android/server/media/RemoteDisplayProviderWatcher;->access$000()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 202
     const-string v0, "RemoteDisplayProvider"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -69,12 +62,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 204
     :cond_0
     iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderWatcher$1;->this$0:Lcom/android/server/media/RemoteDisplayProviderWatcher;
 
     invoke-static {v0}, Lcom/android/server/media/RemoteDisplayProviderWatcher;->access$100(Lcom/android/server/media/RemoteDisplayProviderWatcher;)V
 
-    .line 205
     return-void
 .end method

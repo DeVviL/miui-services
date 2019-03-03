@@ -21,8 +21,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,10 +28,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$1;
 
-    .prologue
-    .line 30
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$Bystander;-><init>()V
 
     return-void
@@ -43,10 +38,7 @@
 # virtual methods
 .method public handle(Lcom/android/server/hdmi/HdmiCecMessage;)Z
     .locals 1
-    .param p1, "message"    # Lcom/android/server/hdmi/HdmiCecMessage;
 
-    .prologue
-    .line 33
     const/4 v0, 0x1
 
     return v0

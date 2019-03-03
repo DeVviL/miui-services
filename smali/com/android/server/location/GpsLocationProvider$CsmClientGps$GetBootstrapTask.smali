@@ -33,8 +33,6 @@
 .method private constructor <init>(Lcom/android/server/location/GpsLocationProvider$CsmClientGps;)V
     .locals 0
 
-    .prologue
-    .line 2187
     iput-object p1, p0, Lcom/android/server/location/GpsLocationProvider$CsmClientGps$GetBootstrapTask;->this$1:Lcom/android/server/location/GpsLocationProvider$CsmClientGps;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -44,11 +42,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/location/GpsLocationProvider$CsmClientGps;Lcom/android/server/location/GpsLocationProvider$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/location/GpsLocationProvider$CsmClientGps;
-    .param p2, "x1"    # Lcom/android/server/location/GpsLocationProvider$1;
 
-    .prologue
-    .line 2187
     invoke-direct {p0, p1}, Lcom/android/server/location/GpsLocationProvider$CsmClientGps$GetBootstrapTask;-><init>(Lcom/android/server/location/GpsLocationProvider$CsmClientGps;)V
 
     return-void
@@ -58,13 +52,9 @@
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # [Ljava/lang/Object;
 
-    .prologue
-    .line 2187
     check-cast p1, [Ljava/lang/Void;
 
-    .end local p1    # "x0":[Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/location/GpsLocationProvider$CsmClientGps$GetBootstrapTask;->doInBackground([Ljava/lang/Void;)Ljava/lang/String;
 
     move-result-object v0
@@ -74,12 +64,9 @@
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/String;
     .locals 7
-    .param p1, "param"    # [Ljava/lang/Void;
 
-    .prologue
     const/4 v6, 0x1
 
-    .line 2192
     invoke-static {}, Lcom/android/server/location/GpsLocationProvider;->access$100()Z
 
     move-result v3
@@ -92,7 +79,6 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2194
     :cond_0
     new-instance v0, Lcom/intel/cws/cwsservicemanagerclient/CsmEfBootstrap;
 
@@ -114,18 +100,13 @@
 
     invoke-direct {v0, v3, v4}, Lcom/intel/cws/cwsservicemanagerclient/CsmEfBootstrap;-><init>(BLcom/intel/cws/cwsservicemanager/ICwsServiceMgr;)V
 
-    .line 2196
-    .local v0, "csmEfBootstrap":Lcom/intel/cws/cwsservicemanagerclient/CsmEfBootstrap;
     new-instance v2, Ljava/lang/String;
 
     invoke-direct {v2}, Ljava/lang/String;-><init>()V
 
-    .line 2198
-    .local v2, "hslpAddress":Ljava/lang/String;
     :try_start_0
     new-instance v2, Ljava/lang/String;
 
-    .end local v2    # "hslpAddress":Ljava/lang/String;
     invoke-virtual {v0}, Lcom/intel/cws/cwsservicemanagerclient/CsmEfBootstrap;->readHslpAddress()Ljava/lang/String;
 
     move-result-object v3
@@ -134,8 +115,6 @@
     :try_end_0
     .catch Lcom/intel/cws/cwsservicemanager/CsmException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2204
-    .restart local v2    # "hslpAddress":Ljava/lang/String;
     :cond_1
     :goto_0
     invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
@@ -144,7 +123,6 @@
 
     if-eqz v3, :cond_5
 
-    .line 2205
     iget-object v3, p0, Lcom/android/server/location/GpsLocationProvider$CsmClientGps$GetBootstrapTask;->this$1:Lcom/android/server/location/GpsLocationProvider$CsmClientGps;
 
     iget-object v3, v3, Lcom/android/server/location/GpsLocationProvider$CsmClientGps;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -153,7 +131,6 @@
 
     invoke-static {v3, v4}, Lcom/android/server/location/GpsLocationProvider;->access$4102(Lcom/android/server/location/GpsLocationProvider;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 2207
     invoke-static {}, Lcom/android/server/location/GpsLocationProvider;->access$100()Z
 
     move-result v3
@@ -166,7 +143,6 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2209
     :cond_2
     iget-object v3, p0, Lcom/android/server/location/GpsLocationProvider$CsmClientGps$GetBootstrapTask;->this$1:Lcom/android/server/location/GpsLocationProvider$CsmClientGps;
 
@@ -188,7 +164,6 @@
 
     if-eqz v3, :cond_4
 
-    .line 2210
     invoke-static {}, Lcom/android/server/location/GpsLocationProvider;->access$100()Z
 
     move-result v3
@@ -201,7 +176,6 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2211
     :cond_3
     iget-object v3, p0, Lcom/android/server/location/GpsLocationProvider$CsmClientGps$GetBootstrapTask;->this$1:Lcom/android/server/location/GpsLocationProvider$CsmClientGps;
 
@@ -225,24 +199,17 @@
 
     invoke-static {v3, v6, v4, v5}, Lcom/android/server/location/GpsLocationProvider;->access$4500(Lcom/android/server/location/GpsLocationProvider;ILjava/lang/String;I)V
 
-    .line 2224
     :cond_4
     :goto_1
     return-object v2
 
-    .line 2199
-    .end local v2    # "hslpAddress":Ljava/lang/String;
     :catch_0
     move-exception v1
 
-    .line 2200
-    .local v1, "e":Lcom/intel/cws/cwsservicemanager/CsmException;
     new-instance v2, Ljava/lang/String;
 
     invoke-direct {v2}, Ljava/lang/String;-><init>()V
 
-    .line 2201
-    .restart local v2    # "hslpAddress":Ljava/lang/String;
     invoke-static {}, Lcom/android/server/location/GpsLocationProvider;->access$100()Z
 
     move-result v3
@@ -259,8 +226,6 @@
 
     goto :goto_0
 
-    .line 2216
-    .end local v1    # "e":Lcom/intel/cws/cwsservicemanager/CsmException;
     :cond_5
     iget-object v3, p0, Lcom/android/server/location/GpsLocationProvider$CsmClientGps$GetBootstrapTask;->this$1:Lcom/android/server/location/GpsLocationProvider$CsmClientGps;
 
@@ -268,7 +233,6 @@
 
     invoke-static {v3, v2}, Lcom/android/server/location/GpsLocationProvider;->access$4102(Lcom/android/server/location/GpsLocationProvider;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 2217
     iget-object v3, p0, Lcom/android/server/location/GpsLocationProvider$CsmClientGps$GetBootstrapTask;->this$1:Lcom/android/server/location/GpsLocationProvider$CsmClientGps;
 
     iget-object v3, v3, Lcom/android/server/location/GpsLocationProvider$CsmClientGps;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -279,7 +243,6 @@
 
     if-eqz v3, :cond_4
 
-    .line 2218
     invoke-static {}, Lcom/android/server/location/GpsLocationProvider;->access$100()Z
 
     move-result v3
@@ -308,7 +271,6 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2219
     :cond_6
     iget-object v3, p0, Lcom/android/server/location/GpsLocationProvider$CsmClientGps$GetBootstrapTask;->this$1:Lcom/android/server/location/GpsLocationProvider$CsmClientGps;
 

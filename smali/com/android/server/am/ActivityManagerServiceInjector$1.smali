@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;I)V
     .locals 0
 
-    .prologue
-    .line 308
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerServiceInjector$1;->val$ams:Lcom/android/server/am/ActivityManagerService;
 
     iput p2, p0, Lcom/android/server/am/ActivityManagerServiceInjector$1;->val$mTargetUserId:I
@@ -43,8 +41,6 @@
 .method public run()V
     .locals 5
 
-    .prologue
-    .line 310
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerServiceInjector$1;->val$ams:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
@@ -63,8 +59,6 @@
 
     move-result v0
 
-    .line 313
-    .local v0, "secondSpaceId":I
     iget v1, p0, Lcom/android/server/am/ActivityManagerServiceInjector$1;->val$mTargetUserId:I
 
     if-ne v1, v0, :cond_0
@@ -86,7 +80,6 @@
 
     if-nez v1, :cond_2
 
-    .line 315
     :cond_1
     new-instance v1, Lcom/android/server/am/SecondSpaceSwitchingDialog;
 
@@ -102,11 +95,9 @@
 
     invoke-virtual {v1}, Lcom/android/server/am/SecondSpaceSwitchingDialog;->show()V
 
-    .line 319
     :goto_0
     return-void
 
-    .line 317
     :cond_2
     new-instance v1, Lcom/android/server/am/MiuiUserSwitchingDialog;
 

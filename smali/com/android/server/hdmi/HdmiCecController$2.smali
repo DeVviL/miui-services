@@ -35,8 +35,6 @@
 .method constructor <init>(Lcom/android/server/hdmi/HdmiCecController;)V
     .locals 0
 
-    .prologue
-    .line 81
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecController$2;->this$0:Lcom/android/server/hdmi/HdmiCecController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,10 +46,7 @@
 # virtual methods
 .method public apply(Ljava/lang/Integer;)Z
     .locals 2
-    .param p1, "address"    # Ljava/lang/Integer;
 
-    .prologue
-    .line 84
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
@@ -77,13 +72,9 @@
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 81
     check-cast p1, Ljava/lang/Integer;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecController$2;->apply(Ljava/lang/Integer;)Z
 
     move-result v0

@@ -26,8 +26,6 @@
 .method private constructor <init>(Lcom/android/server/MmsServiceBroker;)V
     .locals 0
 
-    .prologue
-    .line 219
     iput-object p1, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-direct {p0}, Lcom/android/internal/telephony/IMms$Stub;-><init>()V
@@ -37,11 +35,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/MmsServiceBroker;Lcom/android/server/MmsServiceBroker$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/MmsServiceBroker;
-    .param p2, "x1"    # Lcom/android/server/MmsServiceBroker$1;
 
-    .prologue
-    .line 219
     invoke-direct {p0, p1}, Lcom/android/server/MmsServiceBroker$BinderService;-><init>(Lcom/android/server/MmsServiceBroker;)V
 
     return-void
@@ -49,33 +43,22 @@
 
 .method private adjustUriForUserAndGrantPermission(Landroid/net/Uri;Ljava/lang/String;I)Landroid/net/Uri;
     .locals 8
-    .param p1, "contentUri"    # Landroid/net/Uri;
-    .param p2, "action"    # Ljava/lang/String;
-    .param p3, "permission"    # I
 
-    .prologue
-    .line 400
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
     move-result v0
 
-    .line 401
-    .local v0, "callingUserId":I
     if-eqz v0, :cond_0
 
-    .line 402
     invoke-static {p1, v0}, Landroid/content/ContentProvider;->maybeAddUserId(Landroid/net/Uri;I)Landroid/net/Uri;
 
     move-result-object p1
 
-    .line 404
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v4
 
-    .line 406
-    .local v4, "token":J
     :try_start_0
     iget-object v6, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
@@ -87,13 +70,10 @@
 
     invoke-virtual {v6, v7, p1, p3}, Landroid/content/Context;->grantUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
 
-    .line 409
     new-instance v2, Landroid/content/Intent;
 
     invoke-direct {v2, p2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 410
-    .local v2, "intent":Landroid/content/Intent;
     iget-object v6, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v6}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -108,14 +88,10 @@
 
     check-cast v3, Landroid/telephony/TelephonyManager;
 
-    .line 412
-    .local v3, "telephonyManager":Landroid/telephony/TelephonyManager;
     invoke-virtual {v3, v2}, Landroid/telephony/TelephonyManager;->getCarrierPackageNamesForIntent(Landroid/content/Intent;)Ljava/util/List;
 
     move-result-object v1
 
-    .line 414
-    .local v1, "carrierPackages":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     if-eqz v1, :cond_1
 
     invoke-interface {v1}, Ljava/util/List;->size()I
@@ -126,7 +102,6 @@
 
     if-ne v6, v7, :cond_1
 
-    .line 415
     iget-object v6, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v6}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -145,17 +120,11 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 418
     :cond_1
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 420
     return-object p1
 
-    .line 418
-    .end local v1    # "carrierPackages":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    .end local v2    # "intent":Landroid/content/Intent;
-    .end local v3    # "telephonyManager":Landroid/telephony/TelephonyManager;
     :catchall_0
     move-exception v6
 
@@ -168,16 +137,12 @@
 # virtual methods
 .method public addMultimediaMessageDraft(Ljava/lang/String;Landroid/net/Uri;)Landroid/net/Uri;
     .locals 3
-    .param p1, "callingPkg"    # Ljava/lang/String;
-    .param p2, "contentUri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 350
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -190,7 +155,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 351
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$500(Lcom/android/server/MmsServiceBroker;)Landroid/app/AppOpsManager;
@@ -209,12 +173,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 355
     invoke-static {}, Lcom/android/server/MmsServiceBroker;->access$1100()Landroid/net/Uri;
 
     move-result-object v0
 
-    .line 357
     :goto_0
     return-object v0
 
@@ -234,17 +196,12 @@
 
 .method public addTextMessageDraft(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
     .locals 3
-    .param p1, "callingPkg"    # Ljava/lang/String;
-    .param p2, "address"    # Ljava/lang/String;
-    .param p3, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 337
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -257,7 +214,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 338
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$500(Lcom/android/server/MmsServiceBroker;)Landroid/app/AppOpsManager;
@@ -276,12 +232,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 342
     invoke-static {}, Lcom/android/server/MmsServiceBroker;->access$1000()Landroid/net/Uri;
 
     move-result-object v0
 
-    .line 344
     :goto_0
     return-object v0
 
@@ -301,17 +255,12 @@
 
 .method public archiveStoredConversation(Ljava/lang/String;JZ)Z
     .locals 4
-    .param p1, "callingPkg"    # Ljava/lang/String;
-    .param p2, "conversationId"    # J
-    .param p4, "archived"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 328
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -324,7 +273,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 330
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$600(Lcom/android/server/MmsServiceBroker;)Lcom/android/internal/telephony/IMms;
@@ -340,16 +288,12 @@
 
 .method public deleteStoredConversation(Ljava/lang/String;J)Z
     .locals 4
-    .param p1, "callingPkg"    # Ljava/lang/String;
-    .param p2, "conversationId"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 308
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -362,7 +306,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 309
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$500(Lcom/android/server/MmsServiceBroker;)Landroid/app/AppOpsManager;
@@ -381,10 +324,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 311
     const/4 v0, 0x0
 
-    .line 313
     :goto_0
     return v0
 
@@ -404,16 +345,12 @@
 
 .method public deleteStoredMessage(Ljava/lang/String;Landroid/net/Uri;)Z
     .locals 3
-    .param p1, "callingPkg"    # Ljava/lang/String;
-    .param p2, "messageUri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 296
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -426,7 +363,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 298
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$500(Lcom/android/server/MmsServiceBroker;)Landroid/app/AppOpsManager;
@@ -445,10 +381,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 300
     const/4 v0, 0x0
 
-    .line 302
     :goto_0
     return v0
 
@@ -468,20 +402,12 @@
 
 .method public downloadMessage(ILjava/lang/String;Ljava/lang/String;Landroid/net/Uri;Landroid/os/Bundle;Landroid/app/PendingIntent;)V
     .locals 7
-    .param p1, "subId"    # I
-    .param p2, "callingPkg"    # Ljava/lang/String;
-    .param p3, "locationUrl"    # Ljava/lang/String;
-    .param p4, "contentUri"    # Landroid/net/Uri;
-    .param p5, "configOverrides"    # Landroid/os/Bundle;
-    .param p6, "downloadedIntent"    # Landroid/app/PendingIntent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 243
     const-string v0, "MmsServiceBroker"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -504,7 +430,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 244
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -517,7 +442,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 246
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$500(Lcom/android/server/MmsServiceBroker;)Landroid/app/AppOpsManager;
@@ -536,11 +460,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 256
     :goto_0
     return-void
 
-    .line 250
     :cond_0
     const-string v0, "android.service.carrier.CarrierMessagingService"
 
@@ -550,7 +472,6 @@
 
     move-result-object p4
 
-    .line 254
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$600(Lcom/android/server/MmsServiceBroker;)Lcom/android/internal/telephony/IMms;
@@ -582,8 +503,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 385
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$600(Lcom/android/server/MmsServiceBroker;)Lcom/android/internal/telephony/IMms;
@@ -599,15 +518,12 @@
 
 .method public getCarrierConfigValues(I)Landroid/os/Bundle;
     .locals 3
-    .param p1, "subId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 260
     const-string v0, "MmsServiceBroker"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -636,7 +552,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 261
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$600(Lcom/android/server/MmsServiceBroker;)Lcom/android/internal/telephony/IMms;
@@ -652,20 +567,12 @@
 
 .method public importMultimediaMessage(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;JZZ)Landroid/net/Uri;
     .locals 8
-    .param p1, "callingPkg"    # Ljava/lang/String;
-    .param p2, "contentUri"    # Landroid/net/Uri;
-    .param p3, "messageId"    # Ljava/lang/String;
-    .param p4, "timestampSecs"    # J
-    .param p6, "seen"    # Z
-    .param p7, "read"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 282
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -678,7 +585,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 283
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$500(Lcom/android/server/MmsServiceBroker;)Landroid/app/AppOpsManager;
@@ -697,12 +603,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 287
     invoke-static {}, Lcom/android/server/MmsServiceBroker;->access$900()Landroid/net/Uri;
 
     move-result-object v0
 
-    .line 289
     :goto_0
     return-object v0
 
@@ -734,21 +638,12 @@
 
 .method public importTextMessage(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;JZZ)Landroid/net/Uri;
     .locals 11
-    .param p1, "callingPkg"    # Ljava/lang/String;
-    .param p2, "address"    # Ljava/lang/String;
-    .param p3, "type"    # I
-    .param p4, "text"    # Ljava/lang/String;
-    .param p5, "timestampMillis"    # J
-    .param p7, "seen"    # Z
-    .param p8, "read"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 267
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -761,7 +656,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 268
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$500(Lcom/android/server/MmsServiceBroker;)Landroid/app/AppOpsManager;
@@ -780,12 +674,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 272
     invoke-static {}, Lcom/android/server/MmsServiceBroker;->access$800()Landroid/net/Uri;
 
     move-result-object v0
 
-    .line 274
     :goto_0
     return-object v0
 
@@ -819,20 +711,12 @@
 
 .method public sendMessage(ILjava/lang/String;Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Landroid/app/PendingIntent;)V
     .locals 7
-    .param p1, "subId"    # I
-    .param p2, "callingPkg"    # Ljava/lang/String;
-    .param p3, "contentUri"    # Landroid/net/Uri;
-    .param p4, "locationUrl"    # Ljava/lang/String;
-    .param p5, "configOverrides"    # Landroid/os/Bundle;
-    .param p6, "sentIntent"    # Landroid/app/PendingIntent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 226
     const-string v0, "MmsServiceBroker"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -855,7 +739,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 227
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -868,7 +751,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 228
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$500(Lcom/android/server/MmsServiceBroker;)Landroid/app/AppOpsManager;
@@ -887,11 +769,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 237
     :goto_0
     return-void
 
-    .line 232
     :cond_0
     const-string v0, "android.service.carrier.CarrierMessagingService"
 
@@ -901,7 +781,6 @@
 
     move-result-object p3
 
-    .line 235
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$600(Lcom/android/server/MmsServiceBroker;)Lcom/android/internal/telephony/IMms;
@@ -927,19 +806,12 @@
 
 .method public sendStoredMessage(ILjava/lang/String;Landroid/net/Uri;Landroid/os/Bundle;Landroid/app/PendingIntent;)V
     .locals 6
-    .param p1, "subId"    # I
-    .param p2, "callingPkg"    # Ljava/lang/String;
-    .param p3, "messageUri"    # Landroid/net/Uri;
-    .param p4, "configOverrides"    # Landroid/os/Bundle;
-    .param p5, "sentIntent"    # Landroid/app/PendingIntent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 363
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -952,7 +824,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 365
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$500(Lcom/android/server/MmsServiceBroker;)Landroid/app/AppOpsManager;
@@ -971,11 +842,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 371
     :goto_0
     return-void
 
-    .line 369
     :cond_0
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
@@ -1000,16 +869,12 @@
 
 .method public setAutoPersisting(Ljava/lang/String;Z)V
     .locals 3
-    .param p1, "callingPkg"    # Ljava/lang/String;
-    .param p2, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 375
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -1022,7 +887,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 376
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$500(Lcom/android/server/MmsServiceBroker;)Landroid/app/AppOpsManager;
@@ -1041,11 +905,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 381
     :goto_0
     return-void
 
-    .line 380
     :cond_0
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
@@ -1060,17 +922,12 @@
 
 .method public updateStoredMessageStatus(Ljava/lang/String;Landroid/net/Uri;Landroid/content/ContentValues;)Z
     .locals 3
-    .param p1, "callingPkg"    # Ljava/lang/String;
-    .param p2, "messageUri"    # Landroid/net/Uri;
-    .param p3, "statusValues"    # Landroid/content/ContentValues;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 319
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$400(Lcom/android/server/MmsServiceBroker;)Landroid/content/Context;
@@ -1083,7 +940,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 321
     iget-object v0, p0, Lcom/android/server/MmsServiceBroker$BinderService;->this$0:Lcom/android/server/MmsServiceBroker;
 
     invoke-static {v0}, Lcom/android/server/MmsServiceBroker;->access$600(Lcom/android/server/MmsServiceBroker;)Lcom/android/internal/telephony/IMms;

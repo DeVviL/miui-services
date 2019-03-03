@@ -29,8 +29,6 @@
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Intent;I)V
     .locals 0
 
-    .prologue
-    .line 437
     iput-object p1, p0, Lcom/android/server/am/BroadcastQueueInjector$1;->val$service:Lcom/android/server/am/ActivityManagerService;
 
     iput-object p2, p0, Lcom/android/server/am/BroadcastQueueInjector$1;->val$intent:Landroid/content/Intent;
@@ -47,8 +45,6 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 441
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BroadcastQueueInjector$1;->val$service:Lcom/android/server/am/ActivityManagerService;
 
@@ -70,11 +66,9 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 445
     :goto_0
     return-void
 
-    .line 442
     :catch_0
     move-exception v0
 

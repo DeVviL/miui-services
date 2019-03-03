@@ -27,27 +27,16 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;ILcom/android/server/am/ActivityStack;)V
     .locals 0
-    .param p1, "_r"    # Lcom/android/server/am/ActivityRecord;
-    .param p2, "_sourceRecord"    # Lcom/android/server/am/ActivityRecord;
-    .param p3, "_startFlags"    # I
-    .param p4, "_stack"    # Lcom/android/server/am/ActivityStack;
 
-    .prologue
-    .line 297
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 298
     iput-object p1, p0, Lcom/android/server/am/ActivityStackSupervisor$PendingActivityLaunch;->r:Lcom/android/server/am/ActivityRecord;
 
-    .line 299
     iput-object p2, p0, Lcom/android/server/am/ActivityStackSupervisor$PendingActivityLaunch;->sourceRecord:Lcom/android/server/am/ActivityRecord;
 
-    .line 300
     iput p3, p0, Lcom/android/server/am/ActivityStackSupervisor$PendingActivityLaunch;->startFlags:I
 
-    .line 301
     iput-object p4, p0, Lcom/android/server/am/ActivityStackSupervisor$PendingActivityLaunch;->stack:Lcom/android/server/am/ActivityStack;
 
-    .line 302
     return-void
 .end method

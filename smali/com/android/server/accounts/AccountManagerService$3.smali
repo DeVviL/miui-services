@@ -27,14 +27,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;ZZLandroid/accounts/Account;Landroid/accounts/IAccountManagerResponse;Lcom/android/server/accounts/AccountManagerService$UserAccounts;)V
     .locals 0
-    .param p2, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
-    .param p3, "x1"    # Landroid/accounts/IAccountManagerResponse;
-    .param p4, "x2"    # Ljava/lang/String;
-    .param p5, "x3"    # Z
-    .param p6, "x4"    # Z
 
-    .prologue
-    .line 711
     iput-object p1, p0, Lcom/android/server/accounts/AccountManagerService$3;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
     iput-object p7, p0, Lcom/android/server/accounts/AccountManagerService$3;->val$account:Landroid/accounts/Account;
@@ -52,10 +45,7 @@
 # virtual methods
 .method public onResult(Landroid/os/Bundle;)V
     .locals 4
-    .param p1, "result"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 725
     if-eqz p1, :cond_0
 
     const-string v0, "booleanResult"
@@ -68,7 +58,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 728
     iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$3;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
     iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$3;->val$response:Landroid/accounts/IAccountManagerResponse;
@@ -79,11 +68,9 @@
 
     invoke-static {v0, v1, p1, v2, v3}, Lcom/android/server/accounts/AccountManagerService;->access$1000(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;Landroid/os/Bundle;Landroid/accounts/Account;Lcom/android/server/accounts/AccountManagerService$UserAccounts;)V
 
-    .line 732
     :goto_0
     return-void
 
-    .line 730
     :cond_0
     invoke-super {p0, p1}, Lcom/android/server/accounts/AccountManagerService$Session;->onResult(Landroid/os/Bundle;)V
 
@@ -98,24 +85,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 720
     iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$3;->mAuthenticator:Landroid/accounts/IAccountAuthenticator;
 
     iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$3;->val$account:Landroid/accounts/Account;
 
     invoke-interface {v0, p0, v1}, Landroid/accounts/IAccountAuthenticator;->getAccountCredentialsForCloning(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;)V
 
-    .line 721
     return-void
 .end method
 
 .method protected toDebugString(J)Ljava/lang/String;
     .locals 3
-    .param p1, "now"    # J
 
-    .prologue
-    .line 714
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

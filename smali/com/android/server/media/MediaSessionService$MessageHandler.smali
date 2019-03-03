@@ -26,8 +26,6 @@
 .method constructor <init>(Lcom/android/server/media/MediaSessionService;)V
     .locals 0
 
-    .prologue
-    .line 1114
     iput-object p1, p0, Lcom/android/server/media/MediaSessionService$MessageHandler;->this$0:Lcom/android/server/media/MediaSessionService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,19 +37,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 1119
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1124
     :goto_0
     return-void
 
-    .line 1121
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/media/MediaSessionService$MessageHandler;->this$0:Lcom/android/server/media/MediaSessionService;
 
@@ -61,7 +54,6 @@
 
     goto :goto_0
 
-    .line 1119
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -70,18 +62,12 @@
 
 .method public post(III)V
     .locals 1
-    .param p1, "what"    # I
-    .param p2, "arg1"    # I
-    .param p3, "arg2"    # I
 
-    .prologue
-    .line 1127
     invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/media/MediaSessionService$MessageHandler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1128
     return-void
 .end method

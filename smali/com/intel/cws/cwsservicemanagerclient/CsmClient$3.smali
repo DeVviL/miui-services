@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/intel/cws/cwsservicemanagerclient/CsmClient;)V
     .locals 0
 
-    .prologue
-    .line 573
     iput-object p1, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$3;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
     invoke-direct {p0}, Lcom/intel/cws/cwsservicemanager/ICsmModemMgrListener$Stub;-><init>()V
@@ -36,10 +34,8 @@
 .method public mmgrClbkModemAvailable()V
     .locals 5
 
-    .prologue
     const/4 v4, 0x1
 
-    .line 575
     invoke-static {}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->access$000()Z
 
     move-result v1
@@ -88,7 +84,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 577
     :cond_0
     iget-object v1, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$3;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
@@ -96,13 +91,10 @@
 
     move-result v0
 
-    .line 578
-    .local v0, "previousModemStatus":B
     iget-object v1, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$3;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
     invoke-static {v1, v4}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->access$1002(Lcom/intel/cws/cwsservicemanagerclient/CsmClient;B)B
 
-    .line 579
     iget-object v1, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$3;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
     invoke-static {v1}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->access$1100(Lcom/intel/cws/cwsservicemanagerclient/CsmClient;)Ljava/util/concurrent/Semaphore;
@@ -111,29 +103,23 @@
 
     invoke-virtual {v1}, Ljava/util/concurrent/Semaphore;->release()V
 
-    .line 581
     if-eq v0, v4, :cond_1
 
-    .line 583
     iget-object v1, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$3;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
     invoke-virtual {v1}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->csmClientModemAvailable()V
 
-    .line 585
     :cond_1
     return-void
 .end method
 
 .method public mmgrClbkModemUnavailable(I)V
     .locals 6
-    .param p1, "reason"    # I
 
-    .prologue
     const/4 v5, 0x2
 
     const/4 v4, 0x4
 
-    .line 588
     invoke-static {}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->access$000()Z
 
     move-result v1
@@ -186,7 +172,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 590
     :cond_0
     iget-object v1, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$3;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
@@ -194,8 +179,6 @@
 
     move-result v0
 
-    .line 593
-    .local v0, "previousModemStatus":B
     iget-object v1, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$3;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
     invoke-static {v1}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->access$1100(Lcom/intel/cws/cwsservicemanagerclient/CsmClient;)Ljava/util/concurrent/Semaphore;
@@ -208,7 +191,6 @@
 
     if-lez v1, :cond_1
 
-    .line 594
     iget-object v1, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$3;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
     invoke-static {v1}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->access$1100(Lcom/intel/cws/cwsservicemanagerclient/CsmClient;)Ljava/util/concurrent/Semaphore;
@@ -217,18 +199,15 @@
 
     invoke-virtual {v1}, Ljava/util/concurrent/Semaphore;->drainPermits()I
 
-    .line 597
     :cond_1
     if-eq p1, v5, :cond_3
 
     if-eq p1, v4, :cond_3
 
-    .line 599
     iget-object v1, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$3;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
     invoke-static {v1, v5}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->access$1002(Lcom/intel/cws/cwsservicemanagerclient/CsmClient;B)B
 
-    .line 608
     :goto_0
     const/4 v1, 0x1
 
@@ -236,20 +215,16 @@
 
     if-eqz p1, :cond_2
 
-    .line 611
     iget-object v1, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$3;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
     invoke-virtual {v1}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->csmClientModemUnavailable()V
 
-    .line 614
     :cond_2
     return-void
 
-    .line 600
     :cond_3
     if-ne p1, v4, :cond_4
 
-    .line 601
     iget-object v1, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$3;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
     const/16 v2, 0x8
@@ -258,7 +233,6 @@
 
     goto :goto_0
 
-    .line 603
     :cond_4
     iget-object v1, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$3;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 

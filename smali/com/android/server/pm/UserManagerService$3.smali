@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/pm/UserManagerService;I)V
     .locals 0
 
-    .prologue
-    .line 1687
     iput-object p1, p0, Lcom/android/server/pm/UserManagerService$3;->this$0:Lcom/android/server/pm/UserManagerService;
 
     iput p2, p0, Lcom/android/server/pm/UserManagerService$3;->val$userHandle:I
@@ -43,8 +41,6 @@
 .method public run()V
     .locals 9
 
-    .prologue
-    .line 1690
     iget-object v3, p0, Lcom/android/server/pm/UserManagerService$3;->this$0:Lcom/android/server/pm/UserManagerService;
 
     invoke-static {v3}, Lcom/android/server/pm/UserManagerService;->access$300(Lcom/android/server/pm/UserManagerService;)Lcom/android/server/pm/PackageManagerService;
@@ -63,20 +59,15 @@
 
     move-result-object v1
 
-    .line 1693
-    .local v1, "apps":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v4
 
-    .line 1695
-    .local v4, "ident":J
     :try_start_0
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .local v2, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -91,8 +82,6 @@
 
     check-cast v0, Landroid/content/pm/ApplicationInfo;
 
-    .line 1696
-    .local v0, "appInfo":Landroid/content/pm/ApplicationInfo;
     iget v3, v0, Landroid/content/pm/ApplicationInfo;->flags:I
 
     const/high16 v6, 0x800000
@@ -109,7 +98,6 @@
 
     if-eqz v3, :cond_0
 
-    .line 1698
     iget-object v3, p0, Lcom/android/server/pm/UserManagerService$3;->this$0:Lcom/android/server/pm/UserManagerService;
 
     invoke-static {v3}, Lcom/android/server/pm/UserManagerService;->access$300(Lcom/android/server/pm/UserManagerService;)Lcom/android/server/pm/PackageManagerService;
@@ -128,9 +116,6 @@
 
     goto :goto_0
 
-    .line 1703
-    .end local v0    # "appInfo":Landroid/content/pm/ApplicationInfo;
-    .end local v2    # "i$":Ljava/util/Iterator;
     :catchall_0
     move-exception v3
 
@@ -138,10 +123,8 @@
 
     throw v3
 
-    .restart local v2    # "i$":Ljava/util/Iterator;
     :cond_1
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 1705
     return-void
 .end method

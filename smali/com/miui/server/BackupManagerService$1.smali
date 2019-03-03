@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/miui/server/BackupManagerService;)V
     .locals 0
 
-    .prologue
-    .line 86
     iput-object p1, p0, Lcom/miui/server/BackupManagerService$1;->this$0:Lcom/miui/server/BackupManagerService;
 
     invoke-direct {p0}, Lcom/android/internal/content/PackageMonitor;-><init>()V
@@ -35,12 +33,7 @@
 # virtual methods
 .method public onPackageChanged(Ljava/lang/String;I[Ljava/lang/String;)Z
     .locals 3
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "uid"    # I
-    .param p3, "components"    # [Ljava/lang/String;
 
-    .prologue
-    .line 89
     if-eqz p1, :cond_1
 
     iget-object v0, p0, Lcom/miui/server/BackupManagerService$1;->this$0:Lcom/miui/server/BackupManagerService;
@@ -55,7 +48,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 90
     iget-object v0, p0, Lcom/miui/server/BackupManagerService$1;->this$0:Lcom/miui/server/BackupManagerService;
 
     invoke-static {v0}, Lcom/miui/server/BackupManagerService;->access$200(Lcom/miui/server/BackupManagerService;)Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -64,7 +56,6 @@
 
     monitor-enter v1
 
-    .line 91
     :try_start_0
     iget-object v0, p0, Lcom/miui/server/BackupManagerService$1;->this$0:Lcom/miui/server/BackupManagerService;
 
@@ -78,7 +69,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 92
     iget-object v0, p0, Lcom/miui/server/BackupManagerService$1;->this$0:Lcom/miui/server/BackupManagerService;
 
     invoke-static {v0}, Lcom/miui/server/BackupManagerService;->access$200(Lcom/miui/server/BackupManagerService;)Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -89,7 +79,6 @@
 
     invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 93
     iget-object v0, p0, Lcom/miui/server/BackupManagerService$1;->this$0:Lcom/miui/server/BackupManagerService;
 
     invoke-static {v0}, Lcom/miui/server/BackupManagerService;->access$200(Lcom/miui/server/BackupManagerService;)Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -98,17 +87,14 @@
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
 
-    .line 95
     :cond_0
     monitor-exit v1
 
-    .line 97
     :cond_1
     const/4 v0, 0x1
 
     return v0
 
-    .line 95
     :catchall_0
     move-exception v0
 

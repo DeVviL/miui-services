@@ -45,8 +45,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 72
     new-instance v0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam$1;
 
     invoke-direct {v0}, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam$1;-><init>()V
@@ -59,44 +57,34 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "p"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mCallId:I
 
-    .line 39
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mTid:I
 
-    .line 40
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mTidFlag:I
 
-    .line 41
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -108,52 +96,44 @@
     :goto_0
     iput-boolean v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mIsEmergencyCall:Z
 
-    .line 42
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mCallState:I
 
-    .line 43
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mAuxState:I
 
-    .line 44
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mMptyAuxState:I
 
-    .line 45
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mPhoneNo:Ljava/lang/String;
 
-    .line 46
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mTonNpi:I
 
-    .line 47
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mPiSi:I
 
-    .line 48
     return-void
 
-    .line 41
     :cond_0
     const/4 v0, 0x0
 
@@ -165,8 +145,6 @@
 .method public describeContents()I
     .locals 1
 
-    .prologue
-    .line 52
     const/4 v0, 0x0
 
     return v0
@@ -174,26 +152,19 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
-    .line 57
     iget v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mCallId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 58
     iget v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mTid:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 59
     iget v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mTidFlag:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 60
     iget-boolean v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mIsEmergencyCall:Z
 
     if-eqz v0, :cond_0
@@ -203,40 +174,32 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 61
     iget v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mCallState:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 62
     iget v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mAuxState:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 63
     iget v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mMptyAuxState:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 64
     iget-object v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mPhoneNo:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 65
     iget v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mTonNpi:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 66
     iget v0, p0, Lcom/intel/internal/telephony/OemTelephony/OemSrvccSyncParam;->mPiSi:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 67
     return-void
 
-    .line 60
     :cond_0
     const/4 v0, 0x0
 

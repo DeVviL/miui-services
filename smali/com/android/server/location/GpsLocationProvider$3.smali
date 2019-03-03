@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/location/GpsLocationProvider;)V
     .locals 0
 
-    .prologue
-    .line 486
     iput-object p1, p0, Lcom/android/server/location/GpsLocationProvider$3;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     invoke-direct {p0}, Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;-><init>()V
@@ -36,8 +34,6 @@
 .method public onSubscriptionsChanged()V
     .locals 2
 
-    .prologue
-    .line 489
     iget-object v0, p0, Lcom/android/server/location/GpsLocationProvider$3;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     iget-object v1, p0, Lcom/android/server/location/GpsLocationProvider$3;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -48,6 +44,5 @@
 
     invoke-static {v0, v1}, Lcom/android/server/location/GpsLocationProvider;->access$800(Lcom/android/server/location/GpsLocationProvider;Landroid/content/Context;)V
 
-    .line 490
     return-void
 .end method

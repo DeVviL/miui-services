@@ -21,8 +21,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,19 +28,14 @@
 
 .method static isForceRemove(Z)Z
     .locals 8
-    .param p0, "removalAllowed"    # Z
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 38
     :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v3
 
-    .line 39
-    .local v3, "pm":Landroid/content/pm/IPackageManager;
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v5
@@ -51,15 +44,12 @@
 
     move-result-object v2
 
-    .line 40
-    .local v2, "packages":[Ljava/lang/String;
     if-eqz v2, :cond_1
 
     array-length v5, v2
 
     if-lez v5, :cond_1
 
-    .line 41
     const/4 v5, 0x0
 
     aget-object v5, v2, v5
@@ -74,8 +64,6 @@
 
     move-result-object v1
 
-    .line 42
-    .local v1, "info":Landroid/content/pm/ApplicationInfo;
     if-eqz v1, :cond_1
 
     iget v5, v1, Landroid/content/pm/ApplicationInfo;->flags:I
@@ -84,17 +72,14 @@
 
     if-nez v5, :cond_1
 
-    .line 43
     if-nez p0, :cond_0
 
-    .line 44
     const-string v5, "AccountManagerServiceInjector"
 
     const-string v6, "force remove account"
 
     invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 46
     :cond_0
     sget-boolean v5, Lmiui/os/Build;->IS_CTS_BUILD:Z
     :try_end_0
@@ -104,20 +89,13 @@
 
     const/4 v4, 0x1
 
-    .line 52
-    .end local v1    # "info":Landroid/content/pm/ApplicationInfo;
-    .end local v2    # "packages":[Ljava/lang/String;
-    .end local v3    # "pm":Landroid/content/pm/IPackageManager;
     :cond_1
     :goto_0
     return v4
 
-    .line 49
     :catch_0
     move-exception v0
 
-    .line 50
-    .local v0, "e":Ljava/lang/Exception;
     const-string v5, "AccountManagerServiceInjector"
 
     const-string v6, "isForceRemove"
@@ -129,19 +107,11 @@
 
 .method static isTrustedAccountSignature(Landroid/content/pm/PackageManager;Ljava/lang/String;II)Z
     .locals 3
-    .param p0, "pm"    # Landroid/content/pm/PackageManager;
-    .param p1, "accountType"    # Ljava/lang/String;
-    .param p2, "serviceUid"    # I
-    .param p3, "callingUid"    # I
 
-    .prologue
-    .line 26
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 28
-    .local v0, "identityToken":J
     :try_start_0
     invoke-static {p0, p1, p2, p3}, Lmiui/content/pm/ExtraPackageManager;->isTrustedAccountSignature(Landroid/content/pm/PackageManager;Ljava/lang/String;II)Z
     :try_end_0
@@ -149,7 +119,6 @@
 
     move-result v2
 
-    .line 31
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return v2
@@ -164,36 +133,25 @@
 
 .method static sendAccountsChangedSysBroadcast(Landroid/content/Context;ILjava/lang/String;[Landroid/accounts/Account;)V
     .locals 3
-    .param p0, "ctx"    # Landroid/content/Context;
-    .param p1, "userId"    # I
-    .param p2, "action"    # Ljava/lang/String;
-    .param p3, "accounts"    # [Landroid/accounts/Account;
 
-    .prologue
-    .line 69
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.accounts.LOGIN_ACCOUNTS_CHANGED_SYS"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 70
-    .local v0, "i":Landroid/content/Intent;
     const-string v1, "account_changed_action"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 71
     const-string v1, "accounts"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 72
     const/high16 v1, 0x4000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 73
     new-instance v1, Landroid/os/UserHandle;
 
     invoke-direct {v1, p1}, Landroid/os/UserHandle;-><init>(I)V
@@ -202,6 +160,5 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 
-    .line 75
     return-void
 .end method

@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
 
-    .prologue
-    .line 501
     iput-object p1, p0, Lcom/android/server/content/SyncManager$9;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-direct {p0}, Landroid/content/ISyncStatusObserver$Stub;-><init>()V
@@ -35,14 +33,10 @@
 # virtual methods
 .method public onStatusChanged(I)V
     .locals 1
-    .param p1, "which"    # I
 
-    .prologue
-    .line 505
     iget-object v0, p0, Lcom/android/server/content/SyncManager$9;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-static {v0}, Lcom/android/server/content/SyncManager;->access$100(Lcom/android/server/content/SyncManager;)V
 
-    .line 506
     return-void
 .end method

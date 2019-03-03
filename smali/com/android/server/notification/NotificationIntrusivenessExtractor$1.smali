@@ -21,11 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/notification/NotificationIntrusivenessExtractor;Ljava/lang/String;J)V
     .locals 1
-    .param p2, "x0"    # Ljava/lang/String;
-    .param p3, "x1"    # J
 
-    .prologue
-    .line 54
     iput-object p1, p0, Lcom/android/server/notification/NotificationIntrusivenessExtractor$1;->this$0:Lcom/android/server/notification/NotificationIntrusivenessExtractor;
 
     invoke-direct {p0, p2, p3, p4}, Lcom/android/server/notification/RankingReconsideration;-><init>(Ljava/lang/String;J)V
@@ -37,22 +33,16 @@
 # virtual methods
 .method public applyChangesLocked(Lcom/android/server/notification/NotificationRecord;)V
     .locals 1
-    .param p1, "record"    # Lcom/android/server/notification/NotificationRecord;
 
-    .prologue
-    .line 62
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Lcom/android/server/notification/NotificationRecord;->setRecentlyIntusive(Z)V
 
-    .line 63
     return-void
 .end method
 
 .method public work()V
     .locals 0
 
-    .prologue
-    .line 58
     return-void
 .end method

@@ -21,8 +21,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 273
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,10 +28,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/wm/AppTransitionInjector$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/wm/AppTransitionInjector$1;
 
-    .prologue
-    .line 273
     invoke-direct {p0}, Lcom/android/server/wm/AppTransitionInjector$QuartEaseOutInterpolator;-><init>()V
 
     return-void
@@ -43,12 +38,9 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 2
-    .param p1, "t"    # F
 
-    .prologue
     const/high16 v1, 0x3f800000    # 1.0f
 
-    .line 275
     sub-float/2addr p1, v1
 
     mul-float v0, p1, p1

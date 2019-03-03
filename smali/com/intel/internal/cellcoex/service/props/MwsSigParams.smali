@@ -90,7 +90,6 @@
 .method public constructor <init>()V
     .locals 6
 
-    .prologue
     const/16 v5, -0x47e
 
     const/16 v4, -0x5dc
@@ -99,17 +98,14 @@
 
     const/16 v2, -0x96
 
-    .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 61
     const/16 v0, 0x1f
 
     new-array v0, v0, [I
 
     iput-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
-    .line 65
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -138,112 +134,80 @@
 
     iput-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mClassName:Ljava/lang/String;
 
-    .line 72
     invoke-direct {p0}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->resetAll()V
 
-    .line 75
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsDlFrameSyncEnc(I)V
 
-    .line 76
     const/16 v0, 0x190
 
     invoke-virtual {p0, v0}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsRxPriTmin(I)V
 
-    .line 77
     const/16 v0, 0xfa
 
     invoke-virtual {p0, v0}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsRxPriResendTime(I)V
 
-    .line 78
     invoke-virtual {p0, v4}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsFrameSyncAssertOffset(I)V
 
-    .line 79
     invoke-virtual {p0, v4}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsFrameSyncDeassertOffset(I)V
 
-    .line 80
     invoke-virtual {p0, v2}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsRxAssertOffset(I)V
 
-    .line 81
     invoke-virtual {p0, v2}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsRxDeassertOffset(I)V
 
-    .line 82
     invoke-virtual {p0, v4}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsTxAssertOffset(I)V
 
-    .line 83
     invoke-virtual {p0, v4}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsTxDeassertOffset(I)V
 
-    .line 84
     invoke-virtual {p0, v2}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsPatternAssertOffset(I)V
 
-    .line 85
     invoke-virtual {p0, v2}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsPatternDeassertOffset(I)V
 
-    .line 86
     invoke-virtual {p0, v3}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsInactivityDurationAssertOffset(I)V
 
-    .line 87
     invoke-virtual {p0, v3}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsInactivityDurationDeassertOffset(I)V
 
-    .line 88
     invoke-virtual {p0, v5}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsScanFreqAssertOffset(I)V
 
-    .line 89
     invoke-virtual {p0, v5}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsScanFreqDeassertOffset(I)V
 
-    .line 90
     invoke-virtual {p0, v3}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsTxSafePowerAssertOffset(I)V
 
-    .line 91
     invoke-virtual {p0, v3}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsTxSafePowerDeassertOffset(I)V
 
-    .line 92
     invoke-virtual {p0, v3}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsTxAllowedAssertOffset(I)V
 
-    .line 93
     invoke-virtual {p0, v2}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsTxAllowedDeassertOffset(I)V
 
-    .line 94
     invoke-virtual {p0, v3}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsTxOffAssert(I)V
 
-    .line 95
     invoke-virtual {p0, v3}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsTxOffDeassert(I)V
 
-    .line 96
     invoke-virtual {p0, v2}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsFrameSyncDlAssertOffset(I)V
 
-    .line 97
     invoke-virtual {p0, v2}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsFrameSyncDlDeassertOffset(I)V
 
-    .line 98
     invoke-virtual {p0, v4}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsPucchIndexAssertOffset(I)V
 
-    .line 99
     invoke-virtual {p0, v4}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->setMwsPucchIndexDeassertOffset(I)V
 
-    .line 100
     return-void
 .end method
 
 .method public constructor <init>([I)V
     .locals 6
-    .param p1, "params"    # [I
 
-    .prologue
     const/16 v5, 0x1f
 
     const/16 v4, 0xb
 
-    .line 102
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 61
     new-array v1, v5, [I
 
     iput-object v1, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
-    .line 65
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -272,16 +236,12 @@
 
     iput-object v1, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mClassName:Ljava/lang/String;
 
-    .line 103
     const/4 v0, 0x0
 
-    .line 105
-    .local v0, "i":I
     array-length v1, p1
 
     if-eq v1, v5, :cond_1
 
-    .line 106
     const-string v1, "CWS_CELLCOEX_MGR"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -306,14 +266,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 107
     invoke-direct {p0}, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->resetAll()V
 
-    .line 120
     :cond_0
     return-void
 
-    .line 111
     :cond_1
     aget v1, p1, v4
 
@@ -325,7 +282,6 @@
 
     if-eq v1, v2, :cond_2
 
-    .line 112
     const-string v1, "CWS_CELLCOEX_MGR"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -356,26 +312,22 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 115
     const/4 v1, 0x0
 
     aput v1, p1, v4
 
-    .line 118
     :cond_2
     const/4 v0, 0x0
 
     :goto_0
     if-ge v0, v5, :cond_0
 
-    .line 119
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     aget v2, p1, v0
 
     aput v2, v1, v0
 
-    .line 118
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -384,12 +336,8 @@
 .method private resetAll()V
     .locals 3
 
-    .prologue
-    .line 442
     const/4 v0, 0x0
 
-    .line 444
-    .local v0, "i":I
     const/4 v0, 0x0
 
     :goto_0
@@ -397,19 +345,16 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 445
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v2, 0x0
 
     aput v2, v1, v0
 
-    .line 444
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 446
     :cond_0
     return-void
 .end method
@@ -418,35 +363,26 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .param p1, "other"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
-    .line 415
     const/4 v0, 0x0
 
-    .line 417
-    .local v0, "i":I
     if-nez p1, :cond_1
 
-    .line 430
     :cond_0
     :goto_0
     return v2
 
-    .line 419
     :cond_1
     if-ne p1, p0, :cond_2
 
     move v2, v3
 
-    .line 420
     goto :goto_0
 
-    .line 421
     :cond_2
     instance-of v4, p1, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;
 
@@ -454,11 +390,8 @@
 
     move-object v1, p1
 
-    .line 424
     check-cast v1, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;
 
-    .line 425
-    .local v1, "otherMyClass":Lcom/intel/internal/cellcoex/service/props/MwsSigParams;
     const/4 v0, 0x0
 
     :goto_1
@@ -468,7 +401,6 @@
 
     if-ge v0, v4, :cond_3
 
-    .line 426
     iget-object v4, v1, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     aget v4, v4, v0
@@ -479,7 +411,6 @@
 
     if-ne v4, v5, :cond_0
 
-    .line 425
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
@@ -487,15 +418,12 @@
     :cond_3
     move v2, v3
 
-    .line 430
     goto :goto_0
 .end method
 
 .method public getMwsDlFrameSyncEnc()I
     .locals 2
 
-    .prologue
-    .line 312
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0xb
@@ -508,8 +436,6 @@
 .method public getMwsFrameSyncAssertJitter()I
     .locals 2
 
-    .prologue
-    .line 272
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x1
@@ -522,8 +448,6 @@
 .method public getMwsFrameSyncAssertOffset()I
     .locals 2
 
-    .prologue
-    .line 268
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x0
@@ -536,8 +460,6 @@
 .method public getMwsFrameSyncDeassertOffset()I
     .locals 2
 
-    .prologue
-    .line 324
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0xe
@@ -550,8 +472,6 @@
 .method public getMwsFrameSyncDlAssertOffset()I
     .locals 2
 
-    .prologue
-    .line 376
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x1b
@@ -564,8 +484,6 @@
 .method public getMwsFrameSyncDlDeassertOffset()I
     .locals 2
 
-    .prologue
-    .line 380
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x1c
@@ -578,8 +496,6 @@
 .method public getMwsInactivityDurationAssertOffset()I
     .locals 2
 
-    .prologue
-    .line 336
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x11
@@ -592,8 +508,6 @@
 .method public getMwsInactivityDurationDeassertOffset()I
     .locals 2
 
-    .prologue
-    .line 340
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x12
@@ -606,8 +520,6 @@
 .method public getMwsPatternAssertOffset()I
     .locals 2
 
-    .prologue
-    .line 328
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0xf
@@ -620,8 +532,6 @@
 .method public getMwsPatternDeassertOffset()I
     .locals 2
 
-    .prologue
-    .line 332
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x10
@@ -634,8 +544,6 @@
 .method public getMwsPiorityAssertOffsetRequest()I
     .locals 2
 
-    .prologue
-    .line 308
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0xa
@@ -648,8 +556,6 @@
 .method public getMwsPucchIndexAssertOffset()I
     .locals 2
 
-    .prologue
-    .line 384
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x1d
@@ -662,8 +568,6 @@
 .method public getMwsPucchIndexDeassertOffset()I
     .locals 2
 
-    .prologue
-    .line 388
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x1e
@@ -676,8 +580,6 @@
 .method public getMwsRxAssertJitter()I
     .locals 2
 
-    .prologue
-    .line 280
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x3
@@ -690,8 +592,6 @@
 .method public getMwsRxAssertOffset()I
     .locals 2
 
-    .prologue
-    .line 276
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x2
@@ -704,8 +604,6 @@
 .method public getMwsRxDeassertJitter()I
     .locals 2
 
-    .prologue
-    .line 288
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x5
@@ -718,8 +616,6 @@
 .method public getMwsRxDeassertOffset()I
     .locals 2
 
-    .prologue
-    .line 284
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x4
@@ -732,8 +628,6 @@
 .method public getMwsRxPriResendTime()I
     .locals 2
 
-    .prologue
-    .line 316
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0xc
@@ -746,8 +640,6 @@
 .method public getMwsRxPriTmin()I
     .locals 2
 
-    .prologue
-    .line 320
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0xd
@@ -760,8 +652,6 @@
 .method public getMwsScanFreqAssertOffset()I
     .locals 2
 
-    .prologue
-    .line 344
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x13
@@ -774,8 +664,6 @@
 .method public getMwsScanFreqDeassertOffset()I
     .locals 2
 
-    .prologue
-    .line 348
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x14
@@ -788,8 +676,6 @@
 .method public getMwsTxAllowedAssertOffset()I
     .locals 2
 
-    .prologue
-    .line 360
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x17
@@ -802,8 +688,6 @@
 .method public getMwsTxAllowedDeassertOffset()I
     .locals 2
 
-    .prologue
-    .line 364
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x18
@@ -816,8 +700,6 @@
 .method public getMwsTxAssertJitter()I
     .locals 2
 
-    .prologue
-    .line 296
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x7
@@ -830,8 +712,6 @@
 .method public getMwsTxAssertOffset()I
     .locals 2
 
-    .prologue
-    .line 292
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x6
@@ -844,8 +724,6 @@
 .method public getMwsTxDeassertJitter()I
     .locals 2
 
-    .prologue
-    .line 304
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x9
@@ -858,8 +736,6 @@
 .method public getMwsTxDeassertOffset()I
     .locals 2
 
-    .prologue
-    .line 300
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x8
@@ -872,8 +748,6 @@
 .method public getMwsTxOffAssert()I
     .locals 2
 
-    .prologue
-    .line 368
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x19
@@ -886,8 +760,6 @@
 .method public getMwsTxOffDeassert()I
     .locals 2
 
-    .prologue
-    .line 372
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x1a
@@ -900,8 +772,6 @@
 .method public getMwsTxSafePowerAssertOffset()I
     .locals 2
 
-    .prologue
-    .line 352
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x15
@@ -914,8 +784,6 @@
 .method public getMwsTxSafePowerDeassertOffset()I
     .locals 2
 
-    .prologue
-    .line 356
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x16
@@ -928,8 +796,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 435
     const-string v0, "mws.sig_params"
 
     return-object v0
@@ -938,12 +804,8 @@
 .method public isUnknown()Z
     .locals 3
 
-    .prologue
-    .line 123
     const/4 v0, 0x0
 
-    .line 125
-    .local v0, "i":I
     const/4 v0, 0x0
 
     :goto_0
@@ -953,7 +815,6 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 126
     const/4 v1, -0x1
 
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
@@ -962,20 +823,16 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 127
     const/4 v1, 0x1
 
-    .line 130
     :goto_1
     return v1
 
-    .line 125
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 130
     :cond_1
     const/4 v1, 0x0
 
@@ -984,17 +841,13 @@
 
 .method public setMwsDlFrameSyncEnc(I)V
     .locals 3
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 181
     if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
     if-eq p1, v0, :cond_0
 
-    .line 182
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1019,11 +872,9 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 186
     :goto_0
     return-void
 
-    .line 185
     :cond_0
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
@@ -1036,489 +887,367 @@
 
 .method public setMwsFrameSyncAssertJitter(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 141
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x1
 
     aput p1, v0, v1
 
-    .line 142
     return-void
 .end method
 
 .method public setMwsFrameSyncAssertOffset(I)V
     .locals 2
-    .param p1, "val"    # I
 
-    .prologue
-    .line 137
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x0
 
     aput p1, v0, v1
 
-    .line 138
     return-void
 .end method
 
 .method public setMwsFrameSyncDeassertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 197
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0xe
 
     aput p1, v0, v1
 
-    .line 198
     return-void
 .end method
 
 .method public setMwsFrameSyncDlAssertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 249
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x1b
 
     aput p1, v0, v1
 
-    .line 250
     return-void
 .end method
 
 .method public setMwsFrameSyncDlDeassertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 253
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x1c
 
     aput p1, v0, v1
 
-    .line 254
     return-void
 .end method
 
 .method public setMwsInactivityDurationAssertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 209
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x11
 
     aput p1, v0, v1
 
-    .line 210
     return-void
 .end method
 
 .method public setMwsInactivityDurationDeassertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 213
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x12
 
     aput p1, v0, v1
 
-    .line 214
     return-void
 .end method
 
 .method public setMwsPatternAssertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 201
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0xf
 
     aput p1, v0, v1
 
-    .line 202
     return-void
 .end method
 
 .method public setMwsPatternDeassertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 205
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x10
 
     aput p1, v0, v1
 
-    .line 206
     return-void
 .end method
 
 .method public setMwsPiorityAssertOffsetRequest(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 177
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0xa
 
     aput p1, v0, v1
 
-    .line 178
     return-void
 .end method
 
 .method public setMwsPucchIndexAssertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 257
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x1d
 
     aput p1, v0, v1
 
-    .line 258
     return-void
 .end method
 
 .method public setMwsPucchIndexDeassertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 261
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x1e
 
     aput p1, v0, v1
 
-    .line 262
     return-void
 .end method
 
 .method public setMwsRxAssertJitter(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 149
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x3
 
     aput p1, v0, v1
 
-    .line 150
     return-void
 .end method
 
 .method public setMwsRxAssertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 145
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x2
 
     aput p1, v0, v1
 
-    .line 146
     return-void
 .end method
 
 .method public setMwsRxDeassertJitter(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 157
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x5
 
     aput p1, v0, v1
 
-    .line 158
     return-void
 .end method
 
 .method public setMwsRxDeassertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 153
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x4
 
     aput p1, v0, v1
 
-    .line 154
     return-void
 .end method
 
 .method public setMwsRxPriResendTime(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 189
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0xc
 
     aput p1, v0, v1
 
-    .line 190
     return-void
 .end method
 
 .method public setMwsRxPriTmin(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 193
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0xd
 
     aput p1, v0, v1
 
-    .line 194
     return-void
 .end method
 
 .method public setMwsScanFreqAssertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 217
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x13
 
     aput p1, v0, v1
 
-    .line 218
     return-void
 .end method
 
 .method public setMwsScanFreqDeassertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 221
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x14
 
     aput p1, v0, v1
 
-    .line 222
     return-void
 .end method
 
 .method public setMwsTxAllowedAssertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 233
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x17
 
     aput p1, v0, v1
 
-    .line 234
     return-void
 .end method
 
 .method public setMwsTxAllowedDeassertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 237
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x18
 
     aput p1, v0, v1
 
-    .line 238
     return-void
 .end method
 
 .method public setMwsTxAssertJitter(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 165
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x7
 
     aput p1, v0, v1
 
-    .line 166
     return-void
 .end method
 
 .method public setMwsTxAssertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 161
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/4 v1, 0x6
 
     aput p1, v0, v1
 
-    .line 162
     return-void
 .end method
 
 .method public setMwsTxDeassertJitter(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 173
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x9
 
     aput p1, v0, v1
 
-    .line 174
     return-void
 .end method
 
 .method public setMwsTxDeassertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 169
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x8
 
     aput p1, v0, v1
 
-    .line 170
     return-void
 .end method
 
 .method public setMwsTxOffAssert(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 241
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x19
 
     aput p1, v0, v1
 
-    .line 242
     return-void
 .end method
 
 .method public setMwsTxOffDeassert(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 245
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x1a
 
     aput p1, v0, v1
 
-    .line 246
     return-void
 .end method
 
 .method public setMwsTxSafePowerAssertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 225
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x15
 
     aput p1, v0, v1
 
-    .line 226
     return-void
 .end method
 
 .method public setMwsTxSafePowerDeassertOffset(I)V
     .locals 2
-    .param p1, "aInt"    # I
 
-    .prologue
-    .line 229
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsSigParams;->mSigParams:[I
 
     const/16 v1, 0x16
 
     aput p1, v0, v1
 
-    .line 230
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 396
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

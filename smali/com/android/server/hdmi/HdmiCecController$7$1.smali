@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/hdmi/HdmiCecController$7;I)V
     .locals 0
 
-    .prologue
-    .line 586
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecController$7$1;->this$1:Lcom/android/server/hdmi/HdmiCecController$7;
 
     iput p2, p0, Lcom/android/server/hdmi/HdmiCecController$7$1;->val$finalError:I
@@ -43,8 +41,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 589
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$7$1;->this$1:Lcom/android/server/hdmi/HdmiCecController$7;
 
     iget-object v0, v0, Lcom/android/server/hdmi/HdmiCecController$7;->val$callback:Lcom/android/server/hdmi/HdmiControlService$SendMessageCallback;
@@ -53,6 +49,5 @@
 
     invoke-interface {v0, v1}, Lcom/android/server/hdmi/HdmiControlService$SendMessageCallback;->onSendCompleted(I)V
 
-    .line 590
     return-void
 .end method

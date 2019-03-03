@@ -30,8 +30,6 @@
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/UserStartedState;ILandroid/content/Intent;Landroid/content/IIntentReceiver;)V
     .locals 0
 
-    .prologue
-    .line 19878
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$29;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$29;->val$uss:Lcom/android/server/am/UserStartedState;
@@ -51,23 +49,13 @@
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
     .locals 17
-    .param p1, "intent"    # Landroid/content/Intent;
-    .param p2, "resultCode"    # I
-    .param p3, "data"    # Ljava/lang/String;
-    .param p4, "extras"    # Landroid/os/Bundle;
-    .param p5, "ordered"    # Z
-    .param p6, "sticky"    # Z
-    .param p7, "sendingUser"    # I
 
-    .prologue
-    .line 19883
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityManagerService$29;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v2
 
-    .line 19884
     :try_start_0
     move-object/from16 v0, p0
 
@@ -79,14 +67,11 @@
 
     if-eq v1, v3, :cond_0
 
-    .line 19886
     monitor-exit v2
 
-    .line 19897
     :goto_0
     return-void
 
-    .line 19888
     :cond_0
     move-object/from16 v0, p0
 
@@ -96,12 +81,10 @@
 
     iput v3, v1, Lcom/android/server/am/UserStartedState;->mState:I
 
-    .line 19889
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 19890
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/am/ActivityManagerService$29;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -124,7 +107,6 @@
 
     invoke-virtual {v1, v2, v3, v4}, Lcom/android/server/am/BatteryStatsService;->noteEvent(ILjava/lang/String;I)V
 
-    .line 19893
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/am/ActivityManagerService$29;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -137,7 +119,6 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/SystemServiceManager;->stopUser(I)V
 
-    .line 19894
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/am/ActivityManagerService$29;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -184,7 +165,6 @@
 
     goto :goto_0
 
-    .line 19889
     :catchall_0
     move-exception v1
 

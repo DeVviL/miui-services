@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/miui/server/SplashScreenServiceDelegate;Landroid/os/Looper;)V
     .locals 0
-    .param p2, "x0"    # Landroid/os/Looper;
 
-    .prologue
-    .line 377
     iput-object p1, p0, Lcom/miui/server/SplashScreenServiceDelegate$5;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -36,19 +33,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 380
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 386
     :goto_0
     return-void
 
-    .line 382
     :pswitch_0
     iget-object v0, p0, Lcom/miui/server/SplashScreenServiceDelegate$5;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
 
@@ -56,7 +48,6 @@
 
     goto :goto_0
 
-    .line 380
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

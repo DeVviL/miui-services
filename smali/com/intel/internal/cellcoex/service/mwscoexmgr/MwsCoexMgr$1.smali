@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/mwscoexmgr/MwsCoexMgr;)V
     .locals 0
 
-    .prologue
-    .line 209
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/MwsCoexMgr$1;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/MwsCoexMgr;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,17 +36,13 @@
 # virtual methods
 .method public propertyChange(Ljava/beans/PropertyChangeEvent;)V
     .locals 3
-    .param p1, "event"    # Ljava/beans/PropertyChangeEvent;
 
-    .prologue
-    .line 212
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/MwsCoexMgr;->access$600()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 213
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -113,7 +107,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 216
     :cond_0
     return-void
 .end method

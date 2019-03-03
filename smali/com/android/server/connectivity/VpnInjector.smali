@@ -7,8 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -16,19 +14,13 @@
 
 .method static isSpecialUser(Landroid/content/Context;II)Z
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "parentUserId"    # I
-    .param p2, "userId"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 16
     if-ltz p1, :cond_0
 
     if-gez p2, :cond_1
 
-    .line 19
     :cond_0
     :goto_0
     return v0

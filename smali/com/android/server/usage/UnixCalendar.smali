@@ -20,29 +20,19 @@
 # direct methods
 .method public constructor <init>(J)V
     .locals 1
-    .param p1, "time"    # J
 
-    .prologue
-    .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
     iput-wide p1, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
-    .line 34
     return-void
 .end method
 
 .method public static truncateTo(Lcom/android/server/usage/UnixCalendar;I)V
     .locals 3
-    .param p0, "calendar"    # Lcom/android/server/usage/UnixCalendar;
-    .param p1, "intervalType"    # I
 
-    .prologue
-    .line 77
     packed-switch p1, :pswitch_data_0
 
-    .line 95
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -67,33 +57,27 @@
 
     throw v0
 
-    .line 79
     :pswitch_0
     invoke-virtual {p0}, Lcom/android/server/usage/UnixCalendar;->truncateToYear()V
 
-    .line 98
     :goto_0
     return-void
 
-    .line 83
     :pswitch_1
     invoke-virtual {p0}, Lcom/android/server/usage/UnixCalendar;->truncateToMonth()V
 
     goto :goto_0
 
-    .line 87
     :pswitch_2
     invoke-virtual {p0}, Lcom/android/server/usage/UnixCalendar;->truncateToWeek()V
 
     goto :goto_0
 
-    .line 91
     :pswitch_3
     invoke-virtual {p0}, Lcom/android/server/usage/UnixCalendar;->truncateToDay()V
 
     goto :goto_0
 
-    .line 77
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_3
@@ -107,10 +91,7 @@
 # virtual methods
 .method public addDays(I)V
     .locals 6
-    .param p1, "val"    # I
 
-    .prologue
-    .line 53
     iget-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
     int-to-long v2, p1
@@ -123,16 +104,12 @@
 
     iput-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
-    .line 54
     return-void
 .end method
 
 .method public addMonths(I)V
     .locals 6
-    .param p1, "val"    # I
 
-    .prologue
-    .line 61
     iget-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
     int-to-long v2, p1
@@ -145,16 +122,12 @@
 
     iput-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
-    .line 62
     return-void
 .end method
 
 .method public addWeeks(I)V
     .locals 6
-    .param p1, "val"    # I
 
-    .prologue
-    .line 57
     iget-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
     int-to-long v2, p1
@@ -167,16 +140,12 @@
 
     iput-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
-    .line 58
     return-void
 .end method
 
 .method public addYears(I)V
     .locals 6
-    .param p1, "val"    # I
 
-    .prologue
-    .line 65
     iget-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
     int-to-long v2, p1
@@ -189,15 +158,12 @@
 
     iput-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
-    .line 66
     return-void
 .end method
 
 .method public getTimeInMillis()J
     .locals 2
 
-    .prologue
-    .line 73
     iget-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
     return-wide v0
@@ -205,21 +171,15 @@
 
 .method public setTimeInMillis(J)V
     .locals 1
-    .param p1, "time"    # J
 
-    .prologue
-    .line 69
     iput-wide p1, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
-    .line 70
     return-void
 .end method
 
 .method public truncateToDay()V
     .locals 6
 
-    .prologue
-    .line 37
     iget-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
     iget-wide v2, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
@@ -232,15 +192,12 @@
 
     iput-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
-    .line 38
     return-void
 .end method
 
 .method public truncateToMonth()V
     .locals 6
 
-    .prologue
-    .line 45
     iget-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
     iget-wide v2, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
@@ -253,15 +210,12 @@
 
     iput-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
-    .line 46
     return-void
 .end method
 
 .method public truncateToWeek()V
     .locals 6
 
-    .prologue
-    .line 41
     iget-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
     iget-wide v2, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
@@ -274,15 +228,12 @@
 
     iput-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
-    .line 42
     return-void
 .end method
 
 .method public truncateToYear()V
     .locals 6
 
-    .prologue
-    .line 49
     iget-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
     iget-wide v2, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
@@ -295,6 +246,5 @@
 
     iput-wide v0, p0, Lcom/android/server/usage/UnixCalendar;->mTime:J
 
-    .line 50
     return-void
 .end method

@@ -27,25 +27,16 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/NsdService;ILjava/lang/String;[Ljava/lang/String;)V
     .locals 0
-    .param p2, "code"    # I
-    .param p3, "raw"    # Ljava/lang/String;
-    .param p4, "cooked"    # [Ljava/lang/String;
 
-    .prologue
-    .line 664
     iput-object p1, p0, Lcom/android/server/NsdService$NativeEvent;->this$0:Lcom/android/server/NsdService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 665
     iput p2, p0, Lcom/android/server/NsdService$NativeEvent;->code:I
 
-    .line 666
     iput-object p3, p0, Lcom/android/server/NsdService$NativeEvent;->raw:Ljava/lang/String;
 
-    .line 667
     iput-object p4, p0, Lcom/android/server/NsdService$NativeEvent;->cooked:[Ljava/lang/String;
 
-    .line 668
     return-void
 .end method

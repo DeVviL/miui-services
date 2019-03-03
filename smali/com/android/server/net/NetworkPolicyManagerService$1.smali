@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
     .locals 0
 
-    .prologue
-    .line 363
     iput-object p1, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,17 +36,13 @@
 # virtual methods
 .method public onLowPowerModeChanged(Z)V
     .locals 3
-    .param p1, "enabled"    # Z
 
-    .prologue
-    .line 366
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     iget-object v1, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 367
     :try_start_0
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
@@ -56,26 +50,21 @@
 
     if-eq v0, p1, :cond_0
 
-    .line 368
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     iput-boolean p1, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictPower:Z
 
-    .line 369
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->updateRulesForGlobalChangeLocked(Z)V
 
-    .line 371
     :cond_0
     monitor-exit v1
 
-    .line 372
     return-void
 
-    .line 371
     :catchall_0
     move-exception v0
 

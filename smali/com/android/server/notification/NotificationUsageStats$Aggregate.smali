@@ -28,8 +28,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 445
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,35 +37,27 @@
 # virtual methods
 .method public addSample(J)V
     .locals 13
-    .param p1, "sample"    # J
 
-    .prologue
     const-wide/16 v10, 0x1
 
     const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
 
-    .line 454
     iget-wide v6, p0, Lcom/android/server/notification/NotificationUsageStats$Aggregate;->numSamples:J
 
     add-long/2addr v6, v10
 
     iput-wide v6, p0, Lcom/android/server/notification/NotificationUsageStats$Aggregate;->numSamples:J
 
-    .line 455
     iget-wide v6, p0, Lcom/android/server/notification/NotificationUsageStats$Aggregate;->numSamples:J
 
     long-to-double v4, v6
 
-    .line 456
-    .local v4, "n":D
     long-to-double v6, p1
 
     iget-wide v8, p0, Lcom/android/server/notification/NotificationUsageStats$Aggregate;->avg:D
 
     sub-double v0, v6, v8
 
-    .line 457
-    .local v0, "delta":D
     iget-wide v6, p0, Lcom/android/server/notification/NotificationUsageStats$Aggregate;->avg:D
 
     div-double v8, v2, v4
@@ -78,7 +68,6 @@
 
     iput-wide v6, p0, Lcom/android/server/notification/NotificationUsageStats$Aggregate;->avg:D
 
-    .line 458
     iget-wide v6, p0, Lcom/android/server/notification/NotificationUsageStats$Aggregate;->sum2:D
 
     sub-double v8, v4, v2
@@ -93,15 +82,12 @@
 
     iput-wide v6, p0, Lcom/android/server/notification/NotificationUsageStats$Aggregate;->sum2:D
 
-    .line 459
     iget-wide v6, p0, Lcom/android/server/notification/NotificationUsageStats$Aggregate;->numSamples:J
 
     cmp-long v6, v6, v10
 
     if-nez v6, :cond_0
 
-    .line 460
-    .local v2, "divisor":D
     :goto_0
     iget-wide v6, p0, Lcom/android/server/notification/NotificationUsageStats$Aggregate;->sum2:D
 
@@ -109,11 +95,8 @@
 
     iput-wide v6, p0, Lcom/android/server/notification/NotificationUsageStats$Aggregate;->var:D
 
-    .line 461
     return-void
 
-    .line 459
-    .end local v2    # "divisor":D
     :cond_0
     sub-double v2, v4, v2
 
@@ -123,8 +106,6 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 465
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

@@ -22,8 +22,6 @@
 .method private constructor <init>(Lcom/android/server/storage/DeviceStorageMonitorService;)V
     .locals 0
 
-    .prologue
-    .line 256
     iput-object p1, p0, Lcom/android/server/storage/DeviceStorageMonitorService$CachePackageDataObserver;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
     invoke-direct {p0}, Landroid/content/pm/IPackageDataObserver$Stub;-><init>()V
@@ -33,11 +31,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/storage/DeviceStorageMonitorService;Lcom/android/server/storage/DeviceStorageMonitorService$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/storage/DeviceStorageMonitorService;
-    .param p2, "x1"    # Lcom/android/server/storage/DeviceStorageMonitorService$1;
 
-    .prologue
-    .line 256
     invoke-direct {p0, p1}, Lcom/android/server/storage/DeviceStorageMonitorService$CachePackageDataObserver;-><init>(Lcom/android/server/storage/DeviceStorageMonitorService;)V
 
     return-void
@@ -47,29 +41,22 @@
 # virtual methods
 .method public onRemoveCompleted(Ljava/lang/String;Z)V
     .locals 4
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "succeeded"    # Z
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 258
     iget-object v0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$CachePackageDataObserver;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
     iput-boolean p2, v0, Lcom/android/server/storage/DeviceStorageMonitorService;->mClearSucceeded:Z
 
-    .line 259
     iget-object v0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$CachePackageDataObserver;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
     iput-boolean v1, v0, Lcom/android/server/storage/DeviceStorageMonitorService;->mClearingCache:Z
 
-    .line 262
     iget-object v0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$CachePackageDataObserver;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
     const-wide/16 v2, 0x0
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/storage/DeviceStorageMonitorService;->postCheckMemoryMsg(ZJ)V
 
-    .line 263
     return-void
 .end method

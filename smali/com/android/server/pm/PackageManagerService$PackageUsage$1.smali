@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService$PackageUsage;Ljava/lang/String;)V
     .locals 0
-    .param p2, "x0"    # Ljava/lang/String;
 
-    .prologue
-    .line 1013
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$PackageUsage$1;->this$1:Lcom/android/server/pm/PackageManagerService$PackageUsage;
 
     invoke-direct {p0, p2}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
@@ -37,10 +34,8 @@
 .method public run()V
     .locals 3
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 1017
     :try_start_0
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageUsage$1;->this$1:Lcom/android/server/pm/PackageManagerService$PackageUsage;
 
@@ -48,7 +43,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1019
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageUsage$1;->this$1:Lcom/android/server/pm/PackageManagerService$PackageUsage;
 
     invoke-static {v0}, Lcom/android/server/pm/PackageManagerService$PackageUsage;->access$800(Lcom/android/server/pm/PackageManagerService$PackageUsage;)Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -57,10 +51,8 @@
 
     invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 1021
     return-void
 
-    .line 1019
     :catchall_0
     move-exception v0
 

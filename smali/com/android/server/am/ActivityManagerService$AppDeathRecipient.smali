@@ -30,17 +30,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;ILandroid/app/IApplicationThread;)V
     .locals 3
-    .param p2, "app"    # Lcom/android/server/am/ProcessRecord;
-    .param p3, "pid"    # I
-    .param p4, "thread"    # Landroid/app/IApplicationThread;
 
-    .prologue
-    .line 1224
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1225
     sget-boolean v0, Lcom/android/server/am/ActivityManagerService;->localLOGV:Z
 
     if-eqz v0, :cond_0
@@ -81,17 +75,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1228
     :cond_0
     iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    .line 1229
     iput p3, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->mPid:I
 
-    .line 1230
     iput-object p4, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->mAppThread:Landroid/app/IApplicationThread;
 
-    .line 1231
     return-void
 .end method
 
@@ -100,8 +90,6 @@
 .method public binderDied()V
     .locals 5
 
-    .prologue
-    .line 1235
     sget-boolean v0, Lcom/android/server/am/ActivityManagerService;->localLOGV:Z
 
     if-eqz v0, :cond_0
@@ -144,13 +132,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1238
     :cond_0
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v1
 
-    .line 1239
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->this$0:Lcom/android/server/am/ActivityManagerService;
 
@@ -162,13 +148,10 @@
 
     invoke-virtual {v0, v2, v3, v4}, Lcom/android/server/am/ActivityManagerService;->appDiedLocked(Lcom/android/server/am/ProcessRecord;ILandroid/app/IApplicationThread;)V
 
-    .line 1240
     monitor-exit v1
 
-    .line 1241
     return-void
 
-    .line 1240
     :catchall_0
     move-exception v0
 

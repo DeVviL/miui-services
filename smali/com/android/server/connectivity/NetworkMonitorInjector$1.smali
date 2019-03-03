@@ -24,8 +24,6 @@
 .method constructor <init>(Lcom/android/server/connectivity/NetworkMonitor;I)V
     .locals 0
 
-    .prologue
-    .line 44
     iput-object p1, p0, Lcom/android/server/connectivity/NetworkMonitorInjector$1;->val$nm:Lcom/android/server/connectivity/NetworkMonitor;
 
     iput p2, p0, Lcom/android/server/connectivity/NetworkMonitorInjector$1;->val$finishedMessageCode:I
@@ -39,16 +37,12 @@
 # virtual methods
 .method public appResponse(I)V
     .locals 2
-    .param p1, "response"    # I
 
-    .prologue
-    .line 47
     iget-object v0, p0, Lcom/android/server/connectivity/NetworkMonitorInjector$1;->val$nm:Lcom/android/server/connectivity/NetworkMonitor;
 
     iget v1, p0, Lcom/android/server/connectivity/NetworkMonitorInjector$1;->val$finishedMessageCode:I
 
     invoke-virtual {v0, v1, p1}, Lcom/android/server/connectivity/NetworkMonitor;->sendMessage(II)V
 
-    .line 48
     return-void
 .end method

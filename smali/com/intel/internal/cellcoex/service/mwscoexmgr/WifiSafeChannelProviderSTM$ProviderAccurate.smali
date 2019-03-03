@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;)V
     .locals 0
 
-    .prologue
-    .line 268
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -34,25 +32,19 @@
 .method private udpateAccurateWlanConstraints()V
     .locals 8
 
-    .prologue
     const/16 v7, 0x14
 
-    .line 273
     const/4 v0, 0x0
 
-    .local v0, "idx":I
     :goto_0
     const/16 v4, 0xd
 
     if-ge v0, v4, :cond_4
 
-    .line 274
     sget-object v4, Lcom/intel/internal/cellcoex/service/props/WifiConstants;->WIFI_CENTER_FREQ_MHZ:[I
 
     aget v3, v4, v0
 
-    .line 276
-    .local v3, "wifiCenterFreq":I
     iget-object v4, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
     invoke-static {v4}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$1400(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;)Lcom/intel/internal/cellcoex/service/props/MwsWlanCoexParams;
@@ -63,8 +55,6 @@
 
     move-result v2
 
-    .line 278
-    .local v2, "isTxSafe":Z
     iget-object v4, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
     invoke-static {v4}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$1400(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;)Lcom/intel/internal/cellcoex/service/props/MwsWlanCoexParams;
@@ -75,13 +65,10 @@
 
     move-result v1
 
-    .line 281
-    .local v1, "isRxSafe":Z
     if-eqz v2, :cond_1
 
     if-eqz v1, :cond_1
 
-    .line 282
     iget-object v4, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
     invoke-static {v4}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$300(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;)Lcom/intel/internal/cellcoex/service/props/MwsWifiSafeChannels24;
@@ -94,7 +81,6 @@
 
     invoke-virtual {v4, v5, v6}, Lcom/intel/internal/cellcoex/service/props/MwsWifiSafeChannels24;->setSafeChannels(II)I
 
-    .line 294
     :goto_1
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$100()Z
 
@@ -102,7 +88,6 @@
 
     if-eqz v4, :cond_0
 
-    .line 295
     const-string v4, "CWS_CELLCOEX_MGR"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -189,19 +174,16 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 273
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto/16 :goto_0
 
-    .line 284
     :cond_1
     if-eqz v1, :cond_2
 
     if-nez v2, :cond_2
 
-    .line 285
     iget-object v4, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
     invoke-static {v4}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$300(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;)Lcom/intel/internal/cellcoex/service/props/MwsWifiSafeChannels24;
@@ -216,13 +198,11 @@
 
     goto :goto_1
 
-    .line 287
     :cond_2
     if-nez v1, :cond_3
 
     if-eqz v2, :cond_3
 
-    .line 288
     iget-object v4, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
     invoke-static {v4}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$300(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;)Lcom/intel/internal/cellcoex/service/props/MwsWifiSafeChannels24;
@@ -237,7 +217,6 @@
 
     goto/16 :goto_1
 
-    .line 291
     :cond_3
     iget-object v4, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
@@ -253,10 +232,6 @@
 
     goto/16 :goto_1
 
-    .line 300
-    .end local v1    # "isRxSafe":Z
-    .end local v2    # "isTxSafe":Z
-    .end local v3    # "wifiCenterFreq":I
     :cond_4
     iget-object v4, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
@@ -278,7 +253,6 @@
 
     invoke-interface {v4, v5, v6}, Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;->setProp(Ljava/lang/String;Ljava/lang/Object;)Z
 
-    .line 302
     return-void
 .end method
 
@@ -287,15 +261,12 @@
 .method public enter()V
     .locals 5
 
-    .prologue
-    .line 306
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$100()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 307
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -338,7 +309,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 311
     :cond_0
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
@@ -358,7 +328,6 @@
 
     invoke-static {v1, v0}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$1402(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;Lcom/intel/internal/cellcoex/service/props/MwsWlanCoexParams;)Lcom/intel/internal/cellcoex/service/props/MwsWlanCoexParams;
 
-    .line 313
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
     invoke-static {v0}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$1400(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;)Lcom/intel/internal/cellcoex/service/props/MwsWlanCoexParams;
@@ -367,22 +336,18 @@
 
     if-nez v0, :cond_2
 
-    .line 314
     const-string v0, "CWS_CELLCOEX_MGR"
 
     const-string v1, "Error: cannot retrieve coex property mws.wlan.coexparams"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 330
     :cond_1
     return-void
 
-    .line 320
     :cond_2
     invoke-direct {p0}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->udpateAccurateWlanConstraints()V
 
-    .line 323
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
     invoke-static {v0}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$400(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;)Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
@@ -405,7 +370,6 @@
 
     if-nez v0, :cond_1
 
-    .line 325
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -440,7 +404,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 327
     new-instance v0, Lcom/intel/internal/cellcoex/service/CellCoexException;
 
     const-string v1, "Unable to register listener to property mws.wlan.coexparams"
@@ -453,8 +416,6 @@
 .method public exit()V
     .locals 5
 
-    .prologue
-    .line 399
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
     invoke-static {v0}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$400(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;)Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
@@ -477,7 +438,6 @@
 
     if-nez v0, :cond_0
 
-    .line 401
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -512,7 +472,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 403
     new-instance v0, Lcom/intel/internal/cellcoex/service/CellCoexException;
 
     const-string v1, "Unable to register listener to property mws.wlan.coexparams"
@@ -521,28 +480,21 @@
 
     throw v0
 
-    .line 406
     :cond_0
     return-void
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 7
-    .param p1, "message"    # Landroid/os/Message;
 
-    .prologue
-    .line 334
     const/4 v2, 0x0
 
-    .line 335
-    .local v2, "retVal":Z
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$100()Z
 
     move-result v4
 
     if-eqz v4, :cond_0
 
-    .line 336
     const-string v4, "CWS_CELLCOEX_MGR"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -597,7 +549,6 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 337
     :cond_0
     const v4, 0x80001
 
@@ -605,14 +556,12 @@
 
     if-ne v4, v5, :cond_4
 
-    .line 338
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     instance-of v4, v4, Lcom/intel/internal/cellcoex/service/props/ICoexPropProvider;
 
     if-nez v4, :cond_1
 
-    .line 339
     const-string v4, "CWS_CELLCOEX_MGR"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -667,22 +616,14 @@
 
     move v3, v2
 
-    .line 393
-    .end local v2    # "retVal":Z
-    .local v3, "retVal":I
     :goto_0
     return v3
 
-    .line 343
-    .end local v3    # "retVal":I
-    .restart local v2    # "retVal":Z
     :cond_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/intel/internal/cellcoex/service/props/ICoexPropProvider;
 
-    .line 344
-    .local v0, "aICoexPropProvider":Lcom/intel/internal/cellcoex/service/props/ICoexPropProvider;
     const-string v4, "mws.state"
 
     invoke-interface {v0}, Lcom/intel/internal/cellcoex/service/props/ICoexPropProvider;->getName()Ljava/lang/String;
@@ -695,14 +636,12 @@
 
     if-eqz v4, :cond_7
 
-    .line 345
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     instance-of v4, v4, Lcom/intel/internal/cellcoex/service/props/MwsState;
 
     if-nez v4, :cond_2
 
-    .line 346
     const-string v4, "CWS_CELLCOEX_MGR"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -757,19 +696,13 @@
 
     move v3, v2
 
-    .line 348
-    .restart local v3    # "retVal":I
     goto :goto_0
 
-    .line 350
-    .end local v3    # "retVal":I
     :cond_2
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Lcom/intel/internal/cellcoex/service/props/MwsState;
 
-    .line 351
-    .local v1, "aMwsState":Lcom/intel/internal/cellcoex/service/props/MwsState;
     sget-object v4, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$1;->$SwitchMap$com$intel$internal$cellcoex$service$props$MwsState$State:[I
 
     iget-object v5, v1, Lcom/intel/internal/cellcoex/service/props/MwsState;->mState:Lcom/intel/internal/cellcoex/service/props/MwsState$State;
@@ -782,14 +715,12 @@
 
     packed-switch v4, :pswitch_data_0
 
-    .line 372
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$100()Z
 
     move-result v4
 
     if-eqz v4, :cond_3
 
-    .line 373
     const-string v4, "CWS_CELLCOEX_MGR"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -818,7 +749,6 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 375
     :cond_3
     iget-object v4, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
@@ -830,23 +760,14 @@
 
     invoke-static {v4, v5}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$1700(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;Lcom/android/internal/util/IState;)V
 
-    .line 376
     const/4 v2, 0x1
 
-    .end local v0    # "aICoexPropProvider":Lcom/intel/internal/cellcoex/service/props/ICoexPropProvider;
-    .end local v1    # "aMwsState":Lcom/intel/internal/cellcoex/service/props/MwsState;
     :cond_4
     :goto_1
     move v3, v2
 
-    .line 393
-    .restart local v3    # "retVal":I
     goto/16 :goto_0
 
-    .line 353
-    .end local v3    # "retVal":I
-    .restart local v0    # "aICoexPropProvider":Lcom/intel/internal/cellcoex/service/props/ICoexPropProvider;
-    .restart local v1    # "aMwsState":Lcom/intel/internal/cellcoex/service/props/MwsState;
     :pswitch_0
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$100()Z
 
@@ -854,7 +775,6 @@
 
     if-eqz v4, :cond_5
 
-    .line 354
     const-string v4, "CWS_CELLCOEX_MGR"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -883,7 +803,6 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 355
     :cond_5
     iget-object v4, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
@@ -895,13 +814,10 @@
 
     invoke-static {v4, v5}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$1500(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;Lcom/android/internal/util/IState;)V
 
-    .line 356
     const/4 v2, 0x1
 
-    .line 357
     goto :goto_1
 
-    .line 359
     :pswitch_1
     sget-object v4, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$1;->$SwitchMap$com$intel$internal$cellcoex$service$props$MwsState$SubState:[I
 
@@ -915,14 +831,12 @@
 
     packed-switch v4, :pswitch_data_1
 
-    .line 364
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$100()Z
 
     move-result v4
 
     if-eqz v4, :cond_6
 
-    .line 365
     const-string v4, "CWS_CELLCOEX_MGR"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -951,7 +865,6 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 366
     :cond_6
     iget-object v4, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
@@ -963,21 +876,15 @@
 
     invoke-static {v4, v5}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$1600(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;Lcom/android/internal/util/IState;)V
 
-    .line 367
     const/4 v2, 0x1
 
-    .line 368
     goto :goto_1
 
-    .line 361
     :pswitch_2
     const/4 v2, 0x1
 
-    .line 362
     goto :goto_1
 
-    .line 379
-    .end local v1    # "aMwsState":Lcom/intel/internal/cellcoex/service/props/MwsState;
     :cond_7
     const-string v4, "mws.wlan.coexparams"
 
@@ -991,14 +898,12 @@
 
     if-eqz v4, :cond_4
 
-    .line 380
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     instance-of v4, v4, Lcom/intel/internal/cellcoex/service/props/MwsWlanCoexParams;
 
     if-nez v4, :cond_8
 
-    .line 381
     const-string v4, "CWS_CELLCOEX_MGR"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1053,12 +958,8 @@
 
     move v3, v2
 
-    .line 383
-    .restart local v3    # "retVal":I
     goto/16 :goto_0
 
-    .line 385
-    .end local v3    # "retVal":I
     :cond_8
     iget-object v5, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;
 
@@ -1068,15 +969,12 @@
 
     invoke-static {v5, v4}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;->access$1402(Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM;Lcom/intel/internal/cellcoex/service/props/MwsWlanCoexParams;)Lcom/intel/internal/cellcoex/service/props/MwsWlanCoexParams;
 
-    .line 388
     invoke-direct {p0}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/WifiSafeChannelProviderSTM$ProviderAccurate;->udpateAccurateWlanConstraints()V
 
-    .line 390
     const/4 v2, 0x1
 
     goto/16 :goto_1
 
-    .line 351
     nop
 
     :pswitch_data_0
@@ -1085,7 +983,6 @@
         :pswitch_1
     .end packed-switch
 
-    .line 359
     :pswitch_data_1
     .packed-switch 0x1
         :pswitch_2

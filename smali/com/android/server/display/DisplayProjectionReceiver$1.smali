@@ -24,8 +24,6 @@
 .method constructor <init>(Lcom/android/server/display/DisplayProjectionReceiver;Ljava/lang/String;)V
     .locals 0
 
-    .prologue
-    .line 31
     iput-object p1, p0, Lcom/android/server/display/DisplayProjectionReceiver$1;->this$0:Lcom/android/server/display/DisplayProjectionReceiver;
 
     iput-object p2, p0, Lcom/android/server/display/DisplayProjectionReceiver$1;->val$iface:Ljava/lang/String;
@@ -40,8 +38,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 34
     iget-object v0, p0, Lcom/android/server/display/DisplayProjectionReceiver$1;->this$0:Lcom/android/server/display/DisplayProjectionReceiver;
 
     invoke-static {v0}, Lcom/android/server/display/DisplayProjectionReceiver;->access$000(Lcom/android/server/display/DisplayProjectionReceiver;)Lcom/android/server/display/MiuiProjectionManager;
@@ -52,6 +48,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/display/MiuiProjectionManager;->startProjection(Ljava/lang/String;)V
 
-    .line 35
     return-void
 .end method

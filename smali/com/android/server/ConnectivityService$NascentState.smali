@@ -35,12 +35,10 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
-    .line 247
     new-instance v0, Lcom/android/server/ConnectivityService$NascentState;
 
     const-string v1, "JUST_VALIDATED"
@@ -49,7 +47,6 @@
 
     sput-object v0, Lcom/android/server/ConnectivityService$NascentState;->JUST_VALIDATED:Lcom/android/server/ConnectivityService$NascentState;
 
-    .line 249
     new-instance v0, Lcom/android/server/ConnectivityService$NascentState;
 
     const-string v1, "NOT_JUST_VALIDATED"
@@ -58,7 +55,6 @@
 
     sput-object v0, Lcom/android/server/ConnectivityService$NascentState;->NOT_JUST_VALIDATED:Lcom/android/server/ConnectivityService$NascentState;
 
-    .line 244
     const/4 v0, 0x2
 
     new-array v0, v0, [Lcom/android/server/ConnectivityService$NascentState;
@@ -84,8 +80,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 244
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -93,10 +87,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/server/ConnectivityService$NascentState;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 244
     const-class v0, Lcom/android/server/ConnectivityService$NascentState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -111,8 +102,6 @@
 .method public static values()[Lcom/android/server/ConnectivityService$NascentState;
     .locals 1
 
-    .prologue
-    .line 244
     sget-object v0, Lcom/android/server/ConnectivityService$NascentState;->$VALUES:[Lcom/android/server/ConnectivityService$NascentState;
 
     invoke-virtual {v0}, [Lcom/android/server/ConnectivityService$NascentState;->clone()Ljava/lang/Object;

@@ -22,16 +22,12 @@
 .method public constructor <init>(Lcom/android/server/usb/UsbDeviceManager;)V
     .locals 1
 
-    .prologue
-    .line 132
     iput-object p1, p0, Lcom/android/server/usb/UsbDeviceManager$AdbSettingsObserver;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
-    .line 133
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 134
     return-void
 .end method
 
@@ -39,14 +35,11 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 4
-    .param p1, "selfChange"    # Z
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v0, 0x0
 
-    .line 137
     iget-object v2, p0, Lcom/android/server/usb/UsbDeviceManager$AdbSettingsObserver;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
     invoke-static {v2}, Lcom/android/server/usb/UsbDeviceManager;->access$000(Lcom/android/server/usb/UsbDeviceManager;)Landroid/content/ContentResolver;
@@ -63,8 +56,6 @@
 
     move v0, v1
 
-    .line 139
-    .local v0, "enable":Z
     :cond_0
     iget-object v2, p0, Lcom/android/server/usb/UsbDeviceManager$AdbSettingsObserver;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
@@ -74,6 +65,5 @@
 
     invoke-virtual {v2, v1, v0}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->sendMessage(IZ)V
 
-    .line 140
     return-void
 .end method

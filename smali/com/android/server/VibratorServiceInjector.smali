@@ -15,8 +15,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 11
     const-wide/16 v0, 0x1e
 
     sput-wide v0, Lcom/android/server/VibratorServiceInjector;->VIBRATION_THRESHOLD_IN_CALL:J
@@ -27,8 +25,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,10 +32,7 @@
 
 .method static synthetic access$002(Z)Z
     .locals 0
-    .param p0, "x0"    # Z
 
-    .prologue
-    .line 9
     sput-boolean p0, Lcom/android/server/VibratorServiceInjector;->sIncall:Z
 
     return p0
@@ -47,17 +40,13 @@
 
 .method public static listenForCallState(Landroid/content/Context;)V
     .locals 3
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 19
     new-instance v0, Lcom/android/server/VibratorServiceInjector$1;
 
     invoke-direct {v0}, Lcom/android/server/VibratorServiceInjector$1;-><init>()V
 
     sput-object v0, Lcom/android/server/VibratorServiceInjector;->sListener:Landroid/telephony/PhoneStateListener;
 
-    .line 25
     invoke-static {p0}, Landroid/telephony/TelephonyManager;->from(Landroid/content/Context;)Landroid/telephony/TelephonyManager;
 
     move-result-object v0
@@ -68,17 +57,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
 
-    .line 26
     return-void
 .end method
 
 .method public static shouldVibrateForMiui(Landroid/content/Context;I)Z
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "usageHint"    # I
 
-    .prologue
-    .line 29
     const/4 v0, 0x6
 
     if-eq p1, v0, :cond_0
@@ -108,11 +92,7 @@
 
 .method public static weakenVibrationIfNecessary(JI)J
     .locals 2
-    .param p0, "time"    # J
-    .param p2, "uid"    # I
 
-    .prologue
-    .line 36
     sget-boolean v0, Lcom/android/server/VibratorServiceInjector;->sIncall:Z
 
     if-eqz v0, :cond_0
@@ -129,10 +109,8 @@
 
     if-lez v0, :cond_0
 
-    .line 37
     sget-wide p0, Lcom/android/server/VibratorServiceInjector;->VIBRATION_THRESHOLD_IN_CALL:J
 
-    .line 39
     :cond_0
     return-wide p0
 .end method

@@ -35,8 +35,6 @@
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;ZLjava/lang/String;)V
     .locals 0
 
-    .prologue
-    .line 10828
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$10;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$10;->val$proc:Lcom/android/server/am/ProcessRecord;
@@ -59,8 +57,6 @@
 .method public run()V
     .locals 6
 
-    .prologue
-    .line 10831
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$10;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$10;->val$proc:Lcom/android/server/am/ProcessRecord;
@@ -75,6 +71,5 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/server/am/ActivityManagerService;->appNotResponding(Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;ZLjava/lang/String;)V
 
-    .line 10832
     return-void
 .end method

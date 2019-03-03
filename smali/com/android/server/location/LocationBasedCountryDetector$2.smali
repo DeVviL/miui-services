@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/location/LocationBasedCountryDetector;)V
     .locals 0
 
-    .prologue
-    .line 184
     iput-object p1, p0, Lcom/android/server/location/LocationBasedCountryDetector$2;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
 
     invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
@@ -36,20 +34,16 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 187
     iget-object v0, p0, Lcom/android/server/location/LocationBasedCountryDetector$2;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
 
     const/4 v1, 0x0
 
     iput-object v1, v0, Lcom/android/server/location/LocationBasedCountryDetector;->mTimer:Ljava/util/Timer;
 
-    .line 188
     iget-object v0, p0, Lcom/android/server/location/LocationBasedCountryDetector$2;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
 
     invoke-virtual {v0}, Lcom/android/server/location/LocationBasedCountryDetector;->stop()V
 
-    .line 191
     iget-object v0, p0, Lcom/android/server/location/LocationBasedCountryDetector$2;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
 
     iget-object v1, p0, Lcom/android/server/location/LocationBasedCountryDetector$2;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
@@ -60,6 +54,5 @@
 
     invoke-static {v0, v1}, Lcom/android/server/location/LocationBasedCountryDetector;->access$000(Lcom/android/server/location/LocationBasedCountryDetector;Landroid/location/Location;)V
 
-    .line 192
     return-void
 .end method

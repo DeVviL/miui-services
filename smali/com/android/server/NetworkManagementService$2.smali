@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/NetworkManagementService;I)V
     .locals 0
 
-    .prologue
-    .line 1453
     iput-object p1, p0, Lcom/android/server/NetworkManagementService$2;->this$0:Lcom/android/server/NetworkManagementService;
 
     iput p2, p0, Lcom/android/server/NetworkManagementService$2;->val$type:I
@@ -43,8 +41,6 @@
 .method public run()V
     .locals 7
 
-    .prologue
-    .line 1455
     iget-object v1, p0, Lcom/android/server/NetworkManagementService$2;->this$0:Lcom/android/server/NetworkManagementService;
 
     iget v2, p0, Lcom/android/server/NetworkManagementService$2;->val$type:I
@@ -59,6 +55,5 @@
 
     invoke-static/range {v1 .. v6}, Lcom/android/server/NetworkManagementService;->access$100(Lcom/android/server/NetworkManagementService;IIJZ)V
 
-    .line 1458
     return-void
 .end method

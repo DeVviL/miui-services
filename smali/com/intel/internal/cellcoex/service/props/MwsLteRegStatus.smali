@@ -46,8 +46,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 41
     const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/lang/Integer;
@@ -104,85 +102,60 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 44
     sget-object v0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;->RF_OFF:Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
 
     iput-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegStatus:Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
 
-    .line 45
     const-string v0, ""
 
     iput-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegBand:Ljava/lang/String;
 
-    .line 46
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegBandNum:I
 
-    .line 47
     return-void
 .end method
 
 .method public constructor <init>(Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;Ljava/lang/String;)V
     .locals 0
-    .param p1, "aLteStatus"    # Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
-    .param p2, "aLteRegBand"    # Ljava/lang/String;
 
-    .prologue
-    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 50
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegStatus:Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
 
-    .line 51
     invoke-virtual {p0, p2}, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->setLteRegBand(Ljava/lang/String;)Z
 
-    .line 52
     return-void
 .end method
 
 .method public constructor <init>(Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;)V
     .locals 1
-    .param p1, "anotherMwsLteRegStatus"    # Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;
 
-    .prologue
-    .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 55
     iget-object v0, p1, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegStatus:Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
 
     iput-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegStatus:Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
 
-    .line 56
     iget-object v0, p1, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegBand:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegBand:Ljava/lang/String;
 
-    .line 57
     iget v0, p1, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegBandNum:I
 
     iput v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegBandNum:I
 
-    .line 58
     return-void
 .end method
 
 .method private static final extractLteRegBandInt(Ljava/lang/String;)I
     .locals 5
-    .param p0, "aLteRegBand"    # Ljava/lang/String;
 
-    .prologue
-    .line 61
     const/4 v1, -0x1
 
-    .line 63
-    .local v1, "retVal":I
     :try_start_0
     const-string v2, "BAND_LTE_"
 
@@ -201,16 +174,12 @@
 
     move-result v1
 
-    .line 75
     :goto_0
     return v1
 
-    .line 64
     :catch_0
     move-exception v0
 
-    .line 65
-    .local v0, "ex":Ljava/lang/NumberFormatException;
     const-string v2, "CWS_CELLCOEX_MGR"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -247,19 +216,13 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 68
     const/4 v1, -0x1
 
-    .line 74
     goto :goto_0
 
-    .line 69
-    .end local v0    # "ex":Ljava/lang/NumberFormatException;
     :catch_1
     move-exception v0
 
-    .line 70
-    .local v0, "ex":Ljava/lang/IllegalArgumentException;
     const-string v2, "CWS_CELLCOEX_MGR"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -296,7 +259,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 73
     const/4 v1, -0x1
 
     goto :goto_0
@@ -306,31 +268,24 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .param p1, "other"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v2, 0x1
 
     const/4 v1, 0x0
 
-    .line 128
     if-nez p1, :cond_1
 
-    .line 140
     :cond_0
     :goto_0
     return v1
 
-    .line 130
     :cond_1
     if-ne p0, p1, :cond_2
 
     move v1, v2
 
-    .line 131
     goto :goto_0
 
-    .line 132
     :cond_2
     instance-of v3, p1, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;
 
@@ -338,11 +293,8 @@
 
     move-object v0, p1
 
-    .line 135
     check-cast v0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;
 
-    .line 136
-    .local v0, "otherMyClass":Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;
     iget-object v3, v0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegStatus:Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
 
     iget-object v4, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegStatus:Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
@@ -361,15 +313,12 @@
 
     move v1, v2
 
-    .line 138
     goto :goto_0
 .end method
 
 .method public getLteRegBand()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 79
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegBand:Ljava/lang/String;
 
     return-object v0
@@ -378,8 +327,6 @@
 .method public getLteRegBandNum()I
     .locals 1
 
-    .prologue
-    .line 99
     iget v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegBandNum:I
 
     return v0
@@ -388,8 +335,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 145
     const-string v0, "mws.lte_reg_status"
 
     return-object v0
@@ -398,8 +343,6 @@
 .method public isAgressive()Z
     .locals 2
 
-    .prologue
-    .line 103
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegStatus:Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
 
     sget-object v1, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;->REGISTERED:Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
@@ -433,10 +376,7 @@
 
 .method public setLteRegBand(Ljava/lang/String;)Z
     .locals 3
-    .param p1, "aLteRegBand"    # Ljava/lang/String;
 
-    .prologue
-    .line 83
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
@@ -453,7 +393,6 @@
 
     if-nez v0, :cond_1
 
-    .line 85
     :cond_0
     const-string v0, "CWS_CELLCOEX_MGR"
 
@@ -477,24 +416,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 86
     const-string v0, ""
 
     iput-object v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegBand:Ljava/lang/String;
 
-    .line 87
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegBandNum:I
 
-    .line 88
     const/4 v0, 0x0
 
-    .line 94
     :goto_0
     return v0
 
-    .line 90
     :cond_1
     invoke-static {p1}, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->extractLteRegBandInt(Ljava/lang/String;)I
 
@@ -502,10 +436,8 @@
 
     iput v0, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegBandNum:I
 
-    .line 91
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegBand:Ljava/lang/String;
 
-    .line 92
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -542,7 +474,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 94
     const/4 v0, 0x1
 
     goto :goto_0
@@ -551,12 +482,8 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .prologue
-    .line 109
     const-string v0, "(lteRegStatus="
 
-    .line 110
-    .local v0, "outString":Ljava/lang/String;
     sget-object v1, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$1;->$SwitchMap$com$intel$internal$cellcoex$service$props$MwsLteRegStatus$LteStatus:[I
 
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus;->mLteRegStatus:Lcom/intel/internal/cellcoex/service/props/MwsLteRegStatus$LteStatus;
@@ -569,7 +496,6 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 119
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -588,7 +514,6 @@
 
     move-result-object v0
 
-    .line 122
     :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -620,10 +545,8 @@
 
     move-result-object v0
 
-    .line 123
     return-object v0
 
-    .line 112
     :pswitch_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -643,10 +566,8 @@
 
     move-result-object v0
 
-    .line 113
     goto :goto_0
 
-    .line 115
     :pswitch_1
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -666,10 +587,8 @@
 
     move-result-object v0
 
-    .line 116
     goto :goto_0
 
-    .line 110
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

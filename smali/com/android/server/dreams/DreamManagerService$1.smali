@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/dreams/DreamManagerService;)V
     .locals 0
 
-    .prologue
-    .line 111
     iput-object p1, p0, Lcom/android/server/dreams/DreamManagerService$1;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,11 +33,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 114
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$1;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
     invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->access$200(Lcom/android/server/dreams/DreamManagerService;)Ljava/lang/Object;
@@ -48,7 +42,6 @@
 
     monitor-enter v1
 
-    .line 115
     :try_start_0
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$1;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
@@ -56,13 +49,10 @@
 
     invoke-static {v0, v2}, Lcom/android/server/dreams/DreamManagerService;->access$300(Lcom/android/server/dreams/DreamManagerService;Z)V
 
-    .line 116
     monitor-exit v1
 
-    .line 117
     return-void
 
-    .line 116
     :catchall_0
     move-exception v0
 

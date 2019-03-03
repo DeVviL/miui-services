@@ -32,46 +32,32 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 1
-    .param p1, "cols"    # I
 
-    .prologue
-    .line 3370
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3367
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/content/SyncManager$PrintTable;->mTable:Ljava/util/ArrayList;
 
-    .line 3371
     iput p1, p0, Lcom/android/server/content/SyncManager$PrintTable;->mCols:I
 
-    .line 3372
     return-void
 .end method
 
 .method private printRow(Ljava/io/PrintWriter;[Ljava/lang/String;[Ljava/lang/Object;)V
     .locals 6
-    .param p1, "out"    # Ljava/io/PrintWriter;
-    .param p2, "formats"    # [Ljava/lang/String;
-    .param p3, "row"    # [Ljava/lang/Object;
 
-    .prologue
     const/4 v5, 0x0
 
-    .line 3417
     const/4 v0, 0x0
 
-    .local v0, "j":I
     array-length v1, p3
 
-    .local v1, "rowLength":I
     :goto_0
     if-ge v0, v1, :cond_0
 
-    .line 3418
     aget-object v2, p2, v0
 
     const/4 v3, 0x1
@@ -94,21 +80,17 @@
 
     invoke-virtual {p1, v2, v3}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
 
-    .line 3419
     const-string v2, "  "
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 3417
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 3421
     :cond_0
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
-    .line 3422
     return-void
 .end method
 
@@ -117,8 +99,6 @@
 .method public getNumRows()I
     .locals 1
 
-    .prologue
-    .line 3425
     iget-object v0, p0, Lcom/android/server/content/SyncManager$PrintTable;->mTable:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -130,12 +110,7 @@
 
 .method varargs set(II[Ljava/lang/Object;)V
     .locals 6
-    .param p1, "row"    # I
-    .param p2, "col"    # I
-    .param p3, "values"    # [Ljava/lang/Object;
 
-    .prologue
-    .line 3375
     array-length v3, p3
 
     add-int/2addr v3, p2
@@ -144,7 +119,6 @@
 
     if-le v3, v4, :cond_0
 
-    .line 3376
     new-instance v3, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -193,7 +167,6 @@
 
     throw v3
 
-    .line 3379
     :cond_0
     iget-object v3, p0, Lcom/android/server/content/SyncManager$PrintTable;->mTable:Ljava/util/ArrayList;
 
@@ -201,49 +174,37 @@
 
     move-result v0
 
-    .local v0, "i":I
     :goto_0
     if-gt v0, p1, :cond_2
 
-    .line 3380
     iget v3, p0, Lcom/android/server/content/SyncManager$PrintTable;->mCols:I
 
     new-array v2, v3, [Ljava/lang/Object;
 
-    .line 3381
-    .local v2, "list":[Ljava/lang/Object;
     iget-object v3, p0, Lcom/android/server/content/SyncManager$PrintTable;->mTable:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 3382
     const/4 v1, 0x0
 
-    .local v1, "j":I
     :goto_1
     iget v3, p0, Lcom/android/server/content/SyncManager$PrintTable;->mCols:I
 
     if-ge v1, v3, :cond_1
 
-    .line 3383
     const-string v3, ""
 
     aput-object v3, v2, v1
 
-    .line 3382
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 3379
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 3386
-    .end local v1    # "j":I
-    .end local v2    # "list":[Ljava/lang/Object;
     :cond_2
     const/4 v3, 0x0
 
@@ -257,48 +218,35 @@
 
     invoke-static {p3, v3, v4, p2, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 3387
     return-void
 .end method
 
 .method writeTo(Ljava/io/PrintWriter;)V
     .locals 13
-    .param p1, "out"    # Ljava/io/PrintWriter;
 
-    .prologue
     const/4 v12, 0x0
 
-    .line 3390
     iget v9, p0, Lcom/android/server/content/SyncManager$PrintTable;->mCols:I
 
     new-array v1, v9, [Ljava/lang/String;
 
-    .line 3391
-    .local v1, "formats":[Ljava/lang/String;
     const/4 v8, 0x0
 
-    .line 3392
-    .local v8, "totalLength":I
     const/4 v0, 0x0
 
-    .local v0, "col":I
     :goto_0
     iget v9, p0, Lcom/android/server/content/SyncManager$PrintTable;->mCols:I
 
     if-ge v0, v9, :cond_2
 
-    .line 3393
     const/4 v6, 0x0
 
-    .line 3394
-    .local v6, "maxLength":I
     iget-object v9, p0, Lcom/android/server/content/SyncManager$PrintTable;->mTable:Ljava/util/ArrayList;
 
     invoke-virtual {v9}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    .local v3, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
@@ -313,8 +261,6 @@
 
     check-cast v7, [Ljava/lang/Object;
 
-    .line 3395
-    .local v7, "row":[Ljava/lang/Object;
     aget-object v9, v7, v0
 
     invoke-virtual {v9}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -325,22 +271,15 @@
 
     move-result v4
 
-    .line 3396
-    .local v4, "length":I
     if-le v4, v6, :cond_0
 
-    .line 3397
     move v6, v4
 
     goto :goto_1
 
-    .line 3400
-    .end local v4    # "length":I
-    .end local v7    # "row":[Ljava/lang/Object;
     :cond_1
     add-int/2addr v8, v6
 
-    .line 3401
     const-string v9, "%%-%ds"
 
     const/4 v10, 0x1
@@ -359,14 +298,10 @@
 
     aput-object v9, v1, v0
 
-    .line 3392
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 3403
-    .end local v3    # "i$":Ljava/util/Iterator;
-    .end local v6    # "maxLength":I
     :cond_2
     iget v9, p0, Lcom/android/server/content/SyncManager$PrintTable;->mCols:I
 
@@ -376,7 +311,6 @@
 
     aput-object v10, v1, v9
 
-    .line 3404
     iget-object v9, p0, Lcom/android/server/content/SyncManager$PrintTable;->mTable:Ljava/util/ArrayList;
 
     invoke-virtual {v9, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -387,7 +321,6 @@
 
     invoke-direct {p0, p1, v1, v9}, Lcom/android/server/content/SyncManager$PrintTable;->printRow(Ljava/io/PrintWriter;[Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 3405
     iget v9, p0, Lcom/android/server/content/SyncManager$PrintTable;->mCols:I
 
     add-int/lit8 v9, v9, -0x1
@@ -396,28 +329,22 @@
 
     add-int/2addr v8, v9
 
-    .line 3406
     const/4 v2, 0x0
 
-    .local v2, "i":I
     :goto_2
     if-ge v2, v8, :cond_3
 
-    .line 3407
     const-string v9, "-"
 
     invoke-virtual {p1, v9}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 3406
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
-    .line 3409
     :cond_3
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
-    .line 3410
     const/4 v2, 0x1
 
     iget-object v9, p0, Lcom/android/server/content/SyncManager$PrintTable;->mTable:Ljava/util/ArrayList;
@@ -426,11 +353,9 @@
 
     move-result v5
 
-    .local v5, "mTableSize":I
     :goto_3
     if-ge v2, v5, :cond_4
 
-    .line 3411
     iget-object v9, p0, Lcom/android/server/content/SyncManager$PrintTable;->mTable:Ljava/util/ArrayList;
 
     invoke-virtual {v9, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -439,17 +364,12 @@
 
     check-cast v7, [Ljava/lang/Object;
 
-    .line 3412
-    .restart local v7    # "row":[Ljava/lang/Object;
     invoke-direct {p0, p1, v1, v7}, Lcom/android/server/content/SyncManager$PrintTable;->printRow(Ljava/io/PrintWriter;[Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 3410
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_3
 
-    .line 3414
-    .end local v7    # "row":[Ljava/lang/Object;
     :cond_4
     return-void
 .end method

@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;)V
     .locals 0
 
-    .prologue
-    .line 201
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOffState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -36,15 +34,12 @@
 .method public enter()V
     .locals 4
 
-    .prologue
-    .line 205
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$300()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 206
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -87,7 +82,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 210
     :cond_0
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOffState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
@@ -99,7 +93,6 @@
 
     iput-object v1, v0, Lcom/intel/internal/cellcoex/service/props/MwsState;->mState:Lcom/intel/internal/cellcoex/service/props/MwsState$State;
 
-    .line 211
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOffState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     invoke-static {v0}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$600(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;)Lcom/intel/internal/cellcoex/service/props/MwsState;
@@ -110,7 +103,6 @@
 
     iput-object v1, v0, Lcom/intel/internal/cellcoex/service/props/MwsState;->mSubState:Lcom/intel/internal/cellcoex/service/props/MwsState$SubState;
 
-    .line 212
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOffState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     invoke-static {v0}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$700(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;)Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
@@ -131,27 +123,20 @@
 
     invoke-interface {v0, v1, v2}, Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;->setProp(Ljava/lang/String;Ljava/lang/Object;)Z
 
-    .line 213
     return-void
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 4
-    .param p1, "message"    # Landroid/os/Message;
 
-    .prologue
-    .line 217
     const/4 v0, 0x0
 
-    .line 218
-    .local v0, "retVal":Z
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$300()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 219
     const-string v1, "CWS_CELLCOEX_MGR"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -206,7 +191,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 220
     :cond_0
     const v1, 0x80001
 
@@ -214,17 +198,14 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 221
     const/4 v0, 0x1
 
-    .line 222
     const/4 v1, 0x3
 
     iget v2, p1, Landroid/os/Message;->arg1:I
 
     if-eq v1, v2, :cond_1
 
-    .line 223
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOffState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$RadioOffState;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
@@ -235,7 +216,6 @@
 
     invoke-static {v1, v2}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$900(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;Lcom/android/internal/util/IState;)V
 
-    .line 226
     :cond_1
     return v0
 .end method

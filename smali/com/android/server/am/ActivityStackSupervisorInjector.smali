@@ -50,22 +50,18 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 55
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Lcom/android/server/am/ActivityStackSupervisorInjector;->sSupportsMultiTaskInDockList:Ljava/util/ArrayList;
 
-    .line 57
     sget-object v0, Lcom/android/server/am/ActivityStackSupervisorInjector;->sSupportsMultiTaskInDockList:Ljava/util/ArrayList;
 
     const-string v1, "com.miui.hybrid"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 125
     const-wide/16 v0, -0x1
 
     sput-wide v0, Lcom/android/server/am/ActivityStackSupervisorInjector;->mLastIncallUiLaunchTime:J
@@ -76,38 +72,23 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 216
     return-void
 .end method
 
 .method static checkXSpaceControl(Landroid/content/Context;Landroid/content/pm/ActivityInfo;Landroid/content/Intent;ZIILjava/lang/String;)Landroid/content/Intent;
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "aInfo"    # Landroid/content/pm/ActivityInfo;
-    .param p2, "intent"    # Landroid/content/Intent;
-    .param p3, "fromActivity"    # Z
-    .param p4, "requestCode"    # I
-    .param p5, "userId"    # I
-    .param p6, "callingPackage"    # Ljava/lang/String;
 
-    .prologue
-    .line 73
     invoke-static {p2, p6}, Lcom/miui/server/XSpaceManagerService;->isPublicIntent(Landroid/content/Intent;Ljava/lang/String;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 76
-    .end local p2    # "intent":Landroid/content/Intent;
     :goto_0
     return-object p2
 
-    .restart local p2    # "intent":Landroid/content/Intent;
     :cond_0
     invoke-static/range {p0 .. p6}, Lcom/miui/server/XSpaceManagerService;->checkXSpaceControl(Landroid/content/Context;Landroid/content/pm/ActivityInfo;Landroid/content/Intent;ZIILjava/lang/String;)Landroid/content/Intent;
 
@@ -118,10 +99,7 @@
 
 .method static ensurePackageDexOpt(Ljava/lang/String;)Z
     .locals 1
-    .param p0, "packageName"    # Ljava/lang/String;
 
-    .prologue
-    .line 118
     invoke-static {}, Lcom/android/server/pm/PackageDexOptimizerManager;->getInstance()Lcom/android/server/pm/PackageDexOptimizerManager;
 
     move-result-object v0
@@ -136,20 +114,16 @@
 .method private static getNextRequestIdLocked()I
     .locals 2
 
-    .prologue
-    .line 209
     sget v0, Lcom/android/server/am/ActivityStackSupervisorInjector;->sActivityRequestId:I
 
     const v1, 0x7fffffff
 
     if-lt v0, v1, :cond_0
 
-    .line 210
     const/4 v0, 0x0
 
     sput v0, Lcom/android/server/am/ActivityStackSupervisorInjector;->sActivityRequestId:I
 
-    .line 212
     :cond_0
     sget v0, Lcom/android/server/am/ActivityStackSupervisorInjector;->sActivityRequestId:I
 
@@ -157,7 +131,6 @@
 
     sput v0, Lcom/android/server/am/ActivityStackSupervisorInjector;->sActivityRequestId:I
 
-    .line 213
     sget v0, Lcom/android/server/am/ActivityStackSupervisorInjector;->sActivityRequestId:I
 
     return v0
@@ -165,21 +138,14 @@
 
 .method static isAllowedAppSwitch(Lcom/android/server/am/ActivityStack;Ljava/lang/String;Landroid/content/pm/ActivityInfo;)Z
     .locals 6
-    .param p0, "stack"    # Lcom/android/server/am/ActivityStack;
-    .param p1, "callingPackageName"    # Ljava/lang/String;
-    .param p2, "aInfo"    # Landroid/content/pm/ActivityInfo;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 135
     if-nez p0, :cond_0
 
-    .line 148
     :goto_0
     return v1
 
-    .line 136
     :cond_0
     const/4 v2, 0x0
 
@@ -187,8 +153,6 @@
 
     move-result-object v0
 
-    .line 137
-    .local v0, "topr":Lcom/android/server/am/ActivityRecord;
     if-eqz v0, :cond_1
 
     iget-object v2, v0, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
@@ -241,7 +205,6 @@
 
     if-lez v2, :cond_1
 
-    .line 141
     const-string v2, "ActivityManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -298,7 +261,6 @@
 
     goto :goto_0
 
-    .line 145
     :cond_1
     if-eqz p2, :cond_2
 
@@ -312,14 +274,12 @@
 
     if-eqz v1, :cond_2
 
-    .line 146
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
     sput-wide v2, Lcom/android/server/am/ActivityStackSupervisorInjector;->mLastIncallUiLaunchTime:J
 
-    .line 148
     :cond_2
     const/4 v1, 0x1
 
@@ -328,13 +288,7 @@
 
 .method static isAllowedAppSwitch(Lcom/android/server/am/ActivityStack;Ljava/lang/String;Landroid/content/pm/ActivityInfo;J)Z
     .locals 1
-    .param p0, "stack"    # Lcom/android/server/am/ActivityStack;
-    .param p1, "callingPackageName"    # Ljava/lang/String;
-    .param p2, "aInfo"    # Landroid/content/pm/ActivityInfo;
-    .param p3, "lastTime"    # J
 
-    .prologue
-    .line 130
     invoke-static {p0, p1, p2}, Lcom/android/server/am/ActivityStackSupervisorInjector;->isAllowedAppSwitch(Lcom/android/server/am/ActivityStack;Ljava/lang/String;Landroid/content/pm/ActivityInfo;)Z
 
     move-result v0
@@ -344,11 +298,7 @@
 
 .method static isAppLockActivity(Landroid/content/Intent;Landroid/content/pm/ActivityInfo;)Z
     .locals 2
-    .param p0, "intent"    # Landroid/content/Intent;
-    .param p1, "aInfo"    # Landroid/content/pm/ActivityInfo;
 
-    .prologue
-    .line 80
     if-eqz p0, :cond_0
 
     if-eqz p1, :cond_0
@@ -401,8 +351,6 @@
 .method static isXSpaceActive()Z
     .locals 1
 
-    .prologue
-    .line 68
     sget-boolean v0, Lcom/miui/server/XSpaceManagerService;->sIsXSpaceActived:Z
 
     return v0
@@ -410,22 +358,13 @@
 
 .method public static noteOperationLocked(IILjava/lang/String;Landroid/os/Handler;Lcom/android/server/am/ActivityStackSupervisorInjector$OpCheckData;)I
     .locals 22
-    .param p0, "appOp"    # I
-    .param p1, "callingUid"    # I
-    .param p2, "callingPackage"    # Ljava/lang/String;
-    .param p3, "handler"    # Landroid/os/Handler;
-    .param p4, "checker"    # Lcom/android/server/am/ActivityStackSupervisorInjector$OpCheckData;
 
-    .prologue
-    .line 152
     move-object/from16 v0, p4
 
     iget-object v0, v0, Lcom/android/server/am/ActivityStackSupervisorInjector$OpCheckData;->service:Lcom/android/server/am/ActivityManagerService;
 
     move-object/from16 v20, v0
 
-    .line 153
-    .local v20, "service":Lcom/android/server/am/ActivityManagerService;
     move-object/from16 v0, v20
 
     iget-object v3, v0, Lcom/android/server/am/ActivityManagerService;->mAppOpsService:Lcom/android/server/AppOpsService;
@@ -440,35 +379,25 @@
 
     move-result v18
 
-    .line 154
-    .local v18, "mode":I
     const/4 v3, 0x4
 
     move/from16 v0, v18
 
     if-eq v0, v3, :cond_1
 
-    .line 192
-    .end local v18    # "mode":I
     :cond_0
     :goto_0
     return v18
 
-    .line 157
-    .restart local v18    # "mode":I
     :cond_1
     move-object/from16 v0, p4
 
     iget v7, v0, Lcom/android/server/am/ActivityStackSupervisorInjector$OpCheckData;->userId:I
 
-    .line 158
-    .local v7, "userId":I
     invoke-static {}, Lcom/android/server/am/ActivityStackSupervisorInjector;->getNextRequestIdLocked()I
 
     move-result v10
 
-    .line 159
-    .local v10, "requestCode":I
     move-object/from16 v0, p4
 
     iget-object v3, v0, Lcom/android/server/am/ActivityStackSupervisorInjector$OpCheckData;->service:Lcom/android/server/am/ActivityManagerService;
@@ -527,35 +456,28 @@
 
     move-result-object v21
 
-    .line 169
-    .local v21, "target":Landroid/content/IIntentSender;
     new-instance v12, Landroid/content/Intent;
 
     const-string v3, "com.miui.intent.action.REQUEST_PERMISSIONS"
 
     invoke-direct {v12, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 170
-    .local v12, "intent":Landroid/content/Intent;
     const-string v3, "com.lbe.security.miui"
 
     invoke-virtual {v12, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 171
     const-string v3, "android.intent.extra.PACKAGE_NAME"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v12, v3, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 172
     const-string v3, "android.intent.extra.UID"
 
     move/from16 v0, p1
 
     invoke-virtual {v12, v3, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 173
     const-string v3, "android.intent.extra.INTENT"
 
     new-instance v4, Landroid/content/IntentSender;
@@ -566,21 +488,18 @@
 
     invoke-virtual {v12, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 174
     move-object/from16 v0, p4
 
     iget-object v3, v0, Lcom/android/server/am/ActivityStackSupervisorInjector$OpCheckData;->resultRecord:Lcom/android/server/am/ActivityRecord;
 
     if-eqz v3, :cond_2
 
-    .line 175
     const-string v3, "EXTRA_RESULT_NEEDED"
 
     const/4 v4, 0x1
 
     invoke-virtual {v12, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 177
     :cond_2
     const-string v3, "op"
 
@@ -588,7 +507,6 @@
 
     invoke-virtual {v12, v3, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 179
     move-object/from16 v0, p4
 
     iget-object v11, v0, Lcom/android/server/am/ActivityStackSupervisorInjector$OpCheckData;->stackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
@@ -609,30 +527,24 @@
 
     move-result-object v17
 
-    .line 181
-    .local v17, "activityInfo":Landroid/content/pm/ActivityInfo;
     if-eqz v17, :cond_0
 
-    .line 182
     move-object/from16 v0, v17
 
     move-object/from16 v1, p4
 
     iput-object v0, v1, Lcom/android/server/am/ActivityStackSupervisorInjector$OpCheckData;->newAInfo:Landroid/content/pm/ActivityInfo;
 
-    .line 183
     move-object/from16 v0, p4
 
     iput-object v12, v0, Lcom/android/server/am/ActivityStackSupervisorInjector$OpCheckData;->newIntent:Landroid/content/Intent;
 
-    .line 184
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v4, 0x18
 
     if-lt v3, v4, :cond_3
 
-    .line 185
     move-object/from16 v0, p4
 
     iget-object v3, v0, Lcom/android/server/am/ActivityStackSupervisorInjector$OpCheckData;->resolvedType:Ljava/lang/String;
@@ -641,16 +553,12 @@
 
     move-result-object v19
 
-    .line 186
-    .local v19, "rInfo":Landroid/content/pm/ResolveInfo;
     move-object/from16 v0, v19
 
     move-object/from16 v1, p4
 
     iput-object v0, v1, Lcom/android/server/am/ActivityStackSupervisorInjector$OpCheckData;->newRInfo:Landroid/content/pm/ResolveInfo;
 
-    .line 188
-    .end local v19    # "rInfo":Landroid/content/pm/ResolveInfo;
     :cond_3
     const-string v3, "ActivityStackSupervisor"
 
@@ -700,7 +608,6 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 190
     const/16 v18, 0x0
 
     goto/16 :goto_0
@@ -708,12 +615,7 @@
 
 .method private static resolveIntent(Landroid/content/Intent;Ljava/lang/String;I)Landroid/content/pm/ResolveInfo;
     .locals 2
-    .param p0, "intent"    # Landroid/content/Intent;
-    .param p1, "resolvedType"    # Ljava/lang/String;
-    .param p2, "userId"    # I
 
-    .prologue
-    .line 201
     :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
@@ -727,15 +629,12 @@
 
     move-result-object v0
 
-    .line 205
     :goto_0
     return-object v0
 
-    .line 203
     :catch_0
     move-exception v0
 
-    .line 205
     const/4 v0, 0x0
 
     goto :goto_0
@@ -743,17 +642,7 @@
 
 .method static resolveXSpaceIntent(Landroid/content/pm/ActivityInfo;Landroid/content/Intent;Lcom/android/server/am/ActivityStackSupervisor;Landroid/app/ProfilerInfo;Ljava/lang/String;IILjava/lang/String;)Landroid/content/pm/ActivityInfo;
     .locals 12
-    .param p0, "aInfo"    # Landroid/content/pm/ActivityInfo;
-    .param p1, "intent"    # Landroid/content/Intent;
-    .param p2, "stack"    # Lcom/android/server/am/ActivityStackSupervisor;
-    .param p3, "profilerInfo"    # Landroid/app/ProfilerInfo;
-    .param p4, "resolvedType"    # Ljava/lang/String;
-    .param p5, "startFlags"    # I
-    .param p6, "userId"    # I
-    .param p7, "callingPackage"    # Ljava/lang/String;
 
-    .prologue
-    .line 89
     if-eqz p6, :cond_0
 
     const/16 v2, 0x3e7
@@ -771,12 +660,10 @@
 
     if-nez v2, :cond_2
 
-    .line 108
     :cond_1
     :goto_0
     return-object p0
 
-    .line 93
     :cond_2
     move-object/from16 v0, p7
 
@@ -786,7 +673,6 @@
 
     if-eqz v2, :cond_3
 
-    .line 95
     :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
@@ -806,7 +692,6 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 101
     :cond_3
     :goto_1
     move-object/from16 v0, p7
@@ -815,18 +700,14 @@
 
     move-result v7
 
-    .line 102
-    .local v7, "cachedUserId":I
     const/16 v2, -0x2710
 
     if-eq v7, v2, :cond_1
 
-    .line 104
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v10
 
-    .local v10, "token":J
     move-object v2, p2
 
     move-object v3, p1
@@ -837,24 +718,17 @@
 
     move-object v6, p3
 
-    .line 105
     invoke-virtual/range {v2 .. v7}, Lcom/android/server/am/ActivityStackSupervisor;->resolveActivity(Landroid/content/Intent;Ljava/lang/String;ILandroid/app/ProfilerInfo;I)Landroid/content/pm/ActivityInfo;
 
     move-result-object p0
 
-    .line 106
     invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto :goto_0
 
-    .line 97
-    .end local v7    # "cachedUserId":I
-    .end local v10    # "token":J
     :catch_0
     move-exception v8
 
-    .line 98
-    .local v8, "e":Landroid/os/RemoteException;
     invoke-virtual {v8}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_1
@@ -862,10 +736,7 @@
 
 .method public static supportsMultiTaskInDock(Ljava/lang/String;)Z
     .locals 1
-    .param p0, "packageName"    # Ljava/lang/String;
 
-    .prologue
-    .line 196
     sget-object v0, Lcom/android/server/am/ActivityStackSupervisorInjector;->sSupportsMultiTaskInDockList:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
@@ -877,30 +748,15 @@
 
 .method static updateInfoBeforeRealStartActivity(Lcom/android/server/am/ActivityStack;Landroid/app/IApplicationThread;ILjava/lang/String;Landroid/content/Intent;Landroid/content/pm/ActivityInfo;Landroid/os/IBinder;II)V
     .locals 0
-    .param p0, "stack"    # Lcom/android/server/am/ActivityStack;
-    .param p1, "caller"    # Landroid/app/IApplicationThread;
-    .param p2, "callingUid"    # I
-    .param p3, "callingPackage"    # Ljava/lang/String;
-    .param p4, "intent"    # Landroid/content/Intent;
-    .param p5, "aInfo"    # Landroid/content/pm/ActivityInfo;
-    .param p6, "resultTo"    # Landroid/os/IBinder;
-    .param p7, "requestCode"    # I
-    .param p8, "userId"    # I
 
-    .prologue
-    .line 114
     invoke-static {p0, p5, p4}, Lcom/android/server/am/MiuiMultiTaskManager;->updateMultiTaskInfoIfNeed(Lcom/android/server/am/ActivityStack;Landroid/content/pm/ActivityInfo;Landroid/content/Intent;)V
 
-    .line 115
     return-void
 .end method
 
 .method static updateScreenPaperMode(Ljava/lang/String;)V
     .locals 2
-    .param p0, "packageName"    # Ljava/lang/String;
 
-    .prologue
-    .line 61
     const-class v1, Lcom/android/server/display/ScreenEffectManager;
 
     invoke-static {v1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -909,14 +765,10 @@
 
     check-cast v0, Lcom/android/server/display/ScreenEffectManager;
 
-    .line 62
-    .local v0, "screenEffectManager":Lcom/android/server/display/ScreenEffectManager;
     if-eqz v0, :cond_0
 
-    .line 63
     invoke-virtual {v0, p0}, Lcom/android/server/display/ScreenEffectManager;->updateLocalScreenEffect(Ljava/lang/String;)V
 
-    .line 65
     :cond_0
     return-void
 .end method

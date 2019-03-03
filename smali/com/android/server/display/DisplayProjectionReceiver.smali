@@ -18,31 +18,21 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/display/WifiDisplayController;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "handler"    # Landroid/os/Handler;
-    .param p3, "controller"    # Lcom/android/server/display/WifiDisplayController;
 
-    .prologue
-    .line 17
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    .line 18
     new-instance v0, Lcom/android/server/display/MiuiProjectionManager;
 
     invoke-direct {v0, p1, p2, p3}, Lcom/android/server/display/MiuiProjectionManager;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/display/WifiDisplayController;)V
 
     iput-object v0, p0, Lcom/android/server/display/DisplayProjectionReceiver;->mProjectionManager:Lcom/android/server/display/MiuiProjectionManager;
 
-    .line 19
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/server/display/DisplayProjectionReceiver;)Lcom/android/server/display/MiuiProjectionManager;
     .locals 1
-    .param p0, "x0"    # Lcom/android/server/display/DisplayProjectionReceiver;
 
-    .prologue
-    .line 10
     iget-object v0, p0, Lcom/android/server/display/DisplayProjectionReceiver;->mProjectionManager:Lcom/android/server/display/MiuiProjectionManager;
 
     return-object v0
@@ -52,17 +42,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 23
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 25
-    .local v0, "action":Ljava/lang/String;
     const-string v2, "miui.action.START_PROJECTION"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -71,15 +55,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 26
     const-string v2, "iface"
 
     invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 27
-    .local v1, "iface":Ljava/lang/String;
     const-string v2, "DisplayProjectionReceiver"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -102,17 +83,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 28
     if-nez v1, :cond_1
 
-    .line 47
-    .end local v1    # "iface":Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
 
-    .line 31
-    .restart local v1    # "iface":Ljava/lang/String;
     :cond_1
     new-instance v2, Lcom/android/server/display/DisplayProjectionReceiver$1;
 
@@ -122,8 +98,6 @@
 
     goto :goto_0
 
-    .line 38
-    .end local v1    # "iface":Ljava/lang/String;
     :cond_2
     const-string v2, "miui.action.STOP_PROJECTION"
 
@@ -133,14 +107,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 39
     const-string v2, "DisplayProjectionReceiver"
 
     const-string v3, "stop active projection "
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 40
     new-instance v2, Lcom/android/server/display/DisplayProjectionReceiver$2;
 
     invoke-direct {v2, p0}, Lcom/android/server/display/DisplayProjectionReceiver$2;-><init>(Lcom/android/server/display/DisplayProjectionReceiver;)V

@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/display/WifiDisplayController;Landroid/net/wifi/p2p/WifiP2pDevice;)V
     .locals 0
 
-    .prologue
-    .line 323
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayController$2;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     iput-object p2, p0, Lcom/android/server/display/WifiDisplayController$2;->val$p2pDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
@@ -42,25 +40,17 @@
 # virtual methods
 .method public onPersistentGroupInfoAvailable(Landroid/net/wifi/p2p/WifiP2pGroupList;)V
     .locals 7
-    .param p1, "groups"    # Landroid/net/wifi/p2p/WifiP2pGroupList;
 
-    .prologue
-    .line 327
     const/4 v3, -0x1
 
-    .line 328
-    .local v3, "netId":I
     invoke-virtual {p1}, Landroid/net/wifi/p2p/WifiP2pGroupList;->getGroupList()Ljava/util/Collection;
 
     move-result-object v2
 
-    .line 329
-    .local v2, "list":Ljava/util/Collection;, "Ljava/util/Collection<Landroid/net/wifi/p2p/WifiP2pGroup;>;"
     invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -74,8 +64,6 @@
 
     check-cast v0, Landroid/net/wifi/p2p/WifiP2pGroup;
 
-    .line 330
-    .local v0, "grp":Landroid/net/wifi/p2p/WifiP2pGroup;
     iget-object v4, p0, Lcom/android/server/display/WifiDisplayController$2;->val$p2pDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
 
     invoke-virtual {v0, v4}, Landroid/net/wifi/p2p/WifiP2pGroup;->contains(Landroid/net/wifi/p2p/WifiP2pDevice;)Z
@@ -84,19 +72,15 @@
 
     if-eqz v4, :cond_0
 
-    .line 331
     invoke-virtual {v0}, Landroid/net/wifi/p2p/WifiP2pGroup;->getNetworkId()I
 
     move-result v3
 
-    .line 336
-    .end local v0    # "grp":Landroid/net/wifi/p2p/WifiP2pGroup;
     :cond_1
     const/4 v4, -0x1
 
     if-eq v3, v4, :cond_2
 
-    .line 340
     iget-object v4, p0, Lcom/android/server/display/WifiDisplayController$2;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     invoke-static {v4}, Lcom/android/server/display/WifiDisplayController;->access$200(Lcom/android/server/display/WifiDisplayController;)Landroid/net/wifi/p2p/WifiP2pManager;
@@ -113,7 +97,6 @@
 
     invoke-virtual {v4, v5, v3, v6}, Landroid/net/wifi/p2p/WifiP2pManager;->deletePersistentGroup(Landroid/net/wifi/p2p/WifiP2pManager$Channel;ILandroid/net/wifi/p2p/WifiP2pManager$ActionListener;)V
 
-    .line 342
     :cond_2
     return-void
 .end method

@@ -27,26 +27,18 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/appwidget/AppWidgetServiceImpl$BackupRestoreController;II)V
     .locals 1
-    .param p2, "theOldId"    # I
-    .param p3, "theNewId"    # I
 
-    .prologue
-    .line 4064
     iput-object p1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$BackupRestoreController$RestoreUpdateRecord;->this$1:Lcom/android/server/appwidget/AppWidgetServiceImpl$BackupRestoreController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4065
     iput p2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$BackupRestoreController$RestoreUpdateRecord;->oldId:I
 
-    .line 4066
     iput p3, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$BackupRestoreController$RestoreUpdateRecord;->newId:I
 
-    .line 4067
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$BackupRestoreController$RestoreUpdateRecord;->notified:Z
 
-    .line 4068
     return-void
 .end method

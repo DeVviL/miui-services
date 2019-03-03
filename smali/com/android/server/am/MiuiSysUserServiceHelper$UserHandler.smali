@@ -17,13 +17,9 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Looper;)V
     .locals 0
-    .param p1, "looper"    # Landroid/os/Looper;
 
-    .prologue
-    .line 48
     invoke-direct {p0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 49
     return-void
 .end method
 
@@ -31,33 +27,26 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 53
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 61
     :goto_0
     return-void
 
-    .line 55
     :pswitch_0
     invoke-static {v1}, Lcom/android/server/am/MiuiSysUserServiceHelper;->access$002(Z)Z
 
     goto :goto_0
 
-    .line 58
     :pswitch_1
     invoke-static {v1}, Lcom/android/server/am/MiuiSysUserServiceHelper;->access$102(Z)Z
 
     goto :goto_0
 
-    .line 53
     nop
 
     :pswitch_data_0

@@ -28,13 +28,10 @@
 .method constructor <init>(Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask;)V
     .locals 1
 
-    .prologue
-    .line 6201
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask$RestoreInstallObserver;->this$1:Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask;
 
     invoke-direct {p0}, Landroid/content/pm/IPackageInstallObserver$Stub;-><init>()V
 
-    .line 6202
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
@@ -49,8 +46,6 @@
 .method getResult()I
     .locals 1
 
-    .prologue
-    .line 6223
     iget v0, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask$RestoreInstallObserver;->mResult:I
 
     return v0
@@ -58,46 +53,35 @@
 
 .method public packageInstalled(Ljava/lang/String;I)V
     .locals 3
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "returnCode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 6229
     iget-object v1, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask$RestoreInstallObserver;->mDone:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     monitor-enter v1
 
-    .line 6230
     :try_start_0
     iput p2, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask$RestoreInstallObserver;->mResult:I
 
-    .line 6231
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask$RestoreInstallObserver;->mPackageName:Ljava/lang/String;
 
-    .line 6232
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask$RestoreInstallObserver;->mDone:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 6233
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask$RestoreInstallObserver;->mDone:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 6234
     monitor-exit v1
 
-    .line 6235
     return-void
 
-    .line 6234
     :catchall_0
     move-exception v0
 
@@ -111,13 +95,10 @@
 .method public reset()V
     .locals 3
 
-    .prologue
-    .line 6207
     iget-object v1, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask$RestoreInstallObserver;->mDone:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     monitor-enter v1
 
-    .line 6208
     :try_start_0
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask$RestoreInstallObserver;->mDone:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -125,13 +106,10 @@
 
     invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 6209
     monitor-exit v1
 
-    .line 6210
     return-void
 
-    .line 6209
     :catchall_0
     move-exception v0
 
@@ -145,13 +123,10 @@
 .method public waitForCompletion()V
     .locals 2
 
-    .prologue
-    .line 6213
     iget-object v1, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask$RestoreInstallObserver;->mDone:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     monitor-enter v1
 
-    .line 6214
     :goto_0
     :try_start_0
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask$RestoreInstallObserver;->mDone:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -164,7 +139,6 @@
 
     if-nez v0, :cond_0
 
-    .line 6216
     :try_start_1
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$PerformAdbRestoreTask$RestoreInstallObserver;->mDone:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -175,21 +149,17 @@
 
     goto :goto_0
 
-    .line 6217
     :catch_0
     move-exception v0
 
     goto :goto_0
 
-    .line 6219
     :cond_0
     :try_start_2
     monitor-exit v1
 
-    .line 6220
     return-void
 
-    .line 6219
     :catchall_0
     move-exception v0
 

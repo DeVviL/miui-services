@@ -37,8 +37,6 @@
 .method constructor <init>(Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr$ATSender;Ljava/lang/String;)V
     .locals 0
 
-    .prologue
-    .line 139
     iput-object p1, p0, Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr$ATSender$1;->this$1:Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr$ATSender;
 
     iput-object p2, p0, Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr$ATSender$1;->val$cmd:Ljava/lang/String;
@@ -58,8 +56,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 139
     invoke-virtual {p0}, Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr$ATSender$1;->call()Ljava/lang/String;
 
     move-result-object v0
@@ -75,8 +71,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 142
     invoke-static {}, Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr;->access$100()Z
 
     move-result v2
@@ -107,12 +101,9 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 143
     :cond_0
     const-string v1, "ERROR"
 
-    .line 145
-    .local v1, "result":Ljava/lang/String;
     :try_start_0
     iget-object v2, p0, Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr$ATSender$1;->this$1:Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr$ATSender;
 
@@ -130,7 +121,6 @@
 
     move-result-object v1
 
-    .line 149
     :goto_0
     invoke-static {}, Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr;->access$100()Z
 
@@ -160,16 +150,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 150
     :cond_1
     return-object v1
 
-    .line 146
     :catch_0
     move-exception v0
 
-    .line 147
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "CWS_SERVICE_MGR-ATMgr"
 
     new-instance v3, Ljava/lang/StringBuilder;

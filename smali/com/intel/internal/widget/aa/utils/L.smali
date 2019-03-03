@@ -15,8 +15,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -24,12 +22,9 @@
 
 .method public static d(Ljava/lang/Object;)V
     .locals 8
-    .param p0, "info"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v6, 0x3
 
-    .line 32
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v4
@@ -40,8 +35,6 @@
 
     aget-object v2, v4, v6
 
-    .line 33
-    .local v2, "e":Ljava/lang/StackTraceElement;
     invoke-virtual {v2}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
 
     move-result-object v4
@@ -52,16 +45,12 @@
 
     move-result-object v0
 
-    .line 34
-    .local v0, "classFullName":[Ljava/lang/String;
     array-length v4, v0
 
     add-int/lit8 v4, v4, -0x1
 
     aget-object v1, v0, v4
 
-    .line 35
-    .local v1, "className":Ljava/lang/String;
     const-string v4, "[%s.%s]: %s"
 
     new-array v5, v6, [Ljava/lang/Object;
@@ -86,24 +75,18 @@
 
     move-result-object v3
 
-    .line 37
-    .local v3, "str":Ljava/lang/String;
     const-string v4, "AdaptiveAuthentication"
 
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 38
     return-void
 .end method
 
 .method public static e(Ljava/lang/Object;)V
     .locals 8
-    .param p0, "info"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v6, 0x3
 
-    .line 68
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v4
@@ -114,8 +97,6 @@
 
     aget-object v2, v4, v6
 
-    .line 69
-    .local v2, "e":Ljava/lang/StackTraceElement;
     invoke-virtual {v2}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
 
     move-result-object v4
@@ -126,16 +107,12 @@
 
     move-result-object v0
 
-    .line 70
-    .local v0, "classFullName":[Ljava/lang/String;
     array-length v4, v0
 
     add-int/lit8 v4, v4, -0x1
 
     aget-object v1, v0, v4
 
-    .line 71
-    .local v1, "className":Ljava/lang/String;
     const-string v4, "[%s.%s]: %s"
 
     new-array v5, v6, [Ljava/lang/Object;
@@ -160,8 +137,6 @@
 
     move-result-object v3
 
-    .line 73
-    .local v3, "str":Ljava/lang/String;
     const-string v4, "AdaptiveAuthentication"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -190,18 +165,14 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 74
     return-void
 .end method
 
 .method public static i(Ljava/lang/Object;)V
     .locals 8
-    .param p0, "info"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v6, 0x3
 
-    .line 44
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v4
@@ -212,8 +183,6 @@
 
     aget-object v2, v4, v6
 
-    .line 45
-    .local v2, "e":Ljava/lang/StackTraceElement;
     invoke-virtual {v2}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
 
     move-result-object v4
@@ -224,16 +193,12 @@
 
     move-result-object v0
 
-    .line 46
-    .local v0, "classFullName":[Ljava/lang/String;
     array-length v4, v0
 
     add-int/lit8 v4, v4, -0x1
 
     aget-object v1, v0, v4
 
-    .line 47
-    .local v1, "className":Ljava/lang/String;
     const-string v4, "[%s.%s]: %s"
 
     new-array v5, v6, [Ljava/lang/Object;
@@ -258,24 +223,18 @@
 
     move-result-object v3
 
-    .line 49
-    .local v3, "str":Ljava/lang/String;
     const-string v4, "AdaptiveAuthentication"
 
     invoke-static {v4, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 50
     return-void
 .end method
 
 .method public static v(Ljava/lang/Object;)V
     .locals 8
-    .param p0, "info"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v6, 0x3
 
-    .line 56
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v4
@@ -286,8 +245,6 @@
 
     aget-object v2, v4, v6
 
-    .line 57
-    .local v2, "e":Ljava/lang/StackTraceElement;
     invoke-virtual {v2}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
 
     move-result-object v4
@@ -298,16 +255,12 @@
 
     move-result-object v0
 
-    .line 58
-    .local v0, "classFullName":[Ljava/lang/String;
     array-length v4, v0
 
     add-int/lit8 v4, v4, -0x1
 
     aget-object v1, v0, v4
 
-    .line 59
-    .local v1, "className":Ljava/lang/String;
     const-string v4, "[%s.%s]: %s"
 
     new-array v5, v6, [Ljava/lang/Object;
@@ -332,12 +285,9 @@
 
     move-result-object v3
 
-    .line 61
-    .local v3, "str":Ljava/lang/String;
     const-string v4, "AdaptiveAuthentication"
 
     invoke-static {v4, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 62
     return-void
 .end method

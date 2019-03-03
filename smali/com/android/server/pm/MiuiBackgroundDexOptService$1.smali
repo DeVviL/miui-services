@@ -27,10 +27,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/MiuiBackgroundDexOptService;Ljava/lang/String;Landroid/util/ArraySet;Lcom/android/server/pm/PackageManagerService;Landroid/app/job/JobParameters;)V
     .locals 0
-    .param p2, "x0"    # Ljava/lang/String;
 
-    .prologue
-    .line 106
     iput-object p1, p0, Lcom/android/server/pm/MiuiBackgroundDexOptService$1;->this$0:Lcom/android/server/pm/MiuiBackgroundDexOptService;
 
     iput-object p3, p0, Lcom/android/server/pm/MiuiBackgroundDexOptService$1;->val$mostPkgs:Landroid/util/ArraySet;
@@ -49,15 +46,12 @@
 .method public run()V
     .locals 6
 
-    .prologue
-    .line 109
     iget-object v2, p0, Lcom/android/server/pm/MiuiBackgroundDexOptService$1;->val$mostPkgs:Landroid/util/ArraySet;
 
     invoke-virtual {v2}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .local v0, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -72,8 +66,6 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 110
-    .local v1, "pkg":Ljava/lang/String;
     iget-object v2, p0, Lcom/android/server/pm/MiuiBackgroundDexOptService$1;->this$0:Lcom/android/server/pm/MiuiBackgroundDexOptService;
 
     iget-object v2, v2, Lcom/android/server/pm/MiuiBackgroundDexOptService;->mIdleTime:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -84,20 +76,15 @@
 
     if-nez v2, :cond_1
 
-    .line 111
     iget-object v2, p0, Lcom/android/server/pm/MiuiBackgroundDexOptService$1;->this$0:Lcom/android/server/pm/MiuiBackgroundDexOptService;
 
     const-wide/16 v4, 0x0
 
     invoke-static {v2, v4, v5}, Lcom/android/server/pm/MiuiBackgroundDexOptService;->schedule(Landroid/content/Context;J)V
 
-    .line 123
-    .end local v1    # "pkg":Ljava/lang/String;
     :goto_1
     return-void
 
-    .line 114
-    .restart local v1    # "pkg":Ljava/lang/String;
     :cond_1
     sget-object v2, Lcom/android/server/pm/MiuiBackgroundDexOptService;->sFailedPackageNames:Landroid/util/ArraySet;
 
@@ -107,7 +94,6 @@
 
     if-nez v2, :cond_0
 
-    .line 117
     iget-object v2, p0, Lcom/android/server/pm/MiuiBackgroundDexOptService$1;->val$pm:Lcom/android/server/pm/PackageManagerService;
 
     const/4 v3, 0x0
@@ -120,15 +106,12 @@
 
     if-nez v2, :cond_0
 
-    .line 118
     sget-object v2, Lcom/android/server/pm/MiuiBackgroundDexOptService;->sFailedPackageNames:Landroid/util/ArraySet;
 
     invoke-virtual {v2, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 122
-    .end local v1    # "pkg":Ljava/lang/String;
     :cond_2
     iget-object v2, p0, Lcom/android/server/pm/MiuiBackgroundDexOptService$1;->this$0:Lcom/android/server/pm/MiuiBackgroundDexOptService;
 

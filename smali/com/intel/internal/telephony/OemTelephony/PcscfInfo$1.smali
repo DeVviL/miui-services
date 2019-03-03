@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/intel/internal/telephony/OemTelephony/PcscfInfo;
     .locals 1
-    .param p1, "source"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 62
     new-instance v0, Lcom/intel/internal/telephony/OemTelephony/PcscfInfo;
 
     invoke-direct {v0, p1}, Lcom/intel/internal/telephony/OemTelephony/PcscfInfo;-><init>(Landroid/os/Parcel;)V
@@ -55,10 +50,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 60
     invoke-virtual {p0, p1}, Lcom/intel/internal/telephony/OemTelephony/PcscfInfo$1;->createFromParcel(Landroid/os/Parcel;)Lcom/intel/internal/telephony/OemTelephony/PcscfInfo;
 
     move-result-object v0
@@ -68,10 +60,7 @@
 
 .method public newArray(I)[Lcom/intel/internal/telephony/OemTelephony/PcscfInfo;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 66
     new-array v0, p1, [Lcom/intel/internal/telephony/OemTelephony/PcscfInfo;
 
     return-object v0
@@ -79,10 +68,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # I
 
-    .prologue
-    .line 60
     invoke-virtual {p0, p1}, Lcom/intel/internal/telephony/OemTelephony/PcscfInfo$1;->newArray(I)[Lcom/intel/internal/telephony/OemTelephony/PcscfInfo;
 
     move-result-object v0

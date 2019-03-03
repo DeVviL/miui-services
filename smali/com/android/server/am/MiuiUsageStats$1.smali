@@ -17,10 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/String;
 
-    .prologue
-    .line 48
     invoke-direct {p0, p1}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
 
     return-void
@@ -31,10 +28,7 @@
 .method public run()V
     .locals 0
 
-    .prologue
-    .line 50
     invoke-static {}, Lcom/android/server/am/MiuiUsageStats;->access$000()V
 
-    .line 51
     return-void
 .end method

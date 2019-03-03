@@ -18,8 +18,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 250
     invoke-direct {p0}, Lcom/android/internal/app/IUidStateChangeCallback$Stub;-><init>()V
 
     return-void
@@ -29,11 +27,7 @@
 # virtual methods
 .method public onUidStateChange(II)V
     .locals 1
-    .param p1, "uid"    # I
-    .param p2, "state"    # I
 
-    .prologue
-    .line 253
     if-lez p2, :cond_0
 
     invoke-static {p1}, Lcom/android/server/power/PowerManagerServiceInjector;->getScreenWakeLockHoldByUid(I)I
@@ -42,10 +36,8 @@
 
     if-lez v0, :cond_0
 
-    .line 254
     invoke-static {p1}, Lcom/android/server/power/PowerManagerServiceInjector;->restoreScreenWakeLockDisabledState(I)V
 
-    .line 256
     :cond_0
     return-void
 .end method

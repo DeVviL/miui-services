@@ -25,24 +25,15 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/InputMethodManagerService;Lcom/android/internal/view/IInputMethod;Landroid/view/InputChannel;)V
     .locals 0
-    .param p1, "imms"    # Lcom/android/server/InputMethodManagerService;
-    .param p2, "method"    # Lcom/android/internal/view/IInputMethod;
-    .param p3, "channel"    # Landroid/view/InputChannel;
 
-    .prologue
-    .line 604
     invoke-direct {p0}, Lcom/android/internal/view/IInputSessionCallback$Stub;-><init>()V
 
-    .line 605
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$MethodCallback;->mParentIMMS:Lcom/android/server/InputMethodManagerService;
 
-    .line 606
     iput-object p2, p0, Lcom/android/server/InputMethodManagerService$MethodCallback;->mMethod:Lcom/android/internal/view/IInputMethod;
 
-    .line 607
     iput-object p3, p0, Lcom/android/server/InputMethodManagerService$MethodCallback;->mChannel:Landroid/view/InputChannel;
 
-    .line 608
     return-void
 .end method
 
@@ -50,16 +41,11 @@
 # virtual methods
 .method public sessionCreated(Lcom/android/internal/view/IInputMethodSession;)V
     .locals 5
-    .param p1, "session"    # Lcom/android/internal/view/IInputMethodSession;
 
-    .prologue
-    .line 612
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 614
-    .local v0, "ident":J
     :try_start_0
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$MethodCallback;->mParentIMMS:Lcom/android/server/InputMethodManagerService;
 
@@ -71,13 +57,10 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 616
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 618
     return-void
 
-    .line 616
     :catchall_0
     move-exception v2
 

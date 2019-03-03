@@ -24,8 +24,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 528
     invoke-static {}, Lcom/intel/internal/cellcoex/service/props/MwsState$State;->values()[Lcom/intel/internal/cellcoex/service/props/MwsState$State;
 
     move-result-object v0
@@ -83,7 +81,6 @@
     :try_end_2
     .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_3
 
-    .line 380
     :goto_2
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexhandlers/IA7262$ONE_FETCH_PROPERTY;->values()[Lcom/intel/internal/cellcoex/service/mwscoexhandlers/IA7262$ONE_FETCH_PROPERTY;
 
@@ -160,7 +157,6 @@
 
     goto :goto_3
 
-    .line 528
     :catch_3
     move-exception v0
 

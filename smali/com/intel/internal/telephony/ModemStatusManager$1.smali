@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 394
     invoke-static {}, Lcom/intel/internal/telephony/ModemStatus;->values()[Lcom/intel/internal/telephony/ModemStatus;
 
     move-result-object v0

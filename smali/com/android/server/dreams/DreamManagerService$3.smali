@@ -35,8 +35,6 @@
 .method constructor <init>(Lcom/android/server/dreams/DreamManagerService;Landroid/os/Binder;Landroid/content/ComponentName;ZZI)V
     .locals 0
 
-    .prologue
-    .line 364
     iput-object p1, p0, Lcom/android/server/dreams/DreamManagerService$3;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
     iput-object p2, p0, Lcom/android/server/dreams/DreamManagerService$3;->val$newToken:Landroid/os/Binder;
@@ -59,8 +57,6 @@
 .method public run()V
     .locals 6
 
-    .prologue
-    .line 367
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$3;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
     invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->access$400(Lcom/android/server/dreams/DreamManagerService;)Lcom/android/server/dreams/DreamController;
@@ -79,6 +75,5 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/server/dreams/DreamController;->startDream(Landroid/os/Binder;Landroid/content/ComponentName;ZZI)V
 
-    .line 368
     return-void
 .end method

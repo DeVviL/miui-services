@@ -21,16 +21,11 @@
 # direct methods
 .method public constructor <init>(Lcom/intel/settings/aa/ctr/AAController;Lcom/android/internal/widget/LockPatternUtils;)V
     .locals 0
-    .param p2, "lockPatternUtils"    # Lcom/android/internal/widget/LockPatternUtils;
 
-    .prologue
-    .line 172
     iput-object p1, p0, Lcom/intel/settings/aa/ctr/AAController$GetSafeZones;->this$0:Lcom/intel/settings/aa/ctr/AAController;
 
-    .line 173
     invoke-direct {p0, p2}, Lcom/intel/settings/aa/ctr/AsyncTasks$TaskGetSafeZones;-><init>(Lcom/android/internal/widget/LockPatternUtils;)V
 
-    .line 174
     return-void
 .end method
 
@@ -48,13 +43,9 @@
         }
     .end annotation
 
-    .prologue
-    .line 178
-    .local p1, "result":Ljava/util/List;, "Ljava/util/List<Lcom/intel/internal/widget/aa/safezone/SafeZone;>;"
     iget-object v0, p0, Lcom/intel/settings/aa/ctr/AAController$GetSafeZones;->this$0:Lcom/intel/settings/aa/ctr/AAController;
 
     invoke-virtual {v0, p1}, Lcom/intel/settings/aa/ctr/AAController;->onGetSafeZones(Ljava/util/List;)V
 
-    .line 179
     return-void
 .end method

@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/intel/cws/cwsservicemanagerclient/CsmClient;)V
     .locals 0
 
-    .prologue
-    .line 652
     iput-object p1, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$4;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,17 +33,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
-    .param p1, "c"    # Landroid/content/Context;
-    .param p2, "receivedIntent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 655
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 657
-    .local v0, "action":Ljava/lang/String;
     invoke-static {}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->access$000()Z
 
     move-result v2
@@ -92,7 +84,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 660
     :cond_0
     const-string v2, "android.intent.action.SIM_STATE_CHANGED"
 
@@ -102,7 +93,6 @@
 
     if-nez v2, :cond_2
 
-    .line 661
     invoke-static {}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->access$000()Z
 
     move-result v2
@@ -151,12 +141,10 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 681
     :cond_1
     :goto_0
     return-void
 
-    .line 666
     :cond_2
     const-string v2, "ss"
 
@@ -164,11 +152,8 @@
 
     move-result-object v1
 
-    .line 668
-    .local v1, "currentSimState":Ljava/lang/String;
     if-nez v1, :cond_3
 
-    .line 669
     const-string v2, "CsmClient"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -213,7 +198,6 @@
 
     goto :goto_0
 
-    .line 673
     :cond_3
     invoke-static {}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->access$000()Z
 
@@ -267,7 +251,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 676
     :cond_4
     const-string v2, "ABSENT"
 
@@ -277,14 +260,12 @@
 
     if-eqz v2, :cond_5
 
-    .line 677
     iget-object v2, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$4;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
     invoke-virtual {v2}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->onSimAbsent()V
 
     goto :goto_0
 
-    .line 678
     :cond_5
     const-string v2, "LOADED"
 
@@ -294,7 +275,6 @@
 
     if-eqz v2, :cond_1
 
-    .line 679
     iget-object v2, p0, Lcom/intel/cws/cwsservicemanagerclient/CsmClient$4;->this$0:Lcom/intel/cws/cwsservicemanagerclient/CsmClient;
 
     invoke-virtual {v2}, Lcom/intel/cws/cwsservicemanagerclient/CsmClient;->onSimLoaded()V

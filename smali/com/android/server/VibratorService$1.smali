@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/android/server/VibratorService;)V
     .locals 0
 
-    .prologue
-    .line 179
     iput-object p1, p0, Lcom/android/server/VibratorService$1;->this$0:Lcom/android/server/VibratorService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,14 +36,10 @@
 # virtual methods
 .method public onLowPowerModeChanged(Z)V
     .locals 1
-    .param p1, "enabled"    # Z
 
-    .prologue
-    .line 182
     iget-object v0, p0, Lcom/android/server/VibratorService$1;->this$0:Lcom/android/server/VibratorService;
 
     invoke-static {v0}, Lcom/android/server/VibratorService;->access$400(Lcom/android/server/VibratorService;)V
 
-    .line 183
     return-void
 .end method

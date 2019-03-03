@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/storage/DeviceStorageMonitorService;)V
     .locals 0
 
-    .prologue
-    .line 148
     iput-object p1, p0, Lcom/android/server/storage/DeviceStorageMonitorService$1;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -35,28 +33,22 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     const/4 v0, 0x1
 
-    .line 152
     iget v1, p1, Landroid/os/Message;->what:I
 
     if-eq v1, v0, :cond_0
 
-    .line 153
     const-string v0, "DeviceStorageMonitorService"
 
     const-string v1, "Will not process invalid message"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 157
     :goto_0
     return-void
 
-    .line 156
     :cond_0
     iget-object v1, p0, Lcom/android/server/storage/DeviceStorageMonitorService$1;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 

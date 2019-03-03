@@ -50,8 +50,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 30
     const-string v0, "CWS_CELLCOEX_MGR"
 
     const/4 v1, 0x3
@@ -62,14 +60,12 @@
 
     sput-boolean v0, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->DEBUG:Z
 
-    .line 37
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
 
-    .line 40
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
 
     const-string v1, ""
@@ -78,7 +74,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 41
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
 
     const-string v1, "UNKNOWN"
@@ -87,7 +82,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 42
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
 
     const-string v1, "RADIO_OFF"
@@ -96,7 +90,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 43
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
 
     const-string v1, "RADIO_ON"
@@ -105,14 +98,12 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 48
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->sSubStateMap:Ljava/util/HashMap;
 
-    .line 51
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->sSubStateMap:Ljava/util/HashMap;
 
     const-string v1, ""
@@ -121,7 +112,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 52
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->sSubStateMap:Ljava/util/HashMap;
 
     const-string v1, "NA"
@@ -130,7 +120,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 53
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->sSubStateMap:Ljava/util/HashMap;
 
     const-string v1, "UNREGISTERED"
@@ -139,7 +128,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 54
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->sSubStateMap:Ljava/util/HashMap;
 
     const-string v1, "REGISTERED_NOT_AGRESSIVE"
@@ -148,7 +136,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 55
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->sSubStateMap:Ljava/util/HashMap;
 
     const-string v1, "REGISTERED_AGRESSIVE"
@@ -157,21 +144,16 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 56
     return-void
 .end method
 
 .method public constructor <init>(Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;)V
     .locals 2
-    .param p1, "aICoexPropMgr"    # Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
 
-    .prologue
-    .line 59
     const-string v0, "mws.state"
 
     invoke-direct {p0, p1, v0}, Lcom/intel/internal/cellcoex/test/Parser_Generic;-><init>(Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;Ljava/lang/String;)V
 
-    .line 31
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -200,7 +182,6 @@
 
     iput-object v0, p0, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->mClassName:Ljava/lang/String;
 
-    .line 60
     return-void
 .end method
 
@@ -208,26 +189,19 @@
 # virtual methods
 .method public parseIntent(Landroid/content/Intent;)Z
     .locals 8
-    .param p1, "anIntent"    # Landroid/content/Intent;
 
-    .prologue
     const/4 v5, 0x0
 
-    .line 65
     new-instance v0, Lcom/intel/internal/cellcoex/service/props/MwsState;
 
     invoke-direct {v0}, Lcom/intel/internal/cellcoex/service/props/MwsState;-><init>()V
 
-    .line 66
-    .local v0, "aNewState":Lcom/intel/internal/cellcoex/service/props/MwsState;
     const-string v4, "name"
 
     invoke-virtual {p1, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 68
-    .local v1, "propName":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     const-string v4, "mws.state"
@@ -241,11 +215,9 @@
     :cond_0
     move v4, v5
 
-    .line 92
     :goto_0
     return v4
 
-    .line 72
     :cond_1
     const-string v4, "state"
 
@@ -253,8 +225,6 @@
 
     move-result-object v2
 
-    .line 73
-    .local v2, "state":Ljava/lang/String;
     if-eqz v2, :cond_2
 
     sget-object v4, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
@@ -265,13 +235,11 @@
 
     if-nez v4, :cond_4
 
-    .line 74
     :cond_2
     sget-boolean v4, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->DEBUG:Z
 
     if-eqz v4, :cond_3
 
-    .line 75
     const-string v4, "CWS_CELLCOEX_MGR"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -323,10 +291,8 @@
     :cond_3
     move v4, v5
 
-    .line 77
     goto :goto_0
 
-    .line 80
     :cond_4
     sget-object v4, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
 
@@ -338,15 +304,12 @@
 
     iput-object v4, v0, Lcom/intel/internal/cellcoex/service/props/MwsState;->mState:Lcom/intel/internal/cellcoex/service/props/MwsState$State;
 
-    .line 82
     const-string v4, "substate"
 
     invoke-virtual {p1, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 83
-    .local v3, "sub_state":Ljava/lang/String;
     if-eqz v3, :cond_5
 
     sget-object v4, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->sSubStateMap:Ljava/util/HashMap;
@@ -357,13 +320,11 @@
 
     if-nez v4, :cond_7
 
-    .line 84
     :cond_5
     sget-boolean v4, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->DEBUG:Z
 
     if-eqz v4, :cond_6
 
-    .line 85
     const-string v4, "CWS_CELLCOEX_MGR"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -415,10 +376,8 @@
     :cond_6
     move v4, v5
 
-    .line 87
     goto/16 :goto_0
 
-    .line 90
     :cond_7
     sget-object v4, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->sSubStateMap:Ljava/util/HashMap;
 
@@ -430,7 +389,6 @@
 
     iput-object v4, v0, Lcom/intel/internal/cellcoex/service/props/MwsState;->mSubState:Lcom/intel/internal/cellcoex/service/props/MwsState$SubState;
 
-    .line 92
     sget-object v4, Lcom/intel/internal/cellcoex/test/Parser_MWS_STATE;->sICoexPropMgr:Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
 
     const-string v5, "mws.state"

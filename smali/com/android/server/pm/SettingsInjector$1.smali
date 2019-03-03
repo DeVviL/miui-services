@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/pm/PackageSetting;I)V
     .locals 0
 
-    .prologue
-    .line 96
     iput-object p1, p0, Lcom/android/server/pm/SettingsInjector$1;->val$pkgSetting:Lcom/android/server/pm/PackageSetting;
 
     iput p2, p0, Lcom/android/server/pm/SettingsInjector$1;->val$userId:I
@@ -43,8 +41,6 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 100
     :try_start_0
     invoke-static {}, Lcom/android/server/pm/SettingsInjector;->access$000()Ljava/lang/String;
 
@@ -54,15 +50,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 101
     new-instance v0, Landroid/content/Intent;
 
     const-string v2, "miui.intent.action.PACKAGE_FIRST_LAUNCH"
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 102
-    .local v0, "intent":Landroid/content/Intent;
     const-string v2, "package"
 
     iget-object v3, p0, Lcom/android/server/pm/SettingsInjector$1;->val$pkgSetting:Lcom/android/server/pm/PackageSetting;
@@ -71,7 +64,6 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 103
     iget-object v2, p0, Lcom/android/server/pm/SettingsInjector$1;->val$pkgSetting:Lcom/android/server/pm/PackageSetting;
 
     iget-object v2, v2, Lcom/android/server/pm/PackageSetting;->installerPackageName:Ljava/lang/String;
@@ -82,7 +74,6 @@
 
     if-nez v2, :cond_0
 
-    .line 104
     const-string v2, "installer"
 
     iget-object v3, p0, Lcom/android/server/pm/SettingsInjector$1;->val$pkgSetting:Lcom/android/server/pm/PackageSetting;
@@ -91,7 +82,6 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 106
     :cond_0
     const-string v2, "userId"
 
@@ -99,24 +89,18 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 107
     const-string v2, "miui.permission.USE_INTERNAL_GENERAL_API"
 
     invoke-static {v0, v2}, Lcom/android/server/pm/IActivityManagerCompat;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 111
-    .end local v0    # "intent":Landroid/content/Intent;
     :goto_0
     return-void
 
-    .line 108
     :catch_0
     move-exception v1
 
-    .line 109
-    .local v1, "t":Ljava/lang/Throwable;
     invoke-static {}, Lcom/android/server/pm/SettingsInjector;->access$000()Ljava/lang/String;
 
     move-result-object v2

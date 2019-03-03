@@ -34,23 +34,14 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IZ)V
     .locals 0
-    .param p1, "_packageName"    # Ljava/lang/String;
-    .param p2, "_uid"    # I
-    .param p3, "_isPrivileged"    # Z
 
-    .prologue
-    .line 166
     invoke-direct {p0}, Landroid/util/SparseArray;-><init>()V
 
-    .line 167
     iput-object p1, p0, Lcom/android/server/AppOpsService$Ops;->packageName:Ljava/lang/String;
 
-    .line 168
     iput p2, p0, Lcom/android/server/AppOpsService$Ops;->uid:I
 
-    .line 169
     iput-boolean p3, p0, Lcom/android/server/AppOpsService$Ops;->isPrivileged:Z
 
-    .line 170
     return-void
 .end method

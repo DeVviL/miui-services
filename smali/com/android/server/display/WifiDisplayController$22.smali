@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/display/WifiDisplayController;)V
     .locals 0
 
-    .prologue
-    .line 1166
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,21 +33,15 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 13
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     const/4 v10, 0x0
 
     const/4 v3, 0x1
 
-    .line 1169
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1170
-    .local v0, "action":Ljava/lang/String;
     const-string v11, "android.net.wifi.p2p.STATE_CHANGED"
 
     invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -58,7 +50,6 @@
 
     if-eqz v11, :cond_2
 
-    .line 1173
     const-string v11, "wifi_p2p_state"
 
     invoke-virtual {p2, v11, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -69,15 +60,11 @@
 
     if-ne v11, v12, :cond_1
 
-    .line 1181
-    .local v3, "enabled":Z
     :goto_0
     iget-object v10, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     invoke-static {v10, v3}, Lcom/android/server/display/WifiDisplayController;->access$3800(Lcom/android/server/display/WifiDisplayController;Z)V
 
-    .line 1255
-    .end local v3    # "enabled":Z
     :cond_0
     :goto_1
     return-void
@@ -85,10 +72,8 @@
     :cond_1
     move v3, v10
 
-    .line 1173
     goto :goto_0
 
-    .line 1182
     :cond_2
     const-string v11, "android.net.wifi.p2p.PEERS_CHANGED"
 
@@ -98,14 +83,12 @@
 
     if-eqz v11, :cond_3
 
-    .line 1187
     iget-object v10, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     invoke-static {v10}, Lcom/android/server/display/WifiDisplayController;->access$3900(Lcom/android/server/display/WifiDisplayController;)V
 
     goto :goto_1
 
-    .line 1188
     :cond_3
     const-string v11, "android.net.wifi.p2p.CONNECTION_STATE_CHANGE"
 
@@ -115,7 +98,6 @@
 
     if-eqz v11, :cond_4
 
-    .line 1189
     const-string v10, "networkInfo"
 
     invoke-virtual {p2, v10}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -124,16 +106,12 @@
 
     check-cast v6, Landroid/net/NetworkInfo;
 
-    .line 1196
-    .local v6, "networkInfo":Landroid/net/NetworkInfo;
     iget-object v10, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     invoke-static {v10, v6}, Lcom/android/server/display/WifiDisplayController;->access$4000(Lcom/android/server/display/WifiDisplayController;Landroid/net/NetworkInfo;)V
 
     goto :goto_1
 
-    .line 1197
-    .end local v6    # "networkInfo":Landroid/net/NetworkInfo;
     :cond_4
     const-string v11, "android.net.wifi.p2p.THIS_DEVICE_CHANGED"
 
@@ -143,7 +121,6 @@
 
     if-eqz v11, :cond_5
 
-    .line 1198
     iget-object v11, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     const-string v10, "wifiP2pDevice"
@@ -158,7 +135,6 @@
 
     goto :goto_1
 
-    .line 1204
     :cond_5
     const-string v11, "android.net.wifi.p2p.DISCOVERY_STATE_CHANGE"
 
@@ -168,7 +144,6 @@
 
     if-eqz v11, :cond_7
 
-    .line 1205
     const-string v11, "discoveryState"
 
     invoke-virtual {p2, v11, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -179,8 +154,6 @@
 
     move v9, v3
 
-    .line 1214
-    .local v9, "stopped":Z
     :goto_2
     if-eqz v9, :cond_0
 
@@ -192,7 +165,6 @@
 
     if-eqz v10, :cond_0
 
-    .line 1219
     iget-object v10, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     const/4 v11, 0x0
@@ -201,14 +173,11 @@
 
     goto :goto_1
 
-    .end local v9    # "stopped":Z
     :cond_6
     move v9, v10
 
-    .line 1205
     goto :goto_2
 
-    .line 1221
     :cond_7
     const-string v10, "android.net.wifi.STATE_CHANGE"
 
@@ -218,7 +187,6 @@
 
     if-eqz v10, :cond_9
 
-    .line 1222
     const-string v10, "networkInfo"
 
     invoke-virtual {p2, v10}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -227,8 +195,6 @@
 
     check-cast v6, Landroid/net/NetworkInfo;
 
-    .line 1224
-    .restart local v6    # "networkInfo":Landroid/net/NetworkInfo;
     if-eqz v6, :cond_0
 
     invoke-virtual {v6}, Landroid/net/NetworkInfo;->isConnected()Z
@@ -245,7 +211,6 @@
 
     if-eqz v10, :cond_0
 
-    .line 1225
     iget-object v10, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     invoke-static {v10}, Lcom/android/server/display/WifiDisplayController;->access$4100(Lcom/android/server/display/WifiDisplayController;)Landroid/net/wifi/WifiManager;
@@ -256,8 +221,6 @@
 
     move-result-object v8
 
-    .line 1226
-    .local v8, "results":Ljava/util/List;, "Ljava/util/List<Landroid/net/wifi/ScanResult;>;"
     iget-object v10, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     invoke-static {v10}, Lcom/android/server/display/WifiDisplayController;->access$4100(Lcom/android/server/display/WifiDisplayController;)Landroid/net/wifi/WifiManager;
@@ -268,8 +231,6 @@
 
     move-result-object v1
 
-    .line 1227
-    .local v1, "currentInfo":Landroid/net/wifi/WifiInfo;
     if-eqz v1, :cond_0
 
     if-eqz v8, :cond_0
@@ -280,12 +241,10 @@
 
     if-lez v10, :cond_0
 
-    .line 1228
     invoke-interface {v8}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    .local v4, "i$":Ljava/util/Iterator;
     :cond_8
     :goto_3
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
@@ -300,8 +259,6 @@
 
     check-cast v7, Landroid/net/wifi/ScanResult;
 
-    .line 1229
-    .local v7, "result":Landroid/net/wifi/ScanResult;
     iget-object v10, v7, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;
 
     if-eqz v10, :cond_8
@@ -334,7 +291,6 @@
 
     if-eqz v10, :cond_8
 
-    .line 1232
     iget v10, v7, Landroid/net/wifi/ScanResult;->frequency:I
 
     iget-object v11, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -349,7 +305,6 @@
 
     if-eq v10, v11, :cond_8
 
-    .line 1234
     :try_start_0
     new-instance v5, Landroid/content/Intent;
 
@@ -357,20 +312,16 @@
 
     invoke-direct {v5, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1236
-    .local v5, "intentWifiDisplay":Landroid/content/Intent;
     const/high16 v10, 0x14200000
 
     invoke-virtual {v5, v10}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 1239
     const-string v10, "wifiP2pReconnect"
 
     const/4 v11, 0x1
 
     invoke-virtual {v5, v10, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1241
     iget-object v10, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     invoke-static {v10}, Lcom/android/server/display/WifiDisplayController;->access$4200(Lcom/android/server/display/WifiDisplayController;)Landroid/content/Context;
@@ -383,13 +334,9 @@
 
     goto :goto_3
 
-    .line 1242
-    .end local v5    # "intentWifiDisplay":Landroid/content/Intent;
     :catch_0
     move-exception v2
 
-    .line 1243
-    .local v2, "e":Landroid/content/ActivityNotFoundException;
     const-string v10, "WifiDisplayController"
 
     const-string v11, "Cannot open Wifi Display Settings"
@@ -398,13 +345,6 @@
 
     goto :goto_3
 
-    .line 1250
-    .end local v1    # "currentInfo":Landroid/net/wifi/WifiInfo;
-    .end local v2    # "e":Landroid/content/ActivityNotFoundException;
-    .end local v4    # "i$":Ljava/util/Iterator;
-    .end local v6    # "networkInfo":Landroid/net/NetworkInfo;
-    .end local v7    # "result":Landroid/net/wifi/ScanResult;
-    .end local v8    # "results":Ljava/util/List;, "Ljava/util/List<Landroid/net/wifi/ScanResult;>;"
     :cond_9
     const-string v10, "android.intent.action.ACTION_SHUTDOWN"
 
@@ -414,7 +354,6 @@
 
     if-eqz v10, :cond_0
 
-    .line 1251
     iget-object v10, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     invoke-static {v10}, Lcom/android/server/display/WifiDisplayController;->access$2200(Lcom/android/server/display/WifiDisplayController;)Landroid/net/wifi/p2p/WifiP2pDevice;
@@ -423,7 +362,6 @@
 
     if-eqz v10, :cond_0
 
-    .line 1252
     iget-object v10, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     invoke-static {v10}, Lcom/android/server/display/WifiDisplayController;->access$3000(Lcom/android/server/display/WifiDisplayController;)V

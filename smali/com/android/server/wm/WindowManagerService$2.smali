@@ -35,8 +35,6 @@
 .method constructor <init>([Lcom/android/server/wm/WindowManagerService;Landroid/content/Context;Lcom/android/server/input/InputManagerService;ZZZ)V
     .locals 0
 
-    .prologue
-    .line 804
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$2;->val$holder:[Lcom/android/server/wm/WindowManagerService;
 
     iput-object p2, p0, Lcom/android/server/wm/WindowManagerService$2;->val$context:Landroid/content/Context;
@@ -59,8 +57,6 @@
 .method public run()V
     .locals 9
 
-    .prologue
-    .line 807
     iget-object v7, p0, Lcom/android/server/wm/WindowManagerService$2;->val$holder:[Lcom/android/server/wm/WindowManagerService;
 
     const/4 v8, 0x0
@@ -83,6 +79,5 @@
 
     aput-object v0, v7, v8
 
-    .line 809
     return-void
 .end method

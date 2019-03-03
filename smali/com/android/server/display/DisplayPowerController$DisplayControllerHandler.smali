@@ -21,20 +21,15 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/DisplayPowerController;Landroid/os/Looper;)V
     .locals 2
-    .param p2, "looper"    # Landroid/os/Looper;
 
-    .prologue
-    .line 1248
     iput-object p1, p0, Lcom/android/server/display/DisplayPowerController$DisplayControllerHandler;->this$0:Lcom/android/server/display/DisplayPowerController;
 
-    .line 1249
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
     invoke-direct {p0, p2, v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
 
-    .line 1250
     return-void
 .end method
 
@@ -42,20 +37,15 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 1254
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1270
     :cond_0
     :goto_0
     return-void
 
-    .line 1256
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$DisplayControllerHandler;->this$0:Lcom/android/server/display/DisplayPowerController;
 
@@ -63,7 +53,6 @@
 
     goto :goto_0
 
-    .line 1260
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$DisplayControllerHandler;->this$0:Lcom/android/server/display/DisplayPowerController;
 
@@ -71,7 +60,6 @@
 
     goto :goto_0
 
-    .line 1264
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$DisplayControllerHandler;->this$0:Lcom/android/server/display/DisplayPowerController;
 
@@ -83,19 +71,16 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 1265
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$DisplayControllerHandler;->this$0:Lcom/android/server/display/DisplayPowerController;
 
     invoke-static {v0}, Lcom/android/server/display/DisplayPowerController;->access$700(Lcom/android/server/display/DisplayPowerController;)V
 
-    .line 1266
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$DisplayControllerHandler;->this$0:Lcom/android/server/display/DisplayPowerController;
 
     invoke-static {v0}, Lcom/android/server/display/DisplayPowerController;->access$400(Lcom/android/server/display/DisplayPowerController;)V
 
     goto :goto_0
 
-    .line 1254
     nop
 
     :pswitch_data_0

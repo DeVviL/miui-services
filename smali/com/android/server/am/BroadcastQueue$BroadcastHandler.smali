@@ -21,20 +21,15 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/BroadcastQueue;Landroid/os/Looper;)V
     .locals 2
-    .param p2, "looper"    # Landroid/os/Looper;
 
-    .prologue
-    .line 147
     iput-object p1, p0, Lcom/android/server/am/BroadcastQueue$BroadcastHandler;->this$0:Lcom/android/server/am/BroadcastQueue;
 
-    .line 148
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
     invoke-direct {p0, p2, v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
 
-    .line 149
     return-void
 .end method
 
@@ -42,21 +37,16 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     const/4 v2, 0x1
 
-    .line 153
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 165
     :goto_0
     return-void
 
-    .line 155
     :pswitch_0
     sget-boolean v0, Lcom/android/server/am/BroadcastQueue;->DEBUG_BROADCAST:Z
 
@@ -68,7 +58,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 157
     :cond_0
     iget-object v0, p0, Lcom/android/server/am/BroadcastQueue$BroadcastHandler;->this$0:Lcom/android/server/am/BroadcastQueue;
 
@@ -76,7 +65,6 @@
 
     goto :goto_0
 
-    .line 160
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/am/BroadcastQueue$BroadcastHandler;->this$0:Lcom/android/server/am/BroadcastQueue;
 
@@ -84,7 +72,6 @@
 
     monitor-enter v1
 
-    .line 161
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BroadcastQueue$BroadcastHandler;->this$0:Lcom/android/server/am/BroadcastQueue;
 
@@ -92,7 +79,6 @@
 
     invoke-virtual {v0, v2}, Lcom/android/server/am/BroadcastQueue;->broadcastTimeoutLocked(Z)V
 
-    .line 162
     monitor-exit v1
 
     goto :goto_0
@@ -106,7 +92,6 @@
 
     throw v0
 
-    .line 153
     :pswitch_data_0
     .packed-switch 0xc8
         :pswitch_0

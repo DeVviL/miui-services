@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/lights/LightsService;)V
     .locals 0
 
-    .prologue
-    .line 206
     iput-object p1, p0, Lcom/android/server/lights/LightsService$3;->this$0:Lcom/android/server/lights/LightsService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -35,18 +33,12 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 209
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/server/lights/LightsService$LightImpl;
 
-    .line 210
-    .local v0, "light":Lcom/android/server/lights/LightsService$LightImpl;
     invoke-static {v0}, Lcom/android/server/lights/LightsService$LightImpl;->access$300(Lcom/android/server/lights/LightsService$LightImpl;)V
 
-    .line 211
     return-void
 .end method

@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/AppOpsServiceState;I)V
     .locals 0
 
-    .prologue
-    .line 278
     iput-object p1, p0, Lcom/android/server/AppOpsServiceState$2;->this$0:Lcom/android/server/AppOpsServiceState;
 
     iput p2, p0, Lcom/android/server/AppOpsServiceState$2;->val$userId:I
@@ -43,8 +41,6 @@
 .method public run()V
     .locals 5
 
-    .prologue
-    .line 283
     :try_start_0
     new-instance v1, Landroid/content/Intent;
 
@@ -52,13 +48,10 @@
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 284
-    .local v1, "intent":Landroid/content/Intent;
     const-string v2, "com.lbe.security.miui"
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 285
     iget-object v2, p0, Lcom/android/server/AppOpsServiceState$2;->this$0:Lcom/android/server/AppOpsServiceState;
 
     invoke-static {v2}, Lcom/android/server/AppOpsServiceState;->access$200(Lcom/android/server/AppOpsServiceState;)Landroid/content/Context;
@@ -75,17 +68,12 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 290
-    .end local v1    # "intent":Landroid/content/Intent;
     :goto_0
     return-void
 
-    .line 286
     :catch_0
     move-exception v0
 
-    .line 288
-    .local v0, "e":Ljava/lang/Exception;
     const-string v2, "AppOpsServiceState"
 
     const-string v3, "Start Error"

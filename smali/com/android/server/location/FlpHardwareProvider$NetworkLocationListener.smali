@@ -25,8 +25,6 @@
 .method private constructor <init>(Lcom/android/server/location/FlpHardwareProvider;)V
     .locals 0
 
-    .prologue
-    .line 385
     iput-object p1, p0, Lcom/android/server/location/FlpHardwareProvider$NetworkLocationListener;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +34,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/location/FlpHardwareProvider;Lcom/android/server/location/FlpHardwareProvider$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/location/FlpHardwareProvider;
-    .param p2, "x1"    # Lcom/android/server/location/FlpHardwareProvider$1;
 
-    .prologue
-    .line 385
     invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider$NetworkLocationListener;-><init>(Lcom/android/server/location/FlpHardwareProvider;)V
 
     return-void
@@ -50,10 +44,7 @@
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
     .locals 2
-    .param p1, "location"    # Landroid/location/Location;
 
-    .prologue
-    .line 388
     const-string v0, "network"
 
     invoke-virtual {p1}, Landroid/location/Location;->getProvider()Ljava/lang/String;
@@ -72,12 +63,10 @@
 
     if-nez v0, :cond_1
 
-    .line 396
     :cond_0
     :goto_0
     return-void
 
-    .line 395
     :cond_1
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$NetworkLocationListener;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
@@ -88,29 +77,18 @@
 
 .method public onProviderDisabled(Ljava/lang/String;)V
     .locals 0
-    .param p1, "provider"    # Ljava/lang/String;
 
-    .prologue
-    .line 405
     return-void
 .end method
 
 .method public onProviderEnabled(Ljava/lang/String;)V
     .locals 0
-    .param p1, "provider"    # Ljava/lang/String;
 
-    .prologue
-    .line 402
     return-void
 .end method
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
     .locals 0
-    .param p1, "provider"    # Ljava/lang/String;
-    .param p2, "status"    # I
-    .param p3, "extras"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 399
     return-void
 .end method

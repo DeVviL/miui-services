@@ -22,8 +22,6 @@
 .method private constructor <init>(Lcom/android/server/BatteryService;)V
     .locals 0
 
-    .prologue
-    .line 796
     iput-object p1, p0, Lcom/android/server/BatteryService$BinderService;->this$0:Lcom/android/server/BatteryService;
 
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
@@ -33,11 +31,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/BatteryService;Lcom/android/server/BatteryService$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/BatteryService;
-    .param p2, "x1"    # Lcom/android/server/BatteryService$1;
 
-    .prologue
-    .line 796
     invoke-direct {p0, p1}, Lcom/android/server/BatteryService$BinderService;-><init>(Lcom/android/server/BatteryService;)V
 
     return-void
@@ -47,12 +41,7 @@
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
-    .param p1, "fd"    # Ljava/io/FileDescriptor;
-    .param p2, "pw"    # Ljava/io/PrintWriter;
-    .param p3, "args"    # [Ljava/lang/String;
 
-    .prologue
-    .line 799
     iget-object v0, p0, Lcom/android/server/BatteryService$BinderService;->this$0:Lcom/android/server/BatteryService;
 
     invoke-static {v0}, Lcom/android/server/BatteryService;->access$500(Lcom/android/server/BatteryService;)Landroid/content/Context;
@@ -67,7 +56,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 802
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -106,11 +94,9 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 809
     :goto_0
     return-void
 
-    .line 808
     :cond_0
     iget-object v0, p0, Lcom/android/server/BatteryService$BinderService;->this$0:Lcom/android/server/BatteryService;
 

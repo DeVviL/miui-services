@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/backup/BackupManagerService;J)V
     .locals 0
 
-    .prologue
-    .line 4252
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$4;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     iput-wide p2, p0, Lcom/android/server/backup/BackupManagerService$4;->val$latency:J
@@ -43,8 +41,6 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 4254
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$4;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mContext:Landroid/content/Context;
@@ -53,6 +49,5 @@
 
     invoke-static {v0, v2, v3}, Lcom/android/server/backup/FullBackupJob;->schedule(Landroid/content/Context;J)V
 
-    .line 4255
     return-void
 .end method

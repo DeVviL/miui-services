@@ -21,8 +21,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,21 +31,17 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 48
     invoke-static {}, Lcom/android/server/UidStateHelper;->get()Lcom/android/server/UidStateHelper;
 
     move-result-object v0
 
     invoke-static {v0}, Lcom/android/server/power/PowerManagerServiceInjector;->access$002(Lcom/android/server/UidStateHelper;)Lcom/android/server/UidStateHelper;
 
-    .line 54
     invoke-static {}, Lcom/miui/whetstone/PowerKeeperPolicy;->getInstance()Lcom/miui/whetstone/PowerKeeperPolicy;
 
     move-result-object v0
 
     invoke-static {v0}, Lcom/android/server/power/PowerManagerServiceInjector;->access$102(Lcom/miui/whetstone/PowerKeeperPolicy;)Lcom/miui/whetstone/PowerKeeperPolicy;
 
-    .line 55
     return-void
 .end method

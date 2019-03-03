@@ -22,8 +22,6 @@
 .method private constructor <init>(Lcom/android/server/hdmi/HdmiControlService;)V
     .locals 0
 
-    .prologue
-    .line 1171
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-direct {p0}, Landroid/hardware/hdmi/IHdmiControlService$Stub;-><init>()V
@@ -33,11 +31,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/hdmi/HdmiControlService;Lcom/android/server/hdmi/HdmiControlService$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/hdmi/HdmiControlService;
-    .param p2, "x1"    # Lcom/android/server/hdmi/HdmiControlService$1;
 
-    .prologue
-    .line 1171
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiControlService$BinderService;-><init>(Lcom/android/server/hdmi/HdmiControlService;)V
 
     return-void
@@ -47,124 +41,91 @@
 # virtual methods
 .method public addDeviceEventListener(Landroid/hardware/hdmi/IHdmiDeviceEventListener;)V
     .locals 1
-    .param p1, "listener"    # Landroid/hardware/hdmi/IHdmiDeviceEventListener;
 
-    .prologue
-    .line 1319
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1320
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0, p1}, Lcom/android/server/hdmi/HdmiControlService;->access$3500(Lcom/android/server/hdmi/HdmiControlService;Landroid/hardware/hdmi/IHdmiDeviceEventListener;)V
 
-    .line 1321
     return-void
 .end method
 
 .method public addHdmiMhlVendorCommandListener(Landroid/hardware/hdmi/IHdmiMhlVendorCommandListener;)V
     .locals 1
-    .param p1, "listener"    # Landroid/hardware/hdmi/IHdmiMhlVendorCommandListener;
 
-    .prologue
-    .line 1614
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1615
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0, p1}, Lcom/android/server/hdmi/HdmiControlService;->access$4200(Lcom/android/server/hdmi/HdmiControlService;Landroid/hardware/hdmi/IHdmiMhlVendorCommandListener;)V
 
-    .line 1616
     return-void
 .end method
 
 .method public addHotplugEventListener(Landroid/hardware/hdmi/IHdmiHotplugEventListener;)V
     .locals 1
-    .param p1, "listener"    # Landroid/hardware/hdmi/IHdmiHotplugEventListener;
 
-    .prologue
-    .line 1307
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1308
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0, p1}, Lcom/android/server/hdmi/HdmiControlService;->access$3300(Lcom/android/server/hdmi/HdmiControlService;Landroid/hardware/hdmi/IHdmiHotplugEventListener;)V
 
-    .line 1309
     return-void
 .end method
 
 .method public addSystemAudioModeChangeListener(Landroid/hardware/hdmi/IHdmiSystemAudioModeChangeListener;)V
     .locals 1
-    .param p1, "listener"    # Landroid/hardware/hdmi/IHdmiSystemAudioModeChangeListener;
 
-    .prologue
-    .line 1369
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1370
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0, p1}, Lcom/android/server/hdmi/HdmiControlService;->access$3600(Lcom/android/server/hdmi/HdmiControlService;Landroid/hardware/hdmi/IHdmiSystemAudioModeChangeListener;)V
 
-    .line 1371
     return-void
 .end method
 
 .method public addVendorCommandListener(Landroid/hardware/hdmi/IHdmiVendorCommandListener;I)V
     .locals 1
-    .param p1, "listener"    # Landroid/hardware/hdmi/IHdmiVendorCommandListener;
-    .param p2, "deviceType"    # I
 
-    .prologue
-    .line 1473
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1474
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0, p1, p2}, Lcom/android/server/hdmi/HdmiControlService;->access$4000(Lcom/android/server/hdmi/HdmiControlService;Landroid/hardware/hdmi/IHdmiVendorCommandListener;I)V
 
-    .line 1475
     return-void
 .end method
 
 .method public canChangeSystemAudioMode()Z
     .locals 2
 
-    .prologue
-    .line 1331
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v1}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1332
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v1}, Lcom/android/server/hdmi/HdmiControlService;->access$1000(Lcom/android/server/hdmi/HdmiControlService;)Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
     move-result-object v0
 
-    .line 1333
-    .local v0, "tv":Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
     if-nez v0, :cond_0
 
-    .line 1334
     const/4 v1, 0x0
 
-    .line 1336
     :goto_0
     return v1
 
@@ -178,17 +139,11 @@
 
 .method public clearTimerRecording(II[B)V
     .locals 2
-    .param p1, "recorderAddress"    # I
-    .param p2, "sourceType"    # I
-    .param p3, "recordSource"    # [B
 
-    .prologue
-    .line 1577
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1578
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$15;
@@ -197,22 +152,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1588
     return-void
 .end method
 
 .method public deviceSelect(ILandroid/hardware/hdmi/IHdmiControlCallback;)V
     .locals 2
-    .param p1, "deviceId"    # I
-    .param p2, "callback"    # Landroid/hardware/hdmi/IHdmiControlCallback;
 
-    .prologue
-    .line 1207
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1208
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$1;
@@ -221,18 +170,12 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1237
     return-void
 .end method
 
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 6
-    .param p1, "fd"    # Ljava/io/FileDescriptor;
-    .param p2, "writer"    # Ljava/io/PrintWriter;
-    .param p3, "args"    # [Ljava/lang/String;
 
-    .prologue
-    .line 1620
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v3}, Lcom/android/server/hdmi/HdmiControlService;->getContext()Landroid/content/Context;
@@ -245,15 +188,12 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1621
     new-instance v2, Lcom/android/internal/util/IndentingPrintWriter;
 
     const-string v3, "  "
 
     invoke-direct {v2, p2, v3}, Lcom/android/internal/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;)V
 
-    .line 1623
-    .local v2, "pw":Lcom/android/internal/util/IndentingPrintWriter;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -280,7 +220,6 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1624
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -307,7 +246,6 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1625
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v3}, Lcom/android/server/hdmi/HdmiControlService;->access$1400(Lcom/android/server/hdmi/HdmiControlService;)Lcom/android/server/hdmi/HdmiCecController;
@@ -316,15 +254,12 @@
 
     if-eqz v3, :cond_0
 
-    .line 1626
     const-string v3, "mCecController: "
 
     invoke-virtual {v2, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1627
     invoke-virtual {v2}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
-    .line 1628
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v3}, Lcom/android/server/hdmi/HdmiControlService;->access$1400(Lcom/android/server/hdmi/HdmiControlService;)Lcom/android/server/hdmi/HdmiCecController;
@@ -333,19 +268,15 @@
 
     invoke-virtual {v3, v2}, Lcom/android/server/hdmi/HdmiCecController;->dump(Lcom/android/internal/util/IndentingPrintWriter;)V
 
-    .line 1629
     invoke-virtual {v2}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
-    .line 1632
     :cond_0
     const-string v3, "mMhlController: "
 
     invoke-virtual {v2, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1633
     invoke-virtual {v2}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
-    .line 1634
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v3}, Lcom/android/server/hdmi/HdmiControlService;->access$1200(Lcom/android/server/hdmi/HdmiControlService;)Lcom/android/server/hdmi/HdmiMhlControllerStub;
@@ -354,18 +285,14 @@
 
     invoke-virtual {v3, v2}, Lcom/android/server/hdmi/HdmiMhlControllerStub;->dump(Lcom/android/internal/util/IndentingPrintWriter;)V
 
-    .line 1635
     invoke-virtual {v2}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
-    .line 1637
     const-string v3, "mPortInfo: "
 
     invoke-virtual {v2, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1638
     invoke-virtual {v2}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
-    .line 1639
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v3}, Lcom/android/server/hdmi/HdmiControlService;->access$4500(Lcom/android/server/hdmi/HdmiControlService;)Ljava/util/List;
@@ -376,7 +303,6 @@
 
     move-result-object v1
 
-    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -390,8 +316,6 @@
 
     check-cast v0, Landroid/hardware/hdmi/HdmiPortInfo;
 
-    .line 1640
-    .local v0, "hdmiPortInfo":Landroid/hardware/hdmi/HdmiPortInfo;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -414,12 +338,9 @@
 
     goto :goto_0
 
-    .line 1642
-    .end local v0    # "hdmiPortInfo":Landroid/hardware/hdmi/HdmiPortInfo;
     :cond_1
     invoke-virtual {v2}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
-    .line 1643
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -446,61 +367,49 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1644
     return-void
 .end method
 
 .method public getActiveSource()Landroid/hardware/hdmi/HdmiDeviceInfo;
     .locals 11
 
-    .prologue
     const/4 v0, 0x0
 
     const/4 v3, -0x1
 
-    .line 1185
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v1}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1186
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v1}, Lcom/android/server/hdmi/HdmiControlService;->access$1000(Lcom/android/server/hdmi/HdmiControlService;)Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
     move-result-object v10
 
-    .line 1187
-    .local v10, "tv":Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
     if-nez v10, :cond_1
 
-    .line 1188
     const-string v1, "HdmiControlService"
 
     const-string v2, "Local tv device not available"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1202
     :cond_0
     :goto_0
     return-object v0
 
-    .line 1191
     :cond_1
     invoke-virtual {v10}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActiveSource()Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     move-result-object v8
 
-    .line 1192
-    .local v8, "activeSource":Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
     invoke-virtual {v8}, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->isValid()Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    .line 1193
     new-instance v0, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     iget v1, v8, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->logicalAddress:I
@@ -517,38 +426,29 @@
 
     goto :goto_0
 
-    .line 1197
     :cond_2
     invoke-virtual {v10}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePath()I
 
     move-result v7
 
-    .line 1198
-    .local v7, "activePath":I
     const v1, 0xffff
 
     if-eq v7, v1, :cond_0
 
-    .line 1199
     invoke-virtual {v10, v7}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getSafeDeviceInfoByPath(I)Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     move-result-object v9
 
-    .line 1200
-    .local v9, "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     if-eqz v9, :cond_3
 
-    .end local v9    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     :goto_1
     move-object v0, v9
 
     goto :goto_0
 
-    .restart local v9    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     :cond_3
     new-instance v9, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    .end local v9    # "info":Landroid/hardware/hdmi/HdmiDeviceInfo;
     invoke-virtual {v10}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getActivePortId()I
 
     move-result v0
@@ -570,21 +470,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 1404
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v1}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1405
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v1}, Lcom/android/server/hdmi/HdmiControlService;->access$1000(Lcom/android/server/hdmi/HdmiControlService;)Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
     move-result-object v0
 
-    .line 1406
-    .local v0, "tv":Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v1}, Lcom/android/server/hdmi/HdmiControlService;->access$2100(Lcom/android/server/hdmi/HdmiControlService;)Ljava/lang/Object;
@@ -593,7 +488,6 @@
 
     monitor-enter v2
 
-    .line 1407
     if-nez v0, :cond_0
 
     :try_start_0
@@ -613,7 +507,6 @@
 
     goto :goto_0
 
-    .line 1410
     :catchall_0
     move-exception v1
 
@@ -636,21 +529,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 1388
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v2}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1391
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v2}, Lcom/android/server/hdmi/HdmiControlService;->access$1000(Lcom/android/server/hdmi/HdmiControlService;)Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
     move-result-object v1
 
-    .line 1392
-    .local v1, "tv":Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v2}, Lcom/android/server/hdmi/HdmiControlService;->access$2100(Lcom/android/server/hdmi/HdmiControlService;)Ljava/lang/Object;
@@ -659,7 +547,6 @@
 
     monitor-enter v3
 
-    .line 1393
     if-nez v1, :cond_0
 
     :try_start_0
@@ -667,8 +554,6 @@
 
     move-result-object v0
 
-    .line 1396
-    .local v0, "cecDevices":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/hdmi/HdmiDeviceInfo;>;"
     :goto_0
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -684,8 +569,6 @@
 
     return-object v2
 
-    .line 1393
-    .end local v0    # "cecDevices":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/hdmi/HdmiDeviceInfo;>;"
     :cond_0
     invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->getSafeExternalInputsLocked()Ljava/util/List;
 
@@ -693,7 +576,6 @@
 
     goto :goto_0
 
-    .line 1397
     :catchall_0
     move-exception v2
 
@@ -716,13 +598,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1325
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1326
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->getPortInfo()Ljava/util/List;
@@ -735,13 +614,10 @@
 .method public getSupportedTypes()[I
     .locals 3
 
-    .prologue
-    .line 1174
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v2}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1176
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v2}, Lcom/android/server/hdmi/HdmiControlService;->access$2800(Lcom/android/server/hdmi/HdmiControlService;)Ljava/util/List;
@@ -754,17 +630,13 @@
 
     new-array v1, v2, [I
 
-    .line 1177
-    .local v1, "localDevices":[I
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     array-length v2, v1
 
     if-ge v0, v2, :cond_0
 
-    .line 1178
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v2}, Lcom/android/server/hdmi/HdmiControlService;->access$2800(Lcom/android/server/hdmi/HdmiControlService;)Ljava/util/List;
@@ -783,12 +655,10 @@
 
     aput v2, v1, v0
 
-    .line 1177
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1180
     :cond_0
     return-object v1
 .end method
@@ -796,27 +666,20 @@
 .method public getSystemAudioMode()Z
     .locals 2
 
-    .prologue
-    .line 1341
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v1}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1342
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v1}, Lcom/android/server/hdmi/HdmiControlService;->access$1000(Lcom/android/server/hdmi/HdmiControlService;)Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
     move-result-object v0
 
-    .line 1343
-    .local v0, "tv":Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
     if-nez v0, :cond_0
 
-    .line 1344
     const/4 v1, 0x0
 
-    .line 1346
     :goto_0
     return v1
 
@@ -830,15 +693,11 @@
 
 .method public oneTouchPlay(Landroid/hardware/hdmi/IHdmiControlCallback;)V
     .locals 2
-    .param p1, "callback"    # Landroid/hardware/hdmi/IHdmiControlCallback;
 
-    .prologue
-    .line 1285
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1286
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$4;
@@ -847,22 +706,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1292
     return-void
 .end method
 
 .method public portSelect(ILandroid/hardware/hdmi/IHdmiControlCallback;)V
     .locals 2
-    .param p1, "portId"    # I
-    .param p2, "callback"    # Landroid/hardware/hdmi/IHdmiControlCallback;
 
-    .prologue
-    .line 1241
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1242
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$2;
@@ -871,21 +724,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1258
     return-void
 .end method
 
 .method public queryDisplayStatus(Landroid/hardware/hdmi/IHdmiControlCallback;)V
     .locals 2
-    .param p1, "callback"    # Landroid/hardware/hdmi/IHdmiControlCallback;
 
-    .prologue
-    .line 1296
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1297
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$5;
@@ -894,61 +742,44 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1303
     return-void
 .end method
 
 .method public removeHotplugEventListener(Landroid/hardware/hdmi/IHdmiHotplugEventListener;)V
     .locals 1
-    .param p1, "listener"    # Landroid/hardware/hdmi/IHdmiHotplugEventListener;
 
-    .prologue
-    .line 1313
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1314
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0, p1}, Lcom/android/server/hdmi/HdmiControlService;->access$3400(Lcom/android/server/hdmi/HdmiControlService;Landroid/hardware/hdmi/IHdmiHotplugEventListener;)V
 
-    .line 1315
     return-void
 .end method
 
 .method public removeSystemAudioModeChangeListener(Landroid/hardware/hdmi/IHdmiSystemAudioModeChangeListener;)V
     .locals 1
-    .param p1, "listener"    # Landroid/hardware/hdmi/IHdmiSystemAudioModeChangeListener;
 
-    .prologue
-    .line 1376
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1377
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0, p1}, Lcom/android/server/hdmi/HdmiControlService;->access$3700(Lcom/android/server/hdmi/HdmiControlService;Landroid/hardware/hdmi/IHdmiSystemAudioModeChangeListener;)V
 
-    .line 1378
     return-void
 .end method
 
 .method public sendKeyEvent(IIZ)V
     .locals 2
-    .param p1, "deviceType"    # I
-    .param p2, "keyCode"    # I
-    .param p3, "isPressed"    # Z
 
-    .prologue
-    .line 1262
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1263
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$3;
@@ -957,24 +788,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1281
     return-void
 .end method
 
 .method public sendMhlVendorCommand(III[B)V
     .locals 7
-    .param p1, "portId"    # I
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
-    .param p4, "data"    # [B
 
-    .prologue
-    .line 1593
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1594
     iget-object v6, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v0, Lcom/android/server/hdmi/HdmiControlService$BinderService$16;
@@ -993,22 +816,16 @@
 
     invoke-virtual {v6, v0}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1609
     return-void
 .end method
 
 .method public sendStandby(II)V
     .locals 2
-    .param p1, "deviceType"    # I
-    .param p2, "deviceId"    # I
 
-    .prologue
-    .line 1503
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1504
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$11;
@@ -1017,24 +834,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1520
     return-void
 .end method
 
 .method public sendVendorCommand(II[BZ)V
     .locals 7
-    .param p1, "deviceType"    # I
-    .param p2, "targetAddress"    # I
-    .param p3, "params"    # [B
-    .param p4, "hasVendorId"    # Z
 
-    .prologue
-    .line 1480
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1481
     iget-object v6, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v0, Lcom/android/server/hdmi/HdmiControlService$BinderService$10;
@@ -1053,21 +862,16 @@
 
     invoke-virtual {v6, v0}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1499
     return-void
 .end method
 
 .method public setArcMode(Z)V
     .locals 2
-    .param p1, "enabled"    # Z
 
-    .prologue
-    .line 1448
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1449
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$9;
@@ -1076,59 +880,44 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1459
     return-void
 .end method
 
 .method public setHdmiRecordListener(Landroid/hardware/hdmi/IHdmiRecordListener;)V
     .locals 1
-    .param p1, "listener"    # Landroid/hardware/hdmi/IHdmiRecordListener;
 
-    .prologue
-    .line 1524
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1525
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0, p1}, Lcom/android/server/hdmi/HdmiControlService;->access$4100(Lcom/android/server/hdmi/HdmiControlService;Landroid/hardware/hdmi/IHdmiRecordListener;)V
 
-    .line 1526
     return-void
 .end method
 
 .method public setInputChangeListener(Landroid/hardware/hdmi/IHdmiInputChangeListener;)V
     .locals 1
-    .param p1, "listener"    # Landroid/hardware/hdmi/IHdmiInputChangeListener;
 
-    .prologue
-    .line 1382
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1383
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0, p1}, Lcom/android/server/hdmi/HdmiControlService;->access$3800(Lcom/android/server/hdmi/HdmiControlService;Landroid/hardware/hdmi/IHdmiInputChangeListener;)V
 
-    .line 1384
     return-void
 .end method
 
 .method public setProhibitMode(Z)V
     .locals 1
-    .param p1, "enabled"    # Z
 
-    .prologue
-    .line 1463
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1464
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->isTvDevice()Z
@@ -1137,11 +926,9 @@
 
     if-nez v0, :cond_0
 
-    .line 1468
     :goto_0
     return-void
 
-    .line 1467
     :cond_0
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -1152,16 +939,11 @@
 
 .method public setSystemAudioMode(ZLandroid/hardware/hdmi/IHdmiControlCallback;)V
     .locals 2
-    .param p1, "enabled"    # Z
-    .param p2, "callback"    # Landroid/hardware/hdmi/IHdmiControlCallback;
 
-    .prologue
-    .line 1351
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1352
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$6;
@@ -1170,21 +952,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1364
     return-void
 .end method
 
 .method public setSystemAudioMute(Z)V
     .locals 2
-    .param p1, "mute"    # Z
 
-    .prologue
-    .line 1432
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1433
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$8;
@@ -1193,23 +970,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1444
     return-void
 .end method
 
 .method public setSystemAudioVolume(III)V
     .locals 2
-    .param p1, "oldIndex"    # I
-    .param p2, "newIndex"    # I
-    .param p3, "maxIndex"    # I
 
-    .prologue
-    .line 1416
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1417
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$7;
@@ -1218,22 +988,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1428
     return-void
 .end method
 
 .method public startOneTouchRecord(I[B)V
     .locals 2
-    .param p1, "recorderAddress"    # I
-    .param p2, "recordSource"    # [B
 
-    .prologue
-    .line 1530
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1531
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$12;
@@ -1242,23 +1006,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1541
     return-void
 .end method
 
 .method public startTimerRecording(II[B)V
     .locals 2
-    .param p1, "recorderAddress"    # I
-    .param p2, "sourceType"    # I
-    .param p3, "recordSource"    # [B
 
-    .prologue
-    .line 1561
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1562
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$14;
@@ -1267,21 +1024,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1572
     return-void
 .end method
 
 .method public stopOneTouchRecord(I)V
     .locals 2
-    .param p1, "recorderAddress"    # I
 
-    .prologue
-    .line 1545
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2700(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    .line 1546
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     new-instance v1, Lcom/android/server/hdmi/HdmiControlService$BinderService$13;
@@ -1290,6 +1042,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
-    .line 1556
     return-void
 .end method

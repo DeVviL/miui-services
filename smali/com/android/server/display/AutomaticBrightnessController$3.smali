@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/android/server/display/AutomaticBrightnessController;)V
     .locals 0
 
-    .prologue
-    .line 678
     iput-object p1, p0, Lcom/android/server/display/AutomaticBrightnessController$3;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,14 +37,11 @@
 .method public onTwilightStateChanged()V
     .locals 2
 
-    .prologue
-    .line 681
     iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$3;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
     const/4 v1, 0x1
 
     invoke-static {v0, v1}, Lcom/android/server/display/AutomaticBrightnessController;->access$700(Lcom/android/server/display/AutomaticBrightnessController;Z)V
 
-    .line 682
     return-void
 .end method

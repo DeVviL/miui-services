@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/location/GpsLocationProvider;)V
     .locals 0
 
-    .prologue
-    .line 1255
     iput-object p1, p0, Lcom/android/server/location/GpsLocationProvider$10;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     invoke-direct {p0}, Landroid/location/IGpsGeofenceHardware$Stub;-><init>()V
@@ -35,17 +33,7 @@
 # virtual methods
 .method public addCircularHardwareGeofence(IDDDIIII)Z
     .locals 2
-    .param p1, "geofenceId"    # I
-    .param p2, "latitude"    # D
-    .param p4, "longitude"    # D
-    .param p6, "radius"    # D
-    .param p8, "lastTransition"    # I
-    .param p9, "monitorTransitions"    # I
-    .param p10, "notificationResponsiveness"    # I
-    .param p11, "unknownTimer"    # I
 
-    .prologue
-    .line 1263
     invoke-static/range {p1 .. p11}, Lcom/android/server/location/GpsLocationProvider;->access$2500(IDDDIIII)Z
 
     move-result v0
@@ -56,8 +44,6 @@
 .method public isHardwareGeofenceSupported()Z
     .locals 1
 
-    .prologue
-    .line 1257
     invoke-static {}, Lcom/android/server/location/GpsLocationProvider;->access$2400()Z
 
     move-result v0
@@ -67,10 +53,7 @@
 
 .method public pauseHardwareGeofence(I)Z
     .locals 1
-    .param p1, "geofenceId"    # I
 
-    .prologue
-    .line 1272
     invoke-static {p1}, Lcom/android/server/location/GpsLocationProvider;->access$2700(I)Z
 
     move-result v0
@@ -80,10 +63,7 @@
 
 .method public removeHardwareGeofence(I)Z
     .locals 1
-    .param p1, "geofenceId"    # I
 
-    .prologue
-    .line 1268
     invoke-static {p1}, Lcom/android/server/location/GpsLocationProvider;->access$2600(I)Z
 
     move-result v0
@@ -93,11 +73,7 @@
 
 .method public resumeHardwareGeofence(II)Z
     .locals 1
-    .param p1, "geofenceId"    # I
-    .param p2, "monitorTransition"    # I
 
-    .prologue
-    .line 1276
     invoke-static {p1, p2}, Lcom/android/server/location/GpsLocationProvider;->access$2800(II)Z
 
     move-result v0

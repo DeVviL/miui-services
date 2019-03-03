@@ -27,26 +27,18 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageDexOptimizerManager;Ljava/lang/String;Lmiui/os/IMiuiDexoptObserver;)V
     .locals 1
-    .param p2, "name"    # Ljava/lang/String;
-    .param p3, "obs"    # Lmiui/os/IMiuiDexoptObserver;
 
-    .prologue
-    .line 273
     iput-object p1, p0, Lcom/android/server/pm/PackageDexOptimizerManager$AppDexoptInfo;->this$0:Lcom/android/server/pm/PackageDexOptimizerManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 274
     iput-object p2, p0, Lcom/android/server/pm/PackageDexOptimizerManager$AppDexoptInfo;->packageName:Ljava/lang/String;
 
-    .line 275
     iput-object p3, p0, Lcom/android/server/pm/PackageDexOptimizerManager$AppDexoptInfo;->observer:Lmiui/os/IMiuiDexoptObserver;
 
-    .line 276
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/pm/PackageDexOptimizerManager$AppDexoptInfo;->returnCode:I
 
-    .line 277
     return-void
 .end method

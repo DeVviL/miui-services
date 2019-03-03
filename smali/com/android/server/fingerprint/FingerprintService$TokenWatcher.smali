@@ -35,22 +35,17 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/fingerprint/FingerprintService;Landroid/os/IBinder;)V
     .locals 1
-    .param p2, "token"    # Landroid/os/IBinder;
 
-    .prologue
-    .line 91
     iput-object p1, p0, Lcom/android/server/fingerprint/FingerprintService$TokenWatcher;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 92
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$TokenWatcher;->token:Ljava/lang/ref/WeakReference;
 
-    .line 93
     return-void
 .end method
 
@@ -59,8 +54,6 @@
 .method public binderDied()V
     .locals 2
 
-    .prologue
-    .line 97
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$TokenWatcher;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-static {v0}, Lcom/android/server/fingerprint/FingerprintService;->access$000(Lcom/android/server/fingerprint/FingerprintService;)Landroid/util/ArrayMap;
@@ -71,12 +64,10 @@
 
     invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 98
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$TokenWatcher;->token:Ljava/lang/ref/WeakReference;
 
-    .line 99
     return-void
 .end method
 
@@ -88,14 +79,11 @@
         }
     .end annotation
 
-    .prologue
-    .line 103
     :try_start_0
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$TokenWatcher;->token:Ljava/lang/ref/WeakReference;
 
     if-eqz v0, :cond_0
 
-    .line 104
     const-string v0, "FingerprintService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -120,7 +108,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 105
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$TokenWatcher;->this$0:Lcom/android/server/fingerprint/FingerprintService;
 
     invoke-static {v0}, Lcom/android/server/fingerprint/FingerprintService;->access$000(Lcom/android/server/fingerprint/FingerprintService;)Landroid/util/ArrayMap;
@@ -133,14 +120,11 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 108
     :cond_0
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 110
     return-void
 
-    .line 108
     :catchall_0
     move-exception v0
 
@@ -152,8 +136,6 @@
 .method getToken()Landroid/os/IBinder;
     .locals 1
 
-    .prologue
-    .line 95
     iget-object v0, p0, Lcom/android/server/fingerprint/FingerprintService$TokenWatcher;->token:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;

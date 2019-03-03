@@ -21,21 +21,15 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 1
-    .param p1, "syncManager"    # Lcom/android/server/content/SyncManager;
 
-    .prologue
-    .line 42
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    .line 41
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/content/SyncManagerInjector$NetReachableIntentReceiver;->mSyncManager:Lcom/android/server/content/SyncManager;
 
-    .line 43
     iput-object p1, p0, Lcom/android/server/content/SyncManagerInjector$NetReachableIntentReceiver;->mSyncManager:Lcom/android/server/content/SyncManager;
 
-    .line 44
     return-void
 .end method
 
@@ -43,10 +37,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 12
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     const-wide/16 v6, 0x0
 
     const/4 v2, 0x3
@@ -55,13 +46,10 @@
 
     const/4 v1, 0x0
 
-    .line 47
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v11
 
-    .line 48
-    .local v11, "action":Ljava/lang/String;
     const-string v0, "android.os.action.networkDisconnectFromInternet"
 
     invoke-virtual {v11, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -70,10 +58,8 @@
 
     if-eqz v0, :cond_1
 
-    .line 49
     invoke-static {v10}, Lcom/android/server/content/SyncManagerInjector;->access$000(Z)V
 
-    .line 50
     const-string v0, "SyncManager"
 
     invoke-static {v0, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -82,14 +68,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 51
     const-string v0, "SyncManager"
 
     const-string v2, "android.os.action.networkDisconnectFromInternet"
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 53
     :cond_0
     iget-object v0, p0, Lcom/android/server/content/SyncManagerInjector$NetReachableIntentReceiver;->mSyncManager:Lcom/android/server/content/SyncManager;
 
@@ -97,11 +81,9 @@
 
     invoke-virtual {v0, v2, v1}, Lcom/android/server/content/SyncManager;->cancelActiveSync(Lcom/android/server/content/SyncStorageEngine$EndPoint;Landroid/os/Bundle;)V
 
-    .line 67
     :goto_0
     return-void
 
-    .line 58
     :cond_1
     const-string v0, "SyncManager"
 
@@ -111,20 +93,17 @@
 
     if-eqz v0, :cond_2
 
-    .line 59
     const-string v0, "SyncManager"
 
     const-string v2, "android.os.action.networkReconnectToInternet"
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 61
     :cond_2
     const/4 v0, 0x1
 
     invoke-static {v0}, Lcom/android/server/content/SyncManagerInjector;->access$000(Z)V
 
-    .line 62
     iget-object v0, p0, Lcom/android/server/content/SyncManagerInjector$NetReachableIntentReceiver;->mSyncManager:Lcom/android/server/content/SyncManager;
 
     const/4 v2, -0x1

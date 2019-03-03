@@ -17,11 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/String;
-    .param p2, "x1"    # I
 
-    .prologue
-    .line 4935
     invoke-direct {p0, p1, p2}, Landroid/os/FileObserver;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -31,11 +27,7 @@
 # virtual methods
 .method public declared-synchronized onEvent(ILjava/lang/String;)V
     .locals 1
-    .param p1, "event"    # I
-    .param p2, "path"    # Ljava/lang/String;
 
-    .prologue
-    .line 4937
     monitor-enter p0
 
     :try_start_0

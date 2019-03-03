@@ -21,8 +21,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 177
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,10 +28,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/content/SyncManagerAccountChangePolicy$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/content/SyncManagerAccountChangePolicy$1;
 
-    .prologue
-    .line 177
     invoke-direct {p0}, Lcom/android/server/content/SyncManagerAccountChangePolicy$DefaultSyncDataStrategy;-><init>()V
 
     return-void
@@ -43,16 +38,11 @@
 # virtual methods
 .method public isSyncForbidden(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Z
     .locals 12
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "authority"    # Ljava/lang/String;
-    .param p3, "extras"    # Landroid/os/Bundle;
 
-    .prologue
     const/4 v6, 0x1
 
     const/4 v5, 0x0
 
-    .line 180
     const-string v7, "num_syncs"
 
     const/4 v8, -0x1
@@ -61,8 +51,6 @@
 
     move-result v4
 
-    .line 182
-    .local v4, "num":I
     const-string v7, "com.miui.browser"
 
     invoke-virtual {v7, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -71,19 +59,16 @@
 
     if-eqz v7, :cond_1
 
-    .line 183
     if-ltz v4, :cond_2
 
     const/16 v7, 0x8
 
     if-ge v4, v7, :cond_2
 
-    .line 204
     :cond_0
     :goto_0
     return v5
 
-    .line 187
     :cond_1
     if-ltz v4, :cond_2
 
@@ -91,7 +76,6 @@
 
     if-lt v4, v7, :cond_0
 
-    .line 192
     :cond_2
     const-string v7, "interactive"
 
@@ -99,16 +83,12 @@
 
     move-result v1
 
-    .line 193
-    .local v1, "isInteractive":Z
     if-eqz v1, :cond_3
 
     move v5, v6
 
-    .line 194
     goto :goto_0
 
-    .line 196
     :cond_3
     const-string v7, "last_screen_off_time"
 
@@ -118,8 +98,6 @@
 
     move-result-wide v2
 
-    .line 197
-    .local v2, "lastScreenOffTime":J
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v8
@@ -134,10 +112,8 @@
 
     move v5, v6
 
-    .line 198
     goto :goto_0
 
-    .line 200
     :cond_4
     const-string v7, "battery_charging"
 
@@ -145,12 +121,9 @@
 
     move-result v0
 
-    .line 201
-    .local v0, "isBatteryCharging":Z
     if-nez v0, :cond_0
 
     move v5, v6
 
-    .line 202
     goto :goto_0
 .end method

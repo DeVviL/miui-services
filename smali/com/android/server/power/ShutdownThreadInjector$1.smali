@@ -25,8 +25,6 @@
 .method constructor <init>(Ljava/lang/Object;)V
     .locals 0
 
-    .prologue
-    .line 138
     iput-object p1, p0, Lcom/android/server/power/ShutdownThreadInjector$1;->val$actionDoneSync:Ljava/lang/Object;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,32 +36,24 @@
 # virtual methods
 .method public onCompletion(Landroid/media/MediaPlayer;)V
     .locals 2
-    .param p1, "mp"    # Landroid/media/MediaPlayer;
 
-    .prologue
-    .line 141
     iget-object v1, p0, Lcom/android/server/power/ShutdownThreadInjector$1;->val$actionDoneSync:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 142
     const/4 v0, 0x0
 
     :try_start_0
     invoke-static {v0}, Lcom/android/server/power/ShutdownThreadInjector;->access$002(Z)Z
 
-    .line 143
     iget-object v0, p0, Lcom/android/server/power/ShutdownThreadInjector$1;->val$actionDoneSync:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 144
     monitor-exit v1
 
-    .line 145
     return-void
 
-    .line 144
     :catchall_0
     move-exception v0
 

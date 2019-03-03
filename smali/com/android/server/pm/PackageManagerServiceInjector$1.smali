@@ -21,8 +21,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 668
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,21 +30,16 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
     .locals 6
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 671
     iget v3, p1, Landroid/os/Message;->what:I
 
     packed-switch v3, :pswitch_data_0
 
-    .line 690
     :goto_0
     const/4 v3, 0x1
 
     return v3
 
-    .line 674
     :pswitch_0
     :try_start_0
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -57,8 +50,6 @@
 
     check-cast v1, Lcom/android/server/pm/PackageManagerServiceInjector$InstallAppParam;
 
-    .line 675
-    .local v1, "param":Lcom/android/server/pm/PackageManagerServiceInjector$InstallAppParam;
     invoke-static {}, Lcom/android/server/pm/PackageManagerServiceInjector;->access$000()Ljava/lang/String;
 
     move-result-object v3
@@ -67,16 +58,12 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 676
     invoke-static {v1}, Lcom/android/server/pm/PackageManagerServiceInjector$InstallAppParam;->access$100(Lcom/android/server/pm/PackageManagerServiceInjector$InstallAppParam;)Landroid/os/Handler;
 
     move-result-object v0
 
-    .line 677
-    .local v0, "h":Landroid/os/Handler;
     if-eqz v0, :cond_0
 
-    .line 678
     invoke-static {v1}, Lcom/android/server/pm/PackageManagerServiceInjector$InstallAppParam;->access$200(Lcom/android/server/pm/PackageManagerServiceInjector$InstallAppParam;)Landroid/os/Message;
 
     move-result-object v3
@@ -87,14 +74,9 @@
 
     goto :goto_0
 
-    .line 682
-    .end local v0    # "h":Landroid/os/Handler;
-    .end local v1    # "param":Lcom/android/server/pm/PackageManagerServiceInjector$InstallAppParam;
     :catch_0
     move-exception v2
 
-    .line 683
-    .local v2, "t":Ljava/lang/Throwable;
     invoke-static {}, Lcom/android/server/pm/PackageManagerServiceInjector;->access$000()Ljava/lang/String;
 
     move-result-object v3
@@ -129,10 +111,6 @@
 
     goto :goto_0
 
-    .line 680
-    .end local v2    # "t":Ljava/lang/Throwable;
-    .restart local v0    # "h":Landroid/os/Handler;
-    .restart local v1    # "param":Lcom/android/server/pm/PackageManagerServiceInjector$InstallAppParam;
     :cond_0
     :try_start_1
     invoke-static {}, Lcom/android/server/pm/PackageManagerServiceInjector;->access$000()Ljava/lang/String;
@@ -147,7 +125,6 @@
 
     goto :goto_0
 
-    .line 671
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

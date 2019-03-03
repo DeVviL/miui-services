@@ -25,23 +25,14 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/os/Messenger;Lcom/android/internal/util/AsyncChannel;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "messenger"    # Landroid/os/Messenger;
-    .param p3, "asyncChannel"    # Lcom/android/internal/util/AsyncChannel;
 
-    .prologue
-    .line 3485
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3486
     iput-object p1, p0, Lcom/android/server/ConnectivityService$NetworkFactoryInfo;->name:Ljava/lang/String;
 
-    .line 3487
     iput-object p2, p0, Lcom/android/server/ConnectivityService$NetworkFactoryInfo;->messenger:Landroid/os/Messenger;
 
-    .line 3488
     iput-object p3, p0, Lcom/android/server/ConnectivityService$NetworkFactoryInfo;->asyncChannel:Lcom/android/internal/util/AsyncChannel;
 
-    .line 3489
     return-void
 .end method

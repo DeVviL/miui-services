@@ -64,8 +64,6 @@
 .method constructor <init>(Lcom/android/server/MountService;)V
     .locals 0
 
-    .prologue
-    .line 161
     iput-object p1, p0, Lcom/android/server/MountService$VoldResponseCode;->this$0:Lcom/android/server/MountService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

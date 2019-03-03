@@ -29,8 +29,6 @@
 .method constructor <init>(Lcom/android/server/hdmi/HdmiControlService;Lcom/android/server/hdmi/HdmiControlService$HotplugEventListenerRecord;Landroid/hardware/hdmi/IHdmiHotplugEventListener;)V
     .locals 0
 
-    .prologue
-    .line 1685
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$2;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     iput-object p2, p0, Lcom/android/server/hdmi/HdmiControlService$2;->val$record:Lcom/android/server/hdmi/HdmiControlService$HotplugEventListenerRecord;
@@ -47,8 +45,6 @@
 .method public run()V
     .locals 6
 
-    .prologue
-    .line 1688
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiControlService$2;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v3}, Lcom/android/server/hdmi/HdmiControlService;->access$2100(Lcom/android/server/hdmi/HdmiControlService;)Ljava/lang/Object;
@@ -57,7 +53,6 @@
 
     monitor-enter v4
 
-    .line 1689
     :try_start_0
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiControlService$2;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -75,17 +70,14 @@
 
     monitor-exit v4
 
-    .line 1698
     :cond_0
     return-void
 
-    .line 1690
     :cond_1
     monitor-exit v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 1691
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiControlService$2;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v3}, Lcom/android/server/hdmi/HdmiControlService;->access$4500(Lcom/android/server/hdmi/HdmiControlService;)Ljava/util/List;
@@ -96,7 +88,6 @@
 
     move-result-object v1
 
-    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -110,8 +101,6 @@
 
     check-cast v2, Landroid/hardware/hdmi/HdmiPortInfo;
 
-    .line 1692
-    .local v2, "port":Landroid/hardware/hdmi/HdmiPortInfo;
     new-instance v0, Landroid/hardware/hdmi/HdmiHotplugEvent;
 
     invoke-virtual {v2}, Landroid/hardware/hdmi/HdmiPortInfo;->getId()I
@@ -134,8 +123,6 @@
 
     invoke-direct {v0, v3, v4}, Landroid/hardware/hdmi/HdmiHotplugEvent;-><init>(IZ)V
 
-    .line 1694
-    .local v0, "event":Landroid/hardware/hdmi/HdmiHotplugEvent;
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiControlService$2;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v3}, Lcom/android/server/hdmi/HdmiControlService;->access$2100(Lcom/android/server/hdmi/HdmiControlService;)Ljava/lang/Object;
@@ -144,7 +131,6 @@
 
     monitor-enter v4
 
-    .line 1695
     :try_start_1
     iget-object v3, p0, Lcom/android/server/hdmi/HdmiControlService$2;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -152,7 +138,6 @@
 
     invoke-static {v3, v5, v0}, Lcom/android/server/hdmi/HdmiControlService;->access$4700(Lcom/android/server/hdmi/HdmiControlService;Landroid/hardware/hdmi/IHdmiHotplugEventListener;Landroid/hardware/hdmi/HdmiHotplugEvent;)V
 
-    .line 1696
     monitor-exit v4
 
     goto :goto_0
@@ -166,10 +151,6 @@
 
     throw v3
 
-    .line 1690
-    .end local v0    # "event":Landroid/hardware/hdmi/HdmiHotplugEvent;
-    .end local v1    # "i$":Ljava/util/Iterator;
-    .end local v2    # "port":Landroid/hardware/hdmi/HdmiPortInfo;
     :catchall_1
     move-exception v3
 

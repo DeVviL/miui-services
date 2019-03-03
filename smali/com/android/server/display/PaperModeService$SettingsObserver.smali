@@ -21,16 +21,11 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/PaperModeService;Landroid/os/Handler;)V
     .locals 0
-    .param p2, "handler"    # Landroid/os/Handler;
 
-    .prologue
-    .line 105
     iput-object p1, p0, Lcom/android/server/display/PaperModeService$SettingsObserver;->this$0:Lcom/android/server/display/PaperModeService;
 
-    .line 106
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 107
     return-void
 .end method
 
@@ -38,16 +33,11 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 1
-    .param p1, "selfChange"    # Z
-    .param p2, "uri"    # Landroid/net/Uri;
 
-    .prologue
-    .line 111
     iget-object v0, p0, Lcom/android/server/display/PaperModeService$SettingsObserver;->this$0:Lcom/android/server/display/PaperModeService;
 
     invoke-static {v0}, Lcom/android/server/display/PaperModeService;->access$400(Lcom/android/server/display/PaperModeService;)V
 
-    .line 112
     invoke-static {}, Lcom/android/server/display/PaperModeService;->access$500()Landroid/net/Uri;
 
     move-result-object v0
@@ -58,12 +48,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 113
     iget-object v0, p0, Lcom/android/server/display/PaperModeService$SettingsObserver;->this$0:Lcom/android/server/display/PaperModeService;
 
     invoke-static {v0}, Lcom/android/server/display/PaperModeService;->access$300(Lcom/android/server/display/PaperModeService;)V
 
-    .line 115
     :cond_0
     return-void
 .end method

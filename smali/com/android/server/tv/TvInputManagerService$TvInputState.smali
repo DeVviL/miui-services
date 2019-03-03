@@ -24,11 +24,8 @@
 .method private constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 1701
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1706
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/tv/TvInputManagerService$TvInputState;->state:I
@@ -38,10 +35,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/tv/TvInputManagerService$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/tv/TvInputManagerService$1;
 
-    .prologue
-    .line 1701
     invoke-direct {p0}, Lcom/android/server/tv/TvInputManagerService$TvInputState;-><init>()V
 
     return-void
@@ -49,10 +43,7 @@
 
 .method static synthetic access$1600(Lcom/android/server/tv/TvInputManagerService$TvInputState;)Landroid/media/tv/TvInputInfo;
     .locals 1
-    .param p0, "x0"    # Lcom/android/server/tv/TvInputManagerService$TvInputState;
 
-    .prologue
-    .line 1701
     iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$TvInputState;->info:Landroid/media/tv/TvInputInfo;
 
     return-object v0
@@ -60,11 +51,7 @@
 
 .method static synthetic access$1602(Lcom/android/server/tv/TvInputManagerService$TvInputState;Landroid/media/tv/TvInputInfo;)Landroid/media/tv/TvInputInfo;
     .locals 0
-    .param p0, "x0"    # Lcom/android/server/tv/TvInputManagerService$TvInputState;
-    .param p1, "x1"    # Landroid/media/tv/TvInputInfo;
 
-    .prologue
-    .line 1701
     iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$TvInputState;->info:Landroid/media/tv/TvInputInfo;
 
     return-object p1
@@ -72,10 +59,7 @@
 
 .method static synthetic access$3900(Lcom/android/server/tv/TvInputManagerService$TvInputState;)I
     .locals 1
-    .param p0, "x0"    # Lcom/android/server/tv/TvInputManagerService$TvInputState;
 
-    .prologue
-    .line 1701
     iget v0, p0, Lcom/android/server/tv/TvInputManagerService$TvInputState;->state:I
 
     return v0
@@ -83,11 +67,7 @@
 
 .method static synthetic access$3902(Lcom/android/server/tv/TvInputManagerService$TvInputState;I)I
     .locals 0
-    .param p0, "x0"    # Lcom/android/server/tv/TvInputManagerService$TvInputState;
-    .param p1, "x1"    # I
 
-    .prologue
-    .line 1701
     iput p1, p0, Lcom/android/server/tv/TvInputManagerService$TvInputState;->state:I
 
     return p1
@@ -98,8 +78,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 1710
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

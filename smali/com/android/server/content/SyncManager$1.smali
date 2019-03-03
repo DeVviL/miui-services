@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
 
-    .prologue
-    .line 208
     iput-object p1, p0, Lcom/android/server/content/SyncManager$1;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,19 +33,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     const/4 v2, 0x2
 
-    .line 211
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 212
-    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.DEVICE_STORAGE_LOW"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -56,7 +48,6 @@
 
     if-eqz v1, :cond_2
 
-    .line 213
     const-string v1, "SyncManager"
 
     invoke-static {v1, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -65,14 +56,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 214
     const-string v1, "SyncManager"
 
     const-string v2, "Internal storage is low."
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 216
     :cond_0
     iget-object v1, p0, Lcom/android/server/content/SyncManager$1;->this$0:Lcom/android/server/content/SyncManager;
 
@@ -80,7 +69,6 @@
 
     invoke-static {v1, v2}, Lcom/android/server/content/SyncManager;->access$002(Lcom/android/server/content/SyncManager;Z)Z
 
-    .line 217
     iget-object v1, p0, Lcom/android/server/content/SyncManager$1;->this$0:Lcom/android/server/content/SyncManager;
 
     sget-object v2, Lcom/android/server/content/SyncStorageEngine$EndPoint;->USER_ALL_PROVIDER_ALL_ACCOUNTS_ALL:Lcom/android/server/content/SyncStorageEngine$EndPoint;
@@ -89,12 +77,10 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/android/server/content/SyncManager;->cancelActiveSync(Lcom/android/server/content/SyncStorageEngine$EndPoint;Landroid/os/Bundle;)V
 
-    .line 227
     :cond_1
     :goto_0
     return-void
 
-    .line 220
     :cond_2
     const-string v1, "android.intent.action.DEVICE_STORAGE_OK"
 
@@ -104,7 +90,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 221
     const-string v1, "SyncManager"
 
     invoke-static {v1, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -113,14 +98,12 @@
 
     if-eqz v1, :cond_3
 
-    .line 222
     const-string v1, "SyncManager"
 
     const-string v2, "Internal storage is ok."
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 224
     :cond_3
     iget-object v1, p0, Lcom/android/server/content/SyncManager$1;->this$0:Lcom/android/server/content/SyncManager;
 
@@ -128,7 +111,6 @@
 
     invoke-static {v1, v2}, Lcom/android/server/content/SyncManager;->access$002(Lcom/android/server/content/SyncManager;Z)Z
 
-    .line 225
     iget-object v1, p0, Lcom/android/server/content/SyncManager$1;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-static {v1}, Lcom/android/server/content/SyncManager;->access$100(Lcom/android/server/content/SyncManager;)V

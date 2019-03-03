@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/android/server/HandyMode$RotationWatcher;)V
     .locals 0
 
-    .prologue
-    .line 117
     iput-object p1, p0, Lcom/android/server/HandyMode$RotationWatcher$1;->this$0:Lcom/android/server/HandyMode$RotationWatcher;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,12 +37,9 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 119
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/server/HandyMode;->changeMode(I)V
 
-    .line 120
     return-void
 .end method

@@ -22,8 +22,6 @@
 .method private constructor <init>(Lcom/android/server/media/projection/MediaProjectionManagerService;)V
     .locals 0
 
-    .prologue
-    .line 210
     iput-object p1, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
     invoke-direct {p0}, Landroid/media/projection/IMediaProjectionManager$Stub;-><init>()V
@@ -33,11 +31,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/media/projection/MediaProjectionManagerService;Lcom/android/server/media/projection/MediaProjectionManagerService$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/media/projection/MediaProjectionManagerService;
-    .param p2, "x1"    # Lcom/android/server/media/projection/MediaProjectionManagerService$1;
 
-    .prologue
-    .line 210
     invoke-direct {p0, p1}, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;-><init>(Lcom/android/server/media/projection/MediaProjectionManagerService;)V
 
     return-void
@@ -45,11 +39,7 @@
 
 .method private checkPermission(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 1
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "permission"    # Ljava/lang/String;
 
-    .prologue
-    .line 342
     iget-object v0, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
     invoke-static {v0}, Lcom/android/server/media/projection/MediaProjectionManagerService;->access$500(Lcom/android/server/media/projection/MediaProjectionManagerService;)Landroid/content/Context;
@@ -81,10 +71,7 @@
 # virtual methods
 .method public addCallback(Landroid/media/projection/IMediaProjectionWatcherCallback;)V
     .locals 4
-    .param p1, "callback"    # Landroid/media/projection/IMediaProjectionWatcherCallback;
 
-    .prologue
-    .line 294
     iget-object v2, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
     invoke-static {v2}, Lcom/android/server/media/projection/MediaProjectionManagerService;->access$500(Lcom/android/server/media/projection/MediaProjectionManagerService;)Landroid/content/Context;
@@ -99,7 +86,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 296
     new-instance v2, Ljava/lang/SecurityException;
 
     const-string v3, "Requires MANAGE_MEDIA_PROJECTION in order to add projection callbacks"
@@ -108,14 +94,11 @@
 
     throw v2
 
-    .line 299
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 301
-    .local v0, "token":J
     :try_start_0
     iget-object v2, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
@@ -123,13 +106,10 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 303
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 305
     return-void
 
-    .line 303
     :catchall_0
     move-exception v2
 
@@ -140,13 +120,7 @@
 
 .method public createProjection(ILjava/lang/String;IZ)Landroid/media/projection/IMediaProjection;
     .locals 8
-    .param p1, "uid"    # I
-    .param p2, "packageName"    # Ljava/lang/String;
-    .param p3, "type"    # I
-    .param p4, "isPermanentGrant"    # Z
 
-    .prologue
-    .line 231
     iget-object v3, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
     invoke-static {v3}, Lcom/android/server/media/projection/MediaProjectionManagerService;->access$500(Lcom/android/server/media/projection/MediaProjectionManagerService;)Landroid/content/Context;
@@ -161,7 +135,6 @@
 
     if-eqz v3, :cond_0
 
-    .line 233
     new-instance v3, Ljava/lang/SecurityException;
 
     const-string v4, "Requires MANAGE_MEDIA_PROJECTION in order to grant projection permission"
@@ -170,7 +143,6 @@
 
     throw v3
 
-    .line 236
     :cond_0
     if-eqz p2, :cond_1
 
@@ -180,7 +152,6 @@
 
     if-eqz v3, :cond_2
 
-    .line 237
     :cond_1
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -190,14 +161,11 @@
 
     throw v3
 
-    .line 239
     :cond_2
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 242
-    .local v0, "callingToken":J
     :try_start_0
     new-instance v2, Lcom/android/server/media/projection/MediaProjectionManagerService$MediaProjection;
 
@@ -205,11 +173,8 @@
 
     invoke-direct {v2, v3, p3, p1, p2}, Lcom/android/server/media/projection/MediaProjectionManagerService$MediaProjection;-><init>(Lcom/android/server/media/projection/MediaProjectionManagerService;IILjava/lang/String;)V
 
-    .line 243
-    .local v2, "projection":Lcom/android/server/media/projection/MediaProjectionManagerService$MediaProjection;
     if-eqz p4, :cond_3
 
-    .line 244
     iget-object v3, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
     invoke-static {v3}, Lcom/android/server/media/projection/MediaProjectionManagerService;->access$400(Lcom/android/server/media/projection/MediaProjectionManagerService;)Landroid/app/AppOpsManager;
@@ -228,15 +193,11 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 248
     :cond_3
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 250
     return-object v2
 
-    .line 248
-    .end local v2    # "projection":Lcom/android/server/media/projection/MediaProjectionManagerService$MediaProjection;
     :catchall_0
     move-exception v3
 
@@ -247,12 +208,7 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 4
-    .param p1, "fd"    # Ljava/io/FileDescriptor;
-    .param p2, "pw"    # Ljava/io/PrintWriter;
-    .param p3, "args"    # [Ljava/lang/String;
 
-    .prologue
-    .line 324
     iget-object v2, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
     invoke-static {v2}, Lcom/android/server/media/projection/MediaProjectionManagerService;->access$500(Lcom/android/server/media/projection/MediaProjectionManagerService;)Landroid/content/Context;
@@ -275,7 +231,6 @@
 
     if-eqz v2, :cond_1
 
-    .line 327
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -315,18 +270,14 @@
 
     invoke-virtual {p2, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 338
     :goto_0
     return-void
 
-    .line 332
     :cond_1
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 334
-    .local v0, "token":J
     :try_start_0
     iget-object v2, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
@@ -334,7 +285,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 336
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto :goto_0
@@ -350,8 +300,6 @@
 .method public getActiveProjectionInfo()Landroid/media/projection/MediaProjectionInfo;
     .locals 4
 
-    .prologue
-    .line 261
     iget-object v2, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
     invoke-static {v2}, Lcom/android/server/media/projection/MediaProjectionManagerService;->access$500(Lcom/android/server/media/projection/MediaProjectionManagerService;)Landroid/content/Context;
@@ -366,7 +314,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 263
     new-instance v2, Ljava/lang/SecurityException;
 
     const-string v3, "Requires MANAGE_MEDIA_PROJECTION in order to add projection callbacks"
@@ -375,14 +322,11 @@
 
     throw v2
 
-    .line 266
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 268
-    .local v0, "token":J
     :try_start_0
     iget-object v2, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
@@ -392,7 +336,6 @@
 
     move-result-object v2
 
-    .line 270
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-object v2
@@ -407,21 +350,13 @@
 
 .method public hasProjectionPermission(ILjava/lang/String;)Z
     .locals 5
-    .param p1, "uid"    # I
-    .param p2, "packageName"    # Ljava/lang/String;
 
-    .prologue
-    .line 214
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2
 
-    .line 215
-    .local v2, "token":J
     const/4 v0, 0x0
 
-    .line 217
-    .local v0, "hasPermission":Z
     :try_start_0
     const-string v1, "android.permission.CAPTURE_VIDEO_OUTPUT"
 
@@ -453,19 +388,15 @@
     :goto_0
     or-int/2addr v0, v1
 
-    .line 223
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 225
     return v0
 
-    .line 217
     :cond_1
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 223
     :catchall_0
     move-exception v1
 
@@ -476,10 +407,7 @@
 
 .method public isValidMediaProjection(Landroid/media/projection/IMediaProjection;)Z
     .locals 2
-    .param p1, "projection"    # Landroid/media/projection/IMediaProjection;
 
-    .prologue
-    .line 255
     iget-object v0, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
     invoke-interface {p1}, Landroid/media/projection/IMediaProjection;->asBinder()Landroid/os/IBinder;
@@ -495,10 +423,7 @@
 
 .method public removeCallback(Landroid/media/projection/IMediaProjectionWatcherCallback;)V
     .locals 4
-    .param p1, "callback"    # Landroid/media/projection/IMediaProjectionWatcherCallback;
 
-    .prologue
-    .line 309
     iget-object v2, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
     invoke-static {v2}, Lcom/android/server/media/projection/MediaProjectionManagerService;->access$500(Lcom/android/server/media/projection/MediaProjectionManagerService;)Landroid/content/Context;
@@ -513,7 +438,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 311
     new-instance v2, Ljava/lang/SecurityException;
 
     const-string v3, "Requires MANAGE_MEDIA_PROJECTION in order to remove projection callbacks"
@@ -522,14 +446,11 @@
 
     throw v2
 
-    .line 314
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 316
-    .local v0, "token":J
     :try_start_0
     iget-object v2, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
@@ -537,13 +458,10 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 318
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 320
     return-void
 
-    .line 318
     :catchall_0
     move-exception v2
 
@@ -555,8 +473,6 @@
 .method public stopActiveProjection()V
     .locals 4
 
-    .prologue
-    .line 276
     iget-object v2, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
     invoke-static {v2}, Lcom/android/server/media/projection/MediaProjectionManagerService;->access$500(Lcom/android/server/media/projection/MediaProjectionManagerService;)Landroid/content/Context;
@@ -571,7 +487,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 278
     new-instance v2, Ljava/lang/SecurityException;
 
     const-string v3, "Requires MANAGE_MEDIA_PROJECTION in order to add projection callbacks"
@@ -580,14 +495,11 @@
 
     throw v2
 
-    .line 281
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 283
-    .local v0, "token":J
     :try_start_0
     iget-object v2, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
@@ -597,7 +509,6 @@
 
     if-eqz v2, :cond_1
 
-    .line 284
     iget-object v2, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$BinderService;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
     invoke-static {v2}, Lcom/android/server/media/projection/MediaProjectionManagerService;->access$800(Lcom/android/server/media/projection/MediaProjectionManagerService;)Lcom/android/server/media/projection/MediaProjectionManagerService$MediaProjection;
@@ -608,14 +519,11 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 287
     :cond_1
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 290
     return-void
 
-    .line 287
     :catchall_0
     move-exception v2
 

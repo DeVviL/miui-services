@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/miui/server/PerfShielderService;)V
     .locals 0
 
-    .prologue
-    .line 654
     iput-object p1, p0, Lcom/miui/server/PerfShielderService$4;->this$0:Lcom/miui/server/PerfShielderService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,21 +37,17 @@
 .method public binderDied()V
     .locals 4
 
-    .prologue
-    .line 657
     const-string v0, "PerfShielderService"
 
     const-string v1, "Miui performance service binderDied!"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 658
     iget-object v0, p0, Lcom/miui/server/PerfShielderService$4;->this$0:Lcom/miui/server/PerfShielderService;
 
     const-wide/32 v2, 0x493e0
 
     invoke-static {v0, v2, v3}, Lcom/miui/server/PerfShielderService;->access$1200(Lcom/miui/server/PerfShielderService;J)V
 
-    .line 659
     return-void
 .end method

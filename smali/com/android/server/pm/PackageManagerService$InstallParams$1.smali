@@ -24,8 +24,6 @@
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService$InstallParams;I)V
     .locals 0
 
-    .prologue
-    .line 10263
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$InstallParams$1;->this$1:Lcom/android/server/pm/PackageManagerService$InstallParams;
 
     iput p2, p0, Lcom/android/server/pm/PackageManagerService$InstallParams$1;->val$verificationId:I
@@ -39,11 +37,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 10266
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$InstallParams$1;->this$1:Lcom/android/server/pm/PackageManagerService$InstallParams;
 
     iget-object v1, v1, Lcom/android/server/pm/PackageManagerService$InstallParams;->this$0:Lcom/android/server/pm/PackageManagerService;
@@ -56,13 +50,10 @@
 
     move-result-object v0
 
-    .line 10268
-    .local v0, "msg":Landroid/os/Message;
     iget v1, p0, Lcom/android/server/pm/PackageManagerService$InstallParams$1;->val$verificationId:I
 
     iput v1, v0, Landroid/os/Message;->arg1:I
 
-    .line 10269
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$InstallParams$1;->this$1:Lcom/android/server/pm/PackageManagerService$InstallParams;
 
     iget-object v1, v1, Lcom/android/server/pm/PackageManagerService$InstallParams;->this$0:Lcom/android/server/pm/PackageManagerService;
@@ -79,6 +70,5 @@
 
     invoke-virtual {v1, v0, v2, v3}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 10270
     return-void
 .end method

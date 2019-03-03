@@ -25,8 +25,6 @@
 .method private constructor <init>(Lcom/android/server/display/DisplayManagerService;)V
     .locals 0
 
-    .prologue
-    .line 1056
     iput-object p1, p0, Lcom/android/server/display/DisplayManagerService$DisplayAdapterListener;->this$0:Lcom/android/server/display/DisplayManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +34,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/display/DisplayManagerService;Lcom/android/server/display/DisplayManagerService$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/display/DisplayManagerService;
-    .param p2, "x1"    # Lcom/android/server/display/DisplayManagerService$1;
 
-    .prologue
-    .line 1056
     invoke-direct {p0, p1}, Lcom/android/server/display/DisplayManagerService$DisplayAdapterListener;-><init>(Lcom/android/server/display/DisplayManagerService;)V
 
     return-void
@@ -50,18 +44,12 @@
 # virtual methods
 .method public onDisplayDeviceEvent(Lcom/android/server/display/DisplayDevice;I)V
     .locals 1
-    .param p1, "device"    # Lcom/android/server/display/DisplayDevice;
-    .param p2, "event"    # I
 
-    .prologue
-    .line 1059
     packed-switch p2, :pswitch_data_0
 
-    .line 1072
     :goto_0
     return-void
 
-    .line 1061
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$DisplayAdapterListener;->this$0:Lcom/android/server/display/DisplayManagerService;
 
@@ -69,7 +57,6 @@
 
     goto :goto_0
 
-    .line 1065
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$DisplayAdapterListener;->this$0:Lcom/android/server/display/DisplayManagerService;
 
@@ -77,7 +64,6 @@
 
     goto :goto_0
 
-    .line 1069
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$DisplayAdapterListener;->this$0:Lcom/android/server/display/DisplayManagerService;
 
@@ -85,7 +71,6 @@
 
     goto :goto_0
 
-    .line 1059
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -97,8 +82,6 @@
 .method public onTraversalRequested()V
     .locals 3
 
-    .prologue
-    .line 1076
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$DisplayAdapterListener;->this$0:Lcom/android/server/display/DisplayManagerService;
 
     invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->access$700(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayManagerService$SyncRoot;
@@ -107,7 +90,6 @@
 
     monitor-enter v1
 
-    .line 1077
     :try_start_0
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$DisplayAdapterListener;->this$0:Lcom/android/server/display/DisplayManagerService;
 
@@ -115,13 +97,10 @@
 
     invoke-static {v0, v2}, Lcom/android/server/display/DisplayManagerService;->access$1600(Lcom/android/server/display/DisplayManagerService;Z)V
 
-    .line 1078
     monitor-exit v1
 
-    .line 1079
     return-void
 
-    .line 1078
     :catchall_0
     move-exception v0
 

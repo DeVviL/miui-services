@@ -26,8 +26,6 @@
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;ZLjava/util/Set;)V
     .locals 0
 
-    .prologue
-    .line 14306
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$13;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iput-boolean p2, p0, Lcom/android/server/pm/PackageManagerService$13;->val$reportStatus:Z
@@ -43,23 +41,14 @@
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
     .locals 6
-    .param p1, "intent"    # Landroid/content/Intent;
-    .param p2, "resultCode"    # I
-    .param p3, "data"    # Ljava/lang/String;
-    .param p4, "extras"    # Landroid/os/Bundle;
-    .param p5, "ordered"    # Z
-    .param p6, "sticky"    # Z
-    .param p7, "sendingUser"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/4 v2, 0x1
 
-    .line 14310
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$13;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v3, v1, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
@@ -79,19 +68,14 @@
 
     move-result-object v0
 
-    .line 14312
-    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$13;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
 
     invoke-virtual {v1, v0}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 14313
     return-void
 
-    .line 14310
-    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     const/4 v1, 0x0
 

@@ -40,14 +40,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/VibratorService;Landroid/os/IBinder;JIILjava/lang/String;)V
     .locals 11
-    .param p2, "token"    # Landroid/os/IBinder;
-    .param p3, "millis"    # J
-    .param p5, "usageHint"    # I
-    .param p6, "uid"    # I
-    .param p7, "opPkg"    # Ljava/lang/String;
 
-    .prologue
-    .line 100
     const/4 v6, 0x0
 
     const/4 v7, 0x0
@@ -68,69 +61,42 @@
 
     invoke-direct/range {v1 .. v10}, Lcom/android/server/VibratorService$Vibration;-><init>(Lcom/android/server/VibratorService;Landroid/os/IBinder;J[JIIILjava/lang/String;)V
 
-    .line 101
     return-void
 .end method
 
 .method private constructor <init>(Lcom/android/server/VibratorService;Landroid/os/IBinder;J[JIIILjava/lang/String;)V
     .locals 3
-    .param p2, "token"    # Landroid/os/IBinder;
-    .param p3, "millis"    # J
-    .param p5, "pattern"    # [J
-    .param p6, "repeat"    # I
-    .param p7, "usageHint"    # I
-    .param p8, "uid"    # I
-    .param p9, "opPkg"    # Ljava/lang/String;
 
-    .prologue
-    .line 109
     iput-object p1, p0, Lcom/android/server/VibratorService$Vibration;->this$0:Lcom/android/server/VibratorService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 110
     iput-object p2, p0, Lcom/android/server/VibratorService$Vibration;->mToken:Landroid/os/IBinder;
 
-    .line 111
     iput-wide p3, p0, Lcom/android/server/VibratorService$Vibration;->mTimeout:J
 
-    .line 112
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/server/VibratorService$Vibration;->mStartTime:J
 
-    .line 113
     iput-object p5, p0, Lcom/android/server/VibratorService$Vibration;->mPattern:[J
 
-    .line 114
     iput p6, p0, Lcom/android/server/VibratorService$Vibration;->mRepeat:I
 
-    .line 115
     iput p7, p0, Lcom/android/server/VibratorService$Vibration;->mUsageHint:I
 
-    .line 116
     iput p8, p0, Lcom/android/server/VibratorService$Vibration;->mUid:I
 
-    .line 117
     iput-object p9, p0, Lcom/android/server/VibratorService$Vibration;->mOpPkg:Ljava/lang/String;
 
-    .line 118
     return-void
 .end method
 
 .method constructor <init>(Lcom/android/server/VibratorService;Landroid/os/IBinder;[JIIILjava/lang/String;)V
     .locals 11
-    .param p2, "token"    # Landroid/os/IBinder;
-    .param p3, "pattern"    # [J
-    .param p4, "repeat"    # I
-    .param p5, "usageHint"    # I
-    .param p6, "uid"    # I
-    .param p7, "opPkg"    # Ljava/lang/String;
 
-    .prologue
-    .line 105
     const-wide/16 v4, 0x0
 
     move-object v1, p0
@@ -151,16 +117,12 @@
 
     invoke-direct/range {v1 .. v10}, Lcom/android/server/VibratorService$Vibration;-><init>(Lcom/android/server/VibratorService;Landroid/os/IBinder;J[JIIILjava/lang/String;)V
 
-    .line 106
     return-void
 .end method
 
 .method static synthetic access$1000(Lcom/android/server/VibratorService$Vibration;)[J
     .locals 1
-    .param p0, "x0"    # Lcom/android/server/VibratorService$Vibration;
 
-    .prologue
-    .line 89
     iget-object v0, p0, Lcom/android/server/VibratorService$Vibration;->mPattern:[J
 
     return-object v0
@@ -168,10 +130,7 @@
 
 .method static synthetic access$1300(Lcom/android/server/VibratorService$Vibration;)I
     .locals 1
-    .param p0, "x0"    # Lcom/android/server/VibratorService$Vibration;
 
-    .prologue
-    .line 89
     iget v0, p0, Lcom/android/server/VibratorService$Vibration;->mRepeat:I
 
     return v0
@@ -179,10 +138,7 @@
 
 .method static synthetic access$500(Lcom/android/server/VibratorService$Vibration;)I
     .locals 1
-    .param p0, "x0"    # Lcom/android/server/VibratorService$Vibration;
 
-    .prologue
-    .line 89
     iget v0, p0, Lcom/android/server/VibratorService$Vibration;->mUsageHint:I
 
     return v0
@@ -190,10 +146,7 @@
 
 .method static synthetic access$600(Lcom/android/server/VibratorService$Vibration;)I
     .locals 1
-    .param p0, "x0"    # Lcom/android/server/VibratorService$Vibration;
 
-    .prologue
-    .line 89
     iget v0, p0, Lcom/android/server/VibratorService$Vibration;->mUid:I
 
     return v0
@@ -201,10 +154,7 @@
 
 .method static synthetic access$700(Lcom/android/server/VibratorService$Vibration;)Ljava/lang/String;
     .locals 1
-    .param p0, "x0"    # Lcom/android/server/VibratorService$Vibration;
 
-    .prologue
-    .line 89
     iget-object v0, p0, Lcom/android/server/VibratorService$Vibration;->mOpPkg:Ljava/lang/String;
 
     return-object v0
@@ -212,10 +162,7 @@
 
 .method static synthetic access$800(Lcom/android/server/VibratorService$Vibration;)J
     .locals 2
-    .param p0, "x0"    # Lcom/android/server/VibratorService$Vibration;
 
-    .prologue
-    .line 89
     iget-wide v0, p0, Lcom/android/server/VibratorService$Vibration;->mTimeout:J
 
     return-wide v0
@@ -223,10 +170,7 @@
 
 .method static synthetic access$900(Lcom/android/server/VibratorService$Vibration;)Landroid/os/IBinder;
     .locals 1
-    .param p0, "x0"    # Lcom/android/server/VibratorService$Vibration;
 
-    .prologue
-    .line 89
     iget-object v0, p0, Lcom/android/server/VibratorService$Vibration;->mToken:Landroid/os/IBinder;
 
     return-object v0
@@ -237,8 +181,6 @@
 .method public binderDied()V
     .locals 2
 
-    .prologue
-    .line 121
     iget-object v0, p0, Lcom/android/server/VibratorService$Vibration;->this$0:Lcom/android/server/VibratorService;
 
     invoke-static {v0}, Lcom/android/server/VibratorService;->access$000(Lcom/android/server/VibratorService;)Ljava/util/LinkedList;
@@ -247,7 +189,6 @@
 
     monitor-enter v1
 
-    .line 122
     :try_start_0
     iget-object v0, p0, Lcom/android/server/VibratorService$Vibration;->this$0:Lcom/android/server/VibratorService;
 
@@ -257,7 +198,6 @@
 
     invoke-virtual {v0, p0}, Ljava/util/LinkedList;->remove(Ljava/lang/Object;)Z
 
-    .line 123
     iget-object v0, p0, Lcom/android/server/VibratorService$Vibration;->this$0:Lcom/android/server/VibratorService;
 
     invoke-static {v0}, Lcom/android/server/VibratorService;->access$100(Lcom/android/server/VibratorService;)Lcom/android/server/VibratorService$Vibration;
@@ -266,24 +206,19 @@
 
     if-ne p0, v0, :cond_0
 
-    .line 124
     iget-object v0, p0, Lcom/android/server/VibratorService$Vibration;->this$0:Lcom/android/server/VibratorService;
 
     invoke-static {v0}, Lcom/android/server/VibratorService;->access$200(Lcom/android/server/VibratorService;)V
 
-    .line 125
     iget-object v0, p0, Lcom/android/server/VibratorService$Vibration;->this$0:Lcom/android/server/VibratorService;
 
     invoke-static {v0}, Lcom/android/server/VibratorService;->access$300(Lcom/android/server/VibratorService;)V
 
-    .line 127
     :cond_0
     monitor-exit v1
 
-    .line 128
     return-void
 
-    .line 127
     :catchall_0
     move-exception v0
 
@@ -296,12 +231,9 @@
 
 .method public hasLongerTimeout(J)Z
     .locals 7
-    .param p1, "millis"    # J
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 131
     iget-wide v2, p0, Lcom/android/server/VibratorService$Vibration;->mTimeout:J
 
     const-wide/16 v4, 0x0
@@ -310,12 +242,10 @@
 
     if-nez v1, :cond_1
 
-    .line 142
     :cond_0
     :goto_0
     return v0
 
-    .line 136
     :cond_1
     iget-wide v2, p0, Lcom/android/server/VibratorService$Vibration;->mStartTime:J
 
@@ -333,7 +263,6 @@
 
     if-ltz v1, :cond_0
 
-    .line 142
     const/4 v0, 0x1
 
     goto :goto_0
@@ -342,8 +271,6 @@
 .method public isSystemHapticFeedback()Z
     .locals 2
 
-    .prologue
-    .line 146
     iget v0, p0, Lcom/android/server/VibratorService$Vibration;->mUid:I
 
     const/16 v1, 0x3e8

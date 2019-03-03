@@ -26,20 +26,16 @@
 .method public constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
     .locals 3
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 572
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->this$0:Lcom/android/server/wm/WindowManagerService;
 
-    .line 573
     new-instance v1, Landroid/os/Handler;
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {p0, v1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 566
     const-string v1, "show_ime_with_hard_keyboard"
 
     invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -48,7 +44,6 @@
 
     iput-object v1, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mShowImeWithHardKeyboardUri:Landroid/net/Uri;
 
-    .line 569
     const-string v1, "accessibility_display_inversion_enabled"
 
     invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -57,25 +52,20 @@
 
     iput-object v1, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mDisplayInversionEnabledUri:Landroid/net/Uri;
 
-    .line 574
     iget-object v1, p1, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 575
-    .local v0, "resolver":Landroid/content/ContentResolver;
     iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mShowImeWithHardKeyboardUri:Landroid/net/Uri;
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 576
     iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mDisplayInversionEnabledUri:Landroid/net/Uri;
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 577
     return-void
 .end method
 
@@ -83,11 +73,7 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 1
-    .param p1, "selfChange"    # Z
-    .param p2, "uri"    # Landroid/net/Uri;
 
-    .prologue
-    .line 581
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mShowImeWithHardKeyboardUri:Landroid/net/Uri;
 
     invoke-virtual {v0, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
@@ -96,17 +82,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 582
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->updateShowImeWithHardKeyboard()V
 
-    .line 586
     :cond_0
     :goto_0
     return-void
 
-    .line 583
     :cond_1
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mDisplayInversionEnabledUri:Landroid/net/Uri;
 
@@ -116,7 +99,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 584
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->updateCircularDisplayMaskIfNeeded()V

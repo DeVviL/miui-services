@@ -34,15 +34,12 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 37
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/intel/internal/cellcoex/test/Parser_WIFI_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
 
-    .line 40
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_WIFI_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
 
     const-string v1, ""
@@ -51,7 +48,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 41
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_WIFI_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
 
     const-string v1, "UNKNOWN"
@@ -60,7 +56,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 42
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_WIFI_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
 
     const-string v1, "OFF"
@@ -69,7 +64,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 43
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_WIFI_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
 
     const-string v1, "IDLE"
@@ -78,7 +72,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 44
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_WIFI_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
 
     const-string v1, "ACTIVE_STA_P2P"
@@ -87,7 +80,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 45
     sget-object v0, Lcom/intel/internal/cellcoex/test/Parser_WIFI_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
 
     const-string v1, "ACTIVE_TETHER"
@@ -96,21 +88,16 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 46
     return-void
 .end method
 
 .method public constructor <init>(Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;)V
     .locals 2
-    .param p1, "aICoexPropMgr"    # Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
 
-    .prologue
-    .line 49
     const-string v0, "cws.wifi.state"
 
     invoke-direct {p0, p1, v0}, Lcom/intel/internal/cellcoex/test/Parser_Generic;-><init>(Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;Ljava/lang/String;)V
 
-    .line 32
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -139,7 +126,6 @@
 
     iput-object v0, p0, Lcom/intel/internal/cellcoex/test/Parser_WIFI_STATE;->mClassName:Ljava/lang/String;
 
-    .line 50
     return-void
 .end method
 
@@ -147,20 +133,15 @@
 # virtual methods
 .method public parseIntent(Landroid/content/Intent;)Z
     .locals 6
-    .param p1, "anIntent"    # Landroid/content/Intent;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 54
     const-string v3, "name"
 
     invoke-virtual {p1, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 56
-    .local v0, "propName":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     const-string v3, "cws.wifi.state"
@@ -171,12 +152,10 @@
 
     if-nez v3, :cond_1
 
-    .line 67
     :cond_0
     :goto_0
     return v2
 
-    .line 60
     :cond_1
     const-string v3, "state"
 
@@ -184,8 +163,6 @@
 
     move-result-object v1
 
-    .line 61
-    .local v1, "state":Ljava/lang/String;
     if-eqz v1, :cond_2
 
     sget-object v3, Lcom/intel/internal/cellcoex/test/Parser_WIFI_STATE;->STATE_VALUE_MAP:Ljava/util/Map;
@@ -196,7 +173,6 @@
 
     if-nez v3, :cond_3
 
-    .line 62
     :cond_2
     const-string v3, "CWS_CELLCOEX_MGR"
 
@@ -248,7 +224,6 @@
 
     goto :goto_0
 
-    .line 67
     :cond_3
     sget-object v3, Lcom/intel/internal/cellcoex/test/Parser_WIFI_STATE;->sICoexPropMgr:Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
 

@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/BtCoexMgr;)V
     .locals 0
 
-    .prologue
-    .line 213
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$2;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,11 +33,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 216
     const-string v1, "android.bluetooth.adapter.extra.CONNECTION_STATE"
 
     const/4 v2, -0x1
@@ -48,12 +42,9 @@
 
     move-result v0
 
-    .line 217
-    .local v0, "state":I
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$2;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
     invoke-static {v1, v0}, Lcom/intel/internal/cellcoex/service/BtCoexMgr;->access$300(Lcom/intel/internal/cellcoex/service/BtCoexMgr;I)V
 
-    .line 218
     return-void
 .end method

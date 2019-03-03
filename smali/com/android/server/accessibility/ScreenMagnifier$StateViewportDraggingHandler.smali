@@ -24,8 +24,6 @@
 .method private constructor <init>(Lcom/android/server/accessibility/ScreenMagnifier;)V
     .locals 0
 
-    .prologue
-    .line 574
     iput-object p1, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,11 +33,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/accessibility/ScreenMagnifier;Lcom/android/server/accessibility/ScreenMagnifier$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/accessibility/ScreenMagnifier;
-    .param p2, "x1"    # Lcom/android/server/accessibility/ScreenMagnifier$1;
 
-    .prologue
-    .line 574
     invoke-direct {p0, p1}, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;-><init>(Lcom/android/server/accessibility/ScreenMagnifier;)V
 
     return-void
@@ -47,12 +41,7 @@
 
 .method static synthetic access$600(Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;Landroid/view/MotionEvent;I)V
     .locals 0
-    .param p0, "x0"    # Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;
-    .param p1, "x1"    # Landroid/view/MotionEvent;
-    .param p2, "x2"    # I
 
-    .prologue
-    .line 574
     invoke-direct {p0, p1, p2}, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->onMotionEvent(Landroid/view/MotionEvent;I)V
 
     return-void
@@ -60,29 +49,21 @@
 
 .method private onMotionEvent(Landroid/view/MotionEvent;I)V
     .locals 8
-    .param p1, "event"    # Landroid/view/MotionEvent;
-    .param p2, "policyFlags"    # I
 
-    .prologue
     const/4 v7, 0x0
 
     const/4 v6, 0x1
 
-    .line 578
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
-    .line 579
-    .local v0, "action":I
     packed-switch v0, :pswitch_data_0
 
-    .line 617
     :goto_0
     :pswitch_0
     return-void
 
-    .line 581
     :pswitch_1
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -92,11 +73,9 @@
 
     throw v3
 
-    .line 584
     :pswitch_2
     invoke-virtual {p0}, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->clear()V
 
-    .line 585
     iget-object v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
     const/4 v4, 0x4
@@ -105,7 +84,6 @@
 
     goto :goto_0
 
-    .line 588
     :pswitch_3
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
@@ -113,7 +91,6 @@
 
     if-eq v3, v6, :cond_0
 
-    .line 589
     new-instance v3, Ljava/lang/IllegalStateException;
 
     const-string v4, "Should have one pointer down."
@@ -122,20 +99,15 @@
 
     throw v3
 
-    .line 591
     :cond_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v1
 
-    .line 592
-    .local v1, "eventX":F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v2
 
-    .line 593
-    .local v2, "eventY":F
     iget-object v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
     invoke-static {v3}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1500(Lcom/android/server/accessibility/ScreenMagnifier;)Landroid/graphics/Region;
@@ -152,15 +124,12 @@
 
     if-eqz v3, :cond_2
 
-    .line 594
     iget-boolean v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->mLastMoveOutsideMagnifiedRegion:Z
 
     if-eqz v3, :cond_1
 
-    .line 595
     iput-boolean v7, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->mLastMoveOutsideMagnifiedRegion:Z
 
-    .line 596
     iget-object v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
     invoke-static {v3}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1000(Lcom/android/server/accessibility/ScreenMagnifier;)Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
@@ -171,7 +140,6 @@
 
     goto :goto_0
 
-    .line 599
     :cond_1
     iget-object v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
@@ -183,15 +151,11 @@
 
     goto :goto_0
 
-    .line 603
     :cond_2
     iput-boolean v6, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->mLastMoveOutsideMagnifiedRegion:Z
 
     goto :goto_0
 
-    .line 607
-    .end local v1    # "eventX":F
-    .end local v2    # "eventY":F
     :pswitch_4
     iget-object v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
@@ -201,7 +165,6 @@
 
     if-nez v3, :cond_3
 
-    .line 608
     iget-object v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
     invoke-static {v3}, Lcom/android/server/accessibility/ScreenMagnifier;->access$1000(Lcom/android/server/accessibility/ScreenMagnifier;)Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;
@@ -210,11 +173,9 @@
 
     invoke-virtual {v3, v6}, Lcom/android/server/accessibility/ScreenMagnifier$MagnificationController;->reset(Z)V
 
-    .line 610
     :cond_3
     invoke-virtual {p0}, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->clear()V
 
-    .line 611
     iget-object v3, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->this$0:Lcom/android/server/accessibility/ScreenMagnifier;
 
     const/4 v4, 0x2
@@ -223,7 +184,6 @@
 
     goto :goto_0
 
-    .line 614
     :pswitch_5
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -233,7 +193,6 @@
 
     throw v3
 
-    .line 579
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -251,12 +210,9 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 620
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$StateViewportDraggingHandler;->mLastMoveOutsideMagnifiedRegion:Z
 
-    .line 621
     return-void
 .end method

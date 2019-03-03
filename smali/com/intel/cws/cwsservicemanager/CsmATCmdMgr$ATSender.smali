@@ -22,13 +22,10 @@
 .method public constructor <init>(Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr;)V
     .locals 0
 
-    .prologue
-    .line 117
     iput-object p1, p0, Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr$ATSender;->this$0:Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 118
     return-void
 .end method
 
@@ -36,22 +33,15 @@
 # virtual methods
 .method public SendCmd(Ljava/lang/String;)Ljava/lang/String;
     .locals 11
-    .param p1, "cmd"    # Ljava/lang/String;
 
-    .prologue
-    .line 122
     const-string v4, "ERROR"
 
-    .line 123
-    .local v4, "response":Ljava/lang/String;
     const-wide/16 v8, 0x2
 
     invoke-static {v8, v9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v2
 
-    .line 125
-    .local v2, "TIMEOUT":Ljava/lang/Long;
     iget-object v8, p0, Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr$ATSender;->this$0:Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr;
 
     invoke-static {v8}, Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr;->access$000(Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr;)Lcom/intel/internal/telephony/OemTelephony/IOemTelephony;
@@ -60,7 +50,6 @@
 
     if-nez v8, :cond_1
 
-    .line 126
     invoke-static {}, Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr;->access$100()Z
 
     move-result v8
@@ -76,19 +65,12 @@
     :cond_0
     move-object v5, v4
 
-    .line 165
-    .end local v4    # "response":Ljava/lang/String;
-    .local v5, "response":Ljava/lang/String;
     :goto_0
     return-object v5
 
-    .line 130
-    .end local v5    # "response":Ljava/lang/String;
-    .restart local v4    # "response":Ljava/lang/String;
     :cond_1
     if-nez p1, :cond_3
 
-    .line 131
     invoke-static {}, Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr;->access$100()Z
 
     move-result v8
@@ -104,14 +86,8 @@
     :cond_2
     move-object v5, v4
 
-    .line 132
-    .end local v4    # "response":Ljava/lang/String;
-    .restart local v5    # "response":Ljava/lang/String;
     goto :goto_0
 
-    .line 135
-    .end local v5    # "response":Ljava/lang/String;
-    .restart local v4    # "response":Ljava/lang/String;
     :cond_3
     invoke-static {}, Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr;->access$100()Z
 
@@ -141,12 +117,9 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 137
     :cond_4
     const/4 v6, 0x0
 
-    .line 139
-    .local v6, "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
     :try_start_0
     new-instance v7, Ljava/util/concurrent/FutureTask;
 
@@ -160,9 +133,6 @@
     .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/util/concurrent/TimeoutException; {:try_start_0 .. :try_end_0} :catch_2
 
-    .line 154
-    .end local v6    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
-    .local v7, "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
     :try_start_1
     new-instance v8, Ljava/lang/Thread;
 
@@ -170,7 +140,6 @@
 
     invoke-virtual {v8}, Ljava/lang/Thread;->start()V
 
-    .line 155
     invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v8
@@ -193,9 +162,6 @@
 
     move-object v6, v7
 
-    .line 163
-    .end local v7    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
-    .restart local v6    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
     :goto_1
     invoke-static {}, Lcom/intel/cws/cwsservicemanager/CsmATCmdMgr;->access$100()Z
 
@@ -228,19 +194,11 @@
     :cond_5
     move-object v5, v4
 
-    .line 165
-    .end local v4    # "response":Ljava/lang/String;
-    .restart local v5    # "response":Ljava/lang/String;
     goto :goto_0
 
-    .line 156
-    .end local v5    # "response":Ljava/lang/String;
-    .restart local v4    # "response":Ljava/lang/String;
     :catch_0
     move-exception v3
 
-    .line 157
-    .local v3, "e":Ljava/lang/InterruptedException;
     :goto_2
     const-string v8, "CWS_SERVICE_MGR-ATMgr"
 
@@ -270,13 +228,9 @@
 
     goto :goto_1
 
-    .line 158
-    .end local v3    # "e":Ljava/lang/InterruptedException;
     :catch_1
     move-exception v3
 
-    .line 159
-    .local v3, "e":Ljava/util/concurrent/ExecutionException;
     :goto_3
     const-string v8, "CWS_SERVICE_MGR-ATMgr"
 
@@ -306,13 +260,9 @@
 
     goto :goto_1
 
-    .line 160
-    .end local v3    # "e":Ljava/util/concurrent/ExecutionException;
     :catch_2
     move-exception v3
 
-    .line 161
-    .local v3, "e":Ljava/util/concurrent/TimeoutException;
     :goto_4
     const-string v8, "CWS_SERVICE_MGR-ATMgr"
 
@@ -342,40 +292,24 @@
 
     goto :goto_1
 
-    .line 160
-    .end local v3    # "e":Ljava/util/concurrent/TimeoutException;
-    .end local v6    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
-    .restart local v7    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
     :catch_3
     move-exception v3
 
     move-object v6, v7
 
-    .end local v7    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
-    .restart local v6    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
     goto :goto_4
 
-    .line 158
-    .end local v6    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
-    .restart local v7    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
     :catch_4
     move-exception v3
 
     move-object v6, v7
 
-    .end local v7    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
-    .restart local v6    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
     goto :goto_3
 
-    .line 156
-    .end local v6    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
-    .restart local v7    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
     :catch_5
     move-exception v3
 
     move-object v6, v7
 
-    .end local v7    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
-    .restart local v6    # "timeoutTask":Ljava/util/concurrent/FutureTask;, "Ljava/util/concurrent/FutureTask<Ljava/lang/String;>;"
     goto :goto_2
 .end method

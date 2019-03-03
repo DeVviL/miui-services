@@ -27,18 +27,13 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/restrictions/RestrictionsManagerService;Landroid/content/Context;)V
     .locals 1
-    .param p2, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 79
     iput-object p1, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->this$0:Lcom/android/server/restrictions/RestrictionsManagerService;
 
     invoke-direct {p0}, Landroid/content/IRestrictionsManager$Stub;-><init>()V
 
-    .line 80
     iput-object p2, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mContext:Landroid/content/Context;
 
-    .line 81
     const-string v0, "user"
 
     invoke-static {p1, v0}, Lcom/android/server/restrictions/RestrictionsManagerService;->access$000(Lcom/android/server/restrictions/RestrictionsManagerService;Ljava/lang/String;)Landroid/os/IBinder;
@@ -49,7 +44,6 @@
 
     iput-object v0, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mUm:Landroid/os/IUserManager;
 
-    .line 82
     const-string v0, "device_policy"
 
     invoke-static {p1, v0}, Lcom/android/server/restrictions/RestrictionsManagerService;->access$100(Lcom/android/server/restrictions/RestrictionsManagerService;Ljava/lang/String;)Landroid/os/IBinder;
@@ -60,18 +54,12 @@
 
     iput-object v0, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mDpm:Landroid/app/admin/IDevicePolicyManager;
 
-    .line 83
     return-void
 .end method
 
 .method private enforceCallerMatchesPackage(ILjava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .param p1, "callingUid"    # I
-    .param p2, "packageName"    # Ljava/lang/String;
-    .param p3, "message"    # Ljava/lang/String;
 
-    .prologue
-    .line 205
     :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
@@ -81,18 +69,14 @@
 
     move-result-object v0
 
-    .line 206
-    .local v0, "pkgs":[Ljava/lang/String;
     if-eqz v0, :cond_0
 
-    .line 207
     invoke-static {v0, p2}, Lcom/android/internal/util/ArrayUtils;->contains([Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 208
     new-instance v1, Ljava/lang/SecurityException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -117,12 +101,9 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 211
-    .end local v0    # "pkgs":[Ljava/lang/String;
     :catch_0
     move-exception v1
 
-    .line 214
     :cond_0
     return-void
 .end method
@@ -137,27 +118,20 @@
         }
     .end annotation
 
-    .prologue
     const/4 v7, 0x0
 
-    .line 146
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
     move-result v6
 
-    .line 147
-    .local v6, "userHandle":I
     iget-object v8, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mDpm:Landroid/app/admin/IDevicePolicyManager;
 
     if-eqz v8, :cond_2
 
-    .line 148
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 150
-    .local v0, "ident":J
     :try_start_0
     iget-object v8, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mDpm:Landroid/app/admin/IDevicePolicyManager;
 
@@ -165,11 +139,8 @@
 
     move-result-object v4
 
-    .line 153
-    .local v4, "restrictionsProvider":Landroid/content/ComponentName;
     if-nez v4, :cond_0
 
-    .line 154
     new-instance v7, Ljava/lang/IllegalStateException;
 
     const-string v8, "Cannot request permission without a restrictions provider registered"
@@ -180,8 +151,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 168
-    .end local v4    # "restrictionsProvider":Landroid/content/ComponentName;
     :catchall_0
     move-exception v7
 
@@ -189,27 +158,20 @@
 
     throw v7
 
-    .line 157
-    .restart local v4    # "restrictionsProvider":Landroid/content/ComponentName;
     :cond_0
     :try_start_1
     invoke-virtual {v4}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 158
-    .local v3, "providerPackageName":Ljava/lang/String;
     new-instance v2, Landroid/content/Intent;
 
     const-string v8, "android.content.action.REQUEST_LOCAL_APPROVAL"
 
     invoke-direct {v2, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 159
-    .local v2, "intent":Landroid/content/Intent;
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 160
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v8
@@ -222,8 +184,6 @@
 
     move-result-object v5
 
-    .line 162
-    .local v5, "ri":Landroid/content/pm/ResolveInfo;
     if-eqz v5, :cond_1
 
     iget-object v8, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -236,7 +196,6 @@
 
     if-eqz v8, :cond_1
 
-    .line 163
     new-instance v7, Landroid/content/ComponentName;
 
     iget-object v8, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -253,50 +212,28 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 168
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 171
-    .end local v0    # "ident":J
-    .end local v2    # "intent":Landroid/content/Intent;
-    .end local v3    # "providerPackageName":Ljava/lang/String;
-    .end local v4    # "restrictionsProvider":Landroid/content/ComponentName;
-    .end local v5    # "ri":Landroid/content/pm/ResolveInfo;
     :goto_0
     return-object v2
 
-    .line 168
-    .restart local v0    # "ident":J
-    .restart local v2    # "intent":Landroid/content/Intent;
-    .restart local v3    # "providerPackageName":Ljava/lang/String;
-    .restart local v4    # "restrictionsProvider":Landroid/content/ComponentName;
-    .restart local v5    # "ri":Landroid/content/pm/ResolveInfo;
     :cond_1
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .end local v0    # "ident":J
-    .end local v2    # "intent":Landroid/content/Intent;
-    .end local v3    # "providerPackageName":Ljava/lang/String;
-    .end local v4    # "restrictionsProvider":Landroid/content/ComponentName;
-    .end local v5    # "ri":Landroid/content/pm/ResolveInfo;
     :cond_2
     move-object v2, v7
 
-    .line 171
     goto :goto_0
 .end method
 
 .method public getApplicationRestrictions(Ljava/lang/String;)Landroid/os/Bundle;
     .locals 1
-    .param p1, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 87
     iget-object v0, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mUm:Landroid/os/IUserManager;
 
     invoke-interface {v0, p1}, Landroid/os/IUserManager;->getApplicationRestrictions(Ljava/lang/String;)Landroid/os/Bundle;
@@ -314,27 +251,20 @@
         }
     .end annotation
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 92
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
     move-result v2
 
-    .line 93
-    .local v2, "userHandle":I
     iget-object v4, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mDpm:Landroid/app/admin/IDevicePolicyManager;
 
     if-eqz v4, :cond_1
 
-    .line 94
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 96
-    .local v0, "ident":J
     :try_start_0
     iget-object v4, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mDpm:Landroid/app/admin/IDevicePolicyManager;
 
@@ -348,17 +278,12 @@
 
     const/4 v3, 0x1
 
-    .line 98
     :cond_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 101
-    .end local v0    # "ident":J
     :cond_1
     return v3
 
-    .line 98
-    .restart local v0    # "ident":J
     :catchall_0
     move-exception v3
 
@@ -369,39 +294,28 @@
 
 .method public notifyPermissionResponse(Ljava/lang/String;Landroid/os/PersistableBundle;)V
     .locals 8
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "response"    # Landroid/os/PersistableBundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 178
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
 
-    .line 179
-    .local v0, "callingUid":I
     invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v5
 
-    .line 180
-    .local v5, "userHandle":I
     iget-object v6, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mDpm:Landroid/app/admin/IDevicePolicyManager;
 
     if-eqz v6, :cond_1
 
-    .line 181
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2
 
-    .line 183
-    .local v2, "ident":J
     :try_start_0
     iget-object v6, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mDpm:Landroid/app/admin/IDevicePolicyManager;
 
@@ -409,11 +323,8 @@
 
     move-result-object v1
 
-    .line 184
-    .local v1, "permProvider":Landroid/content/ComponentName;
     if-nez v1, :cond_0
 
-    .line 185
     new-instance v6, Ljava/lang/SecurityException;
 
     const-string v7, "No restrictions provider registered for user"
@@ -424,8 +335,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 197
-    .end local v1    # "permProvider":Landroid/content/ComponentName;
     :catchall_0
     move-exception v6
 
@@ -433,8 +342,6 @@
 
     throw v6
 
-    .line 187
-    .restart local v1    # "permProvider":Landroid/content/ComponentName;
     :cond_0
     :try_start_1
     invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
@@ -445,23 +352,18 @@
 
     invoke-direct {p0, v0, v6, v7}, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->enforceCallerMatchesPackage(ILjava/lang/String;Ljava/lang/String;)V
 
-    .line 191
     new-instance v4, Landroid/content/Intent;
 
     const-string v6, "android.content.action.PERMISSION_RESPONSE_RECEIVED"
 
     invoke-direct {v4, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 193
-    .local v4, "responseIntent":Landroid/content/Intent;
     invoke-virtual {v4, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 194
     const-string v6, "android.content.extra.RESPONSE_BUNDLE"
 
     invoke-virtual {v4, v6, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 195
     iget-object v6, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mContext:Landroid/content/Context;
 
     new-instance v7, Landroid/os/UserHandle;
@@ -472,54 +374,36 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 197
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 200
-    .end local v1    # "permProvider":Landroid/content/ComponentName;
-    .end local v2    # "ident":J
-    .end local v4    # "responseIntent":Landroid/content/Intent;
     :cond_1
     return-void
 .end method
 
 .method public requestPermission(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/PersistableBundle;)V
     .locals 8
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "requestType"    # Ljava/lang/String;
-    .param p3, "requestId"    # Ljava/lang/String;
-    .param p4, "requestData"    # Landroid/os/PersistableBundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 112
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
 
-    .line 113
-    .local v0, "callingUid":I
     invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v5
 
-    .line 114
-    .local v5, "userHandle":I
     iget-object v6, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mDpm:Landroid/app/admin/IDevicePolicyManager;
 
     if-eqz v6, :cond_1
 
-    .line 115
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2
 
-    .line 117
-    .local v2, "ident":J
     :try_start_0
     iget-object v6, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mDpm:Landroid/app/admin/IDevicePolicyManager;
 
@@ -527,11 +411,8 @@
 
     move-result-object v4
 
-    .line 120
-    .local v4, "restrictionsProvider":Landroid/content/ComponentName;
     if-nez v4, :cond_0
 
-    .line 121
     new-instance v6, Ljava/lang/IllegalStateException;
 
     const-string v7, "Cannot request permission without a restrictions provider registered"
@@ -542,8 +423,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 136
-    .end local v4    # "restrictionsProvider":Landroid/content/ComponentName;
     :catchall_0
     move-exception v6
 
@@ -551,46 +430,36 @@
 
     throw v6
 
-    .line 125
-    .restart local v4    # "restrictionsProvider":Landroid/content/ComponentName;
     :cond_0
     :try_start_1
     const-string v6, "Package name does not match caller "
 
     invoke-direct {p0, v0, p1, v6}, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->enforceCallerMatchesPackage(ILjava/lang/String;Ljava/lang/String;)V
 
-    .line 128
     new-instance v1, Landroid/content/Intent;
 
     const-string v6, "android.content.action.REQUEST_PERMISSION"
 
     invoke-direct {v1, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 129
-    .local v1, "intent":Landroid/content/Intent;
     invoke-virtual {v1, v4}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 130
     const-string v6, "android.content.extra.PACKAGE_NAME"
 
     invoke-virtual {v1, v6, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 131
     const-string v6, "android.content.extra.REQUEST_TYPE"
 
     invoke-virtual {v1, v6, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 132
     const-string v6, "android.content.extra.REQUEST_ID"
 
     invoke-virtual {v1, v6, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 133
     const-string v6, "android.content.extra.REQUEST_BUNDLE"
 
     invoke-virtual {v1, v6, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 134
     iget-object v6, p0, Lcom/android/server/restrictions/RestrictionsManagerService$RestrictionsManagerImpl;->mContext:Landroid/content/Context;
 
     new-instance v7, Landroid/os/UserHandle;
@@ -601,13 +470,8 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 136
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 139
-    .end local v1    # "intent":Landroid/content/Intent;
-    .end local v2    # "ident":J
-    .end local v4    # "restrictionsProvider":Landroid/content/ComponentName;
     :cond_1
     return-void
 .end method

@@ -24,8 +24,6 @@
 .method constructor <init>(Lcom/android/server/am/AppErrorDialog;Landroid/content/Context;)V
     .locals 0
 
-    .prologue
-    .line 135
     iput-object p1, p0, Lcom/android/server/am/AppErrorDialog$1;->this$0:Lcom/android/server/am/AppErrorDialog;
 
     iput-object p2, p0, Lcom/android/server/am/AppErrorDialog$1;->val$contextInner:Landroid/content/Context;
@@ -39,10 +37,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
-    .param p1, "widget"    # Landroid/view/View;
 
-    .prologue
-    .line 138
     iget-object v0, p0, Lcom/android/server/am/AppErrorDialog$1;->val$contextInner:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/server/am/AppErrorDialog$1;->this$0:Lcom/android/server/am/AppErrorDialog;
@@ -61,7 +56,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/server/am/MiuiErrorReport;->startFcPreviewActivity(Landroid/content/Context;Ljava/lang/String;Landroid/app/ApplicationErrorReport$CrashInfo;)V
 
-    .line 139
     iget-object v0, p0, Lcom/android/server/am/AppErrorDialog$1;->this$0:Lcom/android/server/am/AppErrorDialog;
 
     invoke-static {v0}, Lcom/android/server/am/AppErrorDialog;->access$100(Lcom/android/server/am/AppErrorDialog;)Lcom/android/server/am/ActivityManagerService;
@@ -70,7 +64,6 @@
 
     monitor-enter v1
 
-    .line 140
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/AppErrorDialog$1;->this$0:Lcom/android/server/am/AppErrorDialog;
 
@@ -92,7 +85,6 @@
 
     if-ne v0, v2, :cond_0
 
-    .line 141
     iget-object v0, p0, Lcom/android/server/am/AppErrorDialog$1;->this$0:Lcom/android/server/am/AppErrorDialog;
 
     invoke-static {v0}, Lcom/android/server/am/AppErrorDialog;->access$000(Lcom/android/server/am/AppErrorDialog;)Lcom/android/server/am/ProcessRecord;
@@ -103,13 +95,11 @@
 
     iput-object v2, v0, Lcom/android/server/am/ProcessRecord;->crashDialog:Landroid/app/Dialog;
 
-    .line 143
     :cond_0
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 144
     iget-object v0, p0, Lcom/android/server/am/AppErrorDialog$1;->this$0:Lcom/android/server/am/AppErrorDialog;
 
     invoke-static {v0}, Lcom/android/server/am/AppErrorDialog;->access$200(Lcom/android/server/am/AppErrorDialog;)Lcom/android/server/am/AppErrorResult;
@@ -120,15 +110,12 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/am/AppErrorResult;->set(I)V
 
-    .line 145
     iget-object v0, p0, Lcom/android/server/am/AppErrorDialog$1;->this$0:Lcom/android/server/am/AppErrorDialog;
 
     invoke-virtual {v0}, Lcom/android/server/am/AppErrorDialog;->dismiss()V
 
-    .line 146
     return-void
 
-    .line 143
     :catchall_0
     move-exception v0
 

@@ -17,10 +17,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/Handler;)V
     .locals 0
-    .param p1, "x0"    # Landroid/os/Handler;
 
-    .prologue
-    .line 301
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
@@ -30,13 +27,9 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 3
-    .param p1, "selfChange"    # Z
 
-    .prologue
-    .line 304
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    .line 305
     invoke-static {}, Lcom/miui/server/XSpaceManagerService;->access$000()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -51,7 +44,6 @@
 
     sput-boolean v0, Lcom/miui/server/XSpaceManagerService;->sIsXSpaceActived:Z
 
-    .line 307
     invoke-static {}, Lcom/miui/server/XSpaceManagerService;->access$100()Ljava/lang/String;
 
     move-result-object v0
@@ -78,6 +70,5 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 308
     return-void
 .end method

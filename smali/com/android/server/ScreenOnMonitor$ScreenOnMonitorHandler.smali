@@ -21,16 +21,11 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/ScreenOnMonitor;Landroid/os/Looper;)V
     .locals 0
-    .param p2, "looper"    # Landroid/os/Looper;
 
-    .prologue
-    .line 140
     iput-object p1, p0, Lcom/android/server/ScreenOnMonitor$ScreenOnMonitorHandler;->this$0:Lcom/android/server/ScreenOnMonitor;
 
-    .line 141
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 142
     return-void
 .end method
 
@@ -38,19 +33,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 6
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 147
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 164
     :goto_0
     return-void
 
-    .line 149
     :pswitch_0
     iget-object v1, p0, Lcom/android/server/ScreenOnMonitor$ScreenOnMonitorHandler;->this$0:Lcom/android/server/ScreenOnMonitor;
 
@@ -62,7 +52,6 @@
 
     goto :goto_0
 
-    .line 152
     :pswitch_1
     iget-object v1, p0, Lcom/android/server/ScreenOnMonitor$ScreenOnMonitorHandler;->this$0:Lcom/android/server/ScreenOnMonitor;
 
@@ -78,7 +67,6 @@
 
     goto :goto_0
 
-    .line 155
     :pswitch_2
     iget-object v1, p0, Lcom/android/server/ScreenOnMonitor$ScreenOnMonitorHandler;->this$0:Lcom/android/server/ScreenOnMonitor;
 
@@ -96,7 +84,6 @@
 
     goto :goto_0
 
-    .line 158
     :pswitch_3
     iget-object v0, p0, Lcom/android/server/ScreenOnMonitor$ScreenOnMonitorHandler;->this$0:Lcom/android/server/ScreenOnMonitor;
 
@@ -104,7 +91,6 @@
 
     goto :goto_0
 
-    .line 161
     :pswitch_4
     iget-object v0, p0, Lcom/android/server/ScreenOnMonitor$ScreenOnMonitorHandler;->this$0:Lcom/android/server/ScreenOnMonitor;
 
@@ -114,7 +100,6 @@
 
     goto :goto_0
 
-    .line 147
     nop
 
     :pswitch_data_0

@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
 
-    .prologue
-    .line 3439
     iput-object p1, p0, Lcom/android/server/content/SyncManager$13;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,17 +33,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 11
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     const-wide/16 v6, 0x0
 
     const/4 v2, -0x1
 
     const/4 v1, 0x0
 
-    .line 3444
     iget-object v0, p0, Lcom/android/server/content/SyncManager$13;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-static {v0, v1}, Lcom/android/server/content/SyncManager;->access$3000(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncOperation;)Z
@@ -54,7 +48,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 3445
     const-string v0, "SyncManager"
 
     const/4 v2, 0x2
@@ -65,14 +58,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 3446
     const-string v0, "SyncManager"
 
     const-string v2, "sync on wifi switch turns on, reschedule all sync"
 
     invoke-static {v0, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3448
     :cond_0
     iget-object v0, p0, Lcom/android/server/content/SyncManager$13;->this$0:Lcom/android/server/content/SyncManager;
 
@@ -80,11 +71,9 @@
 
     invoke-virtual {v0, v2, v1}, Lcom/android/server/content/SyncManager;->cancelActiveSync(Lcom/android/server/content/SyncStorageEngine$EndPoint;Landroid/os/Bundle;)V
 
-    .line 3453
     :goto_0
     return-void
 
-    .line 3450
     :cond_1
     iget-object v0, p0, Lcom/android/server/content/SyncManager$13;->this$0:Lcom/android/server/content/SyncManager;
 

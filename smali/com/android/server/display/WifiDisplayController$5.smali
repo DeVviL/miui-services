@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/display/WifiDisplayController;I)V
     .locals 0
 
-    .prologue
-    .line 417
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayController$5;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     iput p2, p0, Lcom/android/server/display/WifiDisplayController$5;->val$featureState:I
@@ -43,8 +41,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 420
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$5;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->access$700(Lcom/android/server/display/WifiDisplayController;)Lcom/android/server/display/WifiDisplayController$Listener;
@@ -55,6 +51,5 @@
 
     invoke-interface {v0, v1}, Lcom/android/server/display/WifiDisplayController$Listener;->onFeatureStateChanged(I)V
 
-    .line 421
     return-void
 .end method

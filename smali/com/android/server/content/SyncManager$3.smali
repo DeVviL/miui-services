@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
 
-    .prologue
-    .line 237
     iput-object p1, p0, Lcom/android/server/content/SyncManager$3;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,23 +33,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 241
     const-string v0, "SyncManager"
 
     const-string v1, "Account changed. "
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 243
     iget-object v0, p0, Lcom/android/server/content/SyncManager$3;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-virtual {v0}, Lcom/android/server/content/SyncManager;->updateRunningAccounts()V
 
-    .line 250
     iget-object v0, p0, Lcom/android/server/content/SyncManager$3;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-virtual {p0}, Lcom/android/server/content/SyncManager$3;->getSendingUserId()I
@@ -60,6 +52,5 @@
 
     invoke-static {v0, p2, v1}, Lcom/android/server/content/SyncManagerInjector;->scheduleSyncForChangedAccounts(Lcom/android/server/content/SyncManager;Landroid/content/Intent;I)V
 
-    .line 251
     return-void
 .end method

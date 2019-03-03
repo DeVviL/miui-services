@@ -21,15 +21,11 @@
 # direct methods
 .method public constructor <init>(Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;)V
     .locals 2
-    .param p1, "aICoexPropMgr"    # Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
 
-    .prologue
-    .line 35
     const-string v0, "cws.wifi.softap.channel"
 
     invoke-direct {p0, p1, v0}, Lcom/intel/internal/cellcoex/test/Parser_Generic;-><init>(Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;Ljava/lang/String;)V
 
-    .line 29
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -58,7 +54,6 @@
 
     iput-object v0, p0, Lcom/intel/internal/cellcoex/test/Parser_WIFI_SOFTAP_CHANNEL;->mClassName:Ljava/lang/String;
 
-    .line 36
     return-void
 .end method
 
@@ -66,20 +61,15 @@
 # virtual methods
 .method public parseIntent(Landroid/content/Intent;)Z
     .locals 6
-    .param p1, "anIntent"    # Landroid/content/Intent;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 40
     const-string v3, "name"
 
     invoke-virtual {p1, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 42
-    .local v1, "propName":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     const-string v3, "cws.wifi.softap.channel"
@@ -90,12 +80,10 @@
 
     if-nez v3, :cond_1
 
-    .line 53
     :cond_0
     :goto_0
     return v2
 
-    .line 46
     :cond_1
     const-string v3, "channel"
 
@@ -105,8 +93,6 @@
 
     move-result v0
 
-    .line 47
-    .local v0, "channel":I
     const/4 v3, 0x1
 
     if-lt v0, v3, :cond_2
@@ -115,7 +101,6 @@
 
     if-le v0, v3, :cond_3
 
-    .line 48
     :cond_2
     const-string v3, "CWS_CELLCOEX_MGR"
 
@@ -167,7 +152,6 @@
 
     goto :goto_0
 
-    .line 53
     :cond_3
     sget-object v2, Lcom/intel/internal/cellcoex/test/Parser_WIFI_SOFTAP_CHANNEL;->sICoexPropMgr:Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
 

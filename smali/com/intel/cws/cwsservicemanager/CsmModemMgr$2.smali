@@ -24,8 +24,6 @@
 .method constructor <init>(Lcom/intel/cws/cwsservicemanager/CsmModemMgr;)V
     .locals 0
 
-    .prologue
-    .line 218
     iput-object p1, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$2;->this$0:Lcom/intel/cws/cwsservicemanager/CsmModemMgr;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -37,20 +35,15 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     const/16 v4, 0x10
 
-    .line 222
     if-eqz p1, :cond_2
 
-    .line 224
     iget v2, p1, Landroid/os/Message;->what:I
 
     sput v2, Lcom/intel/cws/cwsservicemanager/CsmModemMgr;->mPreviousModemStatus:I
 
-    .line 226
     iget-object v2, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$2;->this$0:Lcom/intel/cws/cwsservicemanager/CsmModemMgr;
 
     invoke-static {v2}, Lcom/intel/cws/cwsservicemanager/CsmModemMgr;->access$600(Lcom/intel/cws/cwsservicemanager/CsmModemMgr;)Lcom/intel/cws/cwsservicemanager/CsmContext;
@@ -59,15 +52,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 227
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 237
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 241
     :cond_0
     :goto_0
     iget-object v2, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$2;->this$0:Lcom/intel/cws/cwsservicemanager/CsmModemMgr;
@@ -80,8 +70,6 @@
 
     move-result v0
 
-    .line 242
-    .local v0, "N":I
     const/4 v2, 0x0
 
     iput v2, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$2;->i:I
@@ -91,18 +79,15 @@
 
     if-ge v2, v0, :cond_1
 
-    .line 244
     :try_start_0
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_1
 
-    .line 254
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 242
     :goto_2
     iget v2, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$2;->i:I
 
@@ -112,8 +97,6 @@
 
     goto :goto_1
 
-    .line 231
-    .end local v0    # "N":I
     :pswitch_0
     iget-object v2, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$2;->this$0:Lcom/intel/cws/cwsservicemanager/CsmModemMgr;
 
@@ -129,7 +112,6 @@
 
     goto :goto_0
 
-    .line 234
     :pswitch_1
     iget-object v2, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$2;->this$0:Lcom/intel/cws/cwsservicemanager/CsmModemMgr;
 
@@ -145,8 +127,6 @@
 
     goto :goto_0
 
-    .line 248
-    .restart local v0    # "N":I
     :pswitch_2
     :try_start_1
     iget-object v2, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$2;->this$0:Lcom/intel/cws/cwsservicemanager/CsmModemMgr;
@@ -171,12 +151,9 @@
 
     goto :goto_2
 
-    .line 256
     :catch_0
     move-exception v1
 
-    .line 257
-    .local v1, "e":Landroid/os/RemoteException;
     iget-object v2, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$2;->this$0:Lcom/intel/cws/cwsservicemanager/CsmModemMgr;
 
     invoke-static {v2}, Lcom/intel/cws/cwsservicemanager/CsmModemMgr;->access$700(Lcom/intel/cws/cwsservicemanager/CsmModemMgr;)Landroid/os/RemoteCallbackList;
@@ -197,7 +174,6 @@
 
     invoke-virtual {v2, v3}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
 
-    .line 258
     const-string v2, "CWS_SERVICE_MGR"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -224,8 +200,6 @@
 
     goto :goto_2
 
-    .line 251
-    .end local v1    # "e":Landroid/os/RemoteException;
     :pswitch_3
     :try_start_2
     iget-object v2, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$2;->this$0:Lcom/intel/cws/cwsservicemanager/CsmModemMgr;
@@ -248,7 +222,6 @@
 
     goto :goto_2
 
-    .line 262
     :cond_1
     iget-object v2, p0, Lcom/intel/cws/cwsservicemanager/CsmModemMgr$2;->this$0:Lcom/intel/cws/cwsservicemanager/CsmModemMgr;
 
@@ -258,12 +231,9 @@
 
     invoke-virtual {v2}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
 
-    .line 264
-    .end local v0    # "N":I
     :cond_2
     return-void
 
-    .line 227
     nop
 
     :pswitch_data_0
@@ -274,7 +244,6 @@
         :pswitch_0
     .end packed-switch
 
-    .line 244
     :pswitch_data_1
     .packed-switch 0x0
         :pswitch_2

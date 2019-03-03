@@ -23,8 +23,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 26
     const-string v0, "CWS_CELLCOEX_MGR"
 
     const/4 v1, 0x3
@@ -40,14 +38,9 @@
 
 .method public constructor <init>(Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;Ljava/lang/String;)V
     .locals 3
-    .param p1, "aICoexPropMgr"    # Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
-    .param p2, "aName"    # Ljava/lang/String;
 
-    .prologue
-    .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -76,12 +69,10 @@
 
     iput-object v0, p0, Lcom/intel/internal/cellcoex/test/Parser_Generic;->mClassName:Ljava/lang/String;
 
-    .line 36
     sget-boolean v0, Lcom/intel/internal/cellcoex/test/Parser_Generic;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
-    .line 37
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -112,14 +103,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 38
     :cond_0
     sput-object p1, Lcom/intel/internal/cellcoex/test/Parser_Generic;->sICoexPropMgr:Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
 
-    .line 39
     iput-object p2, p0, Lcom/intel/internal/cellcoex/test/Parser_Generic;->mName:Ljava/lang/String;
 
-    .line 40
     return-void
 .end method
 
@@ -128,8 +116,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 43
     iget-object v0, p0, Lcom/intel/internal/cellcoex/test/Parser_Generic;->mName:Ljava/lang/String;
 
     return-object v0

@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/android/server/wm/AppTransition;)V
     .locals 0
 
-    .prologue
-    .line 224
     iput-object p1, p0, Lcom/android/server/wm/AppTransition$2;->this$0:Lcom/android/server/wm/AppTransition;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,21 +36,15 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 3
-    .param p1, "input"    # F
 
-    .prologue
     const/high16 v2, 0x3f000000    # 0.5f
 
-    .line 228
     cmpg-float v1, p1, v2
 
     if-gez v1, :cond_0
 
-    .line 229
     div-float v0, p1, v2
 
-    .line 230
-    .local v0, "t":F
     iget-object v1, p0, Lcom/android/server/wm/AppTransition$2;->this$0:Lcom/android/server/wm/AppTransition;
 
     invoke-static {v1}, Lcom/android/server/wm/AppTransition;->access$100(Lcom/android/server/wm/AppTransition;)Landroid/view/animation/Interpolator;
@@ -63,8 +55,6 @@
 
     move-result v1
 
-    .line 232
-    .end local v0    # "t":F
     :goto_0
     return v1
 

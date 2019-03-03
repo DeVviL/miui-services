@@ -17,10 +17,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/Handler;)V
     .locals 0
-    .param p1, "x0"    # Landroid/os/Handler;
 
-    .prologue
-    .line 186
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
@@ -30,12 +27,9 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 3
-    .param p1, "selfChange"    # Z
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 189
     sget-object v1, Lcom/android/server/HandyMode;->sContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -52,13 +46,10 @@
 
     const/4 v0, 0x1
 
-    .line 191
-    .local v0, "citTestEnabled":Z
     :cond_0
     sget-object v1, Lcom/android/server/HandyMode;->sHandyModeInputFilter:Lcom/android/server/MiuiInputFilter;
 
     invoke-virtual {v1, v0}, Lcom/android/server/MiuiInputFilter;->setCitTestEnabled(Z)V
 
-    .line 192
     return-void
 .end method

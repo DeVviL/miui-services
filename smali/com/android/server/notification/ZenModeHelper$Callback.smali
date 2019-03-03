@@ -18,8 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 563
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,15 +28,11 @@
 .method onConfigChanged()V
     .locals 0
 
-    .prologue
-    .line 564
     return-void
 .end method
 
 .method onZenModeChanged()V
     .locals 0
 
-    .prologue
-    .line 565
     return-void
 .end method

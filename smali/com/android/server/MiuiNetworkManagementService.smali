@@ -20,37 +20,25 @@
 # direct methods
 .method private constructor <init>(Landroid/content/Context;Lcom/android/server/NativeDaemonConnector;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "connector"    # Lcom/android/server/NativeDaemonConnector;
 
-    .prologue
-    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
     iput-object p1, p0, Lcom/android/server/MiuiNetworkManagementService;->mContext:Landroid/content/Context;
 
-    .line 33
     iput-object p2, p0, Lcom/android/server/MiuiNetworkManagementService;->mConnector:Lcom/android/server/NativeDaemonConnector;
 
-    .line 34
     return-void
 .end method
 
 .method static Init(Landroid/content/Context;Lcom/android/server/NativeDaemonConnector;)Lcom/android/server/MiuiNetworkManagementService;
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "connector"    # Lcom/android/server/NativeDaemonConnector;
 
-    .prologue
-    .line 23
     new-instance v0, Lcom/android/server/MiuiNetworkManagementService;
 
     invoke-direct {v0, p0, p1}, Lcom/android/server/MiuiNetworkManagementService;-><init>(Landroid/content/Context;Lcom/android/server/NativeDaemonConnector;)V
 
     sput-object v0, Lcom/android/server/MiuiNetworkManagementService;->sInstance:Lcom/android/server/MiuiNetworkManagementService;
 
-    .line 24
     sget-object v0, Lcom/android/server/MiuiNetworkManagementService;->sInstance:Lcom/android/server/MiuiNetworkManagementService;
 
     return-object v0
@@ -59,8 +47,6 @@
 .method public static getInstance()Lcom/android/server/MiuiNetworkManagementService;
     .locals 1
 
-    .prologue
-    .line 28
     sget-object v0, Lcom/android/server/MiuiNetworkManagementService;->sInstance:Lcom/android/server/MiuiNetworkManagementService;
 
     return-object v0
@@ -70,26 +56,19 @@
 # virtual methods
 .method filterExtendEvent(ILjava/lang/String;[Ljava/lang/String;)Z
     .locals 6
-    .param p1, "code"    # I
-    .param p2, "raw"    # Ljava/lang/String;
-    .param p3, "cooked"    # [Ljava/lang/String;
 
-    .prologue
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
-    .line 59
     packed-switch p1, :pswitch_data_0
 
     move v2, v3
 
-    .line 78
     :cond_0
     :goto_0
     return v2
 
-    .line 65
     :pswitch_0
     array-length v4, p3
 
@@ -110,38 +89,29 @@
     :cond_1
     move v2, v3
 
-    .line 66
     goto :goto_0
 
-    .line 69
     :cond_2
     const/4 v3, 0x2
 
     aget-object v1, p3, v3
 
-    .line 70
-    .local v1, "packageName":Ljava/lang/String;
     if-eqz v1, :cond_0
 
-    .line 71
     new-instance v0, Landroid/content/Intent;
 
     const-string v3, "miui.intent.action.FIREWALL"
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 72
-    .local v0, "intent":Landroid/content/Intent;
     const-string v3, "com.miui.securitycenter"
 
     invoke-virtual {v0, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 73
     const-string v3, "pkg"
 
     invoke-virtual {v0, v3, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 74
     iget-object v3, p0, Lcom/android/server/MiuiNetworkManagementService;->mContext:Landroid/content/Context;
 
     sget-object v4, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
@@ -152,7 +122,6 @@
 
     goto :goto_0
 
-    .line 59
     nop
 
     :pswitch_data_0
@@ -163,14 +132,11 @@
 
 .method public setCurrentNetworkState(I)Z
     .locals 8
-    .param p1, "state"    # I
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 48
     iget-object v3, p0, Lcom/android/server/MiuiNetworkManagementService;->mContext:Landroid/content/Context;
 
     const-string v4, "android.permission.CONNECTIVITY_INTERNAL"
@@ -179,7 +145,6 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 50
     :try_start_0
     iget-object v3, p0, Lcom/android/server/MiuiNetworkManagementService;->mConnector:Lcom/android/server/NativeDaemonConnector;
 
@@ -207,16 +172,12 @@
     :try_end_0
     .catch Lcom/android/server/NativeDaemonConnectorException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 55
     :goto_0
     return v1
 
-    .line 51
     :catch_0
     move-exception v0
 
-    .line 52
-    .local v0, "e":Lcom/android/server/NativeDaemonConnectorException;
     const-string v1, "NetworkManagement"
 
     const-string v3, "setCurrentNetworkState"
@@ -225,22 +186,16 @@
 
     move v1, v2
 
-    .line 53
     goto :goto_0
 .end method
 
 .method public setMiuiFirewallRule(Ljava/lang/String;II)Z
     .locals 8
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "rule"    # I
-    .param p3, "type"    # I
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 37
     iget-object v3, p0, Lcom/android/server/MiuiNetworkManagementService;->mContext:Landroid/content/Context;
 
     const-string v4, "android.permission.CONNECTIVITY_INTERNAL"
@@ -249,7 +204,6 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 39
     :try_start_0
     iget-object v3, p0, Lcom/android/server/MiuiNetworkManagementService;->mConnector:Lcom/android/server/NativeDaemonConnector;
 
@@ -289,16 +243,12 @@
     :try_end_0
     .catch Lcom/android/server/NativeDaemonConnectorException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 44
     :goto_0
     return v1
 
-    .line 40
     :catch_0
     move-exception v0
 
-    .line 41
-    .local v0, "e":Lcom/android/server/NativeDaemonConnectorException;
     const-string v1, "NetworkManagement"
 
     const-string v3, "setMiuiFirewallRule"
@@ -307,6 +257,5 @@
 
     move v1, v2
 
-    .line 42
     goto :goto_0
 .end method

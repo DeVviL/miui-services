@@ -26,27 +26,19 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/hdmi/HdmiControlService;Landroid/hardware/hdmi/IHdmiSystemAudioModeChangeListener;)V
     .locals 0
-    .param p2, "listener"    # Landroid/hardware/hdmi/IHdmiSystemAudioModeChangeListener;
 
-    .prologue
-    .line 1123
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$SystemAudioModeChangeListenerRecord;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1124
     iput-object p2, p0, Lcom/android/server/hdmi/HdmiControlService$SystemAudioModeChangeListenerRecord;->mListener:Landroid/hardware/hdmi/IHdmiSystemAudioModeChangeListener;
 
-    .line 1125
     return-void
 .end method
 
 .method static synthetic access$1900(Lcom/android/server/hdmi/HdmiControlService$SystemAudioModeChangeListenerRecord;)Landroid/hardware/hdmi/IHdmiSystemAudioModeChangeListener;
     .locals 1
-    .param p0, "x0"    # Lcom/android/server/hdmi/HdmiControlService$SystemAudioModeChangeListenerRecord;
 
-    .prologue
-    .line 1120
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$SystemAudioModeChangeListenerRecord;->mListener:Landroid/hardware/hdmi/IHdmiSystemAudioModeChangeListener;
 
     return-object v0
@@ -57,8 +49,6 @@
 .method public binderDied()V
     .locals 2
 
-    .prologue
-    .line 1129
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$SystemAudioModeChangeListenerRecord;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
     invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2100(Lcom/android/server/hdmi/HdmiControlService;)Ljava/lang/Object;
@@ -67,7 +57,6 @@
 
     monitor-enter v1
 
-    .line 1130
     :try_start_0
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$SystemAudioModeChangeListenerRecord;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -77,13 +66,10 @@
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 1131
     monitor-exit v1
 
-    .line 1132
     return-void
 
-    .line 1131
     :catchall_0
     move-exception v0
 

@@ -24,13 +24,10 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/WifiCoexMgr;)V
     .locals 1
 
-    .prologue
-    .line 408
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$IdleState;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
 
-    .line 409
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -49,15 +46,12 @@
 .method public enter()V
     .locals 3
 
-    .prologue
-    .line 413
     invoke-static {}, Lcom/intel/internal/cellcoex/service/WifiCoexMgr;->access$200()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 414
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -86,7 +80,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 415
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -127,7 +120,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 416
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -156,7 +148,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 420
     :cond_0
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$IdleState;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
 
@@ -164,41 +155,30 @@
 
     invoke-static {v0, v1}, Lcom/intel/internal/cellcoex/service/WifiCoexMgr;->access$300(Lcom/intel/internal/cellcoex/service/WifiCoexMgr;Lcom/intel/internal/cellcoex/service/props/WifiState$State;)V
 
-    .line 421
     return-void
 .end method
 
 .method public exit()V
     .locals 0
 
-    .prologue
-    .line 448
     return-void
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 3
-    .param p1, "message"    # Landroid/os/Message;
 
-    .prologue
-    .line 425
     const/4 v0, 0x1
 
-    .line 426
-    .local v0, "retVal":Z
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 440
     :pswitch_0
     const/4 v0, 0x0
 
-    .line 443
     :goto_0
     return v0
 
-    .line 429
     :pswitch_1
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$IdleState;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
 
@@ -210,7 +190,6 @@
 
     goto :goto_0
 
-    .line 433
     :pswitch_2
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$IdleState;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
 
@@ -222,7 +201,6 @@
 
     goto :goto_0
 
-    .line 426
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_1

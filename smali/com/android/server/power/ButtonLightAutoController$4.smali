@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/os/Handler;Landroid/content/Context;)V
     .locals 0
-    .param p1, "x0"    # Landroid/os/Handler;
 
-    .prologue
-    .line 155
     iput-object p2, p0, Lcom/android/server/power/ButtonLightAutoController$4;->val$context:Landroid/content/Context;
 
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -36,15 +33,10 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 1
-    .param p1, "selfChange"    # Z
-    .param p2, "uri"    # Landroid/net/Uri;
 
-    .prologue
-    .line 158
     iget-object v0, p0, Lcom/android/server/power/ButtonLightAutoController$4;->val$context:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/server/power/ButtonLightAutoController;->updateButtonLightTimeout(Landroid/content/Context;)V
 
-    .line 159
     return-void
 .end method

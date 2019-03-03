@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/android/server/hdmi/HotplugDetectionAction;)V
     .locals 0
 
-    .prologue
-    .line 129
     iput-object p1, p0, Lcom/android/server/hdmi/HotplugDetectionAction$1;->this$0:Lcom/android/server/hdmi/HotplugDetectionAction;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,15 +46,11 @@
         }
     .end annotation
 
-    .prologue
-    .line 132
-    .local p1, "ackedAddress":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     iget-object v0, p0, Lcom/android/server/hdmi/HotplugDetectionAction$1;->this$0:Lcom/android/server/hdmi/HotplugDetectionAction;
 
     const/4 v1, 0x0
 
     invoke-static {v0, p1, v1}, Lcom/android/server/hdmi/HotplugDetectionAction;->access$000(Lcom/android/server/hdmi/HotplugDetectionAction;Ljava/util/List;Z)V
 
-    .line 133
     return-void
 .end method

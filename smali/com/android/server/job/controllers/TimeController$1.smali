@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/job/controllers/TimeController;)V
     .locals 0
 
-    .prologue
-    .line 261
     iput-object p1, p0, Lcom/android/server/job/controllers/TimeController$1;->this$0:Lcom/android/server/job/controllers/TimeController;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,11 +33,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 269
     const-string v0, "android.content.jobscheduler.JOB_DEADLINE_EXPIRED"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -52,17 +46,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 270
     iget-object v0, p0, Lcom/android/server/job/controllers/TimeController$1;->this$0:Lcom/android/server/job/controllers/TimeController;
 
     invoke-static {v0}, Lcom/android/server/job/controllers/TimeController;->access$000(Lcom/android/server/job/controllers/TimeController;)V
 
-    .line 274
     :cond_0
     :goto_0
     return-void
 
-    .line 271
     :cond_1
     const-string v0, "android.content.jobscheduler.JOB_DELAY_EXPIRED"
 
@@ -76,7 +67,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 272
     iget-object v0, p0, Lcom/android/server/job/controllers/TimeController$1;->this$0:Lcom/android/server/job/controllers/TimeController;
 
     invoke-static {v0}, Lcom/android/server/job/controllers/TimeController;->access$100(Lcom/android/server/job/controllers/TimeController;)V

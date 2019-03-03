@@ -29,8 +29,6 @@
 .method constructor <init>(Lcom/android/server/backup/BackupManagerService;Ljava/lang/String;Ljava/util/HashSet;)V
     .locals 0
 
-    .prologue
-    .line 8267
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$5;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     iput-object p2, p0, Lcom/android/server/backup/BackupManagerService$5;->val$packageName:Ljava/lang/String;
@@ -47,8 +45,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 8269
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$5;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     iget-object v1, p0, Lcom/android/server/backup/BackupManagerService$5;->val$packageName:Ljava/lang/String;
@@ -57,6 +53,5 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/server/backup/BackupManagerService;->access$2200(Lcom/android/server/backup/BackupManagerService;Ljava/lang/String;Ljava/util/HashSet;)V
 
-    .line 8270
     return-void
 .end method

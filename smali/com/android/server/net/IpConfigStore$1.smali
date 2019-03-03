@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/net/IpConfigStore;Landroid/util/SparseArray;)V
     .locals 0
 
-    .prologue
-    .line 166
     iput-object p1, p0, Lcom/android/server/net/IpConfigStore$1;->this$0:Lcom/android/server/net/IpConfigStore;
 
     iput-object p2, p0, Lcom/android/server/net/IpConfigStore$1;->val$networks:Landroid/util/SparseArray;
@@ -42,23 +40,18 @@
 # virtual methods
 .method public onWriteCalled(Ljava/io/DataOutputStream;)V
     .locals 4
-    .param p1, "out"    # Ljava/io/DataOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 168
     const/4 v1, 0x2
 
     invoke-virtual {p1, v1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 169
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/android/server/net/IpConfigStore$1;->val$networks:Landroid/util/SparseArray;
 
@@ -68,7 +61,6 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 170
     iget-object v2, p0, Lcom/android/server/net/IpConfigStore$1;->this$0:Lcom/android/server/net/IpConfigStore;
 
     iget-object v1, p0, Lcom/android/server/net/IpConfigStore$1;->val$networks:Landroid/util/SparseArray;
@@ -87,12 +79,10 @@
 
     invoke-static {v2, p1, v3, v1}, Lcom/android/server/net/IpConfigStore;->access$000(Lcom/android/server/net/IpConfigStore;Ljava/io/DataOutputStream;ILandroid/net/IpConfiguration;)Z
 
-    .line 169
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 172
     :cond_0
     return-void
 .end method

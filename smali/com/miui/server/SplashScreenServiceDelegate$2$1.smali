@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/miui/server/SplashScreenServiceDelegate$2;)V
     .locals 0
 
-    .prologue
-    .line 182
     iput-object p1, p0, Lcom/miui/server/SplashScreenServiceDelegate$2$1;->this$1:Lcom/miui/server/SplashScreenServiceDelegate$2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,8 +37,6 @@
 .method public run()V
     .locals 4
 
-    .prologue
-    .line 185
     iget-object v2, p0, Lcom/miui/server/SplashScreenServiceDelegate$2$1;->this$1:Lcom/miui/server/SplashScreenServiceDelegate$2;
 
     iget-object v2, v2, Lcom/miui/server/SplashScreenServiceDelegate$2;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
@@ -49,11 +45,8 @@
 
     move-result-object v1
 
-    .line 186
-    .local v1, "sss":Lcom/miui/server/ISplashScreenService;
     if-eqz v1, :cond_0
 
-    .line 188
     :try_start_0
     iget-object v2, p0, Lcom/miui/server/SplashScreenServiceDelegate$2$1;->this$1:Lcom/miui/server/SplashScreenServiceDelegate$2;
 
@@ -63,7 +56,6 @@
 
     invoke-static {v2, v3}, Lcom/miui/server/SplashScreenServiceDelegate;->access$300(Lcom/miui/server/SplashScreenServiceDelegate;Ljava/lang/String;)V
 
-    .line 189
     iget-object v2, p0, Lcom/miui/server/SplashScreenServiceDelegate$2$1;->this$1:Lcom/miui/server/SplashScreenServiceDelegate$2;
 
     iget-object v2, v2, Lcom/miui/server/SplashScreenServiceDelegate$2;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;
@@ -76,17 +68,13 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 194
     :cond_0
     :goto_0
     return-void
 
-    .line 190
     :catch_0
     move-exception v0
 
-    .line 191
-    .local v0, "e":Ljava/lang/Exception;
     iget-object v2, p0, Lcom/miui/server/SplashScreenServiceDelegate$2$1;->this$1:Lcom/miui/server/SplashScreenServiceDelegate$2;
 
     iget-object v2, v2, Lcom/miui/server/SplashScreenServiceDelegate$2;->this$0:Lcom/miui/server/SplashScreenServiceDelegate;

@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/LocationManagerService;)V
     .locals 0
 
-    .prologue
-    .line 264
     iput-object p1, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
     invoke-direct {p0}, Landroid/app/AppOpsManager$OnOpChangedInternalListener;-><init>()V
@@ -35,11 +33,7 @@
 # virtual methods
 .method public onOpChanged(ILjava/lang/String;)V
     .locals 4
-    .param p1, "op"    # I
-    .param p2, "packageName"    # Ljava/lang/String;
 
-    .prologue
-    .line 266
     iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
     invoke-static {v2}, Lcom/android/server/LocationManagerService;->access$000(Lcom/android/server/LocationManagerService;)Ljava/lang/Object;
@@ -48,7 +42,6 @@
 
     monitor-enter v3
 
-    .line 267
     :try_start_0
     iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
@@ -64,7 +57,6 @@
 
     move-result-object v0
 
-    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -78,17 +70,12 @@
 
     check-cast v1, Lcom/android/server/LocationManagerService$Receiver;
 
-    .line 268
-    .local v1, "receiver":Lcom/android/server/LocationManagerService$Receiver;
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Lcom/android/server/LocationManagerService$Receiver;->updateMonitoring(Z)V
 
     goto :goto_0
 
-    .line 271
-    .end local v0    # "i$":Ljava/util/Iterator;
-    .end local v1    # "receiver":Lcom/android/server/LocationManagerService$Receiver;
     :catchall_0
     move-exception v2
 
@@ -98,19 +85,15 @@
 
     throw v2
 
-    .line 270
-    .restart local v0    # "i$":Ljava/util/Iterator;
     :cond_0
     :try_start_1
     iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
     invoke-static {v2}, Lcom/android/server/LocationManagerService;->access$200(Lcom/android/server/LocationManagerService;)V
 
-    .line 271
     monitor-exit v3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 272
     return-void
 .end method

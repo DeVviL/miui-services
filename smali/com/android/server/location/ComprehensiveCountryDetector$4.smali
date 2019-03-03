@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/location/ComprehensiveCountryDetector;)V
     .locals 0
 
-    .prologue
-    .line 437
     iput-object p1, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
@@ -35,22 +33,17 @@
 # virtual methods
 .method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
     .locals 2
-    .param p1, "serviceState"    # Landroid/telephony/ServiceState;
 
-    .prologue
     const/4 v1, 0x1
 
-    .line 440
     iget-object v0, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 
     invoke-static {v0}, Lcom/android/server/location/ComprehensiveCountryDetector;->access$308(Lcom/android/server/location/ComprehensiveCountryDetector;)I
 
-    .line 441
     iget-object v0, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 
     invoke-static {v0}, Lcom/android/server/location/ComprehensiveCountryDetector;->access$408(Lcom/android/server/location/ComprehensiveCountryDetector;)I
 
-    .line 443
     iget-object v0, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 
     invoke-static {v0}, Lcom/android/server/location/ComprehensiveCountryDetector;->access$500(Lcom/android/server/location/ComprehensiveCountryDetector;)Z
@@ -59,11 +52,9 @@
 
     if-nez v0, :cond_0
 
-    .line 449
     :goto_0
     return-void
 
-    .line 448
     :cond_0
     iget-object v0, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 

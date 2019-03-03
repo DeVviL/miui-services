@@ -29,14 +29,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;ZZLjava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;)V
     .locals 0
-    .param p2, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
-    .param p3, "x1"    # Landroid/accounts/IAccountManagerResponse;
-    .param p4, "x2"    # Ljava/lang/String;
-    .param p5, "x3"    # Z
-    .param p6, "x4"    # Z
 
-    .prologue
-    .line 1886
     iput-object p1, p0, Lcom/android/server/accounts/AccountManagerService$7;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
     iput-object p7, p0, Lcom/android/server/accounts/AccountManagerService$7;->val$authTokenType:Ljava/lang/String;
@@ -62,8 +55,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1889
     iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$7;->mAuthenticator:Landroid/accounts/IAccountAuthenticator;
 
     iget-object v2, p0, Lcom/android/server/accounts/AccountManagerService$7;->mAccountType:Ljava/lang/String;
@@ -78,16 +69,12 @@
 
     invoke-interface/range {v0 .. v5}, Landroid/accounts/IAccountAuthenticator;->addAccount(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 1891
     return-void
 .end method
 
 .method protected toDebugString(J)Ljava/lang/String;
     .locals 3
-    .param p1, "now"    # J
 
-    .prologue
-    .line 1895
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

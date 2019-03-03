@@ -25,8 +25,6 @@
 .method private constructor <init>(Lcom/miui/server/BackupManagerService;)V
     .locals 0
 
-    .prologue
-    .line 741
     iput-object p1, p0, Lcom/miui/server/BackupManagerService$DeathLinker;->this$0:Lcom/miui/server/BackupManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +34,7 @@
 
 .method synthetic constructor <init>(Lcom/miui/server/BackupManagerService;Lcom/miui/server/BackupManagerService$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/miui/server/BackupManagerService;
-    .param p2, "x1"    # Lcom/miui/server/BackupManagerService$1;
 
-    .prologue
-    .line 741
     invoke-direct {p0, p1}, Lcom/miui/server/BackupManagerService$DeathLinker;-><init>(Lcom/miui/server/BackupManagerService;)V
 
     return-void
@@ -51,20 +45,16 @@
 .method public binderDied()V
     .locals 4
 
-    .prologue
-    .line 744
     iget-object v1, p0, Lcom/miui/server/BackupManagerService$DeathLinker;->this$0:Lcom/miui/server/BackupManagerService;
 
     invoke-static {v1}, Lcom/miui/server/BackupManagerService;->access$900(Lcom/miui/server/BackupManagerService;)V
 
-    .line 745
     iget-object v1, p0, Lcom/miui/server/BackupManagerService$DeathLinker;->this$0:Lcom/miui/server/BackupManagerService;
 
     const/4 v2, -0x1
 
     invoke-static {v1, v2}, Lcom/miui/server/BackupManagerService;->access$1002(Lcom/miui/server/BackupManagerService;I)I
 
-    .line 746
     iget-object v1, p0, Lcom/miui/server/BackupManagerService$DeathLinker;->this$0:Lcom/miui/server/BackupManagerService;
 
     invoke-static {v1}, Lcom/miui/server/BackupManagerService;->access$1200(Lcom/miui/server/BackupManagerService;)Landroid/os/IBinder;
@@ -81,14 +71,12 @@
 
     invoke-interface {v1, v2, v3}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 747
     iget-object v1, p0, Lcom/miui/server/BackupManagerService$DeathLinker;->this$0:Lcom/miui/server/BackupManagerService;
 
     const/4 v2, 0x0
 
     invoke-static {v1, v2}, Lcom/miui/server/BackupManagerService;->access$1202(Lcom/miui/server/BackupManagerService;Landroid/os/IBinder;)Landroid/os/IBinder;
 
-    .line 749
     :try_start_0
     iget-object v1, p0, Lcom/miui/server/BackupManagerService$DeathLinker;->this$0:Lcom/miui/server/BackupManagerService;
 
@@ -96,16 +84,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 753
     :goto_0
     return-void
 
-    .line 750
     :catch_0
     move-exception v0
 
-    .line 751
-    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0

@@ -60,108 +60,90 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 43
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     sput-object v0, Lcom/android/server/AppOpsServiceState;->sCtsIgnore:Ljava/util/HashSet;
 
-    .line 65
     sget-object v0, Lcom/android/server/AppOpsServiceState;->sCtsIgnore:Ljava/util/HashSet;
 
     const-string v1, "android.app.usage.cts"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 66
     sget-object v0, Lcom/android/server/AppOpsServiceState;->sCtsIgnore:Ljava/util/HashSet;
 
     const-string v1, "com.android.cts.usepermission"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 67
     sget-object v0, Lcom/android/server/AppOpsServiceState;->sCtsIgnore:Ljava/util/HashSet;
 
     const-string v1, "com.android.cts.permission"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 68
     sget-object v0, Lcom/android/server/AppOpsServiceState;->sCtsIgnore:Ljava/util/HashSet;
 
     const-string v1, "com.android.cts.netlegacy22.permission"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 69
     sget-object v0, Lcom/android/server/AppOpsServiceState;->sCtsIgnore:Ljava/util/HashSet;
 
     const-string v1, "android.netlegacy22.permission.cts"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 70
     sget-object v0, Lcom/android/server/AppOpsServiceState;->sCtsIgnore:Ljava/util/HashSet;
 
     const-string v1, "android.provider.cts"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 71
     sget-object v0, Lcom/android/server/AppOpsServiceState;->sCtsIgnore:Ljava/util/HashSet;
 
     const-string v1, "android.telephony2.cts"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 72
     sget-object v0, Lcom/android/server/AppOpsServiceState;->sCtsIgnore:Ljava/util/HashSet;
 
     const-string v1, "android.permission.cts"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 73
     sget-object v0, Lcom/android/server/AppOpsServiceState;->sCtsIgnore:Ljava/util/HashSet;
 
     const-string v1, "com.android.cts.writeexternalstorageapp"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 74
     sget-object v0, Lcom/android/server/AppOpsServiceState;->sCtsIgnore:Ljava/util/HashSet;
 
     const-string v1, "com.android.cts.readexternalstorageapp"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 75
     sget-object v0, Lcom/android/server/AppOpsServiceState;->sCtsIgnore:Ljava/util/HashSet;
 
     const-string v1, "com.android.cts.externalstorageapp"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 76
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 3
 
-    .prologue
     const/4 v0, 0x1
 
-    .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 49
     iput v0, p0, Lcom/android/server/AppOpsServiceState;->mDefaultMode:I
 
-    .line 50
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x16
@@ -171,17 +153,14 @@
     :goto_0
     iput-boolean v0, p0, Lcom/android/server/AppOpsServiceState;->mGreaterThanL:Z
 
-    .line 52
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/AppOpsServiceState;->mUidStates:Landroid/util/SparseArray;
 
-    .line 294
     return-void
 
-    .line 50
     :cond_0
     const/4 v0, 0x0
 
@@ -190,10 +169,7 @@
 
 .method static synthetic access$100(Lcom/android/server/AppOpsServiceState;)V
     .locals 0
-    .param p0, "x0"    # Lcom/android/server/AppOpsServiceState;
 
-    .prologue
-    .line 32
     invoke-direct {p0}, Lcom/android/server/AppOpsServiceState;->updatePowerState()V
 
     return-void
@@ -201,10 +177,7 @@
 
 .method static synthetic access$200(Lcom/android/server/AppOpsServiceState;)Landroid/content/Context;
     .locals 1
-    .param p0, "x0"    # Lcom/android/server/AppOpsServiceState;
 
-    .prologue
-    .line 32
     iget-object v0, p0, Lcom/android/server/AppOpsServiceState;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -212,11 +185,7 @@
 
 .method static synthetic access$300(Lcom/android/server/AppOpsServiceState;I)V
     .locals 0
-    .param p0, "x0"    # Lcom/android/server/AppOpsServiceState;
-    .param p1, "x1"    # I
 
-    .prologue
-    .line 32
     invoke-direct {p0, p1}, Lcom/android/server/AppOpsServiceState;->startService(I)V
 
     return-void
@@ -224,13 +193,9 @@
 
 .method private declared-synchronized getUidState(IZ)Lcom/android/server/AppOpsServiceState$UserState;
     .locals 3
-    .param p1, "userHandle"    # I
-    .param p2, "edit"    # Z
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 86
     monitor-enter p0
 
     :try_start_0
@@ -244,31 +209,23 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 87
-    .local v0, "userState":Lcom/android/server/AppOpsServiceState$UserState;
     if-nez v0, :cond_1
 
-    .line 88
     if-nez p2, :cond_0
 
-    .line 94
     :goto_0
     monitor-exit p0
 
     return-object v1
 
-    .line 91
     :cond_0
     :try_start_1
     new-instance v0, Lcom/android/server/AppOpsServiceState$UserState;
 
-    .end local v0    # "userState":Lcom/android/server/AppOpsServiceState$UserState;
     const/4 v1, 0x0
 
     invoke-direct {v0, v1}, Lcom/android/server/AppOpsServiceState$UserState;-><init>(Lcom/android/server/AppOpsServiceState$1;)V
 
-    .line 92
-    .restart local v0    # "userState":Lcom/android/server/AppOpsServiceState$UserState;
     iget-object v1, p0, Lcom/android/server/AppOpsServiceState;->mUidStates:Landroid/util/SparseArray;
 
     invoke-virtual {v1, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
@@ -278,11 +235,8 @@
     :cond_1
     move-object v1, v0
 
-    .line 94
     goto :goto_0
 
-    .line 86
-    .end local v0    # "userState":Lcom/android/server/AppOpsServiceState$UserState;
     :catchall_0
     move-exception v1
 
@@ -293,17 +247,11 @@
 
 .method private inMiuiAllowedBlackList(I)Z
     .locals 2
-    .param p1, "code"    # I
 
-    .prologue
-    .line 148
     const/4 v0, 0x0
 
-    .line 149
-    .local v0, "inList":Z
     sparse-switch p1, :sswitch_data_0
 
-    .line 156
     :goto_0
     iget-boolean v1, p0, Lcom/android/server/AppOpsServiceState;->mGreaterThanL:Z
 
@@ -317,20 +265,16 @@
 
     if-ge p1, v1, :cond_0
 
-    .line 157
     const/4 v0, 0x1
 
-    .line 159
     :cond_0
     return v0
 
-    .line 153
     :sswitch_0
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 149
     :sswitch_data_0
     .sparse-switch
         0x3 -> :sswitch_0
@@ -341,16 +285,11 @@
 
 .method private isSystemApp(IILjava/lang/String;)Z
     .locals 8
-    .param p1, "code"    # I
-    .param p2, "uid"    # I
-    .param p3, "packageName"    # Ljava/lang/String;
 
-    .prologue
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
-    .line 163
     invoke-static {p2}, Landroid/os/UserHandle;->getAppId(I)I
 
     move-result v5
@@ -359,31 +298,25 @@
 
     if-ge v5, v6, :cond_0
 
-    .line 180
     :goto_0
     return v3
 
-    .line 166
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 168
-    .local v0, "identity":J
     :try_start_0
     iget-object v5, p0, Lcom/android/server/AppOpsServiceState;->mIPackageManager:Landroid/content/pm/IPackageManager;
 
     if-nez v5, :cond_1
 
-    .line 169
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v5
 
     iput-object v5, p0, Lcom/android/server/AppOpsServiceState;->mIPackageManager:Landroid/content/pm/IPackageManager;
 
-    .line 171
     :cond_1
     iget-object v5, p0, Lcom/android/server/AppOpsServiceState;->mIPackageManager:Landroid/content/pm/IPackageManager;
 
@@ -397,8 +330,6 @@
 
     move-result-object v2
 
-    .line 172
-    .local v2, "info":Landroid/content/pm/ApplicationInfo;
     if-eqz v2, :cond_2
 
     iget v5, v2, Landroid/content/pm/ApplicationInfo;->flags:I
@@ -410,7 +341,6 @@
 
     if-eqz v5, :cond_2
 
-    .line 178
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto :goto_0
@@ -418,18 +348,14 @@
     :cond_2
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .end local v2    # "info":Landroid/content/pm/ApplicationInfo;
     :goto_1
     move v3, v4
 
-    .line 180
     goto :goto_0
 
-    .line 175
     :catch_0
     move-exception v3
 
-    .line 178
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto :goto_1
@@ -444,10 +370,7 @@
 
 .method private startService(I)V
     .locals 4
-    .param p1, "userId"    # I
 
-    .prologue
-    .line 278
     new-instance v0, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -464,19 +387,16 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 292
     return-void
 .end method
 
 .method private updatePowerState()V
     .locals 4
 
-    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    .line 115
     iget-object v2, p0, Lcom/android/server/AppOpsServiceState;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -494,13 +414,11 @@
     :goto_0
     iput-boolean v0, p0, Lcom/android/server/AppOpsServiceState;->mPowerSaving:Z
 
-    .line 119
     return-void
 
     :cond_0
     move v0, v1
 
-    .line 115
     goto :goto_0
 .end method
 
@@ -508,36 +426,23 @@
 # virtual methods
 .method public allowedToMode(IILjava/lang/String;)I
     .locals 3
-    .param p1, "code"    # I
-    .param p2, "uid"    # I
-    .param p3, "packageName"    # Ljava/lang/String;
 
-    .prologue
-    .line 132
     iget-boolean v0, p0, Lcom/android/server/AppOpsServiceState;->mPowerSaving:Z
 
-    .line 133
-    .local v0, "checkAutoStart":Z
     if-nez v0, :cond_0
 
-    .line 134
     invoke-static {p2}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v1
 
-    .line 135
-    .local v1, "userId":I
     if-eqz v1, :cond_0
 
     const/16 v2, 0x3e7
 
     if-eq v1, v2, :cond_0
 
-    .line 136
     const/4 v0, 0x1
 
-    .line 139
-    .end local v1    # "userId":I
     :cond_0
     if-eqz v0, :cond_1
 
@@ -545,17 +450,14 @@
 
     if-ne p1, v2, :cond_1
 
-    .line 140
     invoke-static {p3}, Landroid/app/AppOpsManagerInjector;->isAutoStartRestriction(Ljava/lang/String;)Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    .line 141
     const/4 v2, 0x1
 
-    .line 144
     :goto_0
     return v2
 
@@ -567,30 +469,19 @@
 
 .method public askOperationLocked(IILjava/lang/String;)I
     .locals 5
-    .param p1, "code"    # I
-    .param p2, "uid"    # I
-    .param p3, "packageName"    # Ljava/lang/String;
 
-    .prologue
-    .line 195
     iget v0, p0, Lcom/android/server/AppOpsServiceState;->mDefaultMode:I
 
-    .line 196
-    .local v0, "result":I
     invoke-static {p2}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v2
 
-    .line 197
-    .local v2, "userId":I
     const/16 v3, 0x3e7
 
     if-ne v2, v3, :cond_0
 
-    .line 198
     const/4 v2, 0x0
 
-    .line 199
     invoke-static {p2}, Landroid/os/UserHandle;->getAppId(I)I
 
     move-result v3
@@ -599,7 +490,6 @@
 
     move-result p2
 
-    .line 201
     :cond_0
     invoke-static {p2}, Landroid/os/UserHandle;->getUserId(I)I
 
@@ -611,15 +501,12 @@
 
     move-result-object v1
 
-    .line 202
-    .local v1, "uidState":Lcom/android/server/AppOpsServiceState$UserState;
     if-eqz v1, :cond_1
 
     iget-object v3, v1, Lcom/android/server/AppOpsServiceState$UserState;->mCallbackBinder:Lcom/android/internal/app/IOpsCallback;
 
     if-eqz v3, :cond_1
 
-    .line 204
     :try_start_0
     iget-object v3, v1, Lcom/android/server/AppOpsServiceState$UserState;->mCallbackBinder:Lcom/android/internal/app/IOpsCallback;
 
@@ -629,12 +516,10 @@
 
     move-result v0
 
-    .line 208
     :cond_1
     :goto_0
     return v0
 
-    .line 205
     :catch_0
     move-exception v3
 
@@ -643,12 +528,7 @@
 
 .method public getSuggestMode(IILjava/lang/String;)I
     .locals 1
-    .param p1, "code"    # I
-    .param p2, "uid"    # I
-    .param p3, "packageName"    # Ljava/lang/String;
 
-    .prologue
-    .line 212
     const/4 v0, -0x1
 
     return v0
@@ -656,15 +536,11 @@
 
 .method public init(Landroid/content/Context;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 79
     iput-object p1, p0, Lcom/android/server/AppOpsServiceState;->mContext:Landroid/content/Context;
 
-    .line 80
     const-string v0, "is_pad"
 
     invoke-static {v0, v1}, Lmiui/util/FeatureParser;->getBoolean(Ljava/lang/String;Z)Z
@@ -673,21 +549,15 @@
 
     if-eqz v0, :cond_0
 
-    .line 81
     iput v1, p0, Lcom/android/server/AppOpsServiceState;->mDefaultMode:I
 
-    .line 83
     :cond_0
     return-void
 .end method
 
 .method public isAppPermissionControlOpen(II)Z
     .locals 3
-    .param p1, "op"    # I
-    .param p2, "uid"    # I
 
-    .prologue
-    .line 184
     sget-object v1, Lcom/android/server/AppOpsService;->sOpInControl:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -704,26 +574,20 @@
 
     if-ne p1, v1, :cond_2
 
-    .line 185
     :cond_0
     const/4 v0, 0x1
 
-    .line 191
     :cond_1
     :goto_0
     return v0
 
-    .line 187
     :cond_2
     const/4 v0, 0x1
 
-    .line 188
-    .local v0, "result":Z
     iget-object v1, p0, Lcom/android/server/AppOpsServiceState;->mSecurityManager:Lmiui/security/SecurityManager;
 
     if-eqz v1, :cond_1
 
-    .line 189
     iget-object v1, p0, Lcom/android/server/AppOpsServiceState;->mSecurityManager:Lmiui/security/SecurityManager;
 
     invoke-static {p2}, Landroid/os/UserHandle;->getUserId(I)I
@@ -739,10 +603,7 @@
 
 .method public isCtsIgnore(Ljava/lang/String;)Z
     .locals 1
-    .param p1, "packageName"    # Ljava/lang/String;
 
-    .prologue
-    .line 274
     sget-object v0, Lcom/android/server/AppOpsServiceState;->sCtsIgnore:Ljava/util/HashSet;
 
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
@@ -754,26 +615,19 @@
 
 .method public isMiuiAllowed(IILjava/lang/String;)Z
     .locals 2
-    .param p1, "code"    # I
-    .param p2, "uid"    # I
-    .param p3, "packageName"    # Ljava/lang/String;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 122
     invoke-direct {p0, p1}, Lcom/android/server/AppOpsServiceState;->inMiuiAllowedBlackList(I)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 128
     :cond_0
     :goto_0
     return v0
 
-    .line 125
     :cond_1
     const/16 v1, 0x32
 
@@ -785,7 +639,6 @@
 
     if-nez v1, :cond_0
 
-    .line 128
     :cond_2
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/AppOpsServiceState;->isSystemApp(IILjava/lang/String;)Z
 
@@ -796,41 +649,27 @@
 
 .method public onAppApplyOperation(ILjava/lang/String;IIZ)V
     .locals 8
-    .param p1, "uid"    # I
-    .param p2, "packageName"    # Ljava/lang/String;
-    .param p3, "op"    # I
-    .param p4, "mode"    # I
-    .param p5, "isStartOperation"    # Z
 
-    .prologue
-    .line 216
     if-nez p4, :cond_1
 
-    .line 217
     sparse-switch p3, :sswitch_data_0
 
-    .line 247
     :cond_0
     :goto_0
     return-void
 
-    .line 235
     :cond_1
     :sswitch_0
     invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v7
 
-    .line 236
-    .local v7, "userId":I
     const/16 v0, 0x3e7
 
     if-ne v7, v0, :cond_2
 
-    .line 237
     const/4 v7, 0x0
 
-    .line 238
     invoke-static {p1}, Landroid/os/UserHandle;->getAppId(I)I
 
     move-result v0
@@ -839,7 +678,6 @@
 
     move-result p1
 
-    .line 240
     :cond_2
     invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
 
@@ -851,15 +689,12 @@
 
     move-result-object v6
 
-    .line 241
-    .local v6, "uidState":Lcom/android/server/AppOpsServiceState$UserState;
     if-eqz v6, :cond_0
 
     iget-object v0, v6, Lcom/android/server/AppOpsServiceState$UserState;->mCallbackBinder:Lcom/android/internal/app/IOpsCallback;
 
     if-eqz v0, :cond_0
 
-    .line 243
     :try_start_0
     iget-object v0, v6, Lcom/android/server/AppOpsServiceState$UserState;->mCallbackBinder:Lcom/android/internal/app/IOpsCallback;
 
@@ -879,13 +714,11 @@
 
     goto :goto_0
 
-    .line 244
     :catch_0
     move-exception v0
 
     goto :goto_0
 
-    .line 217
     nop
 
     :sswitch_data_0
@@ -906,12 +739,9 @@
 
 .method public registerCallback(Lcom/android/internal/app/IOpsCallback;)I
     .locals 8
-    .param p1, "callback"    # Lcom/android/internal/app/IOpsCallback;
 
-    .prologue
     const/4 v2, -0x1
 
-    .line 250
     iget-object v3, p0, Lcom/android/server/AppOpsServiceState;->mContext:Landroid/content/Context;
 
     const-string v4, "android.permission.UPDATE_APP_OPS_STATS"
@@ -928,46 +758,35 @@
 
     invoke-virtual {v3, v4, v5, v6, v7}, Landroid/content/Context;->enforcePermission(Ljava/lang/String;IILjava/lang/String;)V
 
-    .line 253
     if-nez p1, :cond_1
 
-    .line 267
     :cond_0
     :goto_0
     return v2
 
-    .line 256
     :cond_1
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
     move-result v0
 
-    .line 257
-    .local v0, "callingUserId":I
     const/4 v3, 0x1
 
     invoke-direct {p0, v0, v3}, Lcom/android/server/AppOpsServiceState;->getUidState(IZ)Lcom/android/server/AppOpsServiceState$UserState;
 
     move-result-object v1
 
-    .line 259
-    .local v1, "uidState":Lcom/android/server/AppOpsServiceState$UserState;
     if-eqz v1, :cond_0
 
-    .line 262
     iput-object p1, v1, Lcom/android/server/AppOpsServiceState$UserState;->mCallbackBinder:Lcom/android/internal/app/IOpsCallback;
 
-    .line 263
     iget-object v2, v1, Lcom/android/server/AppOpsServiceState$UserState;->mCallback:Lcom/android/server/AppOpsServiceState$Callback;
 
     if-eqz v2, :cond_2
 
-    .line 264
     iget-object v2, v1, Lcom/android/server/AppOpsServiceState$UserState;->mCallback:Lcom/android/server/AppOpsServiceState$Callback;
 
     invoke-virtual {v2}, Lcom/android/server/AppOpsServiceState$Callback;->unlinkToDeath()V
 
-    .line 266
     :cond_2
     new-instance v2, Lcom/android/server/AppOpsServiceState$Callback;
 
@@ -975,7 +794,6 @@
 
     iput-object v2, v1, Lcom/android/server/AppOpsServiceState$UserState;->mCallback:Lcom/android/server/AppOpsServiceState$Callback;
 
-    .line 267
     const/4 v2, 0x0
 
     goto :goto_0
@@ -983,10 +801,7 @@
 
 .method public declared-synchronized removeUser(I)V
     .locals 1
-    .param p1, "userHandle"    # I
 
-    .prologue
-    .line 98
     monitor-enter p0
 
     :try_start_0
@@ -996,12 +811,10 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 99
     monitor-exit p0
 
     return-void
 
-    .line 98
     :catchall_0
     move-exception v0
 
@@ -1013,8 +826,6 @@
 .method public systemReady()V
     .locals 5
 
-    .prologue
-    .line 102
     iget-object v1, p0, Lcom/android/server/AppOpsServiceState;->mContext:Landroid/content/Context;
 
     const-string v2, "security"
@@ -1027,22 +838,18 @@
 
     iput-object v1, p0, Lcom/android/server/AppOpsServiceState;->mSecurityManager:Lmiui/security/SecurityManager;
 
-    .line 103
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/server/AppOpsServiceState;->mIPackageManager:Landroid/content/pm/IPackageManager;
 
-    .line 104
     const-string v1, "POWER_SAVE_MODE_OPEN"
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
-    .line 105
-    .local v0, "uri":Landroid/net/Uri;
     iget-object v1, p0, Lcom/android/server/AppOpsServiceState;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1059,9 +866,7 @@
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 111
     invoke-direct {p0}, Lcom/android/server/AppOpsServiceState;->updatePowerState()V
 
-    .line 112
     return-void
 .end method

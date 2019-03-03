@@ -29,35 +29,23 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/lang/String;JJ)V
     .locals 4
-    .param p2, "packageName"    # Ljava/lang/String;
-    .param p3, "dexOptFlag"    # Ljava/lang/String;
-    .param p4, "timeInMillis"    # J
-    .param p6, "dexOptTime"    # J
 
-    .prologue
-    .line 503
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$UsageInfo;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 504
     iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$UsageInfo;->packageName:Ljava/lang/String;
 
-    .line 505
     iput-object p3, p0, Lcom/android/server/pm/PackageManagerService$UsageInfo;->dexOptFlag:Ljava/lang/String;
 
-    .line 506
     iput-wide p4, p0, Lcom/android/server/pm/PackageManagerService$UsageInfo;->lastPackageUsageTimeInMills:J
 
-    .line 507
     iput-wide p6, p0, Lcom/android/server/pm/PackageManagerService$UsageInfo;->dexOptTime:J
 
-    .line 508
     sget-boolean v0, Lcom/android/server/pm/PackageManagerService;->DEBUG_SELECTIVE:Z
 
     if-eqz v0, :cond_0
 
-    .line 509
     const-string v0, "PackageManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -110,7 +98,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 513
     :cond_0
     return-void
 .end method
@@ -119,35 +106,27 @@
 # virtual methods
 .method public updateUsage(Landroid/content/pm/PackageParser$Package;)V
     .locals 4
-    .param p1, "pkg"    # Landroid/content/pm/PackageParser$Package;
 
-    .prologue
-    .line 516
     iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/server/pm/PackageManagerService$UsageInfo;->packageName:Ljava/lang/String;
 
-    .line 517
     iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->mDexOptFlag:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/server/pm/PackageManagerService$UsageInfo;->dexOptFlag:Ljava/lang/String;
 
-    .line 518
     iget-wide v0, p1, Landroid/content/pm/PackageParser$Package;->mLastPackageUsageTimeInMills:J
 
     iput-wide v0, p0, Lcom/android/server/pm/PackageManagerService$UsageInfo;->lastPackageUsageTimeInMills:J
 
-    .line 519
     iget-wide v0, p1, Landroid/content/pm/PackageParser$Package;->mDexOptTime:J
 
     iput-wide v0, p0, Lcom/android/server/pm/PackageManagerService$UsageInfo;->dexOptTime:J
 
-    .line 520
     sget-boolean v0, Lcom/android/server/pm/PackageManagerService;->DEBUG_SELECTIVE:Z
 
     if-eqz v0, :cond_0
 
-    .line 521
     const-string v0, "PackageManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -208,7 +187,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 525
     :cond_0
     return-void
 .end method

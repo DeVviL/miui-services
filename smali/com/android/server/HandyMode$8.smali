@@ -25,8 +25,6 @@
 .method constructor <init>(I)V
     .locals 0
 
-    .prologue
-    .line 279
     iput p1, p0, Lcom/android/server/HandyMode$8;->val$newMode:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,15 +36,10 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
 
-    .prologue
-    .line 282
     iget v0, p0, Lcom/android/server/HandyMode$8;->val$newMode:I
 
     invoke-static {v0}, Lcom/android/server/HandyMode;->changeMode(I)V
 
-    .line 283
     return-void
 .end method

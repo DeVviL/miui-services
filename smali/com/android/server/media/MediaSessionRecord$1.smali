@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/android/server/media/MediaSessionRecord;)V
     .locals 0
 
-    .prologue
-    .line 724
     iput-object p1, p0, Lcom/android/server/media/MediaSessionRecord$1;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,8 +37,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 727
     iget-object v1, p0, Lcom/android/server/media/MediaSessionRecord$1;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
     invoke-static {v1}, Lcom/android/server/media/MediaSessionRecord;->access$200(Lcom/android/server/media/MediaSessionRecord;)I
@@ -57,8 +53,6 @@
 
     const/4 v0, 0x1
 
-    .line 728
-    .local v0, "needUpdate":Z
     :goto_0
     iget-object v1, p0, Lcom/android/server/media/MediaSessionRecord$1;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -66,20 +60,15 @@
 
     invoke-static {v1, v2}, Lcom/android/server/media/MediaSessionRecord;->access$202(Lcom/android/server/media/MediaSessionRecord;I)I
 
-    .line 729
     if-eqz v0, :cond_0
 
-    .line 730
     iget-object v1, p0, Lcom/android/server/media/MediaSessionRecord$1;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
     invoke-static {v1}, Lcom/android/server/media/MediaSessionRecord;->access$400(Lcom/android/server/media/MediaSessionRecord;)V
 
-    .line 732
     :cond_0
     return-void
 
-    .line 727
-    .end local v0    # "needUpdate":Z
     :cond_1
     const/4 v0, 0x0
 

@@ -38,7 +38,6 @@
 .method static constructor <clinit>()V
     .locals 9
 
-    .prologue
     const/4 v8, 0x3
 
     const/4 v7, 0x4
@@ -49,7 +48,6 @@
 
     const/4 v4, 0x0
 
-    .line 22
     new-instance v0, Lcom/intel/internal/telephony/ModemStatus;
 
     const-string v1, "NONE"
@@ -58,7 +56,6 @@
 
     sput-object v0, Lcom/intel/internal/telephony/ModemStatus;->NONE:Lcom/intel/internal/telephony/ModemStatus;
 
-    .line 23
     new-instance v0, Lcom/intel/internal/telephony/ModemStatus;
 
     const-string v1, "DOWN"
@@ -67,7 +64,6 @@
 
     sput-object v0, Lcom/intel/internal/telephony/ModemStatus;->DOWN:Lcom/intel/internal/telephony/ModemStatus;
 
-    .line 24
     new-instance v0, Lcom/intel/internal/telephony/ModemStatus;
 
     const-string v1, "ON"
@@ -76,7 +72,6 @@
 
     sput-object v0, Lcom/intel/internal/telephony/ModemStatus;->ON:Lcom/intel/internal/telephony/ModemStatus;
 
-    .line 25
     new-instance v0, Lcom/intel/internal/telephony/ModemStatus;
 
     const-string v1, "UP"
@@ -85,7 +80,6 @@
 
     sput-object v0, Lcom/intel/internal/telephony/ModemStatus;->UP:Lcom/intel/internal/telephony/ModemStatus;
 
-    .line 26
     new-instance v0, Lcom/intel/internal/telephony/ModemStatus;
 
     const-string v1, "DEAD"
@@ -96,7 +90,6 @@
 
     sput-object v0, Lcom/intel/internal/telephony/ModemStatus;->DEAD:Lcom/intel/internal/telephony/ModemStatus;
 
-    .line 27
     new-instance v0, Lcom/intel/internal/telephony/ModemStatus;
 
     const-string v1, "ALL"
@@ -109,7 +102,6 @@
 
     sput-object v0, Lcom/intel/internal/telephony/ModemStatus;->ALL:Lcom/intel/internal/telephony/ModemStatus;
 
-    .line 21
     const/4 v0, 0x6
 
     new-array v0, v0, [Lcom/intel/internal/telephony/ModemStatus;
@@ -147,30 +139,22 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
         }
     .end annotation
 
-    .prologue
-    .line 31
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 32
     iput p3, p0, Lcom/intel/internal/telephony/ModemStatus;->value:I
 
-    .line 33
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/intel/internal/telephony/ModemStatus;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 21
     const-class v0, Lcom/intel/internal/telephony/ModemStatus;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -185,8 +169,6 @@
 .method public static values()[Lcom/intel/internal/telephony/ModemStatus;
     .locals 1
 
-    .prologue
-    .line 21
     sget-object v0, Lcom/intel/internal/telephony/ModemStatus;->$VALUES:[Lcom/intel/internal/telephony/ModemStatus;
 
     invoke-virtual {v0}, [Lcom/intel/internal/telephony/ModemStatus;->clone()Ljava/lang/Object;
@@ -203,8 +185,6 @@
 .method public getValue()I
     .locals 1
 
-    .prologue
-    .line 36
     iget v0, p0, Lcom/intel/internal/telephony/ModemStatus;->value:I
 
     return v0

@@ -23,15 +23,11 @@
 # direct methods
 .method public constructor <init>(Landroid/os/Looper;)V
     .locals 1
-    .param p1, "looper"    # Landroid/os/Looper;
 
-    .prologue
-    .line 108
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
 
-    .line 109
     return-void
 .end method
 
@@ -39,35 +35,27 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 113
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 128
     const-string v2, "BroadcastQueueInjector"
 
     const-string v3, "wrong message received of BRReportHandler"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 131
     :cond_0
     :goto_0
     return-void
 
-    .line 116
     :pswitch_0
     :try_start_0
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/content/pm/ParceledListSlice;
 
-    .line 118
-    .local v1, "reportEvents":Landroid/content/pm/ParceledListSlice;, "Landroid/content/pm/ParceledListSlice<Lmiui/mqsas/sdk/event/BroadcastEvent;>;"
     const-string v2, "BroadcastQueueInjector"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -94,7 +82,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 120
     if-eqz v1, :cond_0
 
     invoke-static {}, Lcom/android/server/am/BroadcastQueueInjector;->access$000()Z
@@ -103,7 +90,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 121
     invoke-static {}, Lmiui/mqsas/sdk/MQSEventManagerDelegate;->getInstance()Lmiui/mqsas/sdk/MQSEventManagerDelegate;
 
     move-result-object v2
@@ -114,13 +100,9 @@
 
     goto :goto_0
 
-    .line 123
-    .end local v1    # "reportEvents":Landroid/content/pm/ParceledListSlice;, "Landroid/content/pm/ParceledListSlice<Lmiui/mqsas/sdk/event/BroadcastEvent;>;"
     :catch_0
     move-exception v0
 
-    .line 124
-    .local v0, "e":Ljava/lang/Exception;
     const-string v2, "BroadcastQueueInjector"
 
     const-string v3, "report message record error."
@@ -129,7 +111,6 @@
 
     goto :goto_0
 
-    .line 113
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

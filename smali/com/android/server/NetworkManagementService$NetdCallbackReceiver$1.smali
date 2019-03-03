@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;)V
     .locals 0
 
-    .prologue
-    .line 638
     iput-object p1, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver$1;->this$1:Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,14 +37,11 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 641
     iget-object v0, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver$1;->this$1:Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;
 
     iget-object v0, v0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
     invoke-static {v0}, Lcom/android/server/NetworkManagementService;->access$300(Lcom/android/server/NetworkManagementService;)V
 
-    .line 642
     return-void
 .end method

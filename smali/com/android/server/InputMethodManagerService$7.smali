@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/InputMethodManagerService;Lcom/android/server/InputMethodManagerService$ImeSubtypeListAdapter;)V
     .locals 0
 
-    .prologue
-    .line 2908
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
     iput-object p2, p0, Lcom/android/server/InputMethodManagerService$7;->val$adapter:Lcom/android/server/InputMethodManagerService$ImeSubtypeListAdapter;
@@ -42,18 +40,13 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 5
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
 
-    .prologue
-    .line 2911
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
     iget-object v3, v2, Lcom/android/server/InputMethodManagerService;->mMethodMap:Ljava/util/HashMap;
 
     monitor-enter v3
 
-    .line 2912
     :try_start_0
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
@@ -91,15 +84,12 @@
 
     if-gt v2, p2, :cond_1
 
-    .line 2914
     :cond_0
     monitor-exit v3
 
-    .line 2928
     :goto_0
     return-void
 
-    .line 2916
     :cond_1
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
@@ -109,8 +99,6 @@
 
     aget-object v0, v2, p2
 
-    .line 2917
-    .local v0, "im":Landroid/view/inputmethod/InputMethodInfo;
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->access$1300(Lcom/android/server/InputMethodManagerService;)[I
@@ -119,26 +107,20 @@
 
     aget v1, v2, p2
 
-    .line 2918
-    .local v1, "subtypeId":I
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->val$adapter:Lcom/android/server/InputMethodManagerService$ImeSubtypeListAdapter;
 
     iput p2, v2, Lcom/android/server/InputMethodManagerService$ImeSubtypeListAdapter;->mCheckedItem:I
 
-    .line 2919
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->val$adapter:Lcom/android/server/InputMethodManagerService$ImeSubtypeListAdapter;
 
     invoke-virtual {v2}, Lcom/android/server/InputMethodManagerService$ImeSubtypeListAdapter;->notifyDataSetChanged()V
 
-    .line 2920
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/InputMethodManagerService;->hideInputMethodMenu()V
 
-    .line 2921
     if-eqz v0, :cond_4
 
-    .line 2922
     if-ltz v1, :cond_2
 
     invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeCount()I
@@ -147,11 +129,9 @@
 
     if-lt v1, v2, :cond_3
 
-    .line 2923
     :cond_2
     const/4 v1, -0x1
 
-    .line 2925
     :cond_3
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
@@ -161,14 +141,11 @@
 
     invoke-virtual {v2, v4, v1}, Lcom/android/server/InputMethodManagerService;->setInputMethodLocked(Ljava/lang/String;I)V
 
-    .line 2927
     :cond_4
     monitor-exit v3
 
     goto :goto_0
 
-    .end local v0    # "im":Landroid/view/inputmethod/InputMethodInfo;
-    .end local v1    # "subtypeId":I
     :catchall_0
     move-exception v2
 

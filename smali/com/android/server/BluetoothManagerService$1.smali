@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/BluetoothManagerService;)V
     .locals 0
 
-    .prologue
-    .line 195
     iput-object p1, p0, Lcom/android/server/BluetoothManagerService$1;->this$0:Lcom/android/server/BluetoothManagerService;
 
     invoke-direct {p0}, Landroid/bluetooth/IBluetoothCallback$Stub;-><init>()V
@@ -34,70 +32,16 @@
 
 # virtual methods
 .method public onBluetoothStateChange(II)V
-    .locals 4
-    .param p1, "prevState"    # I
-    .param p2, "newState"    # I
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 198
-    const-string v1, "BluetoothManagerService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "onBluetoothStateChange prev="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, " new="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 199
-    const/16 v1, 0xb
-
-    if-ne p1, v1, :cond_0
-
-    const/16 v1, 0xa
-
-    if-ne p2, v1, :cond_0
-
-    .line 201
     iget-object v1, p0, Lcom/android/server/BluetoothManagerService$1;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2}, Lcom/android/server/BluetoothManagerService;->access$002(Lcom/android/server/BluetoothManagerService;Z)Z
-
-    .line 203
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/BluetoothManagerService$1;->this$0:Lcom/android/server/BluetoothManagerService;
-
-    invoke-static {v1}, Lcom/android/server/BluetoothManagerService;->access$100(Lcom/android/server/BluetoothManagerService;)Lcom/android/server/BluetoothManagerService$BluetoothHandler;
+    invoke-static {v1}, Lcom/android/server/BluetoothManagerService;->access$000(Lcom/android/server/BluetoothManagerService;)Lcom/android/server/BluetoothManagerService$BluetoothHandler;
 
     move-result-object v1
 
@@ -107,16 +51,13 @@
 
     move-result-object v0
 
-    .line 204
-    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Lcom/android/server/BluetoothManagerService$1;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    invoke-static {v1}, Lcom/android/server/BluetoothManagerService;->access$100(Lcom/android/server/BluetoothManagerService;)Lcom/android/server/BluetoothManagerService$BluetoothHandler;
+    invoke-static {v1}, Lcom/android/server/BluetoothManagerService;->access$000(Lcom/android/server/BluetoothManagerService;)Lcom/android/server/BluetoothManagerService$BluetoothHandler;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 205
     return-void
 .end method

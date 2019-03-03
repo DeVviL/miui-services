@@ -21,16 +21,11 @@
 # direct methods
 .method public constructor <init>(Landroid/service/notification/StatusBarNotification;)V
     .locals 0
-    .param p1, "value"    # Landroid/service/notification/StatusBarNotification;
 
-    .prologue
-    .line 3312
     invoke-direct {p0}, Landroid/service/notification/IStatusBarNotificationHolder$Stub;-><init>()V
 
-    .line 3313
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$StatusBarNotificationHolder;->mValue:Landroid/service/notification/StatusBarNotification;
 
-    .line 3314
     return-void
 .end method
 
@@ -39,16 +34,11 @@
 .method public get()Landroid/service/notification/StatusBarNotification;
     .locals 2
 
-    .prologue
-    .line 3319
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$StatusBarNotificationHolder;->mValue:Landroid/service/notification/StatusBarNotification;
 
-    .line 3320
-    .local v0, "value":Landroid/service/notification/StatusBarNotification;
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/server/notification/NotificationManagerService$StatusBarNotificationHolder;->mValue:Landroid/service/notification/StatusBarNotification;
 
-    .line 3321
     return-object v0
 .end method

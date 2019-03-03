@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/pm/PackageInstallerSession;)V
     .locals 0
 
-    .prologue
-    .line 530
     iput-object p1, p0, Lcom/android/server/pm/PackageInstallerSession$2;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
     invoke-direct {p0}, Landroid/content/pm/IPackageInstallObserver2$Stub;-><init>()V
@@ -35,32 +33,21 @@
 # virtual methods
 .method public onPackageInstalled(Ljava/lang/String;ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "basePackageName"    # Ljava/lang/String;
-    .param p2, "returnCode"    # I
-    .param p3, "msg"    # Ljava/lang/String;
-    .param p4, "extras"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 539
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$2;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
     invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$300(Lcom/android/server/pm/PackageInstallerSession;)V
 
-    .line 540
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$2;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
     invoke-static {v0, p2, p3, p4}, Lcom/android/server/pm/PackageInstallerSession;->access$400(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;Landroid/os/Bundle;)V
 
-    .line 541
     return-void
 .end method
 
 .method public onUserActionRequired(Landroid/content/Intent;)V
     .locals 1
-    .param p1, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 533
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V

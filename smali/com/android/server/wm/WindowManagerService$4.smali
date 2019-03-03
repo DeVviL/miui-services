@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
     .locals 0
 
-    .prologue
-    .line 861
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$4;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,17 +36,13 @@
 # virtual methods
 .method public onLowPowerModeChanged(Z)V
     .locals 3
-    .param p1, "enabled"    # Z
 
-    .prologue
-    .line 864
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$4;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v1, v0, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
 
     monitor-enter v1
 
-    .line 865
     :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$4;->this$0:Lcom/android/server/wm/WindowManagerService;
 
@@ -56,26 +50,21 @@
 
     if-eq v0, p1, :cond_0
 
-    .line 866
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$4;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iput-boolean p1, v0, Lcom/android/server/wm/WindowManagerService;->mAnimationsDisabled:Z
 
-    .line 867
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$4;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v2}, Lcom/android/server/wm/WindowManagerService;->dispatchNewAnimatorScaleLocked(Lcom/android/server/wm/Session;)V
 
-    .line 869
     :cond_0
     monitor-exit v1
 
-    .line 870
     return-void
 
-    .line 869
     :catchall_0
     move-exception v0
 

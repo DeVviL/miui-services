@@ -32,32 +32,22 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/backup/BackupManagerService$FullRestoreEngine;Landroid/app/IBackupAgent;Lcom/android/server/backup/BackupManagerService$FileMetadata;Landroid/os/ParcelFileDescriptor;I)V
     .locals 1
-    .param p2, "agent"    # Landroid/app/IBackupAgent;
-    .param p3, "info"    # Lcom/android/server/backup/BackupManagerService$FileMetadata;
-    .param p4, "socket"    # Landroid/os/ParcelFileDescriptor;
-    .param p5, "token"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 4420
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$FullRestoreEngine$RestoreFileRunnable;->this$1:Lcom/android/server/backup/BackupManagerService$FullRestoreEngine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4421
     iput-object p2, p0, Lcom/android/server/backup/BackupManagerService$FullRestoreEngine$RestoreFileRunnable;->mAgent:Landroid/app/IBackupAgent;
 
-    .line 4422
     iput-object p3, p0, Lcom/android/server/backup/BackupManagerService$FullRestoreEngine$RestoreFileRunnable;->mInfo:Lcom/android/server/backup/BackupManagerService$FileMetadata;
 
-    .line 4423
     iput p5, p0, Lcom/android/server/backup/BackupManagerService$FullRestoreEngine$RestoreFileRunnable;->mToken:I
 
-    .line 4430
     invoke-virtual {p4}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v0
@@ -68,7 +58,6 @@
 
     iput-object v0, p0, Lcom/android/server/backup/BackupManagerService$FullRestoreEngine$RestoreFileRunnable;->mSocket:Landroid/os/ParcelFileDescriptor;
 
-    .line 4431
     return-void
 .end method
 
@@ -77,8 +66,6 @@
 .method public run()V
     .locals 14
 
-    .prologue
-    .line 4436
     :try_start_0
     iget-object v1, p0, Lcom/android/server/backup/BackupManagerService$FullRestoreEngine$RestoreFileRunnable;->mAgent:Landroid/app/IBackupAgent;
 
@@ -120,11 +107,9 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 4442
     :goto_0
     return-void
 
-    .line 4439
     :catch_0
     move-exception v0
 

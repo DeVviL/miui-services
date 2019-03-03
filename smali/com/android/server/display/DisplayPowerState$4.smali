@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/android/server/display/DisplayPowerState;)V
     .locals 0
 
-    .prologue
-    .line 327
     iput-object p1, p0, Lcom/android/server/display/DisplayPowerState$4;->this$0:Lcom/android/server/display/DisplayPowerState;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,15 +37,12 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 330
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerState$4;->this$0:Lcom/android/server/display/DisplayPowerState;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/android/server/display/DisplayPowerState;->access$902(Lcom/android/server/display/DisplayPowerState;Z)Z
 
-    .line 332
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerState$4;->this$0:Lcom/android/server/display/DisplayPowerState;
 
     invoke-static {v0}, Lcom/android/server/display/DisplayPowerState;->access$1000(Lcom/android/server/display/DisplayPowerState;)Z
@@ -56,7 +51,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 333
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerState$4;->this$0:Lcom/android/server/display/DisplayPowerState;
 
     invoke-static {v0}, Lcom/android/server/display/DisplayPowerState;->access$1100(Lcom/android/server/display/DisplayPowerState;)Lcom/android/server/display/ColorFade;
@@ -71,7 +65,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/display/ColorFade;->draw(F)Z
 
-    .line 336
     :cond_0
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerState$4;->this$0:Lcom/android/server/display/DisplayPowerState;
 
@@ -79,11 +72,9 @@
 
     invoke-static {v0, v1}, Lcom/android/server/display/DisplayPowerState;->access$1202(Lcom/android/server/display/DisplayPowerState;Z)Z
 
-    .line 337
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerState$4;->this$0:Lcom/android/server/display/DisplayPowerState;
 
     invoke-static {v0}, Lcom/android/server/display/DisplayPowerState;->access$800(Lcom/android/server/display/DisplayPowerState;)V
 
-    .line 338
     return-void
 .end method

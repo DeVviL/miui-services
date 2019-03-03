@@ -17,10 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/String;
 
-    .prologue
-    .line 59
     invoke-direct {p0, p1}, Lcom/android/server/firewall/FilterFactory;-><init>(Ljava/lang/String;)V
 
     return-void
@@ -30,7 +27,6 @@
 # virtual methods
 .method public newFilter(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/Filter;
     .locals 4
-    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -38,21 +34,16 @@
         }
     .end annotation
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 63
     const-string v1, "name"
 
     invoke-interface {p1, v3, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 65
-    .local v0, "packageName":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 66
     new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
 
     const-string v2, "A package name must be specified."
@@ -61,7 +52,6 @@
 
     throw v1
 
-    .line 70
     :cond_0
     new-instance v1, Lcom/android/server/firewall/SenderPackageFilter;
 

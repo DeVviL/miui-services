@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/dreams/DreamController$DreamRecord;Landroid/os/IBinder;)V
     .locals 0
 
-    .prologue
-    .line 299
     iput-object p1, p0, Lcom/android/server/dreams/DreamController$DreamRecord$2;->this$1:Lcom/android/server/dreams/DreamController$DreamRecord;
 
     iput-object p2, p0, Lcom/android/server/dreams/DreamController$DreamRecord$2;->val$service:Landroid/os/IBinder;
@@ -43,15 +41,12 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 302
     iget-object v0, p0, Lcom/android/server/dreams/DreamController$DreamRecord$2;->this$1:Lcom/android/server/dreams/DreamController$DreamRecord;
 
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Lcom/android/server/dreams/DreamController$DreamRecord;->mConnected:Z
 
-    .line 303
     iget-object v0, p0, Lcom/android/server/dreams/DreamController$DreamRecord$2;->this$1:Lcom/android/server/dreams/DreamController$DreamRecord;
 
     iget-object v0, v0, Lcom/android/server/dreams/DreamController$DreamRecord;->this$0:Lcom/android/server/dreams/DreamController;
@@ -70,7 +65,6 @@
 
     if-nez v0, :cond_0
 
-    .line 304
     iget-object v0, p0, Lcom/android/server/dreams/DreamController$DreamRecord$2;->this$1:Lcom/android/server/dreams/DreamController$DreamRecord;
 
     iget-object v0, v0, Lcom/android/server/dreams/DreamController$DreamRecord;->this$0:Lcom/android/server/dreams/DreamController;
@@ -83,7 +77,6 @@
 
     invoke-static {v0, v1}, Lcom/android/server/dreams/DreamController;->access$300(Lcom/android/server/dreams/DreamController;Landroid/service/dreams/IDreamService;)V
 
-    .line 306
     :cond_0
     return-void
 .end method

@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;)V
     .locals 0
 
-    .prologue
-    .line 331
     iput-object p1, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$2;->this$1:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,11 +33,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 334
     const-string v1, "android.intent.extra.user_handle"
 
     const/4 v2, -0x1
@@ -48,8 +42,6 @@
 
     move-result v0
 
-    .line 335
-    .local v0, "userId":I
     iget-object v1, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$2;->this$1:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
     iget-object v1, v1, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->this$0:Lcom/android/server/usb/UsbDeviceManager;
@@ -68,6 +60,5 @@
 
     invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
-    .line 336
     return-void
 .end method

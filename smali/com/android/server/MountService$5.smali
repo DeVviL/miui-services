@@ -23,10 +23,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p2, "x0"    # Ljava/lang/String;
 
-    .prologue
-    .line 1291
     iput-object p1, p0, Lcom/android/server/MountService$5;->this$0:Lcom/android/server/MountService;
 
     iput-object p3, p0, Lcom/android/server/MountService$5;->val$path:Ljava/lang/String;
@@ -41,8 +38,6 @@
 .method public run()V
     .locals 7
 
-    .prologue
-    .line 1296
     :try_start_0
     const-string v2, "MountService"
 
@@ -50,7 +45,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1297
     iget-object v2, p0, Lcom/android/server/MountService$5;->this$0:Lcom/android/server/MountService;
 
     iget-object v3, p0, Lcom/android/server/MountService$5;->val$path:Ljava/lang/String;
@@ -61,7 +55,6 @@
 
     invoke-static {v2, v3, v4, v5}, Lcom/android/server/MountService;->access$200(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 1298
     iget-object v2, p0, Lcom/android/server/MountService$5;->this$0:Lcom/android/server/MountService;
 
     iget-object v3, p0, Lcom/android/server/MountService$5;->val$path:Ljava/lang/String;
@@ -70,10 +63,8 @@
 
     move-result v1
 
-    .local v1, "rc":I
     if-eqz v1, :cond_0
 
-    .line 1299
     const-string v2, "MountService"
 
     const-string v3, "Failed to remount {%s} on UMS enabled-disconnect (%d)"
@@ -104,18 +95,13 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1306
-    .end local v1    # "rc":I
     :cond_0
     :goto_0
     return-void
 
-    .line 1303
     :catch_0
     move-exception v0
 
-    .line 1304
-    .local v0, "ex":Ljava/lang/Exception;
     const-string v2, "MountService"
 
     const-string v3, "Failed to mount media on UMS enabled-disconnect"

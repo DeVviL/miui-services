@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/WifiCoexMgr;)V
     .locals 0
 
-    .prologue
-    .line 216
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$2;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,11 +33,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 219
     const-string v1, "wifi_state"
 
     const/16 v2, 0xe
@@ -48,13 +42,10 @@
 
     move-result v0
 
-    .line 221
-    .local v0, "state":I
     const/16 v1, 0xd
 
     if-ne v0, v1, :cond_1
 
-    .line 222
     const-string v1, "CWS_CELLCOEX_MGR"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -83,7 +74,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 229
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$2;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
 
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$2;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
@@ -98,18 +88,15 @@
 
     invoke-virtual {v1, v2, v4, v5}, Lcom/intel/internal/cellcoex/service/WifiCoexMgr;->sendMessageDelayed(Landroid/os/Message;J)V
 
-    .line 234
     :cond_0
     :goto_0
     return-void
 
-    .line 230
     :cond_1
     const/16 v1, 0xb
 
     if-ne v0, v1, :cond_0
 
-    .line 231
     const-string v1, "CWS_CELLCOEX_MGR"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -138,7 +125,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 232
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$2;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;
 
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/WifiCoexMgr$2;->this$0:Lcom/intel/internal/cellcoex/service/WifiCoexMgr;

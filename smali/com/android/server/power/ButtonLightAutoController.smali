@@ -57,22 +57,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 78
     new-instance v0, Lcom/android/server/power/ButtonLightAutoController$1;
 
     invoke-direct {v0}, Lcom/android/server/power/ButtonLightAutoController$1;-><init>()V
 
     sput-object v0, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightAnimation:Ljava/lang/Runnable;
 
-    .line 112
     new-instance v0, Lcom/android/server/power/ButtonLightAutoController$2;
 
     invoke-direct {v0}, Lcom/android/server/power/ButtonLightAutoController$2;-><init>()V
 
     sput-object v0, Lcom/android/server/power/ButtonLightAutoController;->sLightSensorListener:Landroid/hardware/SensorEventListener;
 
-    .line 185
     new-instance v0, Lcom/android/server/power/ButtonLightAutoController$5;
 
     invoke-direct {v0}, Lcom/android/server/power/ButtonLightAutoController$5;-><init>()V
@@ -85,8 +81,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -95,8 +89,6 @@
 .method static synthetic access$000()V
     .locals 0
 
-    .prologue
-    .line 21
     invoke-static {}, Lcom/android/server/power/ButtonLightAutoController;->sSetNextStepBrightness()V
 
     return-void
@@ -104,10 +96,7 @@
 
 .method static synthetic access$100(F)I
     .locals 1
-    .param p0, "x0"    # F
 
-    .prologue
-    .line 21
     invoke-static {p0}, Lcom/android/server/power/ButtonLightAutoController;->sGetNewBrightess(F)I
 
     move-result v0
@@ -117,12 +106,7 @@
 
 .method static synthetic access$200(III)V
     .locals 0
-    .param p0, "x0"    # I
-    .param p1, "x1"    # I
-    .param p2, "x2"    # I
 
-    .prologue
-    .line 21
     invoke-static {p0, p1, p2}, Lcom/android/server/power/ButtonLightAutoController;->sAnimateButtonLight(III)V
 
     return-void
@@ -131,8 +115,6 @@
 .method static doTurnOffButtonLight()V
     .locals 2
 
-    .prologue
-    .line 247
     sget-object v0, Lcom/android/server/power/ButtonLightAutoController;->sHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
@@ -141,12 +123,10 @@
 
     if-nez v0, :cond_1
 
-    .line 253
     :cond_0
     :goto_0
     return-void
 
-    .line 251
     :cond_1
     sget-object v0, Lcom/android/server/power/ButtonLightAutoController;->sHandler:Landroid/os/Handler;
 
@@ -154,7 +134,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 252
     invoke-static {}, Lcom/android/server/power/ButtonLightAutoController;->turnOffHWButtonLight()V
 
     goto :goto_0
@@ -162,14 +141,9 @@
 
 .method private static sAnimateButtonLight(III)V
     .locals 3
-    .param p0, "from"    # I
-    .param p1, "target"    # I
-    .param p2, "rate"    # I
 
-    .prologue
     const/4 v1, 0x1
 
-    .line 105
     if-le p0, p1, :cond_0
 
     const/4 v0, -0x1
@@ -185,58 +159,44 @@
 
     sput v0, Lcom/android/server/power/ButtonLightAutoController;->sDeltaBrightness:I
 
-    .line 106
     sput p1, Lcom/android/server/power/ButtonLightAutoController;->sTargetBrightness:I
 
-    .line 107
     sput p0, Lcom/android/server/power/ButtonLightAutoController;->sCurrentBrightenss:I
 
-    .line 109
     invoke-static {}, Lcom/android/server/power/ButtonLightAutoController;->sSetNextStepBrightness()V
 
-    .line 110
     return-void
 
     :cond_0
     move v0, v1
 
-    .line 105
     goto :goto_0
 .end method
 
 .method private static final sGetNewBrightess(F)I
     .locals 5
-    .param p0, "lux"    # F
 
-    .prologue
     const v4, 0x44bb8000    # 1500.0f
 
     const/high16 v3, 0x40a00000    # 5.0f
 
-    .line 48
     sget v0, Lcom/android/server/power/ButtonLightAutoController;->sLightSensorButtonBrightness:I
 
-    .line 49
-    .local v0, "brightness":I
     sget v1, Lcom/android/server/power/ButtonLightAutoController;->sLightSensorButtonBrightness:I
 
     const/16 v2, 0x14
 
     if-ne v1, v2, :cond_2
 
-    .line 50
     cmpl-float v1, p0, v4
 
     if-lez v1, :cond_0
 
-    .line 51
     const/16 v0, 0x96
 
-    .line 72
     :goto_0
     return v0
 
-    .line 52
     :cond_0
     const/high16 v1, 0x41700000    # 15.0f
 
@@ -244,18 +204,15 @@
 
     if-lez v1, :cond_1
 
-    .line 53
     const/16 v0, 0x50
 
     goto :goto_0
 
-    .line 55
     :cond_1
     const/16 v0, 0x14
 
     goto :goto_0
 
-    .line 56
     :cond_2
     sget v1, Lcom/android/server/power/ButtonLightAutoController;->sLightSensorButtonBrightness:I
 
@@ -263,45 +220,37 @@
 
     if-ne v1, v2, :cond_5
 
-    .line 57
     cmpl-float v1, p0, v4
 
     if-lez v1, :cond_3
 
-    .line 58
     const/16 v0, 0x96
 
     goto :goto_0
 
-    .line 59
     :cond_3
     cmpg-float v1, p0, v3
 
     if-gez v1, :cond_4
 
-    .line 60
     const/16 v0, 0x14
 
     goto :goto_0
 
-    .line 62
     :cond_4
     const/16 v0, 0x50
 
     goto :goto_0
 
-    .line 64
     :cond_5
     cmpg-float v1, p0, v3
 
     if-gez v1, :cond_6
 
-    .line 65
     const/16 v0, 0x14
 
     goto :goto_0
 
-    .line 66
     :cond_6
     const/high16 v1, 0x447a0000    # 1000.0f
 
@@ -309,12 +258,10 @@
 
     if-gez v1, :cond_7
 
-    .line 67
     const/16 v0, 0x50
 
     goto :goto_0
 
-    .line 69
     :cond_7
     const/16 v0, 0x96
 
@@ -324,19 +271,14 @@
 .method private static sSetNextStepBrightness()V
     .locals 8
 
-    .prologue
-    .line 86
     const/4 v0, 0x0
 
-    .line 88
-    .local v0, "needChange":Z
     sget-object v1, Lcom/android/server/power/ButtonLightAutoController;->sButtonLight:Lcom/android/server/lights/Light;
 
     sget v2, Lcom/android/server/power/ButtonLightAutoController;->sCurrentBrightenss:I
 
     invoke-virtual {v1, v2}, Lcom/android/server/lights/Light;->setBrightness(I)V
 
-    .line 90
     sget v1, Lcom/android/server/power/ButtonLightAutoController;->sDeltaBrightness:I
 
     invoke-static {v1}, Ljava/lang/Math;->abs(I)I
@@ -355,7 +297,6 @@
 
     if-gt v1, v2, :cond_2
 
-    .line 91
     sget v1, Lcom/android/server/power/ButtonLightAutoController;->sCurrentBrightenss:I
 
     sget v2, Lcom/android/server/power/ButtonLightAutoController;->sDeltaBrightness:I
@@ -364,22 +305,18 @@
 
     sput v1, Lcom/android/server/power/ButtonLightAutoController;->sCurrentBrightenss:I
 
-    .line 92
     const/4 v0, 0x1
 
-    .line 98
     :cond_0
     :goto_0
     if-eqz v0, :cond_1
 
-    .line 99
     sget-object v1, Lcom/android/server/power/ButtonLightAutoController;->sHandler:Landroid/os/Handler;
 
     sget-object v2, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightAnimation:Ljava/lang/Runnable;
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 100
     sget-object v1, Lcom/android/server/power/ButtonLightAutoController;->sHandler:Landroid/os/Handler;
 
     sget-object v2, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightAnimation:Ljava/lang/Runnable;
@@ -394,11 +331,9 @@
 
     invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->postAtTime(Ljava/lang/Runnable;J)Z
 
-    .line 102
     :cond_1
     return-void
 
-    .line 93
     :cond_2
     sget v1, Lcom/android/server/power/ButtonLightAutoController;->sCurrentBrightenss:I
 
@@ -406,12 +341,10 @@
 
     if-eq v1, v2, :cond_0
 
-    .line 94
     sget v1, Lcom/android/server/power/ButtonLightAutoController;->sTargetBrightness:I
 
     sput v1, Lcom/android/server/power/ButtonLightAutoController;->sCurrentBrightenss:I
 
-    .line 95
     const/4 v0, 0x1
 
     goto :goto_0
@@ -419,20 +352,13 @@
 
 .method static setButtonLight(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/lights/Light;)V
     .locals 6
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "handler"    # Landroid/os/Handler;
-    .param p2, "buttonLight"    # Lcom/android/server/lights/Light;
 
-    .prologue
     const/4 v5, 0x1
 
-    .line 136
     sput-object p1, Lcom/android/server/power/ButtonLightAutoController;->sHandler:Landroid/os/Handler;
 
-    .line 137
     sput-object p2, Lcom/android/server/power/ButtonLightAutoController;->sButtonLight:Lcom/android/server/lights/Light;
 
-    .line 138
     const-string v0, "sensor"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -443,12 +369,10 @@
 
     sput-object v0, Lcom/android/server/power/ButtonLightAutoController;->sSensorManager:Landroid/hardware/SensorManager;
 
-    .line 139
     sget-object v0, Lcom/android/server/power/ButtonLightAutoController;->sSensorManager:Landroid/hardware/SensorManager;
 
     if-eqz v0, :cond_0
 
-    .line 140
     sget-object v0, Lcom/android/server/power/ButtonLightAutoController;->sSensorManager:Landroid/hardware/SensorManager;
 
     const/4 v1, 0x5
@@ -459,7 +383,6 @@
 
     sput-object v0, Lcom/android/server/power/ButtonLightAutoController;->sLightSensor:Landroid/hardware/Sensor;
 
-    .line 143
     :cond_0
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -483,7 +406,6 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    .line 153
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -502,29 +424,22 @@
 
     invoke-virtual {v0, v1, v5, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 162
     sput-boolean v5, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightTurnOff:Z
 
-    .line 163
     sput-boolean v5, Lcom/android/server/power/ButtonLightAutoController;->sIsScreenOn:Z
 
-    .line 164
     const/16 v0, 0x50
 
     sput v0, Lcom/android/server/power/ButtonLightAutoController;->sLightSensorButtonBrightness:I
 
-    .line 165
     invoke-static {p0}, Lcom/android/server/power/ButtonLightAutoController;->updateButtonLightTimeout(Landroid/content/Context;)V
 
-    .line 166
     return-void
 .end method
 
 .method static setButtonLightTimeout()V
     .locals 6
 
-    .prologue
-    .line 220
     sget-boolean v0, Lcom/android/server/power/ButtonLightAutoController;->sIsScreenOn:Z
 
     if-eqz v0, :cond_0
@@ -541,30 +456,25 @@
 
     if-nez v0, :cond_1
 
-    .line 238
     :cond_0
     :goto_0
     return-void
 
-    .line 225
     :cond_1
     sget-boolean v0, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightTurnOff:Z
 
     if-eqz v0, :cond_2
 
-    .line 226
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightTurnOff:Z
 
-    .line 227
     sget-object v0, Lcom/android/server/power/ButtonLightAutoController;->sButtonLight:Lcom/android/server/lights/Light;
 
     sget v1, Lcom/android/server/power/ButtonLightAutoController;->sLightSensorButtonBrightness:I
 
     invoke-virtual {v0, v1}, Lcom/android/server/lights/Light;->setBrightness(I)V
 
-    .line 229
     sget-object v0, Lcom/android/server/power/ButtonLightAutoController;->sSensorManager:Landroid/hardware/SensorManager;
 
     if-eqz v0, :cond_2
@@ -573,7 +483,6 @@
 
     if-eqz v0, :cond_2
 
-    .line 230
     sget-object v0, Lcom/android/server/power/ButtonLightAutoController;->sSensorManager:Landroid/hardware/SensorManager;
 
     sget-object v1, Lcom/android/server/power/ButtonLightAutoController;->sLightSensorListener:Landroid/hardware/SensorEventListener;
@@ -586,7 +495,6 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;ILandroid/os/Handler;)Z
 
-    .line 234
     :cond_2
     sget-object v0, Lcom/android/server/power/ButtonLightAutoController;->sHandler:Landroid/os/Handler;
 
@@ -594,12 +502,10 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 235
     sget v0, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightTimeout:I
 
     if-lez v0, :cond_0
 
-    .line 236
     sget-object v0, Lcom/android/server/power/ButtonLightAutoController;->sHandler:Landroid/os/Handler;
 
     sget-object v1, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightTimeoutTask:Ljava/lang/Runnable;
@@ -621,31 +527,23 @@
 
 .method public static setScreenOn(Z)V
     .locals 1
-    .param p0, "isScreenOn"    # Z
 
-    .prologue
-    .line 269
     sget-boolean v0, Lcom/android/server/power/ButtonLightAutoController;->sIsScreenOn:Z
 
     if-ne v0, p0, :cond_0
 
-    .line 278
     :goto_0
     return-void
 
-    .line 272
     :cond_0
     sput-boolean p0, Lcom/android/server/power/ButtonLightAutoController;->sIsScreenOn:Z
 
-    .line 273
     if-eqz p0, :cond_1
 
-    .line 274
     invoke-static {}, Lcom/android/server/power/ButtonLightAutoController;->setButtonLightTimeout()V
 
     goto :goto_0
 
-    .line 276
     :cond_1
     invoke-static {}, Lcom/android/server/power/ButtonLightAutoController;->doTurnOffButtonLight()V
 
@@ -654,20 +552,15 @@
 
 .method static turnOffButtonLight(I)V
     .locals 1
-    .param p0, "newScreenState"    # I
 
-    .prologue
-    .line 241
     if-nez p0, :cond_0
 
     sget-boolean v0, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightTurnOff:Z
 
     if-nez v0, :cond_0
 
-    .line 242
     invoke-static {}, Lcom/android/server/power/ButtonLightAutoController;->doTurnOffButtonLight()V
 
-    .line 244
     :cond_0
     return-void
 .end method
@@ -675,13 +568,10 @@
 .method static turnOffHWButtonLight()V
     .locals 2
 
-    .prologue
-    .line 170
     sget-boolean v0, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightTurnOff:Z
 
     if-nez v0, :cond_1
 
-    .line 171
     sget-object v0, Lcom/android/server/power/ButtonLightAutoController;->sSensorManager:Landroid/hardware/SensorManager;
 
     if-eqz v0, :cond_0
@@ -690,14 +580,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 172
     sget-object v0, Lcom/android/server/power/ButtonLightAutoController;->sSensorManager:Landroid/hardware/SensorManager;
 
     sget-object v1, Lcom/android/server/power/ButtonLightAutoController;->sLightSensorListener:Landroid/hardware/SensorEventListener;
 
     invoke-virtual {v0, v1}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V
 
-    .line 175
     :cond_0
     sget-object v0, Lcom/android/server/power/ButtonLightAutoController;->sHandler:Landroid/os/Handler;
 
@@ -705,29 +593,21 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 177
     sget-object v0, Lcom/android/server/power/ButtonLightAutoController;->sButtonLight:Lcom/android/server/lights/Light;
 
     invoke-virtual {v0}, Lcom/android/server/lights/Light;->turnOff()V
 
-    .line 178
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightTurnOff:Z
 
-    .line 180
     :cond_1
     return-void
 .end method
 
 .method static updateButtonLightState(ZZI)V
     .locals 1
-    .param p0, "displayReady"    # Z
-    .param p1, "isProximityPositive"    # Z
-    .param p2, "displayPowerPolicy"    # I
 
-    .prologue
-    .line 257
     if-eqz p0, :cond_1
 
     const/4 v0, 0x3
@@ -740,20 +620,16 @@
 
     if-nez v0, :cond_1
 
-    .line 258
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/server/power/ButtonLightAutoController;->sIsScreenOn:Z
 
-    .line 259
     invoke-static {}, Lcom/android/server/power/ButtonLightAutoController;->setButtonLightTimeout()V
 
-    .line 266
     :cond_0
     :goto_0
     return-void
 
-    .line 262
     :cond_1
     if-eqz p2, :cond_2
 
@@ -764,12 +640,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 263
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/server/power/ButtonLightAutoController;->sIsScreenOn:Z
 
-    .line 264
     invoke-static {}, Lcom/android/server/power/ButtonLightAutoController;->doTurnOffButtonLight()V
 
     goto :goto_0
@@ -777,12 +651,9 @@
 
 .method static updateButtonLightTimeout(Landroid/content/Context;)V
     .locals 6
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
     const/4 v0, 0x1
 
-    .line 196
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -797,8 +668,6 @@
 
     move-result v1
 
-    .line 199
-    .local v1, "buttonLightTimeout":I
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -811,40 +680,29 @@
 
     if-ne v2, v0, :cond_2
 
-    .line 202
-    .local v0, "buttonLightEnabled":Z
     :goto_0
     sget v2, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightTimeout:I
 
     if-eq v1, v2, :cond_0
 
-    .line 203
     sput v1, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightTimeout:I
 
-    .line 204
     invoke-static {}, Lcom/android/server/power/ButtonLightAutoController;->setButtonLightTimeout()V
 
-    .line 207
     :cond_0
     sget-boolean v2, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightEnabled:Z
 
     if-eq v0, v2, :cond_1
 
-    .line 208
     sput-boolean v0, Lcom/android/server/power/ButtonLightAutoController;->sButtonLightEnabled:Z
 
-    .line 209
     if-nez v0, :cond_1
 
-    .line 210
     invoke-static {}, Lcom/android/server/power/ButtonLightAutoController;->turnOffHWButtonLight()V
 
-    .line 213
     :cond_1
     return-void
 
-    .line 199
-    .end local v0    # "buttonLightEnabled":Z
     :cond_2
     const/4 v0, 0x0
 

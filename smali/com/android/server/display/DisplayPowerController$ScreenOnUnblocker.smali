@@ -25,8 +25,6 @@
 .method private constructor <init>(Lcom/android/server/display/DisplayPowerController;)V
     .locals 0
 
-    .prologue
-    .line 1290
     iput-object p1, p0, Lcom/android/server/display/DisplayPowerController$ScreenOnUnblocker;->this$0:Lcom/android/server/display/DisplayPowerController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +34,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/display/DisplayPowerController;Lcom/android/server/display/DisplayPowerController$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/display/DisplayPowerController;
-    .param p2, "x1"    # Lcom/android/server/display/DisplayPowerController$1;
 
-    .prologue
-    .line 1290
     invoke-direct {p0, p1}, Lcom/android/server/display/DisplayPowerController$ScreenOnUnblocker;-><init>(Lcom/android/server/display/DisplayPowerController;)V
 
     return-void
@@ -51,8 +45,6 @@
 .method public onScreenOn()V
     .locals 3
 
-    .prologue
-    .line 1293
     iget-object v1, p0, Lcom/android/server/display/DisplayPowerController$ScreenOnUnblocker;->this$0:Lcom/android/server/display/DisplayPowerController;
 
     invoke-static {v1}, Lcom/android/server/display/DisplayPowerController;->access$1100(Lcom/android/server/display/DisplayPowerController;)Lcom/android/server/display/DisplayPowerController$DisplayControllerHandler;
@@ -65,13 +57,10 @@
 
     move-result-object v0
 
-    .line 1294
-    .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/os/Message;->setAsynchronous(Z)V
 
-    .line 1295
     iget-object v1, p0, Lcom/android/server/display/DisplayPowerController$ScreenOnUnblocker;->this$0:Lcom/android/server/display/DisplayPowerController;
 
     invoke-static {v1}, Lcom/android/server/display/DisplayPowerController;->access$1100(Lcom/android/server/display/DisplayPowerController;)Lcom/android/server/display/DisplayPowerController$DisplayControllerHandler;
@@ -80,6 +69,5 @@
 
     invoke-virtual {v1, v0}, Lcom/android/server/display/DisplayPowerController$DisplayControllerHandler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 1296
     return-void
 .end method

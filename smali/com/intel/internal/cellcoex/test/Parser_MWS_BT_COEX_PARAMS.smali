@@ -36,8 +36,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 27
     const-string v0, "CWS_CELLCOEX_MGR"
 
     const/4 v1, 0x3
@@ -53,15 +51,11 @@
 
 .method public constructor <init>(Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;)V
     .locals 2
-    .param p1, "aICoexPropMgr"    # Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
 
-    .prologue
-    .line 43
     const-string v0, "mws.bt.coexparams"
 
     invoke-direct {p0, p1, v0}, Lcom/intel/internal/cellcoex/test/Parser_Generic;-><init>(Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;Ljava/lang/String;)V
 
-    .line 28
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -90,7 +84,6 @@
 
     iput-object v0, p0, Lcom/intel/internal/cellcoex/test/Parser_MWS_BT_COEX_PARAMS;->mClassName:Ljava/lang/String;
 
-    .line 44
     return-void
 .end method
 
@@ -98,20 +91,15 @@
 # virtual methods
 .method public parseIntent(Landroid/content/Intent;)Z
     .locals 10
-    .param p1, "anIntent"    # Landroid/content/Intent;
 
-    .prologue
     const/4 v8, -0x1
 
-    .line 49
     const-string v0, "name"
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    .line 51
-    .local v7, "propName":Ljava/lang/String;
     if-eqz v7, :cond_0
 
     const-string v0, "mws.bt.coexparams"
@@ -122,15 +110,12 @@
 
     if-nez v0, :cond_1
 
-    .line 52
     :cond_0
     const/4 v0, 0x0
 
-    .line 67
     :goto_0
     return v0
 
-    .line 55
     :cond_1
     const-string v0, "saferxmin"
 
@@ -138,54 +123,40 @@
 
     move-result v1
 
-    .line 56
-    .local v1, "aSafeRxMin":I
     const-string v0, "saferxmax"
 
     invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
-    .line 57
-    .local v2, "aSafeRxMax":I
     const-string v0, "safetxmin"
 
     invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v3
 
-    .line 58
-    .local v3, "aSafeTxMin":I
     const-string v0, "safetxmax"
 
     invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v4
 
-    .line 59
-    .local v4, "aSafeTxMax":I
     const-string v0, "txpownum"
 
     invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v5
 
-    .line 61
-    .local v5, "aTxPowNum":I
     const/4 v6, 0x0
 
-    .line 63
-    .local v6, "aTxPowTable":[I
     if-ltz v5, :cond_2
 
-    .line 64
     const-string v0, "txpowtable"
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getIntArrayExtra(Ljava/lang/String;)[I
 
     move-result-object v6
 
-    .line 67
     :cond_2
     sget-object v8, Lcom/intel/internal/cellcoex/test/Parser_MWS_BT_COEX_PARAMS;->sICoexPropMgr:Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
 

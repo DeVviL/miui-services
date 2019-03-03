@@ -25,8 +25,6 @@
 .method private constructor <init>(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;)V
     .locals 0
 
-    .prologue
-    .line 110
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$ModemHandlerPropChangeListener;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +34,7 @@
 
 .method synthetic constructor <init>(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
-    .param p2, "x1"    # Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$1;
 
-    .prologue
-    .line 110
     invoke-direct {p0, p1}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$ModemHandlerPropChangeListener;-><init>(Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;)V
 
     return-void
@@ -50,17 +44,13 @@
 # virtual methods
 .method public propertyChange(Ljava/beans/PropertyChangeEvent;)V
     .locals 3
-    .param p1, "event"    # Ljava/beans/PropertyChangeEvent;
 
-    .prologue
-    .line 113
     invoke-static {}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->access$300()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 114
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -125,7 +115,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 117
     :cond_0
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM$ModemHandlerPropChangeListener;->this$0:Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;
 
@@ -137,6 +126,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/intel/internal/cellcoex/service/mwscoexmgr/ModemSTM;->sendMessage(ILjava/lang/Object;)V
 
-    .line 118
     return-void
 .end method

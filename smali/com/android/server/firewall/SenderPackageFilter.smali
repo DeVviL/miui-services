@@ -20,8 +20,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 59
     new-instance v0, Lcom/android/server/firewall/SenderPackageFilter$1;
 
     const-string v1, "sender-package"
@@ -35,16 +33,11 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "packageName"    # Ljava/lang/String;
 
-    .prologue
-    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 37
     iput-object p1, p0, Lcom/android/server/firewall/SenderPackageFilter;->mPackageName:Ljava/lang/String;
 
-    .line 38
     return-void
 .end method
 
@@ -52,28 +45,15 @@
 # virtual methods
 .method public matches(Lcom/android/server/firewall/IntentFirewall;Landroid/content/ComponentName;Landroid/content/Intent;IILjava/lang/String;I)Z
     .locals 5
-    .param p1, "ifw"    # Lcom/android/server/firewall/IntentFirewall;
-    .param p2, "resolvedComponent"    # Landroid/content/ComponentName;
-    .param p3, "intent"    # Landroid/content/Intent;
-    .param p4, "callerUid"    # I
-    .param p5, "callerPid"    # I
-    .param p6, "resolvedType"    # Ljava/lang/String;
-    .param p7, "receivingUid"    # I
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 43
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v1
 
-    .line 45
-    .local v1, "pm":Landroid/content/pm/IPackageManager;
     const/4 v0, -0x1
 
-    .line 47
-    .local v0, "packageUid":I
     :try_start_0
     iget-object v3, p0, Lcom/android/server/firewall/SenderPackageFilter;->mPackageName:Ljava/lang/String;
 
@@ -85,13 +65,11 @@
 
     move-result v0
 
-    .line 52
     :goto_0
     const/4 v3, -0x1
 
     if-ne v0, v3, :cond_0
 
-    .line 56
     :goto_1
     return v2
 
@@ -102,7 +80,6 @@
 
     goto :goto_1
 
-    .line 48
     :catch_0
     move-exception v3
 

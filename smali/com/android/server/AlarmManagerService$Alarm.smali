@@ -51,25 +51,11 @@
 # direct methods
 .method public constructor <init>(IJJJJJLandroid/app/PendingIntent;Landroid/os/WorkSource;Landroid/app/AlarmManager$AlarmClockInfo;I)V
     .locals 2
-    .param p1, "_type"    # I
-    .param p2, "_when"    # J
-    .param p4, "_whenElapsed"    # J
-    .param p6, "_windowLength"    # J
-    .param p8, "_maxWhen"    # J
-    .param p10, "_interval"    # J
-    .param p12, "_op"    # Landroid/app/PendingIntent;
-    .param p13, "_ws"    # Landroid/os/WorkSource;
-    .param p14, "_info"    # Landroid/app/AlarmManager$AlarmClockInfo;
-    .param p15, "_userId"    # I
 
-    .prologue
-    .line 1528
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1529
     iput p1, p0, Lcom/android/server/AlarmManagerService$Alarm;->type:I
 
-    .line 1530
     const/4 v1, 0x2
 
     if-eq p1, v1, :cond_0
@@ -82,62 +68,48 @@
     :goto_0
     iput-boolean v1, p0, Lcom/android/server/AlarmManagerService$Alarm;->wakeup:Z
 
-    .line 1532
     iput-wide p2, p0, Lcom/android/server/AlarmManagerService$Alarm;->when:J
 
-    .line 1533
     iput-wide p4, p0, Lcom/android/server/AlarmManagerService$Alarm;->whenElapsed:J
 
-    .line 1534
     iput-wide p6, p0, Lcom/android/server/AlarmManagerService$Alarm;->windowLength:J
 
-    .line 1535
     iput-wide p8, p0, Lcom/android/server/AlarmManagerService$Alarm;->maxWhen:J
 
-    .line 1536
     iput-wide p10, p0, Lcom/android/server/AlarmManagerService$Alarm;->repeatInterval:J
 
-    .line 1537
     iput-object p12, p0, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
 
-    .line 1538
     invoke-static {p12, p1}, Lcom/android/server/AlarmManagerService$Alarm;->makeTag(Landroid/app/PendingIntent;I)Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/server/AlarmManagerService$Alarm;->tag:Ljava/lang/String;
 
-    .line 1539
     iput-object p13, p0, Lcom/android/server/AlarmManagerService$Alarm;->workSource:Landroid/os/WorkSource;
 
-    .line 1540
     move-object/from16 v0, p14
 
     iput-object v0, p0, Lcom/android/server/AlarmManagerService$Alarm;->alarmClock:Landroid/app/AlarmManager$AlarmClockInfo;
 
-    .line 1541
     move/from16 v0, p15
 
     iput v0, p0, Lcom/android/server/AlarmManagerService$Alarm;->userId:I
 
-    .line 1543
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v1
 
     iput v1, p0, Lcom/android/server/AlarmManagerService$Alarm;->uid:I
 
-    .line 1544
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v1
 
     iput v1, p0, Lcom/android/server/AlarmManagerService$Alarm;->pid:I
 
-    .line 1546
     return-void
 
-    .line 1530
     :cond_1
     const/4 v1, 0x0
 
@@ -146,11 +118,7 @@
 
 .method public static makeTag(Landroid/app/PendingIntent;I)Ljava/lang/String;
     .locals 1
-    .param p0, "pi"    # Landroid/app/PendingIntent;
-    .param p1, "type"    # I
 
-    .prologue
-    .line 1549
     const/4 v0, 0x2
 
     if-eq p1, v0, :cond_0
@@ -177,16 +145,9 @@
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;JJLjava/text/SimpleDateFormat;)V
     .locals 5
-    .param p1, "pw"    # Ljava/io/PrintWriter;
-    .param p2, "prefix"    # Ljava/lang/String;
-    .param p3, "nowRTC"    # J
-    .param p5, "nowELAPSED"    # J
-    .param p7, "sdf"    # Ljava/text/SimpleDateFormat;
 
-    .prologue
     const/4 v0, 0x1
 
-    .line 1570
     iget v1, p0, Lcom/android/server/AlarmManagerService$Alarm;->type:I
 
     if-eq v1, v0, :cond_0
@@ -195,8 +156,6 @@
 
     if-nez v1, :cond_1
 
-    .line 1571
-    .local v0, "isRtc":Z
     :cond_0
     :goto_0
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -209,7 +168,6 @@
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1572
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v1, "type="
@@ -220,7 +178,6 @@
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(I)V
 
-    .line 1573
     const-string v1, " whenElapsed="
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -229,10 +186,8 @@
 
     invoke-static {v2, v3, p5, p6, p1}, Landroid/util/TimeUtils;->formatDuration(JJLjava/io/PrintWriter;)V
 
-    .line 1575
     if-eqz v0, :cond_2
 
-    .line 1576
     const-string v1, " when="
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -249,11 +204,9 @@
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1580
     :goto_1
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
-    .line 1581
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v1, "window="
@@ -264,7 +217,6 @@
 
     invoke-virtual {p1, v2, v3}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 1582
     const-string v1, " repeatInterval="
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -273,7 +225,6 @@
 
     invoke-virtual {p1, v2, v3}, Ljava/io/PrintWriter;->print(J)V
 
-    .line 1583
     const-string v1, " count="
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -282,7 +233,6 @@
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 1584
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v1, "operation="
@@ -293,18 +243,13 @@
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    .line 1585
     return-void
 
-    .line 1570
-    .end local v0    # "isRtc":Z
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 1578
-    .restart local v0    # "isRtc":Z
     :cond_2
     const-string v1, " when="
 
@@ -320,21 +265,16 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 1555
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x80
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 1556
-    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "Alarm{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1557
     invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
 
     move-result v1
@@ -345,32 +285,26 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1558
     const-string v1, " type "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1559
     iget v1, p0, Lcom/android/server/AlarmManagerService$Alarm;->type:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1560
     const-string v1, " when "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1561
     iget-wide v2, p0, Lcom/android/server/AlarmManagerService$Alarm;->when:J
 
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    .line 1562
     const-string v1, " "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1563
     iget-object v1, p0, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
 
     invoke-virtual {v1}, Landroid/app/PendingIntent;->getTargetPackage()Ljava/lang/String;
@@ -379,12 +313,10 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1564
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1565
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

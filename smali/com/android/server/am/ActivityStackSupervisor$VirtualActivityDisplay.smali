@@ -23,25 +23,17 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityStackSupervisor;III)V
     .locals 11
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "density"    # I
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 4160
     iput-object p1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
     invoke-direct {p0, p1}, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;-><init>(Lcom/android/server/am/ActivityStackSupervisor;)V
 
-    .line 4161
     invoke-static {}, Landroid/hardware/display/DisplayManagerGlobal;->getInstance()Landroid/hardware/display/DisplayManagerGlobal;
 
     move-result-object v0
 
-    .line 4162
-    .local v0, "dm":Landroid/hardware/display/DisplayManagerGlobal;
     iget-object v1, p1, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
@@ -68,7 +60,6 @@
 
     iput-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->mVirtualDisplay:Landroid/hardware/display/VirtualDisplay;
 
-    .line 4167
     iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->mVirtualDisplay:Landroid/hardware/display/VirtualDisplay;
 
     invoke-virtual {v1}, Landroid/hardware/display/VirtualDisplay;->getDisplay()Landroid/view/Display;
@@ -77,14 +68,12 @@
 
     invoke-virtual {p0, v1}, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->init(Landroid/view/Display;)V
 
-    .line 4169
     iget-object v1, p1, Lcom/android/server/am/ActivityStackSupervisor;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
     iget v2, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->mDisplayId:I
 
     invoke-virtual {v1, v2}, Lcom/android/server/wm/WindowManagerService;->handleDisplayAdded(I)V
 
-    .line 4170
     return-void
 .end method
 
@@ -92,48 +81,36 @@
 # virtual methods
 .method detachActivitiesLocked(Lcom/android/server/am/ActivityStack;)V
     .locals 1
-    .param p1, "stack"    # Lcom/android/server/am/ActivityStack;
 
-    .prologue
-    .line 4180
     invoke-super {p0, p1}, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->detachActivitiesLocked(Lcom/android/server/am/ActivityStack;)V
 
-    .line 4181
     iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->mVirtualDisplay:Landroid/hardware/display/VirtualDisplay;
 
     if-eqz v0, :cond_0
 
-    .line 4182
     iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->mVirtualDisplay:Landroid/hardware/display/VirtualDisplay;
 
     invoke-virtual {v0}, Landroid/hardware/display/VirtualDisplay;->release()V
 
-    .line 4183
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->mVirtualDisplay:Landroid/hardware/display/VirtualDisplay;
 
-    .line 4185
     :cond_0
     return-void
 .end method
 
 .method setSurface(Landroid/view/Surface;)V
     .locals 1
-    .param p1, "surface"    # Landroid/view/Surface;
 
-    .prologue
-    .line 4173
     iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->mVirtualDisplay:Landroid/hardware/display/VirtualDisplay;
 
     if-eqz v0, :cond_0
 
-    .line 4174
     iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->mVirtualDisplay:Landroid/hardware/display/VirtualDisplay;
 
     invoke-virtual {v0, p1}, Landroid/hardware/display/VirtualDisplay;->setSurface(Landroid/view/Surface;)V
 
-    .line 4176
     :cond_0
     return-void
 .end method
@@ -141,8 +118,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 4189
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

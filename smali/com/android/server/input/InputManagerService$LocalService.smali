@@ -22,8 +22,6 @@
 .method private constructor <init>(Lcom/android/server/input/InputManagerService;)V
     .locals 0
 
-    .prologue
-    .line 1833
     iput-object p1, p0, Lcom/android/server/input/InputManagerService$LocalService;->this$0:Lcom/android/server/input/InputManagerService;
 
     invoke-direct {p0}, Landroid/hardware/input/InputManagerInternal;-><init>()V
@@ -33,11 +31,7 @@
 
 .method synthetic constructor <init>(Lcom/android/server/input/InputManagerService;Lcom/android/server/input/InputManagerService$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/server/input/InputManagerService;
-    .param p2, "x1"    # Lcom/android/server/input/InputManagerService$1;
 
-    .prologue
-    .line 1833
     invoke-direct {p0, p1}, Lcom/android/server/input/InputManagerService$LocalService;-><init>(Lcom/android/server/input/InputManagerService;)V
 
     return-void
@@ -47,12 +41,7 @@
 # virtual methods
 .method public injectInputEvent(Landroid/view/InputEvent;II)Z
     .locals 1
-    .param p1, "event"    # Landroid/view/InputEvent;
-    .param p2, "displayId"    # I
-    .param p3, "mode"    # I
 
-    .prologue
-    .line 1842
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$LocalService;->this$0:Lcom/android/server/input/InputManagerService;
 
     invoke-static {v0, p1, p2, p3}, Lcom/android/server/input/InputManagerService;->access$1100(Lcom/android/server/input/InputManagerService;Landroid/view/InputEvent;II)Z
@@ -64,25 +53,17 @@
 
 .method public setDisplayViewports(Landroid/hardware/display/DisplayViewport;Landroid/hardware/display/DisplayViewport;)V
     .locals 1
-    .param p1, "defaultViewport"    # Landroid/hardware/display/DisplayViewport;
-    .param p2, "externalTouchViewport"    # Landroid/hardware/display/DisplayViewport;
 
-    .prologue
-    .line 1837
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$LocalService;->this$0:Lcom/android/server/input/InputManagerService;
 
     invoke-static {v0, p1, p2}, Lcom/android/server/input/InputManagerService;->access$1000(Lcom/android/server/input/InputManagerService;Landroid/hardware/display/DisplayViewport;Landroid/hardware/display/DisplayViewport;)V
 
-    .line 1838
     return-void
 .end method
 
 .method public setInteractive(Z)V
     .locals 2
-    .param p1, "interactive"    # Z
 
-    .prologue
-    .line 1847
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$LocalService;->this$0:Lcom/android/server/input/InputManagerService;
 
     invoke-static {v0}, Lcom/android/server/input/InputManagerService;->access$700(Lcom/android/server/input/InputManagerService;)J
@@ -91,6 +72,5 @@
 
     invoke-static {v0, v1, p1}, Lcom/android/server/input/InputManagerService;->access$1200(JZ)V
 
-    .line 1848
     return-void
 .end method

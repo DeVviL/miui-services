@@ -45,8 +45,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 53
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
@@ -58,39 +56,29 @@
 
 .method private constructor <init>(Lcom/android/server/job/StateChangedListener;Landroid/content/Context;)V
     .locals 7
-    .param p1, "stateChangedListener"    # Lcom/android/server/job/StateChangedListener;
-    .param p2, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 69
     invoke-direct {p0, p1, p2}, Lcom/android/server/job/controllers/StateController;-><init>(Lcom/android/server/job/StateChangedListener;Landroid/content/Context;)V
 
-    .line 48
     new-instance v0, Ljava/util/LinkedList;
 
     invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController;->mTrackedJobs:Ljava/util/List;
 
-    .line 49
     new-instance v0, Lcom/android/server/job/controllers/ConnectivityController$ConnectivityChangedReceiver;
 
     invoke-direct {v0, p0}, Lcom/android/server/job/controllers/ConnectivityController$ConnectivityChangedReceiver;-><init>(Lcom/android/server/job/controllers/ConnectivityController;)V
 
     iput-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController;->mConnectivityChangedReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 71
     new-instance v3, Landroid/content/IntentFilter;
 
     invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 72
-    .local v3, "intentFilter":Landroid/content/IntentFilter;
     const-string v0, "android.net.conn.CONNECTIVITY_CHANGE"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 73
     iget-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/server/job/controllers/ConnectivityController;->mConnectivityChangedReceiver:Landroid/content/BroadcastReceiver;
@@ -105,7 +93,6 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    .line 76
     const-string v0, "connectivity"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -114,18 +101,14 @@
 
     check-cast v6, Lcom/android/server/ConnectivityService;
 
-    .line 78
-    .local v6, "cs":Lcom/android/server/ConnectivityService;
     if-eqz v6, :cond_1
 
-    .line 79
     invoke-virtual {v6}, Lcom/android/server/ConnectivityService;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 80
     invoke-virtual {v6}, Lcom/android/server/ConnectivityService;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
 
     move-result-object v0
@@ -136,7 +119,6 @@
 
     iput-boolean v0, p0, Lcom/android/server/job/controllers/ConnectivityController;->mNetworkConnected:Z
 
-    .line 82
     :cond_0
     iget-boolean v0, p0, Lcom/android/server/job/controllers/ConnectivityController;->mNetworkConnected:Z
 
@@ -153,11 +135,9 @@
     :goto_0
     iput-boolean v0, p0, Lcom/android/server/job/controllers/ConnectivityController;->mNetworkUnmetered:Z
 
-    .line 84
     :cond_1
     return-void
 
-    .line 82
     :cond_2
     const/4 v0, 0x0
 
@@ -166,11 +146,7 @@
 
 .method static synthetic access$002(Lcom/android/server/job/controllers/ConnectivityController;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/android/server/job/controllers/ConnectivityController;
-    .param p1, "x1"    # Z
 
-    .prologue
-    .line 44
     iput-boolean p1, p0, Lcom/android/server/job/controllers/ConnectivityController;->mNetworkUnmetered:Z
 
     return p1
@@ -178,10 +154,7 @@
 
 .method static synthetic access$100(Lcom/android/server/job/controllers/ConnectivityController;)Z
     .locals 1
-    .param p0, "x0"    # Lcom/android/server/job/controllers/ConnectivityController;
 
-    .prologue
-    .line 44
     iget-boolean v0, p0, Lcom/android/server/job/controllers/ConnectivityController;->mNetworkConnected:Z
 
     return v0
@@ -189,11 +162,7 @@
 
 .method static synthetic access$102(Lcom/android/server/job/controllers/ConnectivityController;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/android/server/job/controllers/ConnectivityController;
-    .param p1, "x1"    # Z
 
-    .prologue
-    .line 44
     iput-boolean p1, p0, Lcom/android/server/job/controllers/ConnectivityController;->mNetworkConnected:Z
 
     return p1
@@ -201,11 +170,7 @@
 
 .method static synthetic access$200(Lcom/android/server/job/controllers/ConnectivityController;I)V
     .locals 0
-    .param p0, "x0"    # Lcom/android/server/job/controllers/ConnectivityController;
-    .param p1, "x1"    # I
 
-    .prologue
-    .line 44
     invoke-direct {p0, p1}, Lcom/android/server/job/controllers/ConnectivityController;->updateTrackedJobs(I)V
 
     return-void
@@ -213,21 +178,16 @@
 
 .method public static get(Lcom/android/server/job/JobSchedulerService;)Lcom/android/server/job/controllers/ConnectivityController;
     .locals 3
-    .param p0, "jms"    # Lcom/android/server/job/JobSchedulerService;
 
-    .prologue
-    .line 60
     sget-object v1, Lcom/android/server/job/controllers/ConnectivityController;->sCreationLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 61
     :try_start_0
     sget-object v0, Lcom/android/server/job/controllers/ConnectivityController;->mSingleton:Lcom/android/server/job/controllers/ConnectivityController;
 
     if-nez v0, :cond_0
 
-    .line 62
     new-instance v0, Lcom/android/server/job/controllers/ConnectivityController;
 
     invoke-virtual {p0}, Lcom/android/server/job/JobSchedulerService;->getContext()Landroid/content/Context;
@@ -238,7 +198,6 @@
 
     sput-object v0, Lcom/android/server/job/controllers/ConnectivityController;->mSingleton:Lcom/android/server/job/controllers/ConnectivityController;
 
-    .line 64
     :cond_0
     sget-object v0, Lcom/android/server/job/controllers/ConnectivityController;->mSingleton:Lcom/android/server/job/controllers/ConnectivityController;
 
@@ -246,7 +205,6 @@
 
     return-object v0
 
-    .line 65
     :catchall_0
     move-exception v0
 
@@ -259,19 +217,13 @@
 
 .method private updateTrackedJobs(I)V
     .locals 8
-    .param p1, "userId"    # I
 
-    .prologue
-    .line 110
     iget-object v6, p0, Lcom/android/server/job/controllers/ConnectivityController;->mTrackedJobs:Ljava/util/List;
 
     monitor-enter v6
 
-    .line 111
     const/4 v0, 0x0
 
-    .line 112
-    .local v0, "changed":Z
     :try_start_0
     iget-object v5, p0, Lcom/android/server/job/controllers/ConnectivityController;->mTrackedJobs:Ljava/util/List;
 
@@ -279,7 +231,6 @@
 
     move-result-object v1
 
-    .local v1, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -294,15 +245,12 @@
 
     check-cast v2, Lcom/android/server/job/controllers/JobStatus;
 
-    .line 113
-    .local v2, "js":Lcom/android/server/job/controllers/JobStatus;
     invoke-virtual {v2}, Lcom/android/server/job/controllers/JobStatus;->getUserId()I
 
     move-result v5
 
     if-ne v5, p1, :cond_0
 
-    .line 116
     iget-object v5, v2, Lcom/android/server/job/controllers/JobStatus;->connectivityConstraintSatisfied:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     iget-boolean v7, p0, Lcom/android/server/job/controllers/ConnectivityController;->mNetworkConnected:Z
@@ -311,8 +259,6 @@
 
     move-result v3
 
-    .line 118
-    .local v3, "prevIsConnected":Z
     iget-object v5, v2, Lcom/android/server/job/controllers/JobStatus;->unmeteredConstraintSatisfied:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     iget-boolean v7, p0, Lcom/android/server/job/controllers/ConnectivityController;->mNetworkUnmetered:Z
@@ -321,8 +267,6 @@
 
     move-result v4
 
-    .line 119
-    .local v4, "prevIsMetered":Z
     iget-boolean v5, p0, Lcom/android/server/job/controllers/ConnectivityController;->mNetworkConnected:Z
 
     if-ne v3, v5, :cond_1
@@ -331,33 +275,23 @@
 
     if-eq v4, v5, :cond_0
 
-    .line 120
     :cond_1
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 123
-    .end local v2    # "js":Lcom/android/server/job/controllers/JobStatus;
-    .end local v3    # "prevIsConnected":Z
-    .end local v4    # "prevIsMetered":Z
     :cond_2
     if-eqz v0, :cond_3
 
-    .line 124
     iget-object v5, p0, Lcom/android/server/job/controllers/ConnectivityController;->mStateChangedListener:Lcom/android/server/job/StateChangedListener;
 
     invoke-interface {v5}, Lcom/android/server/job/StateChangedListener;->onControllerStateChanged()V
 
-    .line 126
     :cond_3
     monitor-exit v6
 
-    .line 127
     return-void
 
-    .line 126
-    .end local v1    # "i$":Ljava/util/Iterator;
     :catchall_0
     move-exception v5
 
@@ -372,15 +306,11 @@
 # virtual methods
 .method public dumpControllerState(Ljava/io/PrintWriter;)V
     .locals 6
-    .param p1, "pw"    # Ljava/io/PrintWriter;
 
-    .prologue
-    .line 194
     const-string v2, "Conn."
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 195
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -415,14 +345,12 @@
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 196
     iget-object v2, p0, Lcom/android/server/job/controllers/ConnectivityController;->mTrackedJobs:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -436,8 +364,6 @@
 
     check-cast v1, Lcom/android/server/job/controllers/JobStatus;
 
-    .line 197
-    .local v1, "js":Lcom/android/server/job/controllers/JobStatus;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -504,18 +430,13 @@
 
     goto :goto_0
 
-    .line 201
-    .end local v1    # "js":Lcom/android/server/job/controllers/JobStatus;
     :cond_0
     return-void
 .end method
 
 .method public maybeStartTrackingJob(Lcom/android/server/job/controllers/JobStatus;)V
     .locals 3
-    .param p1, "jobStatus"    # Lcom/android/server/job/controllers/JobStatus;
 
-    .prologue
-    .line 88
     invoke-virtual {p1}, Lcom/android/server/job/controllers/JobStatus;->hasConnectivityConstraint()Z
 
     move-result v0
@@ -528,13 +449,11 @@
 
     if-eqz v0, :cond_1
 
-    .line 89
     :cond_0
     iget-object v1, p0, Lcom/android/server/job/controllers/ConnectivityController;->mTrackedJobs:Ljava/util/List;
 
     monitor-enter v1
 
-    .line 90
     :try_start_0
     iget-object v0, p1, Lcom/android/server/job/controllers/JobStatus;->connectivityConstraintSatisfied:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -542,26 +461,21 @@
 
     invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 91
     iget-object v0, p1, Lcom/android/server/job/controllers/JobStatus;->unmeteredConstraintSatisfied:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     iget-boolean v2, p0, Lcom/android/server/job/controllers/ConnectivityController;->mNetworkUnmetered:Z
 
     invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 92
     iget-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController;->mTrackedJobs:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 93
     monitor-exit v1
 
-    .line 95
     :cond_1
     return-void
 
-    .line 93
     :catchall_0
     move-exception v0
 
@@ -574,10 +488,7 @@
 
 .method public maybeStopTrackingJob(Lcom/android/server/job/controllers/JobStatus;)V
     .locals 2
-    .param p1, "jobStatus"    # Lcom/android/server/job/controllers/JobStatus;
 
-    .prologue
-    .line 99
     invoke-virtual {p1}, Lcom/android/server/job/controllers/JobStatus;->hasConnectivityConstraint()Z
 
     move-result v0
@@ -590,26 +501,21 @@
 
     if-eqz v0, :cond_1
 
-    .line 100
     :cond_0
     iget-object v1, p0, Lcom/android/server/job/controllers/ConnectivityController;->mTrackedJobs:Ljava/util/List;
 
     monitor-enter v1
 
-    .line 101
     :try_start_0
     iget-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController;->mTrackedJobs:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 102
     monitor-exit v1
 
-    .line 104
     :cond_1
     return-void
 
-    .line 102
     :catchall_0
     move-exception v0
 
@@ -623,8 +529,6 @@
 .method public declared-synchronized onNetworkActive()V
     .locals 4
 
-    .prologue
-    .line 133
     monitor-enter p0
 
     :try_start_0
@@ -634,7 +538,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 134
     :try_start_1
     iget-object v2, p0, Lcom/android/server/job/controllers/ConnectivityController;->mTrackedJobs:Ljava/util/List;
 
@@ -642,7 +545,6 @@
 
     move-result-object v0
 
-    .local v0, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -657,24 +559,18 @@
 
     check-cast v1, Lcom/android/server/job/controllers/JobStatus;
 
-    .line 135
-    .local v1, "js":Lcom/android/server/job/controllers/JobStatus;
     invoke-virtual {v1}, Lcom/android/server/job/controllers/JobStatus;->isReady()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 139
     iget-object v2, p0, Lcom/android/server/job/controllers/ConnectivityController;->mStateChangedListener:Lcom/android/server/job/StateChangedListener;
 
     invoke-interface {v2, v1}, Lcom/android/server/job/StateChangedListener;->onRunJobNow(Lcom/android/server/job/controllers/JobStatus;)V
 
     goto :goto_0
 
-    .line 142
-    .end local v0    # "i$":Ljava/util/Iterator;
-    .end local v1    # "js":Lcom/android/server/job/controllers/JobStatus;
     :catchall_0
     move-exception v2
 
@@ -687,7 +583,6 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 133
     :catchall_1
     move-exception v2
 
@@ -695,15 +590,12 @@
 
     throw v2
 
-    .line 142
-    .restart local v0    # "i$":Ljava/util/Iterator;
     :cond_1
     :try_start_3
     monitor-exit v3
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 143
     monitor-exit p0
 
     return-void

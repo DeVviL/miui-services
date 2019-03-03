@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 306
     invoke-static {}, Lcom/intel/internal/cellcoex/service/props/WifiState$State;->values()[Lcom/intel/internal/cellcoex/service/props/WifiState$State;
 
     move-result-object v0

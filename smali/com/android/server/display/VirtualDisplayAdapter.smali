@@ -40,13 +40,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/DisplayManagerService$SyncRoot;Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/display/DisplayAdapter$Listener;)V
     .locals 6
-    .param p1, "syncRoot"    # Lcom/android/server/display/DisplayManagerService$SyncRoot;
-    .param p2, "context"    # Landroid/content/Context;
-    .param p3, "handler"    # Landroid/os/Handler;
-    .param p4, "listener"    # Lcom/android/server/display/DisplayAdapter$Listener;
 
-    .prologue
-    .line 59
     const-string v5, "VirtualDisplayAdapter"
 
     move-object v0, p0
@@ -61,27 +55,20 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/server/display/DisplayAdapter;-><init>(Lcom/android/server/display/DisplayManagerService$SyncRoot;Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/display/DisplayAdapter$Listener;Ljava/lang/String;)V
 
-    .line 52
     new-instance v0, Landroid/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter;->mVirtualDisplayDevices:Landroid/util/ArrayMap;
 
-    .line 60
     iput-object p3, p0, Lcom/android/server/display/VirtualDisplayAdapter;->mHandler:Landroid/os/Handler;
 
-    .line 61
     return-void
 .end method
 
 .method static synthetic access$100(Lcom/android/server/display/VirtualDisplayAdapter;Landroid/os/IBinder;)V
     .locals 0
-    .param p0, "x0"    # Lcom/android/server/display/VirtualDisplayAdapter;
-    .param p1, "x1"    # Landroid/os/IBinder;
 
-    .prologue
-    .line 45
     invoke-direct {p0, p1}, Lcom/android/server/display/VirtualDisplayAdapter;->handleBinderDiedLocked(Landroid/os/IBinder;)V
 
     return-void
@@ -89,11 +76,7 @@
 
 .method static synthetic access$200(Lcom/android/server/display/VirtualDisplayAdapter;Landroid/os/IBinder;)V
     .locals 0
-    .param p0, "x0"    # Lcom/android/server/display/VirtualDisplayAdapter;
-    .param p1, "x1"    # Landroid/os/IBinder;
 
-    .prologue
-    .line 45
     invoke-direct {p0, p1}, Lcom/android/server/display/VirtualDisplayAdapter;->handleMediaProjectionStoppedLocked(Landroid/os/IBinder;)V
 
     return-void
@@ -101,10 +84,7 @@
 
 .method private getNextUniqueIndex(Ljava/lang/String;)I
     .locals 4
-    .param p1, "uniqueIdPrefix"    # Ljava/lang/String;
 
-    .prologue
-    .line 126
     iget-object v3, p0, Lcom/android/server/display/VirtualDisplayAdapter;->mVirtualDisplayDevices:Landroid/util/ArrayMap;
 
     invoke-virtual {v3}, Landroid/util/ArrayMap;->isEmpty()Z
@@ -113,19 +93,14 @@
 
     if-eqz v3, :cond_1
 
-    .line 127
     const/4 v2, 0x0
 
-    .line 142
     :cond_0
     return v2
 
-    .line 130
     :cond_1
     const/4 v2, 0x0
 
-    .line 131
-    .local v2, "nextUniqueIndex":I
     iget-object v3, p0, Lcom/android/server/display/VirtualDisplayAdapter;->mVirtualDisplayDevices:Landroid/util/ArrayMap;
 
     invoke-virtual {v3}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
@@ -136,8 +111,6 @@
 
     move-result-object v1
 
-    .line 132
-    .local v1, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;>;"
     :cond_2
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -146,15 +119,12 @@
 
     if-eqz v3, :cond_0
 
-    .line 133
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
 
-    .line 134
-    .local v0, "device":Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
     invoke-virtual {v0}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->getUniqueId()Ljava/lang/String;
 
     move-result-object v3
@@ -171,7 +141,6 @@
 
     if-lt v3, v2, :cond_2
 
-    .line 138
     invoke-static {v0}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->access$000(Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;)I
 
     move-result v3
@@ -183,10 +152,7 @@
 
 .method private handleBinderDiedLocked(Landroid/os/IBinder;)V
     .locals 4
-    .param p1, "appToken"    # Landroid/os/IBinder;
 
-    .prologue
-    .line 146
     iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter;->mVirtualDisplayDevices:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -195,11 +161,8 @@
 
     check-cast v0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
 
-    .line 147
-    .local v0, "device":Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
     if-eqz v0, :cond_0
 
-    .line 148
     const-string v1, "VirtualDisplayAdapter"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -224,25 +187,19 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 150
     invoke-virtual {v0}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->destroyLocked()V
 
-    .line 151
     const/4 v1, 0x3
 
     invoke-virtual {p0, v0, v1}, Lcom/android/server/display/VirtualDisplayAdapter;->sendDisplayDeviceEventLocked(Lcom/android/server/display/DisplayDevice;I)V
 
-    .line 153
     :cond_0
     return-void
 .end method
 
 .method private handleMediaProjectionStoppedLocked(Landroid/os/IBinder;)V
     .locals 4
-    .param p1, "appToken"    # Landroid/os/IBinder;
 
-    .prologue
-    .line 156
     iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter;->mVirtualDisplayDevices:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -251,11 +208,8 @@
 
     check-cast v0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
 
-    .line 157
-    .local v0, "device":Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
     if-eqz v0, :cond_0
 
-    .line 158
     const-string v1, "VirtualDisplayAdapter"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -280,10 +234,8 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 160
     invoke-virtual {v0}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->stopLocked()V
 
-    .line 162
     :cond_0
     return-void
 .end method
@@ -292,34 +244,18 @@
 # virtual methods
 .method public createVirtualDisplayLocked(Landroid/hardware/display/IVirtualDisplayCallback;Landroid/media/projection/IMediaProjection;ILjava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;I)Lcom/android/server/display/DisplayDevice;
     .locals 20
-    .param p1, "callback"    # Landroid/hardware/display/IVirtualDisplayCallback;
-    .param p2, "projection"    # Landroid/media/projection/IMediaProjection;
-    .param p3, "ownerUid"    # I
-    .param p4, "ownerPackageName"    # Ljava/lang/String;
-    .param p5, "name"    # Ljava/lang/String;
-    .param p6, "width"    # I
-    .param p7, "height"    # I
-    .param p8, "densityDpi"    # I
-    .param p9, "surface"    # Landroid/view/Surface;
-    .param p10, "flags"    # I
 
-    .prologue
-    .line 66
     and-int/lit8 v3, p10, 0x4
 
     if-eqz v3, :cond_1
 
     const/16 v19, 0x1
 
-    .line 67
-    .local v19, "secure":Z
     :goto_0
     invoke-interface/range {p1 .. p1}, Landroid/hardware/display/IVirtualDisplayCallback;->asBinder()Landroid/os/IBinder;
 
     move-result-object v5
 
-    .line 68
-    .local v5, "appToken":Landroid/os/IBinder;
     move-object/from16 v0, p5
 
     move/from16 v1, v19
@@ -328,8 +264,6 @@
 
     move-result-object v4
 
-    .line 69
-    .local v4, "displayToken":Landroid/os/IBinder;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -380,8 +314,6 @@
 
     move-result-object v17
 
-    .line 71
-    .local v17, "baseUniqueId":Ljava/lang/String;
     move-object/from16 v0, p0
 
     move-object/from16 v1, v17
@@ -390,8 +322,6 @@
 
     move-result v16
 
-    .line 72
-    .local v16, "uniqueIndex":I
     new-instance v2, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
 
     new-instance v14, Lcom/android/server/display/VirtualDisplayAdapter$Callback;
@@ -444,18 +374,14 @@
 
     invoke-direct/range {v2 .. v16}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;-><init>(Lcom/android/server/display/VirtualDisplayAdapter;Landroid/os/IBinder;Landroid/os/IBinder;ILjava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;ILcom/android/server/display/VirtualDisplayAdapter$Callback;Ljava/lang/String;I)V
 
-    .line 76
-    .local v2, "device":Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/display/VirtualDisplayAdapter;->mVirtualDisplayDevices:Landroid/util/ArrayMap;
 
     invoke-virtual {v3, v5, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 79
     if-eqz p2, :cond_0
 
-    .line 80
     :try_start_0
     new-instance v3, Lcom/android/server/display/VirtualDisplayAdapter$MediaProjectionCallback;
 
@@ -467,7 +393,6 @@
 
     invoke-interface {v0, v3}, Landroid/media/projection/IMediaProjection;->registerCallback(Landroid/media/projection/IMediaProjectionCallback;)V
 
-    .line 82
     :cond_0
     const/4 v3, 0x0
 
@@ -475,44 +400,25 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 91
-    .end local v2    # "device":Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
     :goto_1
     return-object v2
 
-    .line 66
-    .end local v4    # "displayToken":Landroid/os/IBinder;
-    .end local v5    # "appToken":Landroid/os/IBinder;
-    .end local v16    # "uniqueIndex":I
-    .end local v17    # "baseUniqueId":Ljava/lang/String;
-    .end local v19    # "secure":Z
     :cond_1
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 83
-    .restart local v2    # "device":Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
-    .restart local v4    # "displayToken":Landroid/os/IBinder;
-    .restart local v5    # "appToken":Landroid/os/IBinder;
-    .restart local v16    # "uniqueIndex":I
-    .restart local v17    # "baseUniqueId":Ljava/lang/String;
-    .restart local v19    # "secure":Z
     :catch_0
     move-exception v18
 
-    .line 84
-    .local v18, "ex":Landroid/os/RemoteException;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/display/VirtualDisplayAdapter;->mVirtualDisplayDevices:Landroid/util/ArrayMap;
 
     invoke-virtual {v3, v5}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 85
     invoke-virtual {v2}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->destroyLocked()V
 
-    .line 86
     const/4 v2, 0x0
 
     goto :goto_1
@@ -520,10 +426,7 @@
 
 .method public releaseVirtualDisplayLocked(Landroid/os/IBinder;)Lcom/android/server/display/DisplayDevice;
     .locals 2
-    .param p1, "appToken"    # Landroid/os/IBinder;
 
-    .prologue
-    .line 111
     iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter;->mVirtualDisplayDevices:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -532,32 +435,21 @@
 
     check-cast v0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
 
-    .line 112
-    .local v0, "device":Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
     if-eqz v0, :cond_0
 
-    .line 113
     invoke-virtual {v0}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->destroyLocked()V
 
-    .line 114
     const/4 v1, 0x0
 
     invoke-interface {p1, v0, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 119
     :cond_0
     return-object v0
 .end method
 
 .method public resizeVirtualDisplayLocked(Landroid/os/IBinder;III)V
     .locals 2
-    .param p1, "appToken"    # Landroid/os/IBinder;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "densityDpi"    # I
 
-    .prologue
-    .line 96
     iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter;->mVirtualDisplayDevices:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -566,25 +458,17 @@
 
     check-cast v0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
 
-    .line 97
-    .local v0, "device":Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
     if-eqz v0, :cond_0
 
-    .line 98
     invoke-virtual {v0, p2, p3, p4}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->resizeLocked(III)V
 
-    .line 100
     :cond_0
     return-void
 .end method
 
 .method public setVirtualDisplaySurfaceLocked(Landroid/os/IBinder;Landroid/view/Surface;)V
     .locals 2
-    .param p1, "appToken"    # Landroid/os/IBinder;
-    .param p2, "surface"    # Landroid/view/Surface;
 
-    .prologue
-    .line 104
     iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter;->mVirtualDisplayDevices:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -593,14 +477,10 @@
 
     check-cast v0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
 
-    .line 105
-    .local v0, "device":Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;
     if-eqz v0, :cond_0
 
-    .line 106
     invoke-virtual {v0, p2}, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->setSurfaceLocked(Landroid/view/Surface;)V
 
-    .line 108
     :cond_0
     return-void
 .end method

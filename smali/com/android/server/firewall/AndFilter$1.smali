@@ -17,10 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/String;
 
-    .prologue
-    .line 39
     invoke-direct {p0, p1}, Lcom/android/server/firewall/FilterFactory;-><init>(Ljava/lang/String;)V
 
     return-void
@@ -30,7 +27,6 @@
 # virtual methods
 .method public newFilter(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/Filter;
     .locals 1
-    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -38,8 +34,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 43
     new-instance v0, Lcom/android/server/firewall/AndFilter;
 
     invoke-direct {v0}, Lcom/android/server/firewall/AndFilter;-><init>()V

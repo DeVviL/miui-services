@@ -37,8 +37,6 @@
 .method constructor <init>(Lcom/android/server/location/GpsNavigationMessageProvider;Landroid/location/GpsNavigationMessageEvent;)V
     .locals 0
 
-    .prologue
-    .line 42
     iput-object p1, p0, Lcom/android/server/location/GpsNavigationMessageProvider$1;->this$0:Lcom/android/server/location/GpsNavigationMessageProvider;
 
     iput-object p2, p0, Lcom/android/server/location/GpsNavigationMessageProvider$1;->val$event:Landroid/location/GpsNavigationMessageEvent;
@@ -52,37 +50,29 @@
 # virtual methods
 .method public execute(Landroid/location/IGpsNavigationMessageListener;)V
     .locals 1
-    .param p1, "listener"    # Landroid/location/IGpsNavigationMessageListener;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 46
     iget-object v0, p0, Lcom/android/server/location/GpsNavigationMessageProvider$1;->val$event:Landroid/location/GpsNavigationMessageEvent;
 
     invoke-interface {p1, v0}, Landroid/location/IGpsNavigationMessageListener;->onGpsNavigationMessageReceived(Landroid/location/GpsNavigationMessageEvent;)V
 
-    .line 47
     return-void
 .end method
 
 .method public bridge synthetic execute(Landroid/os/IInterface;)V
     .locals 0
-    .param p1, "x0"    # Landroid/os/IInterface;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 42
     check-cast p1, Landroid/location/IGpsNavigationMessageListener;
 
-    .end local p1    # "x0":Landroid/os/IInterface;
     invoke-virtual {p0, p1}, Lcom/android/server/location/GpsNavigationMessageProvider$1;->execute(Landroid/location/IGpsNavigationMessageListener;)V
 
     return-void

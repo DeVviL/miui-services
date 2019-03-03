@@ -21,16 +21,11 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/usage/UsageStatsService;Landroid/os/Looper;)V
     .locals 0
-    .param p2, "looper"    # Landroid/os/Looper;
 
-    .prologue
-    .line 352
     iput-object p1, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    .line 353
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 354
     return-void
 .end method
 
@@ -38,22 +33,16 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 358
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 372
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 375
     :goto_0
     return-void
 
-    .line 360
     :pswitch_0
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
@@ -67,7 +56,6 @@
 
     goto :goto_0
 
-    .line 364
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
@@ -75,7 +63,6 @@
 
     goto :goto_0
 
-    .line 368
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
@@ -85,7 +72,6 @@
 
     goto :goto_0
 
-    .line 358
     nop
 
     :pswitch_data_0

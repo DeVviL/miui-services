@@ -24,13 +24,10 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/BtCoexMgr;)V
     .locals 1
 
-    .prologue
-    .line 378
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$InactiveState;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
 
-    .line 379
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -49,15 +46,12 @@
 .method public enter()V
     .locals 3
 
-    .prologue
-    .line 383
     invoke-static {}, Lcom/intel/internal/cellcoex/service/BtCoexMgr;->access$700()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 384
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -92,7 +86,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 387
     :cond_0
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$InactiveState;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
@@ -114,7 +107,6 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 388
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$InactiveState;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$InactiveState;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
@@ -125,7 +117,6 @@
 
     invoke-static {v0, v1}, Lcom/intel/internal/cellcoex/service/BtCoexMgr;->access$1900(Lcom/intel/internal/cellcoex/service/BtCoexMgr;Lcom/android/internal/util/IState;)V
 
-    .line 391
     :cond_1
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$InactiveState;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
@@ -139,12 +130,10 @@
 
     if-nez v0, :cond_2
 
-    .line 393
     iget-object v0, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$InactiveState;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
     invoke-static {v0}, Lcom/intel/internal/cellcoex/service/BtCoexMgr;->access$2100(Lcom/intel/internal/cellcoex/service/BtCoexMgr;)V
 
-    .line 396
     :cond_2
     return-void
 .end method
@@ -152,15 +141,12 @@
 .method public exit()V
     .locals 3
 
-    .prologue
-    .line 428
     invoke-static {}, Lcom/intel/internal/cellcoex/service/BtCoexMgr;->access$700()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 429
     const-string v0, "CWS_CELLCOEX_MGR"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -195,24 +181,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 430
     :cond_0
     return-void
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 4
-    .param p1, "message"    # Landroid/os/Message;
 
-    .prologue
-    .line 400
     invoke-static {}, Lcom/intel/internal/cellcoex/service/BtCoexMgr;->access$700()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 401
     const-string v1, "CWS_CELLCOEX_MGR"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -247,17 +228,13 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 402
     :cond_0
     const/4 v0, 0x1
 
-    .line 403
-    .local v0, "retVal":Z
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 417
     :pswitch_0
     const-string v1, "CWS_CELLCOEX_MGR"
 
@@ -293,21 +270,17 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 418
     const/4 v0, 0x0
 
-    .line 420
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$InactiveState;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
     invoke-static {v1}, Lcom/intel/internal/cellcoex/service/BtCoexMgr;->access$2400(Lcom/intel/internal/cellcoex/service/BtCoexMgr;)V
 
-    .line 423
     :cond_1
     :goto_0
     :pswitch_1
     return v0
 
-    .line 409
     :pswitch_2
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$InactiveState;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
@@ -319,7 +292,6 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 410
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$InactiveState;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$InactiveState;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
@@ -332,7 +304,6 @@
 
     goto :goto_0
 
-    .line 413
     :pswitch_3
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$InactiveState;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
@@ -344,7 +315,6 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 414
     iget-object v1, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$InactiveState;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$InactiveState;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
@@ -357,7 +327,6 @@
 
     goto :goto_0
 
-    .line 403
     nop
 
     :pswitch_data_0

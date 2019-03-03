@@ -23,19 +23,12 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Rect;Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "rect"    # Landroid/graphics/Rect;
-    .param p2, "listener"    # Ljava/lang/Runnable;
 
-    .prologue
-    .line 116
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 117
     iput-object p1, p0, Lcom/android/server/MiuiInputFilter$ClickableRect;->mRect:Landroid/graphics/Rect;
 
-    .line 118
     iput-object p2, p0, Lcom/android/server/MiuiInputFilter$ClickableRect;->mClickListener:Ljava/lang/Runnable;
 
-    .line 119
     return-void
 .end method

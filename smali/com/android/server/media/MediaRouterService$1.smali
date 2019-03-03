@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/media/MediaRouterService;)V
     .locals 0
 
-    .prologue
-    .line 99
     iput-object p1, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,11 +33,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 102
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -52,12 +46,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 103
     iget-object v0, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
     invoke-virtual {v0}, Lcom/android/server/media/MediaRouterService;->switchUser()V
 
-    .line 105
     :cond_0
     return-void
 .end method

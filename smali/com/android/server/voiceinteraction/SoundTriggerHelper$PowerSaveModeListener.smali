@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/voiceinteraction/SoundTriggerHelper;)V
     .locals 0
 
-    .prologue
-    .line 554
     iput-object p1, p0, Lcom/android/server/voiceinteraction/SoundTriggerHelper$PowerSaveModeListener;->this$0:Lcom/android/server/voiceinteraction/SoundTriggerHelper;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,11 +33,7 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 557
     const-string v1, "android.os.action.POWER_SAVE_MODE_CHANGED"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -52,11 +46,9 @@
 
     if-nez v1, :cond_0
 
-    .line 565
     :goto_0
     return-void
 
-    .line 560
     :cond_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/SoundTriggerHelper$PowerSaveModeListener;->this$0:Lcom/android/server/voiceinteraction/SoundTriggerHelper;
 
@@ -68,8 +60,6 @@
 
     move-result v0
 
-    .line 562
-    .local v0, "active":Z
     iget-object v1, p0, Lcom/android/server/voiceinteraction/SoundTriggerHelper$PowerSaveModeListener;->this$0:Lcom/android/server/voiceinteraction/SoundTriggerHelper;
 
     invoke-static {v1}, Lcom/android/server/voiceinteraction/SoundTriggerHelper;->access$000(Lcom/android/server/voiceinteraction/SoundTriggerHelper;)Ljava/lang/Object;
@@ -78,13 +68,11 @@
 
     monitor-enter v2
 
-    .line 563
     :try_start_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/SoundTriggerHelper$PowerSaveModeListener;->this$0:Lcom/android/server/voiceinteraction/SoundTriggerHelper;
 
     invoke-static {v1, v0}, Lcom/android/server/voiceinteraction/SoundTriggerHelper;->access$300(Lcom/android/server/voiceinteraction/SoundTriggerHelper;Z)V
 
-    .line 564
     monitor-exit v2
 
     goto :goto_0

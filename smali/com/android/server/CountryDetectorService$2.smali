@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/android/server/CountryDetectorService;Landroid/location/CountryListener;)V
     .locals 0
 
-    .prologue
-    .line 195
     iput-object p1, p0, Lcom/android/server/CountryDetectorService$2;->this$0:Lcom/android/server/CountryDetectorService;
 
     iput-object p2, p0, Lcom/android/server/CountryDetectorService$2;->val$listener:Landroid/location/CountryListener;
@@ -43,8 +41,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 198
     iget-object v0, p0, Lcom/android/server/CountryDetectorService$2;->this$0:Lcom/android/server/CountryDetectorService;
 
     invoke-static {v0}, Lcom/android/server/CountryDetectorService;->access$200(Lcom/android/server/CountryDetectorService;)Lcom/android/server/location/ComprehensiveCountryDetector;
@@ -55,6 +51,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/location/ComprehensiveCountryDetector;->setCountryListener(Landroid/location/CountryListener;)V
 
-    .line 199
     return-void
 .end method

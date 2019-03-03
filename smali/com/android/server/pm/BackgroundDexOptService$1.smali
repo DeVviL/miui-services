@@ -27,10 +27,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/BackgroundDexOptService;Ljava/lang/String;Ljava/util/ArrayList;Lcom/android/server/pm/PackageManagerService;Landroid/app/job/JobParameters;)V
     .locals 0
-    .param p2, "x0"    # Ljava/lang/String;
 
-    .prologue
-    .line 90
     iput-object p1, p0, Lcom/android/server/pm/BackgroundDexOptService$1;->this$0:Lcom/android/server/pm/BackgroundDexOptService;
 
     iput-object p3, p0, Lcom/android/server/pm/BackgroundDexOptService$1;->val$pkgs:Ljava/util/ArrayList;
@@ -49,15 +46,12 @@
 .method public run()V
     .locals 5
 
-    .prologue
-    .line 93
     iget-object v2, p0, Lcom/android/server/pm/BackgroundDexOptService$1;->val$pkgs:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .local v0, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -72,8 +66,6 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 94
-    .local v1, "pkg":Ljava/lang/String;
     iget-object v2, p0, Lcom/android/server/pm/BackgroundDexOptService$1;->this$0:Lcom/android/server/pm/BackgroundDexOptService;
 
     iget-object v2, v2, Lcom/android/server/pm/BackgroundDexOptService;->mIdleTime:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -84,18 +76,13 @@
 
     if-nez v2, :cond_1
 
-    .line 96
     iget-object v2, p0, Lcom/android/server/pm/BackgroundDexOptService$1;->this$0:Lcom/android/server/pm/BackgroundDexOptService;
 
     invoke-static {v2}, Lcom/android/server/pm/BackgroundDexOptService;->schedule(Landroid/content/Context;)V
 
-    .line 111
-    .end local v1    # "pkg":Ljava/lang/String;
     :goto_1
     return-void
 
-    .line 99
-    .restart local v1    # "pkg":Ljava/lang/String;
     :cond_1
     sget-object v2, Lcom/android/server/pm/BackgroundDexOptService;->sFailedPackageNames:Landroid/util/ArraySet;
 
@@ -105,7 +92,6 @@
 
     if-nez v2, :cond_0
 
-    .line 103
     iget-object v2, p0, Lcom/android/server/pm/BackgroundDexOptService$1;->val$pm:Lcom/android/server/pm/PackageManagerService;
 
     const/4 v3, 0x0
@@ -118,15 +104,12 @@
 
     if-nez v2, :cond_0
 
-    .line 106
     sget-object v2, Lcom/android/server/pm/BackgroundDexOptService;->sFailedPackageNames:Landroid/util/ArraySet;
 
     invoke-virtual {v2, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 110
-    .end local v1    # "pkg":Ljava/lang/String;
     :cond_2
     iget-object v2, p0, Lcom/android/server/pm/BackgroundDexOptService$1;->this$0:Lcom/android/server/pm/BackgroundDexOptService;
 

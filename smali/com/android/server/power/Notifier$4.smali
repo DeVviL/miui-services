@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/android/server/power/Notifier;)V
     .locals 0
 
-    .prologue
-    .line 480
     iput-object p1, p0, Lcom/android/server/power/Notifier$4;->this$0:Lcom/android/server/power/Notifier;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,15 +33,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     const/4 v1, 0x5
 
     const/4 v6, 0x1
 
-    .line 483
     iget-object v0, p0, Lcom/android/server/power/Notifier$4;->this$0:Lcom/android/server/power/Notifier;
 
     invoke-static {v0}, Lcom/android/server/power/Notifier;->access$200(Lcom/android/server/power/Notifier;)Lcom/android/server/power/Notifier$NotifierHandler;
@@ -56,7 +50,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 484
     iget-object v0, p0, Lcom/android/server/power/Notifier$4;->this$0:Lcom/android/server/power/Notifier;
 
     invoke-static {v0}, Lcom/android/server/power/Notifier;->access$200(Lcom/android/server/power/Notifier;)Lcom/android/server/power/Notifier$NotifierHandler;
@@ -65,7 +58,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/power/Notifier$NotifierHandler;->removeMessages(I)V
 
-    .line 486
     :cond_0
     const/16 v0, 0xaa6
 
@@ -109,11 +101,9 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 488
     iget-object v0, p0, Lcom/android/server/power/Notifier$4;->this$0:Lcom/android/server/power/Notifier;
 
     invoke-static {v0}, Lcom/android/server/power/Notifier;->access$400(Lcom/android/server/power/Notifier;)V
 
-    .line 489
     return-void
 .end method

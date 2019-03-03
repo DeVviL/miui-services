@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/intel/internal/cellcoex/service/BtCoexMgr;)V
     .locals 0
 
-    .prologue
-    .line 196
     iput-object p1, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$1;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,21 +36,15 @@
 # virtual methods
 .method public propertyChange(Ljava/beans/PropertyChangeEvent;)V
     .locals 5
-    .param p1, "event"    # Ljava/beans/PropertyChangeEvent;
 
-    .prologue
-    .line 199
     invoke-virtual {p1}, Ljava/beans/PropertyChangeEvent;->getNewValue()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 200
-    .local v1, "eventVal":Ljava/lang/Object;
     instance-of v2, v1, Lcom/intel/internal/cellcoex/service/props/MwsState;
 
     if-nez v2, :cond_0
 
-    .line 201
     const-string v2, "CWS_CELLCOEX_MGR"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -105,18 +97,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 209
     :goto_0
     return-void
 
     :cond_0
     move-object v0, v1
 
-    .line 206
     check-cast v0, Lcom/intel/internal/cellcoex/service/props/MwsState;
 
-    .line 207
-    .local v0, "aNewMwsState":Lcom/intel/internal/cellcoex/service/props/MwsState;
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$1;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
     iget-object v3, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$1;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
@@ -127,7 +115,6 @@
 
     invoke-static {v2, v3}, Lcom/intel/internal/cellcoex/service/BtCoexMgr;->access$102(Lcom/intel/internal/cellcoex/service/BtCoexMgr;I)I
 
-    .line 208
     iget-object v2, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$1;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
 
     iget-object v3, p0, Lcom/intel/internal/cellcoex/service/BtCoexMgr$1;->this$0:Lcom/intel/internal/cellcoex/service/BtCoexMgr;
