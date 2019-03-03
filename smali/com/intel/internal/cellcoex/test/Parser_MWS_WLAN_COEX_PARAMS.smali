@@ -1,0 +1,146 @@
+.class public Lcom/intel/internal/cellcoex/test/Parser_MWS_WLAN_COEX_PARAMS;
+.super Lcom/intel/internal/cellcoex/test/Parser_Generic;
+.source "Parser_MWS_WLAN_COEX_PARAMS.java"
+
+# interfaces
+.implements Lcom/intel/internal/cellcoex/test/ITestIntentParser;
+
+
+# static fields
+.field private static final KEY_SAFE_RX_MAX:Ljava/lang/String; = "saferxmax"
+
+.field private static final KEY_SAFE_RX_MIN:Ljava/lang/String; = "saferxmin"
+
+.field private static final KEY_SAFE_TX_MAX:Ljava/lang/String; = "safetxmax"
+
+.field private static final KEY_SAFE_TX_MIN:Ljava/lang/String; = "safetxmin"
+
+.field private static final KEY_TX_POW_NUM:Ljava/lang/String; = "txpownum"
+
+.field private static final KEY_TX_POW_TABLE:Ljava/lang/String; = "txpowtable"
+
+.field private static final PROP_NAME:Ljava/lang/String; = "mws.wlan.coexparams"
+
+
+# direct methods
+.method public constructor <init>(Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;)V
+    .locals 1
+    .param p1, "aICoexPropMgr"    # Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
+
+    .prologue
+    .line 41
+    const-string v0, "mws.wlan.coexparams"
+
+    invoke-direct {p0, p1, v0}, Lcom/intel/internal/cellcoex/test/Parser_Generic;-><init>(Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;Ljava/lang/String;)V
+
+    .line 42
+    return-void
+.end method
+
+
+# virtual methods
+.method public parseIntent(Landroid/content/Intent;)Z
+    .locals 10
+    .param p1, "anIntent"    # Landroid/content/Intent;
+
+    .prologue
+    const/4 v8, -0x1
+
+    .line 53
+    const-string v0, "name"
+
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    .line 55
+    .local v7, "propName":Ljava/lang/String;
+    if-eqz v7, :cond_0
+
+    const-string v0, "mws.wlan.coexparams"
+
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 56
+    :cond_0
+    const/4 v0, 0x0
+
+    .line 71
+    :goto_0
+    return v0
+
+    .line 59
+    :cond_1
+    const-string v0, "saferxmin"
+
+    invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v1
+
+    .line 60
+    .local v1, "aSafeRxMin":I
+    const-string v0, "saferxmax"
+
+    invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v2
+
+    .line 61
+    .local v2, "aSafeRxMax":I
+    const-string v0, "safetxmin"
+
+    invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v3
+
+    .line 62
+    .local v3, "aSafeTxMin":I
+    const-string v0, "safetxmax"
+
+    invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v4
+
+    .line 63
+    .local v4, "aSafeTxMax":I
+    const-string v0, "txpownum"
+
+    invoke-virtual {p1, v0, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v5
+
+    .line 65
+    .local v5, "aTxPowNum":I
+    const/4 v6, 0x0
+
+    .line 67
+    .local v6, "aTxPowTable":[I
+    if-ltz v5, :cond_2
+
+    .line 68
+    const-string v0, "txpowtable"
+
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->getIntArrayExtra(Ljava/lang/String;)[I
+
+    move-result-object v6
+
+    .line 71
+    :cond_2
+    sget-object v8, Lcom/intel/internal/cellcoex/test/Parser_MWS_WLAN_COEX_PARAMS;->sICoexPropMgr:Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;
+
+    const-string v9, "mws.wlan.coexparams"
+
+    new-instance v0, Lcom/intel/internal/cellcoex/service/props/MwsWlanCoexParams;
+
+    invoke-direct/range {v0 .. v6}, Lcom/intel/internal/cellcoex/service/props/MwsWlanCoexParams;-><init>(IIIII[I)V
+
+    invoke-interface {v8, v9, v0}, Lcom/intel/internal/cellcoex/service/props/ICoexPropMgr;->setProp(Ljava/lang/String;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
